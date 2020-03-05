@@ -1,0 +1,74 @@
+#pragma once
+#include "IGameObject.h"
+#include <vector>
+
+//ポストエフェクト関連
+#include "RenderTarget.h"
+#include "ShadowMap.h"
+#include "graphics/Sprite.h"
+#include "graphics/SkinModel.h"
+class GameObjectManager
+{
+public:
+	/// <summary>
+	/// 更新
+	/// </summary>
+	void Update();
+	template<class T>
+	 T* NewGO()
+	{
+		//インスタンスを生成する。
+		T* newObj = new T;
+		//生成したインスタンスを可変長配列
+		m_goList.push_back(newObj);
+		return newObj;
+	}
+	 /// <summary>
+	 /// /ゲームオブジェクトをリストから削除する。
+	 /// </summary>
+	 /// <param name="go"></param>
+	void DeleteGameObject(IGameObject* go)
+	{
+      //引数で指定されたオブジェクトを検索
+		for (auto it = m_goList.begin();
+			it != m_goList.end();
+			it++
+			) {
+			  if (*it == go) {
+				//見つかったのでリストから削除
+				//delete* it;
+				//m_goList.erase(it);
+				//インスタンス自体も削除
+				//delete go;
+				//削除できたので終わり
+				//削除リクエストを送る。
+				go->RequestDelete();
+				return;
+		      }
+	     }
+	}
+	
+
+	void Draw();
+
+private:
+	std::vector<IGameObject*> m_goList;
+	//GameObjectManager();
+	//~GameObjectManager();
+	/// <summary>
+	/// レンダリングターゲットの切り替え
+	/// </summary>
+	/// <param name="d3dDeviceContext">D3Dデバイスコンテキスト</param>
+	/// <param name="renderTarget">レンダリングターゲット</param>
+	/// <param name="viewport">ビューポート</param>
+	void ChangeRenderTarget(ID3D11DeviceContext* d3dDeviceContext, RenderTarget* renderTarget, D3D11_VIEWPORT* viewport);
+	void ChangeRenderTarget(ID3D11DeviceContext* d3dDeviceContext, ID3D11RenderTargetView* renderTarget, ID3D11DepthStencilView* depthStensil, D3D11_VIEWPORT* viewport);
+	
+	
+	D3D11_VIEWPORT m_frameBufferViewports;          //フレームバッファのビューポート。
+	ID3D11RenderTargetView* m_frameBufferRenderTargetView = nullptr;   //フレームバァファのレンダリングターゲットビュー。
+	ID3D11DepthStencilView* m_frameBufferDepthStencilView = nullptr;   //フレームバァファのデプスステンシルビュー。
+	
+};
+
+extern GameObjectManager g_goMgr;

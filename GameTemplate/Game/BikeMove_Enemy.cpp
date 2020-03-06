@@ -29,4 +29,45 @@ void BikeMove_Enemy::Execute(CVector3& position, CQuaternion& rotation, CVector3
 	//移動速度を計算
 	position += movespeed;
 	
+
+	//回転処理
+	//ポイントとの距離
+	CVector3 pointLen = m_point->s_position - position;
+	//バイクの前方向
+	CVector3 bikemae = { 0, 0, 1 };
+	//バイクの進行方向
+	CVector3 sinkouhoukou = pointLen;
+	CQuaternion qRot = CQuaternion::Identity();  //Y軸回転用
+	//内積のθを求める
+	float angle = m_bikecontroller->NaisekiTheata(bikemae, sinkouhoukou);
+	//Z軸回転の軸を求める
+	CVector3 jiku;
+	jiku = m_bikecontroller->KatamukiJiku(bikemae, sinkouhoukou);
+
+	//バイクを進行方向に向けるクォータニオンと
+	//傾けるクォータニオンを混ぜ混ぜする。
+	if (jiku.Length() > 0.001f)
+	{
+		//バイクを進行方向に向けるための回転クォータニオンを計算する。
+		qRot.SetRotation(jiku, angle);
+		//バイクを傾けるための条件
+		CVector3 TiltConditions = position - m_point->s_position;
+		if (m_point->s_number == 04 || m_point->s_number == 07
+			|| m_point->s_number == 8 || m_point->s_number == 13
+			|| m_point->s_number == 16 || m_point->s_number == 18
+			|| m_point->s_number == 22) {
+			//バイクを傾けるための回転クォータニオンを計算する。
+			rotation.SetRotation(CVector3::AxisZ(), -0.5f);
+		}
+		else if (m_point->s_number == 03 || m_point->s_number == 10
+			|| m_point->s_number == 12 || m_point->s_number == 20
+			|| m_point->s_number == 24)
+		{
+			rotation.SetRotation(CVector3::AxisZ(), -5.5f);
+		}
+		else {
+			rotation.SetRotation(CVector3::AxisZ(), 0.0f);
+		}
+	}
+	rotation.Multiply(qRot, rotation);
 }

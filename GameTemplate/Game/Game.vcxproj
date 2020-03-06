@@ -100,12 +100,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AlphaBike.cpp" />
+    <ClCompile Include="BetaBike.cpp" />
     <ClCompile Include="BikeController.cpp" />
     <ClCompile Include="BikeMove.cpp" />
     <ClCompile Include="BikeMove_Enemy.cpp" />
     <ClCompile Include="BikeMove_Player.cpp" />
     <ClCompile Include="BoxCollider.cpp" />
     <ClCompile Include="character\CharacterController.cpp" />
+    <ClCompile Include="DeltaBike.cpp" />
     <ClCompile Include="EnemyMaster.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameCamera.cpp" />
@@ -164,12 +166,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AlphaBike.h" />
+    <ClInclude Include="BetaBike.h" />
     <ClInclude Include="BikeController.h" />
     <ClInclude Include="BikeMove.h" />
     <ClInclude Include="BikeMove_Enemy.h" />
     <ClInclude Include="BikeMove_Player.h" />
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="character\CharacterController.h" />
+    <ClInclude Include="DeltaBike.h" />
     <ClInclude Include="EnemyMaster.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameCamera.h" />
@@ -228,6 +232,7 @@
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\Bike2.FBX" />
     <MeshContentTask Include="Assets\modelData\Bike3.fbx" />
+    <MeshContentTask Include="Assets\modelData\Bike4.fbx" />
     <MeshContentTask Include="Assets\modelData\Course.fbx" />
     <MeshContentTask Include="Assets\modelData\Course01.fbx" />
     <MeshContentTask Include="Assets\modelData\CourseDemo.FBX" />

@@ -159,6 +159,8 @@
     <ClCompile Include="BikeMove.cpp" />
     <ClCompile Include="BikeMove_Player.cpp" />
     <ClCompile Include="BikeMove_Enemy.cpp" />
+    <ClCompile Include="BetaBike.cpp" />
+    <ClCompile Include="DeltaBike.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\Vector.h">
@@ -280,6 +282,8 @@
     <ClInclude Include="BikeMove.h" />
     <ClInclude Include="BikeMove_Player.h" />
     <ClInclude Include="BikeMove_Enemy.h" />
+    <ClInclude Include="BetaBike.h" />
+    <ClInclude Include="DeltaBike.h" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">
@@ -313,6 +317,9 @@
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\Bike3.fbx">
+      <Filter>Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Bike4.fbx">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
   </ItemGroup>

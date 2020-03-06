@@ -97,8 +97,9 @@ void Player::Turn()
 void Player::Update()
 {
 	//バイクの移動処理を実行する。
+	
 	m_bikeMove->Execute(m_position, m_rotation, m_moveSpeed, m_accel, m_accelNum, m_friction);
-	Turn();
+	//Turn();
 	
 	//ワールド行列の更新。
 	m_model->UpdateWorldMatrix(m_position, m_rotation, CVector3{1.0f,1.0f, 1.0f});

@@ -31,8 +31,8 @@ public:
 	}
 
 private:
-	void Move();
-	void Turn();
+	
+	
 	void Render();
 	void Draw();
 

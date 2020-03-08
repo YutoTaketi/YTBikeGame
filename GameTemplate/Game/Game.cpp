@@ -6,6 +6,7 @@
 #include "ItemWaku.h"
 #include "AlphaBike.h"
 #include "BetaBike.h"
+#include "GammaBike.h"
 #include "DeltaBike.h"
 
 
@@ -36,6 +37,7 @@ Game::Game()
 	player = g_goMgr.NewGO<Player>();
 	alphabike = g_goMgr.NewGO<AlphaBike>();
 	betabike = g_goMgr.NewGO<BetaBike>();
+	gammabike = g_goMgr.NewGO<GammaBike>();
 	deltabike = g_goMgr.NewGO<DeltaBike>();
 	gamecamera = g_goMgr.NewGO<GameCamera>();
 	//bikemove_enemy = new BikeMove_Enemy();
@@ -50,6 +52,8 @@ Game::Game()
 	alphabike->GetPassObject(m_pointList);
 	betabike->SetGame(this);
 	betabike->GetPassObject(m_pointList);
+	gammabike->SetGame(this);
+	gammabike->GetPassObject(m_pointList);
 	deltabike->SetGame(this);
 	deltabike->GetPassObject(m_pointList);
 	
@@ -127,6 +131,7 @@ void Game::Update()
 	
 	alphabike->Update();
 	betabike->Update();
+	gammabike->Update();
 	deltabike->Update();
     //ステージの描画
 	//stagedemo->Update();

@@ -150,7 +150,6 @@
     <ClCompile Include="SpriteRender.cpp" />
     <ClCompile Include="AlphaBike.cpp" />
     <ClCompile Include="BikeController.cpp" />
-    <ClCompile Include="EnemyMaster.cpp" />
     <ClCompile Include="PhysicsGhostObject.cpp">
       <Filter>physics</Filter>
     </ClCompile>
@@ -273,7 +272,6 @@
     <ClInclude Include="SpriteRender.h" />
     <ClInclude Include="AlphaBike.h" />
     <ClInclude Include="BikeController.h" />
-    <ClInclude Include="EnemyMaster.h" />
     <ClInclude Include="PhysicsGhostObject.h">
       <Filter>physics</Filter>
     </ClInclude>

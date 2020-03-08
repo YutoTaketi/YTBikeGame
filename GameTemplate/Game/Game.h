@@ -12,7 +12,7 @@
 //バイク
 #include "AlphaBike.h"
 #include "BetaBike.h"
-
+#include "GammaBike.h"
 #include "DeltaBike.h"
 //ポストエフェクト関連
 #include "RenderTarget.h"
@@ -128,7 +128,8 @@ private:
 	GameCamera* gamecamera = nullptr;
 	AlphaBike* alphabike = nullptr;  //バイク１
 	BetaBike*  betabike = nullptr;   //バイク2
-	DeltaBike* deltabike = nullptr;  //バイク3
+	GammaBike* gammabike = nullptr;  //バイク3
+	DeltaBike* deltabike = nullptr;  //バイク4
 	ItemWaku* itemwaku = nullptr;  //アイテム表示の枠
 
 	//BikeMove_Enemy m_bikemove_enemy;

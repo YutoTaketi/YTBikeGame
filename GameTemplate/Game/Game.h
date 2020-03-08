@@ -8,7 +8,11 @@
 #include "GameCamera.h"
 #include "ItemWaku.h"
 #include "BikeMove_Enemy.h"
+
+//バイク
 #include "AlphaBike.h"
+#include "BetaBike.h"
+
 //ポストエフェクト関連
 #include "RenderTarget.h"
 #include "ShadowMap.h"
@@ -19,6 +23,7 @@ class Player;
 class ItemWaku;
 class CoursePath;
 class BikeMove_Enemy;
+class BetaBike;
 //class StageDemo;
 //class AlphaBike;
 /// <summary>
@@ -124,7 +129,8 @@ private:
 	Level level;	//レベル
 	Player* player = nullptr;	//プレイヤー
 	GameCamera* gamecamera = nullptr;
-	AlphaBike* alphabike = nullptr;
+	AlphaBike* alphabike = nullptr;  //バイク１
+	BetaBike*  betabike = nullptr;   //バイク2
 	ItemWaku* itemwaku = nullptr;  //アイテム表示の枠
 
 	//BikeMove_Enemy m_bikemove_enemy;

@@ -5,6 +5,7 @@
 
 #include "ItemWaku.h"
 #include "AlphaBike.h"
+#include "BetaBike.h"
 #include "UnionBike.h"
 
 //#include "StageDemo.h"
@@ -33,6 +34,7 @@ Game::Game()
 	
 	player = g_goMgr.NewGO<Player>();
 	alphabike = g_goMgr.NewGO<AlphaBike>();
+	betabike = g_goMgr.NewGO<BetaBike>();
 	gamecamera = g_goMgr.NewGO<GameCamera>();
 	//bikemove_enemy = new BikeMove_Enemy();
 	gamecamera->SetPlayer(player); 
@@ -44,6 +46,9 @@ Game::Game()
 	
 	alphabike->SetGame(this);
 	alphabike->GetPassObject(m_pointList);
+	betabike->SetGame(this);
+	betabike->GetPassObject(m_pointList);
+	
 	itemwaku = g_goMgr.NewGO<ItemWaku>();
 	
 	//地面をシャドウレシーバーにする。
@@ -116,6 +121,7 @@ void Game::Update()
 	itemwaku->Update();
 	
 	alphabike->Update();
+	betabike->Update();
     //ステージの描画
 	//stagedemo->Update();
 	

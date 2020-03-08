@@ -233,6 +233,7 @@
     <MeshContentTask Include="Assets\modelData\Bike2.FBX" />
     <MeshContentTask Include="Assets\modelData\Bike3.fbx" />
     <MeshContentTask Include="Assets\modelData\Bike4.fbx" />
+    <MeshContentTask Include="Assets\modelData\Bike5.fbx" />
     <MeshContentTask Include="Assets\modelData\Course.fbx" />
     <MeshContentTask Include="Assets\modelData\Course01.fbx" />
     <MeshContentTask Include="Assets\modelData\CourseDemo.FBX" />

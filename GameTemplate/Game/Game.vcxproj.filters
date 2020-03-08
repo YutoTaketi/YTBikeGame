@@ -128,7 +128,6 @@
     <ClCompile Include="GameObjectManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameCamera.cpp" />
-    <ClCompile Include="UnionBike.cpp" />
     <ClCompile Include="ItemWaku.cpp" />
     <ClCompile Include="graphics\Sprite.cpp">
       <Filter>graphics</Filter>
@@ -161,6 +160,7 @@
     <ClCompile Include="BikeMove_Enemy.cpp" />
     <ClCompile Include="BetaBike.cpp" />
     <ClCompile Include="DeltaBike.cpp" />
+    <ClCompile Include="GammaBike.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\Vector.h">
@@ -251,7 +251,6 @@
     <ClInclude Include="GameObjectManager.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameCamera.h" />
-    <ClInclude Include="UnionBike.h" />
     <ClInclude Include="ItemWaku.h" />
     <ClInclude Include="graphics\Sprite.h">
       <Filter>graphics</Filter>
@@ -284,6 +283,7 @@
     <ClInclude Include="BikeMove_Enemy.h" />
     <ClInclude Include="BetaBike.h" />
     <ClInclude Include="DeltaBike.h" />
+    <ClInclude Include="GammaBike.h" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">

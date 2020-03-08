@@ -12,7 +12,7 @@
 //バイク
 #include "AlphaBike.h"
 #include "BetaBike.h"
-
+#include "DeltaBike.h"
 //ポストエフェクト関連
 #include "RenderTarget.h"
 #include "ShadowMap.h"
@@ -81,11 +81,7 @@ public:
 		}
 	}
 
-	//ポイントの座標を渡す
-	/*const CVector3 GetPosition()
-	{
-		return m_pointList;
-	}*/
+	
 	
 
 	
@@ -131,6 +127,7 @@ private:
 	GameCamera* gamecamera = nullptr;
 	AlphaBike* alphabike = nullptr;  //バイク１
 	BetaBike*  betabike = nullptr;   //バイク2
+	DeltaBike* deltabike = nullptr;  //バイク3
 	ItemWaku* itemwaku = nullptr;  //アイテム表示の枠
 
 	//BikeMove_Enemy m_bikemove_enemy;

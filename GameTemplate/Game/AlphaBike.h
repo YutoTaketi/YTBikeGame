@@ -18,9 +18,6 @@ public:
 	void GetPassObject(const std::map<int, Point*>& List)
 	{
 		m_bikeMove->GetPassObject(List);
-		/*m_pointList = List;
-		m_point = m_pointList[1];
-		return m_pointList;*/
 	}
 
 	//Game‚Ìƒ|ƒCƒ“ƒ^‚ð“n‚·
@@ -31,8 +28,6 @@ public:
 	}
 
 private:
-	
-	
 	void Render();
 	void Draw();
 

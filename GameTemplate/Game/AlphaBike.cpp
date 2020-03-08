@@ -15,12 +15,9 @@ AlphaBike::AlphaBike()
 
 }
 
-
 AlphaBike::~AlphaBike()
 {
 }
-
-
 
 void AlphaBike::Update()
 {

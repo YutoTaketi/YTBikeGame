@@ -52,16 +52,21 @@ void BikeMove_Enemy::Execute(CVector3& position, CQuaternion& rotation, CVector3
 		qRot.SetRotation(jiku, angle);
 		//バイクを傾けるための条件
 		CVector3 TiltConditions = position - m_point->s_position;
-		if (m_point->s_number == 04 || m_point->s_number == 07
-			|| m_point->s_number == 8 || m_point->s_number == 13
-			|| m_point->s_number == 16 || m_point->s_number == 18
+		//右傾き
+		if (m_point->s_number == 04    || m_point->s_number == 07
+			|| m_point->s_number == 8  || m_point->s_number == 13
+			|| m_point->s_number == 14 || m_point->s_number == 15
+			|| m_point->s_number == 16 || m_point->s_number == 17
+			|| m_point->s_number == 18 || m_point->s_number == 21
 			|| m_point->s_number == 22) {
 			//バイクを傾けるための回転クォータニオンを計算する。
 			rotation.SetRotation(CVector3::AxisZ(), -0.5f);
 		}
+		//左傾き
 		else if (m_point->s_number == 03 || m_point->s_number == 10
-			|| m_point->s_number == 12 || m_point->s_number == 20
-			|| m_point->s_number == 24)
+			  || m_point->s_number == 11 || m_point->s_number == 12
+			  || m_point->s_number == 20 || m_point->s_number == 23
+			  || m_point->s_number == 24)
 		{
 			rotation.SetRotation(CVector3::AxisZ(), -5.5f);
 		}

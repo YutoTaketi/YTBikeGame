@@ -18,8 +18,7 @@ public:
 	}
 	
 private:
-	void Move();           //ˆÚ“®ˆ—
-	void Turn();           //‰ñ“]ˆ—
+	
 	void Render();
 	void Draw();
 private:

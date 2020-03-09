@@ -160,7 +160,9 @@
     <ClCompile Include="BetaBike.cpp" />
     <ClCompile Include="DeltaBike.cpp" />
     <ClCompile Include="GammaBike.cpp" />
-    <ClCompile Include="Font.cpp" />
+    <ClCompile Include="Font.cpp">
+      <Filter>graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\Vector.h">
@@ -283,7 +285,9 @@
     <ClInclude Include="BetaBike.h" />
     <ClInclude Include="DeltaBike.h" />
     <ClInclude Include="GammaBike.h" />
-    <ClInclude Include="Font.h" />
+    <ClInclude Include="Font.h">
+      <Filter>graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">

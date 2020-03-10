@@ -163,6 +163,7 @@
     <ClCompile Include="Font.cpp">
       <Filter>graphics</Filter>
     </ClCompile>
+    <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\Vector.h">
@@ -288,6 +289,7 @@
     <ClInclude Include="Font.h">
       <Filter>graphics</Filter>
     </ClInclude>
+    <ClInclude Include="Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">

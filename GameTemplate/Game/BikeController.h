@@ -66,17 +66,12 @@ public:
 		return kaitenjiku;
 	}
 
-	//プレイヤーを動かす関数
-	const CVector3 PlayerMove(CVector3 moveSpeed, CVector3 accel, CVector3 pos, float friction);
+	
 	
 
 	
 
-	//敵バイクを動かす関数
-	void EnemyMove()
-	{
-
-	}
+	
 
 	
 };

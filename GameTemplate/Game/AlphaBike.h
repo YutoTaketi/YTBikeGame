@@ -11,16 +11,24 @@ class AlphaBike : public IGameObject
 public:
 	AlphaBike();
 	~AlphaBike();
-
+	/// <summary>
+	/// 更新関数
+	/// </summary>
 	void Update();
-	//更新関数
-
+	
+	/// <summary>
+	/// Gameクラスで作ったパスの情報を取得する。
+	/// </summary>
+	/// <param name="List"></param>
 	void GetPassObject(const std::map<int, Point*>& List)
 	{
 		m_bikeMove->GetPassObject(List);
 	}
 
-	//Gameのポインタを渡す
+	/// <summary>
+	/// Gameのポインタを渡す。
+	/// </summary>
+	/// <param name="game"></param>
 	void SetGame(Game* game)
 	{
 		m_game = game;
@@ -31,10 +39,10 @@ private:
 	void Render();
 	void Draw();
 
-	CVector3 m_position = { 50.0f, 0.0f, 0.0f };  //座標
-	CVector3 m_moveSpeed = CVector3::Zero(); //移動速度
+	CVector3 m_position = { 50.0f, 0.0f, 0.0f };      //座標
+	CVector3 m_moveSpeed = CVector3::Zero();          //移動速度
 	CQuaternion m_rotation = CQuaternion::Identity(); //回転
-	SkinModel* m_model;          //スキンモデル。
+	SkinModel* m_model;                               //スキンモデル。
 	Game* m_game;
 
 	CVector3 m_accel = CVector3::Zero();    //加速度

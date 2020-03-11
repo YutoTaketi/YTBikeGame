@@ -10,7 +10,15 @@ class BikeMove
 public:
 	BikeMove();
 	~BikeMove();
-
+	/// <summary>
+	/// バイク制御に使う。
+	/// </summary>
+	/// <param name="position"></param>
+	/// <param name="rotation"></param>
+	/// <param name="movespeed"></param>
+	/// <param name="accel"></param>
+	/// <param name="accelnum"></param>
+	/// <param name="friction"></param>
 	virtual void Execute(CVector3& position, CQuaternion& rotation, CVector3& movespeed, CVector3& accel, float& accelnum, float& friction) = 0;
 
 	Game* m_game;

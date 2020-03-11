@@ -14,7 +14,12 @@ Font::~Font()
 {
 }
 
+void Font::Begin()
+{}
+void Font::End()
+{
 
+}
 void Font::Draw(
 	wchar_t const* text,
 	const CVector2& position,
@@ -27,10 +32,10 @@ void Font::Draw(
 	DirectX::XMFLOAT2 tkFloat2Zero(0, 0);
 	//座標系をスプライトと合わせる。
 	CVector2 pos = position;
-	float frameBufferHalfWidth = GraphicsEngine().Get2DSpaceScreenWidth() * 0.5f;
-	float frameBufferHalfHeight = GraphicsEngine().Get2DSpaceScreenHeight() * 0.5f;
-	pos.x += frameBufferHalfWidth;
-	pos.y = -pos.y + frameBufferHalfHeight;
+	//float frameBufferHalfWidth = GraphicsEngine().Get2DSpaceScreenWidth() * 0.5f;
+	//float frameBufferHalfHeight = GraphicsEngine().Get2DSpaceScreenHeight() * 0.5f;
+	//pos.x += frameBufferHalfWidth;
+	//pos.y = -pos.y + frameBufferHalfHeight;
 
 
 	if (m_isDrawShadow) {

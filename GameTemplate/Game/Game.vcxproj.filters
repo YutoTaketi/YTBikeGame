@@ -46,6 +46,9 @@
     <Filter Include="util">
       <UniqueIdentifier>{4874d45d-5b1d-49f0-807b-000af06eb08b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="timer">
+      <UniqueIdentifier>{ba50d6f3-6bae-4c60-8406-0e22b64f016c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="math\Vector.cpp">
@@ -164,6 +167,9 @@
       <Filter>graphics</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="GameTime.cpp">
+      <Filter>timer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\Vector.h">
@@ -290,6 +296,9 @@
       <Filter>graphics</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="GameTime.h">
+      <Filter>timer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">

@@ -156,6 +156,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="StopWatch.cpp" />
     <ClCompile Include="system\system.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Title.cpp" />
@@ -223,6 +224,7 @@
     <ClInclude Include="SpriteRender.h" />
     <ClInclude Include="StageDemo.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StopWatch.h" />
     <ClInclude Include="system\system.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Title.h" />

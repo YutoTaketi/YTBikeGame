@@ -170,6 +170,9 @@
     <ClCompile Include="GameTime.cpp">
       <Filter>timer</Filter>
     </ClCompile>
+    <ClCompile Include="StopWatch.cpp">
+      <Filter>timer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\Vector.h">
@@ -297,6 +300,9 @@
     </ClInclude>
     <ClInclude Include="Timer.h" />
     <ClInclude Include="GameTime.h">
+      <Filter>timer</Filter>
+    </ClInclude>
+    <ClInclude Include="StopWatch.h">
       <Filter>timer</Filter>
     </ClInclude>
   </ItemGroup>

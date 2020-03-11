@@ -4,8 +4,11 @@
 
 Font::Font()
 {
-	m_spriteBatch;
-	m_spriteFont;
+	m_spriteBatch = g_graphicsEngine->GetSpriteBatch();
+	m_spriteFont = g_graphicsEngine->GetSpriteFont();
+
+	m_screenSize.x = FRAME_BUFFER_W;
+	m_screenSize.y = FRAME_BUFFER_H;
 
 }
 
@@ -14,68 +17,29 @@ Font::~Font()
 {
 }
 
-void Font::Begin()
-{}
-void Font::End()
-{
 
-}
-void Font::Draw(
+void Font::DrawScreenPos(
 	wchar_t const* text,
-	const CVector2& position,
+	const CVector2& pos,
 	const CVector4& color,
+	const CVector2& scale,
+	const CVector2& pivot,
 	float rotation,
-	float scale,
-	CVector2 pivot)
+	DirectX::SpriteEffects effects)
 {
-	pivot.y = 1.0f - pivot.y;
-	DirectX::XMFLOAT2 tkFloat2Zero(0, 0);
-	//座標系をスプライトと合わせる。
-	CVector2 pos = position;
-	//float frameBufferHalfWidth = GraphicsEngine().Get2DSpaceScreenWidth() * 0.5f;
-	//float frameBufferHalfHeight = GraphicsEngine().Get2DSpaceScreenHeight() * 0.5f;
-	//pos.x += frameBufferHalfWidth;
-	//pos.y = -pos.y + frameBufferHalfHeight;
-
-
-	if (m_isDrawShadow) {
-		//影を書く。
-		CVector2 offsetTbl[] = {
-			{ m_shadowOffset , 0.0f},
-			{ -m_shadowOffset , 0.0f },
-			{ 0.0f , m_shadowOffset },
-			{ 0.0f , -m_shadowOffset },
-
-			{ m_shadowOffset ,  m_shadowOffset },
-			{ m_shadowOffset ,  -m_shadowOffset },
-			{ -m_shadowOffset , m_shadowOffset },
-			{ -m_shadowOffset , -m_shadowOffset },
-		};
-		for (auto offset : offsetTbl) {
-
-			CVector2 sPos = pos;
-			sPos.x += offset.x;
-			sPos.y += offset.y;
-			m_spriteFont->DrawString(
-				m_spriteBatch,
-				text,
-				sPos.vec,
-				m_shadowColor,
-				rotation,
-				DirectX::XMFLOAT2(pivot.x, pivot.y),
-				scale
-			);
-		}
-
-	}
+	//Begin関数をドローの前で呼ぶこと
+	m_spriteBatch->Begin();
 	m_spriteFont->DrawString(
-		m_spriteBatch,
-		text,
+	   m_spriteBatch,
+	   text,
 		pos.vec,
 		color,
 		rotation,
 		DirectX::XMFLOAT2(pivot.x, pivot.y),
-		scale
+		DirectX::XMFLOAT2(scale.x, scale.y),
+		effects
 	);
+	//描画
+	m_spriteBatch->End();
 }
 

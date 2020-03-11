@@ -10,54 +10,18 @@ public:
 	Font();
 	~Font();
 
-	/*!
-	* @brief	フォントを設定。
-	* @details	デフォルトフォントから変更したい場合は
-	*  DirectX::SpriteFontを使用して、フォントをロードして差し替えを行ってください。
-	*/
-	void SetFont(DirectX::SpriteFont* font)
-	{
-		m_spriteFont = font;
-	}
-
-	/*!
-     * @brief	描画開始。
-	 */
-	void Begin();
-	/*!
-     * @brief	描画終了。
-	 */
-	void End();
-
-	/*!
-	 * @brief	描画。
-	 *@param[in]	text		表示したいテキスト。
-	 *@param[in]	trans		平行移動。
-	 *@param[in]	color		カラー。
-	 *@param[in]	rot			回転。
-	 *@param[in]	scale		拡大。
-	 *@param[in]	pivot		基点。
-	 *						0.5, 0.5で画像の中心が基点。
-	 *						0.0, 0.0で画像の左下。
-	 *						1.0, 1.0で画像の右上。
-	 *						UnityのuGUIに準拠。
-	 */
-	void Draw(
-		wchar_t const* text,
-		const CVector2& position,
+	void DrawScreenPos(
+	    wchar_t const* text,
+		const CVector2& pos,
 		const CVector4& color = CVector4::White(),
+		const CVector2& scale = CVector2::One(),
+		const CVector2& pivot = CVector2::Zero(),
 		float rotation = 0.0f,
-		float scale = 1.0f,
-		CVector2 pivot = { 0.5f, 0.5f }
+		DirectX::SpriteEffects effects = DirectX::SpriteEffects_None
 	);
-	
 private:
-	DirectX::SpriteBatch*  m_spriteBatch = nullptr;
-	DirectX::SpriteFont*   m_spriteFont = nullptr;
-	bool m_isDrawShadow = false;
-	float m_shadowOffset = 0.0f;
-	CVector4 m_shadowColor = CVector4::White();
-	CMatrix m_scaleMat;
-
+	DirectX::SpriteBatch* m_spriteBatch = nullptr;  //!<スプライトバッチ
+	DirectX::SpriteFont*  m_spriteFont = nullptr;   //フォント
+	CVector2 m_screenSize;
 };
 

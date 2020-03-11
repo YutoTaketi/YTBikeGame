@@ -34,9 +34,13 @@ void GameCamera::Update()
 	qRot.Multiply(m_toCameraPos);
 	m_position = m_target + m_toCameraPos;
 	
+    //ƒS[ƒ‹‚µ‚½‚çƒJƒƒ‰‚ğ“®‚©‚·B
+
 
 	g_camera3D.SetTarget(m_target);
 	g_camera3D.SetPosition(m_position);
+
+	
 	
 	g_camera3D.Update();
 }

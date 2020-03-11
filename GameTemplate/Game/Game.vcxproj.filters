@@ -167,12 +167,10 @@
       <Filter>graphics</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp" />
-    <ClCompile Include="GameTime.cpp">
-      <Filter>timer</Filter>
-    </ClCompile>
     <ClCompile Include="StopWatch.cpp">
       <Filter>timer</Filter>
     </ClCompile>
+    <ClCompile Include="Goal.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\Vector.h">
@@ -299,12 +297,10 @@
       <Filter>graphics</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h" />
-    <ClInclude Include="GameTime.h">
-      <Filter>timer</Filter>
-    </ClInclude>
     <ClInclude Include="StopWatch.h">
       <Filter>timer</Filter>
     </ClInclude>
+    <ClInclude Include="Goal.h" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">
@@ -344,6 +340,9 @@
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\Bike5.fbx">
+      <Filter>Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\GhostPoint.fbx">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
   </ItemGroup>

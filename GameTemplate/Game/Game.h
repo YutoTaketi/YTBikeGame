@@ -2,12 +2,11 @@
 #include "RenderTarget.h"
 #include "level/Level.h"
 #include "Player.h"
-	
 #include "GameObjectManager.h"
-
 #include "GameCamera.h"
 #include "ItemWaku.h"
 #include "BikeMove_Enemy.h"
+#include "Goal.h"
 
 //バイク
 #include "AlphaBike.h"
@@ -131,7 +130,7 @@ private:
 	GammaBike* gammabike = nullptr;  //バイク3
 	DeltaBike* deltabike = nullptr;  //バイク4
 	ItemWaku* itemwaku = nullptr;  //アイテム表示の枠
-
+	Goal* goal = nullptr;
 	//BikeMove_Enemy m_bikemove_enemy;
 	
 	//CoursePath* coursepath;

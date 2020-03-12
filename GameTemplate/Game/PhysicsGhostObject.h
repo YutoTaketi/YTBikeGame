@@ -3,6 +3,7 @@
  */
 #pragma once
 #include "BoxCollider.h"
+#include "physics/ICollider.h"
  /*!
 	  * @brief	ゴーストオブジェクト
 	  *@detail

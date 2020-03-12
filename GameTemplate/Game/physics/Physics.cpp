@@ -69,3 +69,5 @@ void PhysicsWorld::RemoveCollisionObject(btCollisionObject& colliObj)
 {
 	dynamicWorld->removeCollisionObject(&colliObj);
 }
+
+

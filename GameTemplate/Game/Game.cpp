@@ -42,7 +42,7 @@ Game::Game()
 	gamecamera = g_goMgr.NewGO<GameCamera>();
 	//bikemove_enemy = new BikeMove_Enemy();
 	gamecamera->SetPlayer(player); 
-
+	goal = g_goMgr.NewGO<Goal>();
 	/*m_bikemove_enemy.GetPassObject(m_pointList);
 	m_bikemove_enemy.SetGame(this);*/
 	

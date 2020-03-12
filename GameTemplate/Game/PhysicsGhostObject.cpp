@@ -8,11 +8,12 @@ PhysicsGhostObject::PhysicsGhostObject()
 }
 PhysicsGhostObject::~PhysicsGhostObject()
 {
+	Release();
 }
 
 void PhysicsGhostObject::CreateBox(CVector3 pos, CQuaternion rot, CVector3 size)
 {
-	//Release();
+	Release();
 	auto boxCollider = std::make_unique<BoxCollider>();
 	m_collider = std::move(boxCollider);
 	CreateCommon(pos, rot);

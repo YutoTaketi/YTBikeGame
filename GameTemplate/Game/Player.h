@@ -5,17 +5,23 @@
 //#include "graphics/SkinModel.h"
 //#include "graphics/Camera.h"
 class BikeMove;
+class Game;
+
 class Player : public IGameObject
 {
 public:
 	Player();
 	~Player();
 	
+	/// <summary>
+	/// XVŠÖ”
+	/// </summary>
 	void Update();
     CVector3 GetPosition() const
 	{
 		return m_position;
 	}
+	
 	
 private:
 	
@@ -33,8 +39,13 @@ private:
 
 	float m_accelNum = 1.8f;     //‰Á‘¬”’l
 	float m_friction = 0.97f;    //–€CŒW”
-	
+	double SyukaihanteiOn = false;
+	int syukaicount = 0;
+
 	BikeController* m_bikecontroller = nullptr;
 	BikeMove* m_bikeMove = nullptr;
+	Game* m_game = nullptr;
+
+	
 };
 

@@ -25,6 +25,6 @@ public:
 	void Execute(CVector3& position, CQuaternion& rotation, CVector3& movespeed, CVector3& accel, float& accelnum, float& friction);
 	CVector3 m_moveDirectionF = CVector3::Zero();
 	BikeController* m_bikecontroller;
-
+	
 };
 

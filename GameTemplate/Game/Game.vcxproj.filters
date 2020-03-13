@@ -171,6 +171,7 @@
       <Filter>timer</Filter>
     </ClCompile>
     <ClCompile Include="Goal.cpp" />
+    <ClCompile Include="EpsilonBike.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\Vector.h">
@@ -301,6 +302,7 @@
       <Filter>timer</Filter>
     </ClInclude>
     <ClInclude Include="Goal.h" />
+    <ClInclude Include="EpsilonBike.h" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">

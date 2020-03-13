@@ -2,14 +2,19 @@
 
 #include "BikeMove.h"
 #include "BikeController.h"
+#include "Game.h"
 /// <summary>
 /// プレイヤーのバイクを動かす。
 /// </summary>
+class Game;
 class BikeMove_Player : public BikeMove
 {
 public:
 	BikeMove_Player();
 	~BikeMove_Player();
+
+	
+
 	/// <summary>
 	/// プレイヤーが使用するバイクの更新関数
 	/// </summary>
@@ -24,5 +29,8 @@ public:
 	CVector3 playermae = { 0, 0, 1 };                 //バイクの前方向
 	CVector3 sinkouhoukou = g_camera3D.GetForward();  //進行方向
 	BikeController* m_bikecontroller;                 //バイクの内積外積計算をする。
+
+	Game* m_game;
+	
 };
 

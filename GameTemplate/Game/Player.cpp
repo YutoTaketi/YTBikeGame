@@ -3,6 +3,7 @@
 #include "GameObjectManager.h"
 #include "BikeMove.h"
 #include "BikeMove_Player.h"
+#include "Game.h"
 Player::Player()
 {
 	m_model = new SkinModel();

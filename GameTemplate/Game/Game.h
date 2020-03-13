@@ -82,9 +82,10 @@ public:
 		}
 	}
 
-	
-	
-
+	Point* GetOneNumber()
+	{
+		return m_pointList[1];
+	 }
 	
 private:
 	/// <summary>

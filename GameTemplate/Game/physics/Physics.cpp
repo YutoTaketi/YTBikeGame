@@ -1,10 +1,24 @@
 #include "stdafx.h"
 #include "physics/Physics.h"
 #include "Physics/RigidBody.h"
-
+//キャラコンがインクルードできない
 
 PhysicsWorld g_physics;
-
+/*
+namespace {
+	struct MyContactResultCallback : public btCollisionWorld::ContactResultCallback {
+		using ContantTestCallback = function<void(const btCollisionObject& contactCollisionObject)>;
+		ContantTestCallback  m_cb;
+		btCollisionObject* m_me = nullptr;
+		virtual	btScalar	addSingleResult(btManifoldPoint& cp, const btCollisionObjectWrapper* colObj0Wrap, int partId0, int index0, const btCollisionObjectWrapper* colObj1Wrap, int partId1, int index1) override
+		{
+			if (m_me == colObj0Wrap->getCollisionObject()) {
+				m_cb(*colObj1Wrap->getCollisionObject());
+			}
+			return 0.0f;
+		}
+	};
+}*/
 PhysicsWorld::~PhysicsWorld()
 {
 	Release();
@@ -69,5 +83,14 @@ void PhysicsWorld::RemoveCollisionObject(btCollisionObject& colliObj)
 {
 	dynamicWorld->removeCollisionObject(&colliObj);
 }
+/*
+void PhysicsWorld::ContactTest(RigidBody& rb, std::function<void(const btCollisionObject&contactCollisionObject)> cb)
+{
+	
+}
 
-
+void ContactTest(CharacterController& charaCon, std::function<void(const btCollisionObject& contactCollisionObject)>cb)
+{
+	//ContactTest(*charaCon.GetRigidBody(), cb);
+}
+*/

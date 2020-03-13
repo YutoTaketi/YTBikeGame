@@ -245,6 +245,7 @@
     <MeshContentTask Include="Assets\modelData\CourseDemo.FBX" />
     <MeshContentTask Include="Assets\modelData\cpt00.fbx" />
     <MeshContentTask Include="Assets\modelData\GhostPoint.fbx" />
+    <MeshContentTask Include="Assets\modelData\GoalPoint.fbx" />
     <MeshContentTask Include="Assets\modelData\PlayerBike.FBX" />
     <MeshContentTask Include="Assets\modelData\PlayerBike1.FBX" />
     <MeshContentTask Include="Assets\modelData\point.FBX" />

@@ -172,6 +172,7 @@
     </ClCompile>
     <ClCompile Include="Goal.cpp" />
     <ClCompile Include="EpsilonBike.cpp" />
+    <ClCompile Include="Result.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\Vector.h">
@@ -303,6 +304,7 @@
     </ClInclude>
     <ClInclude Include="Goal.h" />
     <ClInclude Include="EpsilonBike.h" />
+    <ClInclude Include="Result.h" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">

@@ -16,9 +16,7 @@ void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector
 {
 
 	
-	
-
-
+	   
 		//ƒJƒƒ‰‚Ì‘O•û•ûŒü‚ðŽæ“¾
 		CVector3 cameraForward = g_camera3D.GetForward();
 
@@ -26,23 +24,28 @@ void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector
 		cameraForward.y = 0.0f;
 		cameraForward.Normalize();
 
-		if (g_pad[0].IsPress(enButtonA))
-		{
-			//‰Á‘¬“x‚ðŒvŽZ
-			m_moveDirectionF = cameraForward;
+		
+			if (g_pad[0].IsPress(enButtonA))
+			{
+				//‰Á‘¬“x‚ðŒvŽZ
+				m_moveDirectionF = cameraForward;
 
-			accel = m_bikecontroller->BikeAccel(m_moveDirectionF, accelnum);
+				accel = m_bikecontroller->BikeAccel(m_moveDirectionF, accelnum);
 
-		}
-		else {
-			accel = CVector3::Zero();
-		}
-
+			}
+			else {
+				accel = CVector3::Zero();
+			}
+		
+		
 		movespeed += accel;
 		//–€ŽCŒW”‚ðæŽZ
 		movespeed *= friction;
+		//m_finishspeed = movespeed;
 		//ˆÚ“®‘¬“x‚ðŒvŽZ
-		position += movespeed;
+		
+			position += movespeed;
+	
 		if (movespeed.LengthSq() >= 300.0f * 300.0f) {
 			movespeed.Normalize();
 			movespeed *= 300.0f;

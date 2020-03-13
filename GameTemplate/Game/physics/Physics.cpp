@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "physics/Physics.h"
 #include "Physics/RigidBody.h"
+#include "character/CharacterController.h"
 //キャラコンがインクルードできない
 
 PhysicsWorld g_physics;
@@ -83,14 +84,16 @@ void PhysicsWorld::RemoveCollisionObject(btCollisionObject& colliObj)
 {
 	dynamicWorld->removeCollisionObject(&colliObj);
 }
+
+
 /*
 void PhysicsWorld::ContactTest(RigidBody& rb, std::function<void(const btCollisionObject&contactCollisionObject)> cb)
 {
-	
+	//ContactText(rb.GetBody(), cb);
 }
 
-void ContactTest(CharacterController& charaCon, std::function<void(const btCollisionObject& contactCollisionObject)>cb)
+void PhysicsWorld::ContactTest(CharacterController& charaCon, std::function<void(const btCollisionObject& contactCollisionObject)>cb)
 {
-	//ContactTest(*charaCon.GetRigidBody(), cb);
+	//ContactText(*charaCon.GetRigidBody(), cb);
 }
 */

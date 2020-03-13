@@ -7,12 +7,13 @@
 #include "ItemWaku.h"
 #include "BikeMove_Enemy.h"
 #include "Goal.h"
-
+#include "Result.h"
 //バイク
 #include "AlphaBike.h"
 #include "BetaBike.h"
 #include "GammaBike.h"
 #include "DeltaBike.h"
+#include "EpsilonBike.h"
 //ポストエフェクト関連
 #include "RenderTarget.h"
 #include "ShadowMap.h"
@@ -82,10 +83,10 @@ public:
 		}
 	}
 
-	Point* GetOneNumber()
+	Point* GetGorlPoint()
 	{
 		return m_pointList[1];
-	 }
+	}
 	
 private:
 	/// <summary>
@@ -131,14 +132,15 @@ private:
 	BetaBike*  betabike = nullptr;   //バイク2
 	GammaBike* gammabike = nullptr;  //バイク3
 	DeltaBike* deltabike = nullptr;  //バイク4
+	EpsilonBike* epsilonbike = nullptr;
 	ItemWaku* itemwaku = nullptr;  //アイテム表示の枠
 	Goal* goal = nullptr;
 	//BikeMove_Enemy m_bikemove_enemy;
 	
 	//CoursePath* coursepath;
 	
-	//StageDemo *stagedemo = nullptr; //ステージデモ
-
+	
+	int finishhantei = 0;
 	std::map<int , Point*> m_pointList;
 	
 };

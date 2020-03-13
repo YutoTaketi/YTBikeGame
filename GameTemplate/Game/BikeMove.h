@@ -40,6 +40,12 @@ public:
 		m_game = game;
 	}
 
+	int GetsyukaiCount()
+	{
+		return syukaicount;
+	}
+	double Syukaihantei = false;
+	int syukaicount = 0;
 	std::map<int, Point*> m_pointList;  //ポイント構造体の配列
 	Point* m_point;                  //ポイントの構造体のポインタ、現在の目的地
 };

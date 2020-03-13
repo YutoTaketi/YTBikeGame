@@ -8,8 +8,8 @@
 #include "BetaBike.h"
 #include "GammaBike.h"
 #include "DeltaBike.h"
-
-
+#include "EpsilonBike.h"
+#include "EpsilonBike.h"
 //#include "StageDemo.h"
 
 
@@ -34,14 +34,16 @@ Game::Game()
 		return false;
     });
 	
-	player = g_goMgr.NewGO<Player>();
+	//player = g_goMgr.NewGO<Player>();
 	alphabike = g_goMgr.NewGO<AlphaBike>();
 	betabike = g_goMgr.NewGO<BetaBike>();
 	gammabike = g_goMgr.NewGO<GammaBike>();
 	deltabike = g_goMgr.NewGO<DeltaBike>();
+	epsilonbike = g_goMgr.NewGO<EpsilonBike>();
 	gamecamera = g_goMgr.NewGO<GameCamera>();
 	//bikemove_enemy = new BikeMove_Enemy();
-	gamecamera->SetPlayer(player); 
+	
+	gamecamera->SetBike(epsilonbike);
 	goal = g_goMgr.NewGO<Goal>();
 	/*m_bikemove_enemy.GetPassObject(m_pointList);
 	m_bikemove_enemy.SetGame(this);*/
@@ -56,7 +58,8 @@ Game::Game()
 	gammabike->GetPassObject(m_pointList);
 	deltabike->SetGame(this);
 	deltabike->GetPassObject(m_pointList);
-	
+	epsilonbike->SetGame(this);
+	epsilonbike->GetPassObject(m_pointList);
 	
 	itemwaku = g_goMgr.NewGO<ItemWaku>();
 	
@@ -121,11 +124,10 @@ void Game::Update()
 	//ƒŒƒxƒ‹‚Ì•`‰æ
 	level.Draw();
 	//ƒvƒŒƒCƒ„[‚Ì•`‰æB
-	player->Update();
+	//player->Update();
 	//“G‚Ì•`‰æ
 	//enemybike->Update();
-	//ƒJƒƒ‰
-	gamecamera->Update();
+	
 	//ƒAƒCƒeƒ€˜g‚Ì•`‰æ
 	itemwaku->Update();
 	
@@ -133,6 +135,10 @@ void Game::Update()
 	betabike->Update();
 	gammabike->Update();
 	deltabike->Update();
+	epsilonbike->Update();
+
+	//ƒJƒƒ‰
+	gamecamera->Update();
     //ƒXƒe[ƒW‚Ì•`‰æ
 	//stagedemo->Update();
 	
@@ -144,7 +150,13 @@ void Game::Update()
 	/**m_shadowMap.UpdateFromLightTarget(
 		{ 1000.0f, 1000.0f, 1000.0f },
 		{ 0.0f, 0.0f, 0.0f }
+
 	);*/
+	finishhantei = epsilonbike->GetSyukaiHantei();
+	if (finishhantei >= 2)
+	{
+		g_goMgr.NewGO<Result>();
+	}
 }
 
 void Game::PreRender()

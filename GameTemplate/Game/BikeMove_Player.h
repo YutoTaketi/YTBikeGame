@@ -13,8 +13,6 @@ public:
 	BikeMove_Player();
 	~BikeMove_Player();
 
-	
-
 	/// <summary>
 	/// プレイヤーが使用するバイクの更新関数
 	/// </summary>
@@ -24,12 +22,13 @@ public:
 	/// <param name="accel"></param>
 	/// <param name="accelnum"></param>
 	/// <param name="friction"></param>
-	void Execute(CVector3& position, CQuaternion& rotation, CVector3& movespeed, CVector3& accel, float& accelnum,float& friction);
+	void Execute(CVector3& m_position, CQuaternion& rotation, CVector3& movespeed, CVector3& accel, float& accelnum,float& friction);
+	CVector3 m_position = CVector3::Zero();
 	CVector3 m_moveDirectionF = CVector3::Zero();     //移動方向
 	CVector3 playermae = { 0, 0, 1 };                 //バイクの前方向
 	CVector3 sinkouhoukou = g_camera3D.GetForward();  //進行方向
 	BikeController* m_bikecontroller;                 //バイクの内積外積計算をする。
-
+	CVector3 m_finishspeed = CVector3::Zero();
 	Game* m_game;
 	
 };

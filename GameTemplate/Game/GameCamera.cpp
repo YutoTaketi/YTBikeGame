@@ -2,6 +2,7 @@
 #include "GameCamera.h"
 #include "Player.h"
 #include "BikeMove_Player.h"
+#include "EpsilonBike.h"
 GameCamera::GameCamera()
 {
 	g_camera3D.SetPosition({ 0.0f, 100.0f, 300.0f });
@@ -24,7 +25,7 @@ void GameCamera::Update()
 	//ゴールしたらカメラを動かす。
 	
 		//注視点計算
-		m_target = m_player->GetPosition();
+		m_target = m_epsilonbike->GetPosition();
 		m_target.y += 100.0f;
 
 

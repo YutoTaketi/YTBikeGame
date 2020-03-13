@@ -4,6 +4,7 @@
 
 class Player;
 class BikeMove_Player;
+class EpsilonBike;
 class GameCamera : public IGameObject
 {
 public:
@@ -20,18 +21,17 @@ public:
 	/// 描画関数
 	/// </summary>
 	void Draw();
-	//プレイヤーのポインタをセットする
-	void SetPlayer(Player* player)
-	{
-		m_player = player;
-	}
-
 	
+	void SetBike(EpsilonBike* epsilon)
+	{
+		m_epsilonbike = epsilon;
+	}
     
 	
 private:
 	
 	Player* m_player = nullptr;
+	EpsilonBike* m_epsilonbike = nullptr;
 	BikeMove_Player* m_bikemove_Player = nullptr;
 	CVector3 m_position = CVector3::Zero();
 	CVector3 m_target = CVector3::Zero();

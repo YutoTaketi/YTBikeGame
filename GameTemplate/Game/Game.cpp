@@ -2,7 +2,7 @@
 #include "Game.h"
 #include "level/Level.h"
 #include "Player.h"
-
+#include "Goal.h"
 #include "ItemWaku.h"
 #include "AlphaBike.h"
 #include "BetaBike.h"

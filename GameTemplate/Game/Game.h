@@ -24,6 +24,7 @@ class ItemWaku;
 class CoursePath;
 class BikeMove_Enemy;
 class BetaBike;
+class Goal;
 //class StageDemo;
 //class AlphaBike;
 /// <summary>

@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObjectManager.h"
 #include "PhysicsGhostObject.h"
+
 class Goal : public IGameObject
 {
 public:

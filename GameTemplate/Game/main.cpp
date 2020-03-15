@@ -22,11 +22,11 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 	g_camera3D.SetFar(10000.0f);*/
 	
 	
-	Game *game;
-    game = g_goMgr.NewGO<Game>();
+	//Game *game;
+   // game = g_goMgr.NewGO<Game>();
 
-	//Title *title;
-	//title = g_goMgr.NewGO<Title>();
+	Title *title;
+	title = g_goMgr.NewGO<Title>();
 	//g_game = &Game::GetInstance();
 	//g_game = g_goMgr.NewGO<Game>();
      
@@ -46,8 +46,8 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 		g_physics.Update();
 		
 		//ƒQ[ƒ€‚ÌXVˆ—
-		game->Update();
-		//title->Update();
+		//game->Update();
+		title->Update();
 		//g_goMgr.Update();
 		//ƒQ[ƒ€‚Ì•`‰æˆ—‚ðŽÀs
 		//game->Render();

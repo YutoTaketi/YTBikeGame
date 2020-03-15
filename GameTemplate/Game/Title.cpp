@@ -19,7 +19,7 @@ void Title::Update()
 	Draw();
 	if (g_pad[0].IsTrigger(enButtonA)) {
 		DeleteGO(this);
-		g_goMgr.NewGO<Game>();
+		//g_goMgr.NewGO<Game>();
 	}
 	
 

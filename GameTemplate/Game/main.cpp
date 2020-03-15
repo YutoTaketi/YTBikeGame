@@ -23,7 +23,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 	
 	
 	Game *game;
-	game = g_goMgr.NewGO<Game>();
+    game = g_goMgr.NewGO<Game>();
 
 	//Title *title;
 	//title = g_goMgr.NewGO<Title>();

@@ -162,10 +162,12 @@ void Game::Update()
 
 	);*/
 
-	/*if (finishhantei >= 2)
+	if (finishhantei >= 4 )
 	{
-		g_goMgr.NewGO<Result>();
-	}*/
+		
+		//g_goMgr.NewGO<Result>();
+		DeleteGO(this);
+	}
 }
 
 void Game::PreRender()

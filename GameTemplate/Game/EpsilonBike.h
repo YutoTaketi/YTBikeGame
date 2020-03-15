@@ -42,12 +42,7 @@ public:
 		m_bikeMove->SetGame(game);
 	}
 
-	//周回判定を返す。
-	int GetSyukaiHantei()
-	{
-		 return syukaicounter;
-	}
-
+	
 private:
 	void Render();
 	void Draw();
@@ -69,7 +64,7 @@ private:
 	
 	std::map<int, Point*> m_pointList;  //ポイント構造体の配列
 	Point* m_point;                  //ポイントの構造体のポインタ、現在の目的地
-	int syukaicounter = 0;
+	
 	BikeMove* m_bikeMove = nullptr;
 };
 

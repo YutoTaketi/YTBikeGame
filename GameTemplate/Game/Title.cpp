@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Title.h"
-
+#include "Game.h"
 
 Title::Title()
 {
@@ -10,12 +10,19 @@ Title::Title()
 
 Title::~Title()
 {
+	
 }
 
 void Title::Update()
 {
 	m_sprite.UpdateWorldMatrix(m_position, CQuaternion::Identity(), m_scale);
 	Draw();
+	if (g_pad[0].IsTrigger(enButtonA)) {
+		DeleteGO(this);
+		g_goMgr.NewGO<Game>();
+	}
+	
+
 }
 
 void Title::Render()

@@ -88,7 +88,11 @@ public:
 		return m_pointList[1];
 	}
 	
-	int finishhantei = 0;
+	void SyuukaiCount()
+	{
+		finishhantei += 1;
+	}
+	
 
 private:
 	/// <summary>
@@ -141,8 +145,8 @@ private:
 	Goal* goal = nullptr;
 	//BikeMove_Enemy m_bikemove_enemy;
 	
-	//CoursePath* coursepath;
 	
+	int finishhantei = 0;
 	
 	
 	std::map<int , Point*> m_pointList;

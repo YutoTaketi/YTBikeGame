@@ -70,5 +70,8 @@ private:
 	ID3D11DepthStencilView* m_frameBufferDepthStencilView = nullptr;   //フレームバァファのデプスステンシルビュー。
 	
 };
-
+static inline void DeleteGO(IGameObject* go)
+{
+	GameObjectManager().DeleteGameObject(go);
+}
 extern GameObjectManager g_goMgr;

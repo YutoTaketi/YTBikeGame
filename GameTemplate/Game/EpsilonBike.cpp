@@ -32,7 +32,7 @@ void EpsilonBike::Update()
 	}
 	if (m_bikeMove->Syukaihantei == true && m_gorltoPlayer.Length() < 50.0)
 	{
-		m_game->finishhantei += 1;
+		m_game->SyuukaiCount();
 	}
 	
 	//バイクの移動処理を実行する。

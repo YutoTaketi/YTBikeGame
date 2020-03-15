@@ -88,6 +88,8 @@ public:
 		return m_pointList[1];
 	}
 	
+	int finishhantei = 0;
+
 private:
 	/// <summary>
 	/// プリレンダリング
@@ -110,6 +112,8 @@ private:
 	/// <param name="viewport">ビューポート</param>
 	void ChangeRenderTarget(ID3D11DeviceContext* d3dDeviceContext, RenderTarget* renderTarget, D3D11_VIEWPORT* viewport);
 	void ChangeRenderTarget(ID3D11DeviceContext* d3dDeviceContext, ID3D11RenderTargetView* renderTarget, ID3D11DepthStencilView* depthStensil, D3D11_VIEWPORT* viewport);
+
+
 	/// <summary>
 private:
 	//オフスクリーンレンダリング
@@ -140,7 +144,7 @@ private:
 	//CoursePath* coursepath;
 	
 	
-	int finishhantei = 0;
+	
 	std::map<int , Point*> m_pointList;
 	
 };

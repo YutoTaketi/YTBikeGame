@@ -17,6 +17,8 @@ EpsilonBike::EpsilonBike()
 
 EpsilonBike::~EpsilonBike()
 {
+	delete m_model;
+	delete m_bikeMove;
 }
 
 void EpsilonBike::Update()
@@ -30,8 +32,7 @@ void EpsilonBike::Update()
 	}
 	if (m_bikeMove->Syukaihantei == true && m_gorltoPlayer.Length() < 50.0)
 	{
-		m_bikeMove->syukaicount += 1;
-		syukaicounter = m_bikeMove->syukaicount;
+		m_game->finishhantei += 1;
 	}
 	
 	//バイクの移動処理を実行する。

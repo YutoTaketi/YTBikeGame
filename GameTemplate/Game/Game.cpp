@@ -95,6 +95,15 @@ Game::~Game()
 	if (m_frameBufferDepthStencilView != nullptr) {
 		m_frameBufferDepthStencilView->Release();
 	}
+
+	g_goMgr.DeleteGameObject(alphabike);
+	g_goMgr.DeleteGameObject(betabike);
+	g_goMgr.DeleteGameObject(gammabike);
+	g_goMgr.DeleteGameObject(deltabike);
+	g_goMgr.DeleteGameObject(epsilonbike);
+	g_goMgr.DeleteGameObject(itemwaku);
+	g_goMgr.DeleteGameObject(gamecamera);
+	g_goMgr.DeleteGameObject(goal);
 }
 
 void Game::ChangeRenderTarget(ID3D11DeviceContext* d3dDeviceContext, RenderTarget* renderTarget, D3D11_VIEWPORT* viewport)
@@ -152,11 +161,11 @@ void Game::Update()
 		{ 0.0f, 0.0f, 0.0f }
 
 	);*/
-	finishhantei = epsilonbike->GetSyukaiHantei();
-	if (finishhantei >= 2)
+
+	/*if (finishhantei >= 2)
 	{
 		g_goMgr.NewGO<Result>();
-	}
+	}*/
 }
 
 void Game::PreRender()

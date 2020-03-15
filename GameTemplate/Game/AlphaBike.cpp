@@ -17,6 +17,8 @@ AlphaBike::AlphaBike()
 
 AlphaBike::~AlphaBike()
 {
+	delete m_model;
+	delete m_bikeMove;
 }
 
 void AlphaBike::Update()

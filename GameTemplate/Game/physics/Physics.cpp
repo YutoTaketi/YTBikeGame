@@ -1,11 +1,11 @@
 #include "stdafx.h"
 #include "physics/Physics.h"
 #include "Physics/RigidBody.h"
-#include "character/CharacterController.h"
-//キャラコンがインクルードできない
 
+
+using namespace std;
 PhysicsWorld g_physics;
-/*
+
 namespace {
 	struct MyContactResultCallback : public btCollisionWorld::ContactResultCallback {
 		using ContantTestCallback = function<void(const btCollisionObject& contactCollisionObject)>;
@@ -19,7 +19,7 @@ namespace {
 			return 0.0f;
 		}
 	};
-}*/
+}
 PhysicsWorld::~PhysicsWorld()
 {
 	Release();
@@ -85,15 +85,22 @@ void PhysicsWorld::RemoveCollisionObject(btCollisionObject& colliObj)
 	dynamicWorld->removeCollisionObject(&colliObj);
 }
 
+void PhysicsWorld::ContactTest(
+	btCollisionObject* colObj,
+	std::function<void(const btCollisionObject& contactCollisionObject)> cb
+) {
+	MyContactResultCallback myContactResultCallback;
+	myContactResultCallback.m_cb = cb;
+	myContactResultCallback.m_me = colObj;
+	dynamicWorld->contactTest(colObj, myContactResultCallback);
+}
 
-/*
 void PhysicsWorld::ContactTest(RigidBody& rb, std::function<void(const btCollisionObject&contactCollisionObject)> cb)
 {
-	//ContactText(rb.GetBody(), cb);
+	ContactText(rb.GetBody(), cb);
 }
 
 void PhysicsWorld::ContactTest(CharacterController& charaCon, std::function<void(const btCollisionObject& contactCollisionObject)>cb)
 {
-	//ContactText(*charaCon.GetRigidBody(), cb);
+	ContactText(*charaCon.GetRigidBody(), cb);
 }
-*/

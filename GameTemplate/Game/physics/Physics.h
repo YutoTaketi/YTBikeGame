@@ -1,8 +1,8 @@
 #pragma once
-
+#include "character/CharacterController.h"
 
 class RigidBody;
-
+class CharacterController;
 class PhysicsWorld
 {
 	btDefaultCollisionConfiguration*		collisionConfig = nullptr;
@@ -62,9 +62,14 @@ public:
 		dynamicWorld->contactTest(colObj, resultCallback);
 	}
 
-	//void ContactTest(RigidBody& rb, std::function<void(const btCollisionObject&contactCollisionObject)> cb);
+	void ContactTest(
+		btCollisionObject* colObj,
+		std::function<void(const btCollisionObject& contactCollisionObject)> cb
+	);
 
-	//void ContactTest(CharacterController& charaCon, std::function<void(const btCollisionObject& contactCollisionObject)>cb);
+	void ContactTest(RigidBody& rb, std::function<void(const btCollisionObject&contactCollisionObject)> cb);
+
+	void ContactTest(CharacterController& charaCon, std::function<void(const btCollisionObject& contactCollisionObject)>cb);
 };
 
 extern PhysicsWorld g_physics;

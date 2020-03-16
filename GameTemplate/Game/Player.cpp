@@ -19,7 +19,7 @@ Player::Player()
 
 Player::~Player()
 {
-
+	g_goMgr.DeleteGameObject(this);
 }
 	
 

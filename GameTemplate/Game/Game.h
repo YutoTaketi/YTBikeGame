@@ -88,12 +88,26 @@ public:
 		return m_pointList[1];
 	}
 	
+
 	void SyuukaiCount()
 	{
 		finishhantei += 1;
 	}
 	
+	int GetFinishHantei()
+	{
+		return finishhantei;
+	}
 
+	void ChangeFinishFlag()
+	{
+		finishFlag = true;
+	}
+
+	bool GetFinishFlag()
+	{
+		return finishFlag;
+	}
 private:
 	/// <summary>
 	/// ƒvƒŠƒŒƒ“ƒ_ƒŠƒ“ƒO
@@ -147,7 +161,7 @@ private:
 	
 	
 	int finishhantei = 0;
-	
+	bool finishFlag = false;
 	
 	std::map<int , Point*> m_pointList;
 	

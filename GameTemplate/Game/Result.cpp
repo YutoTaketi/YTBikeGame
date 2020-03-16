@@ -20,7 +20,7 @@ void Result::Update()
 
 void Result::Render()
 {
-
+	g_goMgr.DeleteGameObject(this);
 }
 
 void Result::Draw()

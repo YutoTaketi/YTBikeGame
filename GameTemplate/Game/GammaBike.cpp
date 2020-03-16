@@ -18,6 +18,7 @@ GammaBike::GammaBike()
 
 GammaBike::~GammaBike()
 {
+	g_goMgr.DeleteGameObject(this);
 }
 
 void GammaBike::Update()

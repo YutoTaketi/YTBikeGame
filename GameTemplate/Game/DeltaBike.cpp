@@ -19,6 +19,7 @@ DeltaBike::DeltaBike()
 
 DeltaBike::~DeltaBike()
 {
+	g_goMgr.DeleteGameObject(this);
 }
 
 void DeltaBike::Update()

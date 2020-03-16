@@ -52,7 +52,7 @@ private:
 	CQuaternion m_rotation = CQuaternion::Identity(); //回転
 	CVector3 m_pointOnePos = CVector3::Zero();
 	SkinModel* m_model;                               //スキンモデル。
-	Game* m_game;
+	Game* m_game = nullptr;
 
 	CVector3 m_accel = CVector3::Zero();    //加速度
 	CVector3 m_forward = CVector3::AxisZ();   //エネミーの前方方向

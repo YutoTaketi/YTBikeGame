@@ -17,6 +17,7 @@ ShadowMap::ShadowMap()
 
 ShadowMap::~ShadowMap()
 {
+	
 }
 
 void ShadowMap::UpdateFromLightDirection(CVector3 lightCameraPos, CVector3 lightDir)

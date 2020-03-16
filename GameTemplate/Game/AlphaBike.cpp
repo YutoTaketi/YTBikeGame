@@ -17,7 +17,7 @@ AlphaBike::AlphaBike()
 
 AlphaBike::~AlphaBike()
 {
-	
+	g_goMgr.DeleteGameObject(this);
 }
 
 void AlphaBike::Update()

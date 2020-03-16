@@ -17,7 +17,7 @@ BetaBike::BetaBike()
 
 BetaBike::~BetaBike()
 {
-	
+	g_goMgr.DeleteGameObject(this);
 }
 
 void BetaBike::Update()

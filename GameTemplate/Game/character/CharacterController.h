@@ -7,7 +7,7 @@
 #include "Physics/CapsuleCollider.h"
 #include "Physics/RigidBody.h"
 
-
+class RigidBody;
 /*!
 * @brief	キャラクタコントローラー。
 */

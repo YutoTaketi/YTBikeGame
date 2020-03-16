@@ -58,8 +58,9 @@ Game::Game()
 	gammabike->GetPassObject(m_pointList);
 	deltabike->SetGame(this);
 	deltabike->GetPassObject(m_pointList);
-	epsilonbike->SetGame(this);
-	epsilonbike->GetPassObject(m_pointList);
+
+		epsilonbike->SetGame(this);
+		epsilonbike->GetPassObject(m_pointList);
 	
 	itemwaku = g_goMgr.NewGO<ItemWaku>();
 	

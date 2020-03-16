@@ -13,6 +13,7 @@ StageDemo::StageDemo()
 
 StageDemo::~StageDemo()
 {
+	g_goMgr.DeleteGameObject(this);
 }
 
 void StageDemo::Update()

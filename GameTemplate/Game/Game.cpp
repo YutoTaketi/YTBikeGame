@@ -44,7 +44,9 @@ Game::Game()
 	//bikemove_enemy = new BikeMove_Enemy();
 	
 	gamecamera->SetBike(epsilonbike);
+	gamecamera->SetGame(this);
 	goal = g_goMgr.NewGO<Goal>();
+	goal->SetGame(this);
 	/*m_bikemove_enemy.GetPassObject(m_pointList);
 	m_bikemove_enemy.SetGame(this);*/
 	
@@ -168,6 +170,7 @@ void Game::Update()
 		
 		g_goMgr.NewGO<Result>();
 		g_goMgr.DeleteGameObject(this);
+		
 	}
 }
 

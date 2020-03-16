@@ -5,6 +5,7 @@
 class Player;
 class BikeMove_Player;
 class EpsilonBike;
+class Game;
 class GameCamera : public IGameObject
 {
 public:
@@ -26,7 +27,11 @@ public:
 	{
 		m_epsilonbike = epsilon;
 	}
-    
+	void SetGame(Game* game)
+	{
+		m_game = game;
+		///m_bikeMove->SetGame(game);
+	}
 	
 private:
 	
@@ -38,7 +43,7 @@ private:
 	CVector3 m_toCameraPos = CVector3::Zero();
 	CQuaternion m_rotation = CQuaternion::Identity();
 	CVector3 m_finishposition = CVector3::Zero();
-	
+	Game* m_game;
 	
 };
 

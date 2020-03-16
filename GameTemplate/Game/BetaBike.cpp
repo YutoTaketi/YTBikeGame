@@ -17,8 +17,7 @@ BetaBike::BetaBike()
 
 BetaBike::~BetaBike()
 {
-	delete m_model;
-	delete m_bikeMove;
+	
 }
 
 void BetaBike::Update()

@@ -10,7 +10,7 @@ BikeMove_Enemy::BikeMove_Enemy()
 
 BikeMove_Enemy::~BikeMove_Enemy()
 {
-	delete m_bikecontroller;
+	
 }
 
 void BikeMove_Enemy::Execute(CVector3& position, CQuaternion& rotation, CVector3& movespeed, CVector3& accel, float& accelnum, float& friction)

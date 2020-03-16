@@ -165,8 +165,8 @@ void Game::Update()
 	if (finishhantei >= 4 )
 	{
 		
-		//g_goMgr.NewGO<Result>();
-		//DeleteGO(this);
+		g_goMgr.NewGO<Result>();
+		g_goMgr.DeleteGameObject(this);
 	}
 }
 

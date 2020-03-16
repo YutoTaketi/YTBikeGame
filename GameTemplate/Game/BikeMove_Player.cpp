@@ -10,7 +10,7 @@ BikeMove_Player::BikeMove_Player()
 
 BikeMove_Player::~BikeMove_Player()
 {
-	delete m_bikecontroller;
+	
 }
 
 void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector3& movespeed, CVector3& accel, float& accelnum, float& friction)

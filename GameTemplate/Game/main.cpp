@@ -7,6 +7,7 @@
 #include <iostream>
 #include "Game.h"
 #include "Title.h"
+#include "Result.h"
 //Game* g_game = nullptr;
 ///////////////////////////////////////////////////////////////////
 // ウィンドウプログラムのメイン関数。
@@ -27,6 +28,9 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 
 	Title *title;
 	title = g_goMgr.NewGO<Title>();
+
+	//Result *result;
+	//result = g_goMgr.NewGO<Result>();
 	//g_game = &Game::GetInstance();
 	//g_game = g_goMgr.NewGO<Game>();
      

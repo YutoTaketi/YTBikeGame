@@ -35,23 +35,23 @@ public:
 		*/
 	const CVector3& Execute(float deltaTime, CVector3& moveSpeed);
 	/*!
-		* @brief	座標を取得。
-		*/
+	* @brief	座標を取得。
+	*/
 	const CVector3& GetPosition() const
 	{
 		return m_position;
 	}
 	/*!
-		* @brief	座標を設定。
-		*/
+	* @brief	座標を設定。
+	*/
 	void SetPosition(const CVector3& pos)
 	{
 		m_position = pos;
 	}
 
 	/*!
-		* @brief	ジャンプ中か判定
-		*/
+	* @brief	ジャンプ中か判定
+	*/
 	bool IsJump() const
 	{
 		return m_isJump;

@@ -17,8 +17,7 @@ EpsilonBike::EpsilonBike()
 
 EpsilonBike::~EpsilonBike()
 {
-	delete m_model;
-	delete m_bikeMove;
+	
 }
 
 void EpsilonBike::Update()

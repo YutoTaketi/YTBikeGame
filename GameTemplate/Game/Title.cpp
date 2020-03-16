@@ -18,8 +18,8 @@ void Title::Update()
 	m_sprite.UpdateWorldMatrix(m_position, CQuaternion::Identity(), m_scale);
 	Draw();
 	if (g_pad[0].IsTrigger(enButtonA)) {
-		DeleteGO(this);
-		//g_goMgr.NewGO<Game>();
+		g_goMgr.DeleteGameObject(this);
+		g_goMgr.NewGO<Game>();
 	}
 	
 

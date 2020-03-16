@@ -47,12 +47,10 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 		
 		//ゲームの更新処理
 		//game->Update();
-		title->Update();
-		//g_goMgr.Update();
-		//ゲームの描画処理を実行
-		//game->Render();
-		//カメラの更新。
-		//g_camera3D.Update();
+		//title->Update();
+		g_goMgr.Update();
+		
+		
 		//描画終了。
 		g_graphicsEngine->EndRender();
 	}

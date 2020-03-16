@@ -166,7 +166,7 @@ void Game::Update()
 	{
 		
 		//g_goMgr.NewGO<Result>();
-		DeleteGO(this);
+		//DeleteGO(this);
 	}
 }
 

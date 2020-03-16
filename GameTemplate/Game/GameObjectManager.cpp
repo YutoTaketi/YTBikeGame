@@ -55,8 +55,8 @@ void GameObjectManager::Update()
 	for (auto it = m_goList.begin(); it != m_goList.end();
 		) {
 		if ((*it)->IsRequestDelete()) {
-			delete* it;
-			it = m_goList.erase(it);
+			delete* it; //インスタンスの削除
+			it = m_goList.erase(it);  //登録解除
 		}
 		else {
 			it++;

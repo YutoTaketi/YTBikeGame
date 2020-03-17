@@ -1,10 +1,12 @@
 #include "stdafx.h"
 #include "Title.h"
 #include "Game.h"
+#include "graphics/SkinModel.h"
 
 Title::Title()
 {
 	m_sprite.Init(L"Assets/sprite/Tyaika.dds", 1000.0f, 800.0f);
+	//m_model.Init(L"Assets/modelData/PlayerBike.cmo");
 }
 
 
@@ -17,6 +19,12 @@ void Title::Update()
 {
 	m_sprite.UpdateWorldMatrix(m_position, CQuaternion::Identity(), m_scale);
 	Draw();
+	/*
+	m_model.UpdateWorldMatrix(m_bikepos, m_bikerot, m_bikescale);
+	m_model.Draw(
+		g_camera3D.GetViewMatrix(),
+		g_camera3D.GetProjectionMatrix()
+	);*/
 	if (g_pad[0].IsTrigger(enButtonA)) {
 		g_goMgr.DeleteGameObject(this);
 		g_goMgr.NewGO<Game>();

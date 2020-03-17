@@ -20,10 +20,7 @@ GameCamera::~GameCamera()
 
 void GameCamera::Update()
 {
-	if (m_game->GetFinishFlag() == true)
-	{
-		g_goMgr.DeleteGameObject(this);
-	}
+	
 	//カメラ更新
 	
 	//注視点から視点へのベクトルを計算する。

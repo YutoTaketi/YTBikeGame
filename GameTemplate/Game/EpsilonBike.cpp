@@ -41,10 +41,6 @@ void EpsilonBike::Update()
 		}
 	}
 	
-	if (m_game->GetFinishFlag() == true)
-	{
-		g_goMgr.DeleteGameObject(this);
-	}
 	
 	//バイクの移動処理を実行する。
 	m_bikeMove->Execute(m_position, m_rotation, m_moveSpeed, m_accel, m_accelNum, m_friction);

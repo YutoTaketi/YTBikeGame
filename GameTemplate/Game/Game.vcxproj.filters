@@ -49,6 +49,15 @@
     <Filter Include="timer">
       <UniqueIdentifier>{ba50d6f3-6bae-4c60-8406-0e22b64f016c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\modelData\Bike2">
+      <UniqueIdentifier>{1e92ce5d-7983-405e-9292-2888a45cbdab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\modelData\Bike3">
+      <UniqueIdentifier>{c87d0102-437f-4903-9d7f-a585cc03f3f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\modelData\PlayerBike">
+      <UniqueIdentifier>{a5c66bf7-81b0-46e1-ac86-e952149eca4e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="math\Vector.cpp">
@@ -313,16 +322,7 @@
     <MeshContentTask Include="Assets\modelData\CourseDemo.FBX">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\PlayerBike.FBX">
-      <Filter>Assets\modelData</Filter>
-    </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\cpt00.fbx">
-      <Filter>Assets\modelData</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\PlayerBike1.FBX">
-      <Filter>Assets\modelData</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\Bike2.FBX">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\point.FBX">
@@ -337,9 +337,6 @@
     <MeshContentTask Include="Assets\modelData\Course01.fbx">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\Bike3.fbx">
-      <Filter>Assets\modelData</Filter>
-    </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\Bike4.fbx">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
@@ -351,6 +348,18 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\GoalPoint.fbx">
       <Filter>Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Bike2\Bike2.FBX">
+      <Filter>Assets\modelData\Bike2</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\bike3\Bike3.fbx">
+      <Filter>Assets\modelData\Bike3</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\PlayerBike\PlayerBike1.FBX">
+      <Filter>Assets\modelData\PlayerBike</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\PlayerBike\PlayerBike.FBX">
+      <Filter>Assets\modelData\PlayerBike</Filter>
     </MeshContentTask>
   </ItemGroup>
   <ItemGroup>

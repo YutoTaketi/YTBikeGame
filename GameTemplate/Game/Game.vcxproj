@@ -240,8 +240,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\Bike2.FBX" />
-    <MeshContentTask Include="Assets\modelData\Bike3.fbx" />
+    <MeshContentTask Include="Assets\modelData\Bike2\Bike2.FBX" />
+    <MeshContentTask Include="Assets\modelData\bike3\Bike3.fbx" />
     <MeshContentTask Include="Assets\modelData\Bike4.fbx" />
     <MeshContentTask Include="Assets\modelData\Bike5.fbx" />
     <MeshContentTask Include="Assets\modelData\Course.fbx" />
@@ -250,8 +250,8 @@
     <MeshContentTask Include="Assets\modelData\cpt00.fbx" />
     <MeshContentTask Include="Assets\modelData\GhostPoint.fbx" />
     <MeshContentTask Include="Assets\modelData\GoalPoint.fbx" />
-    <MeshContentTask Include="Assets\modelData\PlayerBike.FBX" />
-    <MeshContentTask Include="Assets\modelData\PlayerBike1.FBX" />
+    <MeshContentTask Include="Assets\modelData\PlayerBike\PlayerBike.FBX" />
+    <MeshContentTask Include="Assets\modelData\PlayerBike\PlayerBike1.FBX" />
     <MeshContentTask Include="Assets\modelData\point.FBX" />
     <MeshContentTask Include="Assets\modelData\RaceCourse.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">

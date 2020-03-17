@@ -3,6 +3,10 @@ class IGameObject
 {
 public:
 	/// <summary>
+	/// 仮想デストラクタ
+	/// </summary>
+	virtual ~IGameObject() {}
+	/// <summary>
 	/// 更新関数
 	/// </summary>
 	virtual void Update() = 0;

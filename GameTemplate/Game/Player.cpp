@@ -20,6 +20,8 @@ Player::Player()
 Player::~Player()
 {
 	g_goMgr.DeleteGameObject(this);
+	delete m_model;
+	delete m_bikeMove;
 }
 	
 

@@ -117,6 +117,11 @@ private:
 	/// ブレンドステート
 	/// </summary>
 	void InitTranslucentBlendState();
+	/// <summary>
+	/// ラスタライザステート
+	/// </summary>
+	void InitRasterizerState();
+
 private:
 	struct ConstantBuffer {
 		CMatrix WVP;     //ワールドビュープロジェクション行列
@@ -135,5 +140,7 @@ private:
 	float						       m_alpha = 1.0f;	                //スプライトのα値。
 	ID3D11DepthStencilState*           m_depthStencilState = nullptr;        //デプスステンシルステート
 	ID3D11BlendState*                  m_translucentBlendState = nullptr;    //ブレンドステート
+	ID3D11RasterizerState*             m_rasterrizerState = nullptr;     //ラスタライザステート
+
 };
 

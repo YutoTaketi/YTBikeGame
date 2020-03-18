@@ -47,6 +47,10 @@ Sprite::~Sprite()
 	{
 		m_translucentBlendState->Release();
 	}
+	if (m_rasterrizerState != nullptr)
+	{
+		m_rasterrizerState->Release();
+	}
 }
 
 void Sprite::InitVertexBuffer(float w, float h)
@@ -186,6 +190,8 @@ void Sprite::Init(const wchar_t* textureFilePath, float w, float h)
 	CreateDepthStencilState();
 	//半透明合成のブレンドステートを初期化。
 	InitTranslucentBlendState();
+	//ラスタライザステートを初期化
+	InitRasterizerState();
 	//テクスチャをロード。
 	LoadTexture(textureFilePath);
 }
@@ -384,6 +390,8 @@ void Sprite::Draw(CMatrix mView, CMatrix mProj)
 	//半透明合成のブレンドステートを設定する。
 	float blendFactor[] = { 0.0f, 0.0f, 0.0f, 0.0f };
 	deviceContext->OMSetBlendState(m_translucentBlendState, blendFactor, 0xffffffff);
+	//ラスタライザステートを設定
+	deviceContext->RSSetState(m_rasterrizerState);
 
 	//ここまで設定した内容でドロー
 	deviceContext->DrawIndexed(4, 0, 0);
@@ -459,7 +467,7 @@ void Sprite::CreateDepthStencilState()
 	auto pd3d = g_graphicsEngine->GetD3DDevice();
 	//作成する深度ステンシルステートの定義を設定していく。
 	D3D11_DEPTH_STENCIL_DESC desc = { 0 };
-	desc.DepthEnable = true;                            //Zテストが有効
+	desc.DepthEnable = false;                            //Zテストが有効
 	desc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;   //ZバァファにZ値を書き込む。
 	desc.DepthFunc = D3D11_COMPARISON_LESS;             //Z値が小さければフレームバァファに書き込む。
 	//デプスステンシルステートを作成。
@@ -488,4 +496,17 @@ void Sprite::InitTranslucentBlendState()
 	//半透明合成を行えるブレンドステートが作成できる。
 	auto d3dDevice = g_graphicsEngine->GetD3DDevice();
 	d3dDevice->CreateBlendState(&blendDesc, &m_translucentBlendState);
+}
+
+void Sprite::InitRasterizerState()
+{
+	//D3Dデバイスを取得。
+	auto pd3d = g_graphicsEngine->GetD3DDevice();
+	//作成するラスタライザステートを設定
+	D3D11_RASTERIZER_DESC desc = {};
+	desc.CullMode = D3D11_CULL_NONE;
+	desc.FillMode = D3D11_FILL_SOLID;
+	desc.DepthClipEnable = true;
+	desc.MultisampleEnable = true;
+	pd3d->CreateRasterizerState(&desc, &m_rasterrizerState);
 }

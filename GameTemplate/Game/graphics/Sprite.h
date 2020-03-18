@@ -109,6 +109,14 @@ private:
 	/// </summary>
 	/// <param name="textureFIlePath">ロードするテクスチャのファイルパス。</param>
 	void LoadTexture(const wchar_t* textureFIlePath);
+	/// <summary>
+	/// デプスステンシルステート
+	/// </summary>
+	void CreateDepthStencilState();
+	/// <summary>
+	/// ブレンドステート
+	/// </summary>
+	void InitTranslucentBlendState();
 private:
 	struct ConstantBuffer {
 		CMatrix WVP;     //ワールドビュープロジェクション行列
@@ -124,6 +132,8 @@ private:
 	CMatrix                            m_world = CMatrix::Identity();	         //ワールド行列。
 	CVector2                           m_size = CVector2::Zero();
 	ID3D11Buffer*				       m_cb = nullptr;							//定数バッファ。
-	float						       m_alpha = 1.0f;							//スプライトのα値。
+	float						       m_alpha = 1.0f;	                //スプライトのα値。
+	ID3D11DepthStencilState*           m_depthStencilState = nullptr;        //デプスステンシルステート
+	ID3D11BlendState*                  m_translucentBlendState = nullptr;    //ブレンドステート
 };
 

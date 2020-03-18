@@ -40,6 +40,13 @@ Sprite::~Sprite()
 	if (m_samplerState != nullptr) {
 		m_samplerState->Release();
 	}
+	if (m_depthStencilState != nullptr) {
+		m_depthStencilState->Release();
+	}
+	if (m_translucentBlendState != nullptr)
+	{
+		m_translucentBlendState->Release();
+	}
 }
 
 void Sprite::InitVertexBuffer(float w, float h)
@@ -399,6 +406,12 @@ void Sprite::Draw()
 		nullptr,
 		0
 	);
+	//デプスステンシルステートを切り替える。
+	d3dDeviceContext->OMSetDepthStencilState(m_depthStencilState, 0);
+	//半透明合成のブレンドステートを設定する。
+	float blendFactor[] = { 0.0f, 0.0f, 0.0f, 0.0f };
+	d3dDeviceContext->OMSetBlendState(m_translucentBlendState, blendFactor, 0xffffffff);
+
 	d3dDeviceContext->IASetInputLayout(m_vs.GetInputLayout());
 	//テクスチャを設定
 	d3dDeviceContext->PSSetShaderResources(0, 1, &m_texture);
@@ -422,4 +435,41 @@ void Sprite::Draw()
 	   0,        //開始インデックス番号
 	   0         //開始頂点番号
 	);
+}
+
+void Sprite::CreateDepthStencilState()
+{
+	//D3Dデバイスを取得。
+	auto pd3d = g_graphicsEngine->GetD3DDevice();
+	//作成する深度ステンシルステートの定義を設定していく。
+	D3D11_DEPTH_STENCIL_DESC desc = { 0 };
+	desc.DepthEnable = true;                            //Zテストが有効
+	desc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;   //ZバァファにZ値を書き込む。
+	desc.DepthFunc = D3D11_COMPARISON_LESS;             //Z値が小さければフレームバァファに書き込む。
+	//デプスステンシルステートを作成。
+	pd3d->CreateDepthStencilState(&desc, &m_depthStencilState);
+
+}
+
+void Sprite::InitTranslucentBlendState()
+{
+	//作成するブレンドステートの情報を設定する。
+	CD3D11_DEFAULT defaultSettings;
+	//デフォルトセッティングで初期化する。
+	CD3D11_BLEND_DESC blendDesc(defaultSettings);
+	//αブレンディングを有効にする。
+	blendDesc.RenderTarget[0].BlendEnable = true;
+	//ソースカラーのブレンディング方法を指定。
+	blendDesc.RenderTarget[0].SrcBlend = D3D11_BLEND_SRC_ALPHA;
+
+	//ディスティネーションカラーのブレンディング方法を指定
+	blendDesc.RenderTarget[0].DestBlend = D3D11_BLEND_INV_SRC_ALPHA;
+
+	//最終的にレンダリングターゲットに書き込まれるカラーの計算方法を指定
+	blendDesc.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;
+
+	//この設定で、ブレンドステートを作成すると
+	//半透明合成を行えるブレンドステートが作成できる。
+	auto d3dDevice = g_graphicsEngine->GetD3DDevice();
+	d3dDevice->CreateBlendState(&blendDesc, &m_translucentBlendState);
 }

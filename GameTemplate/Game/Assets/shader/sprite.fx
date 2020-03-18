@@ -28,6 +28,9 @@ PSInput VSMain(VSInput In)
 }
 float4 PSMain( PSInput In ) : SV_Target0
 {
+	float color = colorTexture.Sample(Sampler, In.uv);
+    color.a *= alpha;
 	//return float4(1.0f,1.0f,1.0f,1.0f);
-	return colorTexture.Sample(Sampler, In.uv);
+	//return colorTexture.Sample(Sampler, In.uv);
+	return color;
 }

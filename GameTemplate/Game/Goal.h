@@ -1,7 +1,7 @@
 #pragma once
 #include "GameObjectManager.h"
 #include "PhysicsGhostObject.h"
-
+#include "physics/Physics.h"
 class Game;
 class Goal : public IGameObject
 {
@@ -22,6 +22,7 @@ private:
 	
 	CVector3 m_position = CVector3::Zero();
 	PhysicsGhostObject m_ghostObject;     //ゴーストオブジェクト
+	PhysicsWorld m_physics;
 	Game* m_game;
 };
 

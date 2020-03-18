@@ -18,7 +18,7 @@ void Goal::Update()
 {
 	//仮のゴール判定　後でゴーストに変更
 	
-	
+	m_physics.ContactTest()
 	
 }
 void Goal::Render()

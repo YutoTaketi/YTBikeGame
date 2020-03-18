@@ -362,11 +362,7 @@ void Sprite::Draw(CMatrix mView, CMatrix mProj)
 	//サンプラステートをレジスタs0にバインドする。
 	deviceContext->PSSetSamplers(0, 1, &m_samplerState);
 
-	//デプスステンシルステートを切り替える。
-	deviceContext->OMSetDepthStencilState(m_depthStencilState, 0);
-	//半透明合成のブレンドステートを設定する。
-	float blendFactor[] = { 0.0f, 0.0f, 0.0f, 0.0f };
-	deviceContext->OMSetBlendState(m_translucentBlendState, blendFactor, 0xffffffff);
+	
 
 	//頂点バッファを設定。
 	UINT stride = sizeof(Vertex);
@@ -382,6 +378,13 @@ void Sprite::Draw(CMatrix mView, CMatrix mProj)
 	deviceContext->PSSetShader((ID3D11PixelShader *)m_ps.GetBody(), nullptr, 0);
 	//プリミティブのトポロジーを設定。
 	deviceContext->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+
+	//デプスステンシルステートを切り替える。
+	deviceContext->OMSetDepthStencilState(m_depthStencilState, 0);
+	//半透明合成のブレンドステートを設定する。
+	float blendFactor[] = { 0.0f, 0.0f, 0.0f, 0.0f };
+	deviceContext->OMSetBlendState(m_translucentBlendState, blendFactor, 0xffffffff);
+
 	//ここまで設定した内容でドロー
 	deviceContext->DrawIndexed(4, 0, 0);
 }
@@ -416,11 +419,7 @@ void Sprite::Draw()
 		nullptr,
 		0
 	);
-	//デプスステンシルステートを切り替える。
-	d3dDeviceContext->OMSetDepthStencilState(m_depthStencilState, 0);
-	//半透明合成のブレンドステートを設定する。
-	float blendFactor[] = { 0.0f, 0.0f, 0.0f, 0.0f };
-	d3dDeviceContext->OMSetBlendState(m_translucentBlendState, blendFactor, 0xffffffff);
+	
 
 	d3dDeviceContext->IASetInputLayout(m_vs.GetInputLayout());
 	//テクスチャを設定
@@ -437,6 +436,13 @@ void Sprite::Draw()
 	d3dDeviceContext->UpdateSubresource(m_cb, 0, nullptr, &cb, 0, 0);
 	d3dDeviceContext->VSSetConstantBuffers(0, 1, &m_cb);
 	d3dDeviceContext->PSSetConstantBuffers(0, 1, &m_cb);
+
+	//デプスステンシルステートを切り替える。
+	d3dDeviceContext->OMSetDepthStencilState(m_depthStencilState, 0);
+	//半透明合成のブレンドステートを設定する。
+	float blendFactor[] = { 0.0f, 0.0f, 0.0f, 0.0f };
+	d3dDeviceContext->OMSetBlendState(m_translucentBlendState, blendFactor, 0xffffffff);
+
 	//プリミティブのトポロジーは
 	//トライアングルストリップを設定する。
 	d3dDeviceContext->IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);

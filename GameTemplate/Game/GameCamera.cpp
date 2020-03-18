@@ -15,7 +15,7 @@ GameCamera::GameCamera()
 
 GameCamera::~GameCamera()
 {
-	g_goMgr.DeleteGameObject(this);
+	//g_goMgr.DeleteGameObject(this);
 }
 
 void GameCamera::Update()

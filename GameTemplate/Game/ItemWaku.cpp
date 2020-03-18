@@ -13,7 +13,7 @@ ItemWaku::ItemWaku()
 
 ItemWaku::~ItemWaku()
 {
-	g_goMgr.DeleteGameObject(this);
+	//g_goMgr.DeleteGameObject(this);
 }
 void ItemWaku::Update()
 {

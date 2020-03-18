@@ -11,7 +11,7 @@ Goal::Goal()
 
 Goal::~Goal()
 {
-	g_goMgr.DeleteGameObject(this);
+	//g_goMgr.DeleteGameObject(this);
 }
 
 void Goal::Update()

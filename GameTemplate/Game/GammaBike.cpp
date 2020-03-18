@@ -18,7 +18,7 @@ GammaBike::GammaBike()
 
 GammaBike::~GammaBike()
 {
-	g_goMgr.DeleteGameObject(this);
+	//g_goMgr.DeleteGameObject(this);
 	delete m_model;
 	delete m_bikeMove;
 }

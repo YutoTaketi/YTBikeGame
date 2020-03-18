@@ -182,6 +182,10 @@ void Sprite::Init(const wchar_t* textureFilePath, float w, float h)
 	CreateConstantBuffer();
 	//サンプラステートを作成。
 	CreateSamplerState();
+	//デプスステンシルステートを作成。
+	CreateDepthStencilState();
+	//半透明合成のブレンドステートを初期化。
+	InitTranslucentBlendState();
 	//テクスチャをロード。
 	LoadTexture(textureFilePath);
 }
@@ -357,6 +361,12 @@ void Sprite::Draw(CMatrix mView, CMatrix mProj)
 	deviceContext->PSSetShaderResources(0, 1, &m_texture);
 	//サンプラステートをレジスタs0にバインドする。
 	deviceContext->PSSetSamplers(0, 1, &m_samplerState);
+
+	//デプスステンシルステートを切り替える。
+	deviceContext->OMSetDepthStencilState(m_depthStencilState, 0);
+	//半透明合成のブレンドステートを設定する。
+	float blendFactor[] = { 0.0f, 0.0f, 0.0f, 0.0f };
+	deviceContext->OMSetBlendState(m_translucentBlendState, blendFactor, 0xffffffff);
 
 	//頂点バッファを設定。
 	UINT stride = sizeof(Vertex);

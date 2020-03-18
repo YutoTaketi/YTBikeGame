@@ -155,7 +155,7 @@ private:
 	GammaBike* gammabike = nullptr;  //バイク3
 	DeltaBike* deltabike = nullptr;  //バイク4
 	EpsilonBike* epsilonbike = nullptr;
-	ItemWaku* itemwaku = nullptr;  //アイテム表示の枠
+	//ItemWaku* itemwaku = nullptr;  //アイテム表示の枠
 	Goal* goal = nullptr;
 	//BikeMove_Enemy m_bikemove_enemy;
 	

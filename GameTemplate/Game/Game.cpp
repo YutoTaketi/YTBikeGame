@@ -64,7 +64,7 @@ Game::Game()
 		epsilonbike->SetGame(this);
 		epsilonbike->GetPassObject(m_pointList);
 	
-	itemwaku = g_goMgr.NewGO<ItemWaku>();
+	//itemwaku = g_goMgr.NewGO<ItemWaku>();
 	
 	//地面をシャドウレシーバーにする。
 	//m_stageModelDraw.SetShadowReciever(true);
@@ -104,7 +104,7 @@ Game::~Game()
 	g_goMgr.DeleteGameObject(gammabike);
 	g_goMgr.DeleteGameObject(deltabike);
 	g_goMgr.DeleteGameObject(epsilonbike);
-	g_goMgr.DeleteGameObject(itemwaku);
+	//g_goMgr.DeleteGameObject(itemwaku);
 	g_goMgr.DeleteGameObject(gamecamera);
 	g_goMgr.DeleteGameObject(goal);
 }
@@ -141,7 +141,7 @@ void Game::Update()
 	//enemybike->Update();
 	
 	//アイテム枠の描画
-	itemwaku->Update();
+	//itemwaku->Update();
 	
 	alphabike->Update();
 	betabike->Update();

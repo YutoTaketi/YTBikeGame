@@ -4,7 +4,7 @@
 
 Result::Result()
 {
-	m_sprite.Init(L"Assets/sprite/Tyaika.dds", 1000.0f, 800.0f);
+	m_sprite.Init(L"Assets/sprite/NijiSeeds.dds", 1000.0f, 800.0f);
 }
 
 

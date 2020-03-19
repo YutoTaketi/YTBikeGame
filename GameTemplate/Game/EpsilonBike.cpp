@@ -43,9 +43,9 @@ void EpsilonBike::Update()
 		}
 	}
 	
-	m_physics.ContactTest(m_charaCon, [&](const btCollisionObject& contactObject) {
+	g_physics.ContactTest(m_charaCon, goal.GetGoalPoint())
+	{
 
-		
 	});
 	
 	//バイクの移動処理を実行する。
@@ -56,6 +56,8 @@ void EpsilonBike::Update()
 		g_camera3D.GetViewMatrix(),
 		g_camera3D.GetProjectionMatrix()
 	);
+
+	
 }
 
 void EpsilonBike::Render()

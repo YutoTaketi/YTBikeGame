@@ -62,10 +62,10 @@ public:
 		dynamicWorld->contactTest(colObj, resultCallback);
 	}
 
-	void ContactTest(
+	/*void ContactTest(
 		btCollisionObject* colObj,
 		std::function<void(const btCollisionObject& contactCollisionObject)> cb
-	);
+	);*/
 
 	void ContactTest(RigidBody& rb, std::function<void(const btCollisionObject&contactCollisionObject)> cb);
 

@@ -84,7 +84,7 @@ void PhysicsWorld::RemoveCollisionObject(btCollisionObject& colliObj)
 {
 	dynamicWorld->removeCollisionObject(&colliObj);
 }
-
+/*
 void PhysicsWorld::ContactTest(
 	btCollisionObject* colObj,
 	std::function<void(const btCollisionObject& contactCollisionObject)> cb
@@ -93,11 +93,15 @@ void PhysicsWorld::ContactTest(
 	myContactResultCallback.m_cb = cb;
 	myContactResultCallback.m_me = colObj;
 	dynamicWorld->contactTest(colObj, myContactResultCallback);
+	
 }
-
+*/
 void PhysicsWorld::ContactTest(RigidBody& rb, std::function<void(const btCollisionObject&contactCollisionObject)> cb)
 {
-	ContactTest(rb.GetBody(), cb);
+	MyContactResultCallback myContactResultCallback;
+	myContactResultCallback.m_cb = cb;
+	myContactResultCallback.m_me = rb.GetBody();
+	ContactText(rb.GetBody(), myContactResultCallback);
 }
 
 void PhysicsWorld::ContactTest(CharacterController& charaCon, std::function<void(const btCollisionObject& contactCollisionObject)>cb)

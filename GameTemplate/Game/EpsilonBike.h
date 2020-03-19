@@ -7,6 +7,9 @@ class Game;
 class BikeMove;
 class GameTime;
 class PhysicsWorld;
+class CharacterController;
+class Goal;
+
 class EpsilonBike : public IGameObject
 {
 public:
@@ -43,7 +46,10 @@ public:
 		m_bikeMove->SetGame(game);
 	}
 
-	
+	CharacterController* GetCharaCon()
+	{
+		return &m_charaCon;
+	}
 private:
 	void Render();
 	void Draw();
@@ -55,6 +61,7 @@ private:
 	SkinModel* m_model;                               //スキンモデル。
 	CharacterController m_charaCon;
 	PhysicsWorld m_physics;
+	Goal goal;
 	//GameTime m_gameTime;
 	Game* m_game = nullptr;
 

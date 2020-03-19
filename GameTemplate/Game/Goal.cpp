@@ -1,11 +1,11 @@
 #include "stdafx.h"
 #include "Goal.h"
-
+#include "EpsilonBike.h"
 
 Goal::Goal()
 {
 	
-	m_ghostObject.CreateBox(m_position, CQuaternion::Identity(), { 200.0f,200.0f, 200.0f });
+	m_ghostObject.CreateBox(m_position, m_rotation, m_scale);
 }
 
 
@@ -18,7 +18,10 @@ void Goal::Update()
 {
 	//仮のゴール判定　後でゴーストに変更
 	
-	//m_physics.ContactTest()
+	g_physics.ContactTest(m_epsilonbike.GetCharaCon(), [&](const btCollisionObject& contactObject)
+	{
+
+	});
 	
 }
 void Goal::Render()

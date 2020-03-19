@@ -5,7 +5,8 @@
 
 class Game;
 class BikeMove;
-
+class GameTime;
+class PhysicsWorld;
 class EpsilonBike : public IGameObject
 {
 public:
@@ -52,6 +53,9 @@ private:
 	CQuaternion m_rotation = CQuaternion::Identity(); //回転
 	CVector3 m_pointOnePos = CVector3::Zero();
 	SkinModel* m_model;                               //スキンモデル。
+	CharacterController m_charaCon;
+	PhysicsWorld m_physics;
+	//GameTime m_gameTime;
 	Game* m_game = nullptr;
 
 	CVector3 m_accel = CVector3::Zero();    //加速度

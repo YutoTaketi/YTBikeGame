@@ -1,4 +1,5 @@
 #pragma once
+
 class GameTime
 {
 public:
@@ -9,6 +10,7 @@ public:
 		static GameTime t;
 		return t;
 	}
+	
 	/*!
 	*@brief	1フレームの経過時間を取得(単位・秒)。
 	*/
@@ -36,5 +38,10 @@ private:
 	std::list<float> m_frameDeltaTimeQue;
 	float m_frameDeltaTime = 1.0f / 60.0f;
 };
+
+static GameTime& SetGameTime()
+{
+	return GameTime::GetInstance();
+}
 
 

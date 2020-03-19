@@ -29,6 +29,9 @@ Game::Game()
 			return true;
 		}
 		
+		if (wcsncmp(L"GoalPoint", objData.name, 9) == 0) {
+
+		}
 		
 		
 		return false;

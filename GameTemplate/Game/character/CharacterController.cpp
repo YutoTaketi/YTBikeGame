@@ -120,7 +120,7 @@ void CharacterController::Init(float radius, float height, const CVector3& posit
 	g_physics.AddRigidBody(m_rigidBody);
 
 }
-const CVector3& CharacterController::Execute(float deltaTime, CVector3& moveSpeed)
+const CVector3& CharacterController::Execute( CVector3& moveSpeed, float deltaTime )
 {
 	if (moveSpeed.y > 0.0f) {
 		//‚Á”ò‚Ñ’†‚É‚·‚éB

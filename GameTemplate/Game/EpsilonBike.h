@@ -46,10 +46,10 @@ public:
 		m_bikeMove->SetGame(game);
 	}
 
-	CharacterController GetCharaCon()
+	/*CharacterController GetCharaCon()
 	{
 		return m_charaCon;
-	}
+	}*/
 private:
 	void Render();
 	void Draw();
@@ -59,7 +59,7 @@ private:
 	CQuaternion m_rotation = CQuaternion::Identity(); //回転
 	CVector3 m_pointOnePos = CVector3::Zero();
 	SkinModel* m_model;                               //スキンモデル。
-	CharacterController m_charaCon;
+	//CharacterController m_charaCon;
 	PhysicsWorld m_physics;
 	Goal goal;
 	//GameTime m_gameTime;

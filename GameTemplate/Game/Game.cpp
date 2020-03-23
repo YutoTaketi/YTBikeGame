@@ -10,6 +10,7 @@
 #include "DeltaBike.h"
 #include "EpsilonBike.h"
 #include "EpsilonBike.h"
+#include "BikeSelect.h"
 //#include "StageDemo.h"
 
 
@@ -35,6 +36,8 @@ Game::Game()
 		return false;
     });
 	
+	
+
 	//player = g_goMgr.NewGO<Player>();
 	alphabike = g_goMgr.NewGO<AlphaBike>();
 	betabike = g_goMgr.NewGO<BetaBike>();
@@ -67,7 +70,8 @@ Game::Game()
 	epsilonbike->GetPassObject(m_pointList);
 	
 	//itemwaku = g_goMgr.NewGO<ItemWaku>();
-	
+	//バイクの選択画面
+	bikeselect = g_goMgr.NewGO<BikeSelect>();
 	//地面をシャドウレシーバーにする。
 	//m_stageModelDraw.SetShadowReciever(true);
 
@@ -109,6 +113,7 @@ Game::~Game()
 	//g_goMgr.DeleteGameObject(itemwaku);
 	g_goMgr.DeleteGameObject(gamecamera);
 	g_goMgr.DeleteGameObject(goal);
+	g_goMgr.DeleteGameObject(bikeselect);
 }
 
 void Game::ChangeRenderTarget(ID3D11DeviceContext* d3dDeviceContext, RenderTarget* renderTarget, D3D11_VIEWPORT* viewport)
@@ -144,13 +149,14 @@ void Game::Update()
 	
 	//アイテム枠の描画
 	//itemwaku->Update();
-	
+	bikeselect->Update();
 	alphabike->Update();
 	betabike->Update();
 	gammabike->Update();
 	deltabike->Update();
 	epsilonbike->Update();
 
+	//bikeselect->Update();
 	//カメラ
 	gamecamera->Update();
     //ステージの描画

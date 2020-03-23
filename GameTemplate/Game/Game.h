@@ -26,6 +26,7 @@ class CoursePath;
 class BikeMove_Enemy;
 class BetaBike;
 class Goal;
+class BikeSelect;
 //class StageDemo;
 //class AlphaBike;
 /// <summary>
@@ -155,8 +156,9 @@ private:
 	GammaBike* gammabike = nullptr;  //バイク3
 	DeltaBike* deltabike = nullptr;  //バイク4
 	EpsilonBike* epsilonbike = nullptr;
-	//ItemWaku* itemwaku = nullptr;  //アイテム表示の枠
+	ItemWaku* itemwaku = nullptr;  //アイテム表示の枠
 	Goal* goal = nullptr;
+	BikeSelect* bikeselect = nullptr;   //バイクの選択画面
 	//BikeMove_Enemy m_bikemove_enemy;
 	
 	

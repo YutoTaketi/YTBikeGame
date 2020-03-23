@@ -4,7 +4,7 @@
 
 ItemWaku::ItemWaku()
 {
-	m_sprite.Init(L"Assets/sprite/Tyaika.dds",1000.0f, 800.0f);
+	m_sprite.Init(L"Assets/sprite/BikeSelect.dds",1000.0f, 800.0f);
 	//m_scale = { 8.0f, 8.0f, 8.0f };
 	//m_position.y = 200.0f;
 	

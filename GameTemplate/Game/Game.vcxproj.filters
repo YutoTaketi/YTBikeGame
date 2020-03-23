@@ -384,10 +384,8 @@
     <ImageContentTask Include="Assets\sprite\NijiSeeds.jpg">
       <Filter>Assets\sprite</Filter>
     </ImageContentTask>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Assets\sprite\BikeSelect.png">
+    <ImageContentTask Include="Assets\sprite\BikeSelect.png">
       <Filter>Assets\sprite</Filter>
-    </Image>
+    </ImageContentTask>
   </ItemGroup>
 </Project>

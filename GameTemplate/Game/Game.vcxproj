@@ -291,7 +291,9 @@
     </ImageContentTask>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Assets\sprite\BikeSelect.png" />
+    <ImageContentTask Include="Assets\sprite\BikeSelect.png">
+      <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\Assets\sprite\%(Filename).dds</ContentOutput>
+    </ImageContentTask>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

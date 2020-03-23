@@ -105,6 +105,7 @@
     <ClCompile Include="BikeMove.cpp" />
     <ClCompile Include="BikeMove_Enemy.cpp" />
     <ClCompile Include="BikeMove_Player.cpp" />
+    <ClCompile Include="BikeSelect.cpp" />
     <ClCompile Include="BoxCollider.cpp" />
     <ClCompile Include="character\CharacterController.cpp" />
     <ClCompile Include="DeltaBike.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="BikeMove.h" />
     <ClInclude Include="BikeMove_Enemy.h" />
     <ClInclude Include="BikeMove_Player.h" />
+    <ClInclude Include="BikeSelect.h" />
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="character\CharacterController.h" />
     <ClInclude Include="DeltaBike.h" />
@@ -287,6 +289,9 @@
     <ImageContentTask Include="Assets\sprite\NijiSeeds.jpg">
       <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\Assets\sprite\%(Filename).dds</ContentOutput>
     </ImageContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\sprite\BikeSelect.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -9,7 +9,7 @@ class GameTime;
 class PhysicsWorld;
 class CharacterController;
 class Goal;
-
+class PhysicsGhostObject;
 class EpsilonBike : public IGameObject
 {
 public:
@@ -46,9 +46,9 @@ public:
 		m_bikeMove->SetGame(game);
 	}
 
-	CharacterController* GetCharaCon()
+	CharacterController GetCharaCon()
 	{
-		return &m_charaCon;
+		return m_charaCon;
 	}
 private:
 	void Render();
@@ -77,5 +77,8 @@ private:
 	Point* m_point;                  //ポイントの構造体のポインタ、現在の目的地
 	
 	BikeMove* m_bikeMove = nullptr;
+
+	CVector3 m_goalpos = { 0.0f, 0.0f, 1150.0f };
+	PhysicsGhostObject m_ghostObject;     //ゴーストオブジェクト
 };
 

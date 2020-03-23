@@ -4,6 +4,7 @@
 #include "physics/Physics.h"
 class Game;
 class EpsilonBike;
+class CharacterController;
 class Goal : public IGameObject
 {
 public:
@@ -16,6 +17,10 @@ public:
 	{
 		m_game = game;
 		//m_bikeMove->SetGame(game);
+	}
+	void SetBike(EpsilonBike* epsilonbike)
+	{
+		m_epsilonbike = epsilonbike;
 	}
 	/// <summary>
 	/// 配置したゴールポイントの座標を取得
@@ -51,8 +56,8 @@ private:
 	CVector3 m_scale = CVector3::One();      //スケール
 	CQuaternion m_rotation = CQuaternion::Identity();  //回転
 	PhysicsGhostObject m_ghostObject;     //ゴーストオブジェクト
-	
+	CharacterController m_charaCon;
 	Game* m_game;
-	EpsilonBike m_epsilonbike;
+	EpsilonBike* m_epsilonbike;
 };
 

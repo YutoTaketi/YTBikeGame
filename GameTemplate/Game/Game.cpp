@@ -29,14 +29,7 @@ Game::Game()
 			return true;
 		}
 		
-		if(wcsncmp(L"GoalPoint", objData.name, 9) == 0) {
-			goal = g_goMgr.NewGO<Goal>();
-			goal->SetGame(this);
-			goal->SetPosition(objData.position);
-			goal->SetRotation(objData.rotation);
-			goal->SetScale(objData.scale);
-			return true;
-		}
+		
 		
 		
 		return false;
@@ -55,6 +48,7 @@ Game::Game()
 	gamecamera->SetGame(this);
 	//goal = g_goMgr.NewGO<Goal>();
 	//goal->SetGame(this);
+	//goal->SetBike(epsilonbike);
 	/*m_bikemove_enemy.GetPassObject(m_pointList);
 	m_bikemove_enemy.SetGame(this);*/
 	

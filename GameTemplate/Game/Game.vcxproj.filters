@@ -180,6 +180,7 @@
     <ClCompile Include="EpsilonBike.cpp" />
     <ClCompile Include="Result.cpp" />
     <ClCompile Include="GameTime.cpp" />
+    <ClCompile Include="BikeSelect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\Vector.h">
@@ -310,6 +311,7 @@
     <ClInclude Include="EpsilonBike.h" />
     <ClInclude Include="Result.h" />
     <ClInclude Include="GameTime.h" />
+    <ClInclude Include="BikeSelect.h" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">
@@ -382,5 +384,10 @@
     <ImageContentTask Include="Assets\sprite\NijiSeeds.jpg">
       <Filter>Assets\sprite</Filter>
     </ImageContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\sprite\BikeSelect.png">
+      <Filter>Assets\sprite</Filter>
+    </Image>
   </ItemGroup>
 </Project>

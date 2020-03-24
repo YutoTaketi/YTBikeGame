@@ -56,6 +56,6 @@ private:
 	std::map<int, Point*> m_pointList;  //ポイント構造体の配列
 	Point* m_point;                  //ポイントの構造体のポインタ、現在の目的地
 	BikeMove* m_bikeMove = nullptr;
-	
+	bool m_playerBikeFlag = false;    //プレイヤーバイクかどうかのフラグ
 };
 

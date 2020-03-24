@@ -80,5 +80,6 @@ private:
 
 	CVector3 m_goalpos = { 0.0f, 0.0f, 1150.0f };
 	PhysicsGhostObject m_ghostObject;     //ゴーストオブジェクト
+	bool m_playerBikeFlag = false;    //プレイヤーバイクかどうかのフラグ
 };
 

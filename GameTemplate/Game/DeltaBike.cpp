@@ -12,7 +12,11 @@ DeltaBike::DeltaBike()
 	//cmoファイルの読み込み。
 	m_model->Init(L"Assets/modelData/Bike4.cmo");
 	//バイクの移動処理を初期化
-	m_bikeMove = new BikeMove_Enemy();
+	if (m_playerBikeFlag == false)
+	{
+		m_bikeMove = new BikeMove_Enemy();
+	}
+	
 
 }
 

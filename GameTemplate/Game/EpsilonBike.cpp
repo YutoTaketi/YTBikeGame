@@ -12,6 +12,10 @@ EpsilonBike::EpsilonBike()
 	//cmoファイルの読み込み。
 	m_model->Init(L"Assets/modelData/PlayerBike.cmo");
 	//バイクの移動処理を初期化
+	if (m_playerBikeFlag == false)
+	{
+
+	}
 	m_bikeMove = new BikeMove_Player();
 	//m_charaCon.Init(30.0f, 100.0f, m_position);
 	//m_ghostObject.CreateBox(m_goalpos, CQuaternion::Identity(), { 100.0f, 0.0f, 200.0f });

@@ -44,6 +44,6 @@ private:
 	CQuaternion m_rotation = CQuaternion::Identity();
 	CVector3 m_finishposition = CVector3::Zero();
 	Game* m_game;
-	
+	bool m_PlayerBikeSetFlag = false;
 };
 

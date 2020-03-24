@@ -16,7 +16,7 @@ void Result::Update()
 {
 	m_sprite.UpdateWorldMatrix(m_position, CQuaternion::Identity(), m_scale);
 	Draw();
-	if (g_pad[0].IsTrigger(enButtonA)) {
+	if (g_pad[0].IsTrigger(enButtonB)) {
 		g_goMgr.DeleteGameObject(this);
 		g_goMgr.NewGO<Title>();
 	}

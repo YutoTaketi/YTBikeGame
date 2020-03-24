@@ -25,7 +25,8 @@ void GameCamera::Update()
 	
 	//注視点から視点へのベクトルを計算する。
 	//ゴールしたらカメラを動かす。
-	
+	//if (m_PlayerBikeSetFlag == true)
+	//{
 		//注視点計算
 		m_target = m_epsilonbike->GetPosition();
 		m_target.y += 100.0f;
@@ -39,6 +40,8 @@ void GameCamera::Update()
 		m_position = m_target + m_toCameraPos;
 		m_finishposition = m_position;
 
+	//}
+		
 
 	
 	

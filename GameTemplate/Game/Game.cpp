@@ -46,7 +46,8 @@ Game::Game()
 	//deltabike = g_goMgr.NewGO<DeltaBike>();
 	epsilonbike = g_goMgr.NewGO<EpsilonBike>();
 	gamecamera = g_goMgr.NewGO<GameCamera>();
-	bikemaster = g_goMgr.NewGO<BikeMaster>();
+	//bikemaster = g_goMgr.NewGO<BikeMaster>();
+	//bikemaster->SetGame(this);
 	//bikemove_enemy = new BikeMove_Enemy();
 	
 	gamecamera->SetBike(epsilonbike);
@@ -73,8 +74,8 @@ Game::Game()
 	
 	//itemwaku = g_goMgr.NewGO<ItemWaku>();
 	//バイクの選択画面
-	bikeselect = g_goMgr.NewGO<BikeSelect>();
-	bikeselect->SetBikeMaster(bikemaster);
+	//bikeselect = g_goMgr.NewGO<BikeSelect>();
+	//bikeselect->SetBikeMaster(bikemaster);
 	//地面をシャドウレシーバーにする。
 	//m_stageModelDraw.SetShadowReciever(true);
 
@@ -145,7 +146,7 @@ void Game::ChangeRenderTarget(ID3D11DeviceContext* d3dDeviceContext, ID3D11Rende
 void Game::Update()
 {
 	//レベルの描画
-	//level.Draw();
+	level.Draw();
 	//プレイヤーの描画。
 	//player->Update();
 	//敵の描画
@@ -163,7 +164,7 @@ void Game::Update()
 	//bikeselect->Update();
 	//カメラ
 	gamecamera->Update();
-	bikemaster->Update();
+	//bikemaster->Update();
     //ステージの描画
 	//stagedemo->Update();
 	

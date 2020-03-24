@@ -1,5 +1,7 @@
 #pragma once
 #include "GameObjectManager.h"
+
+class Game;
 class BikeMaster : public IGameObject
 {
 public:
@@ -12,16 +14,27 @@ public:
 	{
 		return m_bikesentakuNo;
 	}
-	bool GetSelectFlag()
+	
+
+	/// <summary>
+	/// Gameのポインタを渡す。
+	/// </summary>
+	/// <param name="game"></param>
+	void SetGame(Game* game)
 	{
-		return m_select;
+		m_game = game;
+		
 	}
+
 private:
 	void Render();
 	void Draw();
+	GameCamera* gamecamera = nullptr;
+	EpsilonBike* epsilonbike = nullptr;
 
 	//バイクの選択番号
 	int m_bikesentakuNo = 0;
-	bool m_select = false;
+	
+	Game* m_game;
 };
 

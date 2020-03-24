@@ -14,10 +14,34 @@ BikeSelect::~BikeSelect()
 
 void BikeSelect::Update()
 {
-	if (m_bikemaster->GetSelectFlag() == true)
+	if (GetAsyncKeyState('0'))
+	{
+		
+		m_select = true;
+
+	}
+	else if (GetAsyncKeyState('1'))
+	{
+		m_select = true;
+	}
+	else if (GetAsyncKeyState('2'))
+	{
+		m_select = true;
+	}
+	else if (GetAsyncKeyState('3'))
+	{
+		m_select = true;
+	}
+	else if (GetAsyncKeyState('4'))
+	{
+		m_select = true;
+	}
+	if ( m_select == true)
 	{
 		g_goMgr.DeleteGameObject(this);
 	}
+
+
 	m_rotation.SetRotationDeg(CVector3::AxisY(), 180.0f);
 	m_sprite.UpdateWorldMatrix(m_position, m_rotation, m_scale);
 	Draw();

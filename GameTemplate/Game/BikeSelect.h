@@ -29,5 +29,7 @@ private:
 	CQuaternion m_rotation = CQuaternion::Identity(); //‰ñ“]
 	Sprite m_sprite;
 	BikeMaster* m_bikemaster = nullptr;
+
+	bool m_select = false;
 };
 

@@ -52,7 +52,7 @@ public:
 	void Draw();
 
 private:
-	std::vector<IGameObject*> m_goList;
+	std::list<IGameObject*> m_goList;
 	//GameObjectManager();
 	//~GameObjectManager();
 	/// <summary>

@@ -27,6 +27,7 @@ class BikeMove_Enemy;
 class BetaBike;
 class Goal;
 class BikeSelect;
+class BikeMaster;
 //class StageDemo;
 //class AlphaBike;
 /// <summary>
@@ -159,6 +160,7 @@ private:
 	ItemWaku* itemwaku = nullptr;  //アイテム表示の枠
 	Goal* goal = nullptr;
 	BikeSelect* bikeselect = nullptr;   //バイクの選択画面
+	BikeMaster* bikemaster = nullptr;
 	//BikeMove_Enemy m_bikemove_enemy;
 	
 	

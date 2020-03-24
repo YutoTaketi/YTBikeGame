@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Result.h"
-
+#include "Title.h"
 
 Result::Result()
 {
@@ -16,6 +16,10 @@ void Result::Update()
 {
 	m_sprite.UpdateWorldMatrix(m_position, CQuaternion::Identity(), m_scale);
 	Draw();
+	if (g_pad[0].IsTrigger(enButtonA)) {
+		g_goMgr.DeleteGameObject(this);
+		g_goMgr.NewGO<Title>();
+	}
 }
 
 void Result::Render()

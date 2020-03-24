@@ -102,6 +102,7 @@
     <ClCompile Include="AlphaBike.cpp" />
     <ClCompile Include="BetaBike.cpp" />
     <ClCompile Include="BikeController.cpp" />
+    <ClCompile Include="BikeMaster.cpp" />
     <ClCompile Include="BikeMove.cpp" />
     <ClCompile Include="BikeMove_Enemy.cpp" />
     <ClCompile Include="BikeMove_Player.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="AlphaBike.h" />
     <ClInclude Include="BetaBike.h" />
     <ClInclude Include="BikeController.h" />
+    <ClInclude Include="BikeMaster.h" />
     <ClInclude Include="BikeMove.h" />
     <ClInclude Include="BikeMove_Enemy.h" />
     <ClInclude Include="BikeMove_Player.h" />

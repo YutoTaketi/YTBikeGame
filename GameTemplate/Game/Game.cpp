@@ -11,6 +11,7 @@
 #include "EpsilonBike.h"
 #include "EpsilonBike.h"
 #include "BikeSelect.h"
+#include "BikeMaster.h"
 //#include "StageDemo.h"
 
 
@@ -39,12 +40,13 @@ Game::Game()
 	
 
 	//player = g_goMgr.NewGO<Player>();
-	alphabike = g_goMgr.NewGO<AlphaBike>();
-	betabike = g_goMgr.NewGO<BetaBike>();
-	gammabike = g_goMgr.NewGO<GammaBike>();
-	deltabike = g_goMgr.NewGO<DeltaBike>();
+	//alphabike = g_goMgr.NewGO<AlphaBike>();
+	//betabike = g_goMgr.NewGO<BetaBike>();
+	//gammabike = g_goMgr.NewGO<GammaBike>();
+	//deltabike = g_goMgr.NewGO<DeltaBike>();
 	epsilonbike = g_goMgr.NewGO<EpsilonBike>();
 	gamecamera = g_goMgr.NewGO<GameCamera>();
+	bikemaster = g_goMgr.NewGO<BikeMaster>();
 	//bikemove_enemy = new BikeMove_Enemy();
 	
 	gamecamera->SetBike(epsilonbike);
@@ -57,14 +59,14 @@ Game::Game()
 	
 	
 	
-	alphabike->SetGame(this);
-	alphabike->GetPassObject(m_pointList);
-	betabike->SetGame(this);
-	betabike->GetPassObject(m_pointList);
-	gammabike->SetGame(this);
-	gammabike->GetPassObject(m_pointList);
-	deltabike->SetGame(this);
-	deltabike->GetPassObject(m_pointList);
+	//alphabike->SetGame(this);
+	//alphabike->GetPassObject(m_pointList);
+	//betabike->SetGame(this);
+	//betabike->GetPassObject(m_pointList);
+	//gammabike->SetGame(this);
+	//gammabike->GetPassObject(m_pointList);
+	//deltabike->SetGame(this);
+	//deltabike->GetPassObject(m_pointList);
 
 	epsilonbike->SetGame(this);
 	epsilonbike->GetPassObject(m_pointList);
@@ -72,6 +74,7 @@ Game::Game()
 	//itemwaku = g_goMgr.NewGO<ItemWaku>();
 	//バイクの選択画面
 	bikeselect = g_goMgr.NewGO<BikeSelect>();
+	bikeselect->SetBikeMaster(bikemaster);
 	//地面をシャドウレシーバーにする。
 	//m_stageModelDraw.SetShadowReciever(true);
 
@@ -114,6 +117,7 @@ Game::~Game()
 	g_goMgr.DeleteGameObject(gamecamera);
 	g_goMgr.DeleteGameObject(goal);
 	g_goMgr.DeleteGameObject(bikeselect);
+	g_goMgr.DeleteGameObject(bikemaster);
 }
 
 void Game::ChangeRenderTarget(ID3D11DeviceContext* d3dDeviceContext, RenderTarget* renderTarget, D3D11_VIEWPORT* viewport)
@@ -141,7 +145,7 @@ void Game::ChangeRenderTarget(ID3D11DeviceContext* d3dDeviceContext, ID3D11Rende
 void Game::Update()
 {
 	//レベルの描画
-	level.Draw();
+	//level.Draw();
 	//プレイヤーの描画。
 	//player->Update();
 	//敵の描画
@@ -149,16 +153,17 @@ void Game::Update()
 	
 	//アイテム枠の描画
 	//itemwaku->Update();
-	bikeselect->Update();
-	alphabike->Update();
-	betabike->Update();
-	gammabike->Update();
-	deltabike->Update();
+	//bikeselect->Update();
+	//alphabike->Update();
+	//betabike->Update();
+	//gammabike->Update();
+	//deltabike->Update();
 	epsilonbike->Update();
 
 	//bikeselect->Update();
 	//カメラ
 	gamecamera->Update();
+	bikemaster->Update();
     //ステージの描画
 	//stagedemo->Update();
 	

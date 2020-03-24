@@ -20,6 +20,22 @@ void BikeMaster::Update()
 	{
 		m_select = true;
 	}
+	else if (GetAsyncKeyState('1'))
+	{
+		m_select = true;
+	}
+	else if (GetAsyncKeyState('2'))
+	{
+		m_select = true;
+	}
+	else if (GetAsyncKeyState('3'))
+	{
+		m_select = true;
+	}
+	else if (GetAsyncKeyState('4'))
+	{
+		m_select = true;
+	}
 	
 }
 

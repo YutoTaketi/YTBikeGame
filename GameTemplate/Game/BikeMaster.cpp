@@ -28,6 +28,7 @@ void BikeMaster::Update()
 		gamecamera = g_goMgr.NewGO<GameCamera>();
 		gamecamera->SetBike(epsilonbike);
 		gamecamera->SetGame(m_game);
+		gamecamera->SetBikeMaster(this);
 		m_bikeSetFlag = true;
 	}
 	if (m_bikeSetFlag == true) {

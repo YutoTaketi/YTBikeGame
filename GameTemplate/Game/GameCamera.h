@@ -6,6 +6,7 @@ class Player;
 class BikeMove_Player;
 class EpsilonBike;
 class Game;
+class BikeMaster;
 class GameCamera : public IGameObject
 {
 public:
@@ -27,12 +28,22 @@ public:
 	{
 		m_epsilonbike = epsilon;
 	}
+	/// <summary>
+	/// Gameのポインタを渡す。
+	/// </summary>
+	/// <param name="game"></param>
 	void SetGame(Game* game)
 	{
 		m_game = game;
 		///m_bikeMove->SetGame(game);
 	}
-	
+	/// <summary>
+	/// BikeMasterのポインタを渡す。
+	/// </summary>
+	void SetBikeMaster(BikeMaster* bikemaster)
+	{
+		m_bikemaster = bikemaster;	
+	}
 private:
 	
 	Player* m_player = nullptr;
@@ -43,7 +54,9 @@ private:
 	CVector3 m_toCameraPos = CVector3::Zero();
 	CQuaternion m_rotation = CQuaternion::Identity();
 	CVector3 m_finishposition = CVector3::Zero();
+	
 	Game* m_game;
+	BikeMaster* m_bikemaster;
 	bool m_PlayerBikeSetFlag = false;
 };
 

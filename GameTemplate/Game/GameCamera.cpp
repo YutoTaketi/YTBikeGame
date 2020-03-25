@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "BikeMove_Player.h"
 #include "EpsilonBike.h"
+#include "BikeMaster.h"
 GameCamera::GameCamera()
 {
 	g_camera3D.SetPosition({ 0.0f, 100.0f, 300.0f });
@@ -28,10 +29,14 @@ void GameCamera::Update()
 	//if (m_PlayerBikeSetFlag == true)
 	//{
 		//’Ž‹“_ŒvŽZ
+	if (m_bikemaster->GetBikeNo() == 0)
+	{
 		m_target = m_epsilonbike->GetPosition();
+	}
+		
 		m_target.y += 100.0f;
 
-
+		
 		CVector3 stick;
 		CQuaternion qRot = CQuaternion::Identity();
 		stick.x = g_pad[0].GetLStickXF();

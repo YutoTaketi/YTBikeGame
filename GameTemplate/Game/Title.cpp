@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Title.h"
 #include "Game.h"
+#include "BikeSelect.h"
 #include "graphics/SkinModel.h"
 
 Title::Title()
@@ -28,6 +29,7 @@ void Title::Update()
 	if (g_pad[0].IsTrigger(enButtonA)) {
 		g_goMgr.DeleteGameObject(this);
 		g_goMgr.NewGO<Game>();
+		//g_goMgr.NewGO<BikeSelect>();
 	}
 	
 

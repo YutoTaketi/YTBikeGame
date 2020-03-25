@@ -110,6 +110,8 @@ public:
 	{
 		return finishFlag;
 	}
+
+
 private:
 	/// <summary>
 	/// ƒvƒŠƒŒƒ“ƒ_ƒŠƒ“ƒO
@@ -166,7 +168,7 @@ private:
 	
 	int finishhantei = 0;
 	bool finishFlag = false;
-	
+	bool bikesentakuFlag = false;
 	std::map<int , Point*> m_pointList;
 	
 };

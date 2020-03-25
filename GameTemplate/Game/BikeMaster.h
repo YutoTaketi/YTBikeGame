@@ -15,7 +15,10 @@ public:
 		return m_bikesentakuNo;
 	}
 	
-
+	bool GetbikesetFlag()
+	{
+		return m_bikeSetFlag;
+	}
 	/// <summary>
 	/// Gameのポインタを渡す。
 	/// </summary>
@@ -25,7 +28,10 @@ public:
 		m_game = game;
 		
 	}
-
+	void SetSentakuNo(int No)
+	{
+		m_bikesentakuNo = No;
+	}
 private:
 	void Render();
 	void Draw();
@@ -33,8 +39,8 @@ private:
 	EpsilonBike* epsilonbike = nullptr;
 
 	//バイクの選択番号
-	int m_bikesentakuNo = 0;
-	
+	int m_bikesentakuNo;
+	bool m_bikeSetFlag = false;
 	Game* m_game;
 };
 

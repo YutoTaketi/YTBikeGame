@@ -44,14 +44,14 @@ Game::Game()
 	//betabike = g_goMgr.NewGO<BetaBike>();
 	//gammabike = g_goMgr.NewGO<GammaBike>();
 	//deltabike = g_goMgr.NewGO<DeltaBike>();
-	epsilonbike = g_goMgr.NewGO<EpsilonBike>();
-	gamecamera = g_goMgr.NewGO<GameCamera>();
-	//bikemaster = g_goMgr.NewGO<BikeMaster>();
-	//bikemaster->SetGame(this);
+	//epsilonbike = g_goMgr.NewGO<EpsilonBike>();
+	//gamecamera = g_goMgr.NewGO<GameCamera>();
+	bikemaster = g_goMgr.NewGO<BikeMaster>();
+	bikemaster->SetGame(this);
 	//bikemove_enemy = new BikeMove_Enemy();
 	
-	gamecamera->SetBike(epsilonbike);
-	gamecamera->SetGame(this);
+	//gamecamera->SetBike(epsilonbike);
+	//gamecamera->SetGame(this);
 	//goal = g_goMgr.NewGO<Goal>();
 	//goal->SetGame(this);
 	//goal->SetBike(epsilonbike);
@@ -69,13 +69,13 @@ Game::Game()
 	//deltabike->SetGame(this);
 	//deltabike->GetPassObject(m_pointList);
 
-	epsilonbike->SetGame(this);
-	epsilonbike->GetPassObject(m_pointList);
+	//epsilonbike->SetGame(this);
+	//epsilonbike->GetPassObject(m_pointList);
 	
 	//itemwaku = g_goMgr.NewGO<ItemWaku>();
 	//バイクの選択画面
-	//bikeselect = g_goMgr.NewGO<BikeSelect>();
-	//bikeselect->SetBikeMaster(bikemaster);
+	bikeselect = g_goMgr.NewGO<BikeSelect>();
+	bikeselect->SetBikeMaster(bikemaster);
 	//地面をシャドウレシーバーにする。
 	//m_stageModelDraw.SetShadowReciever(true);
 
@@ -146,7 +146,11 @@ void Game::ChangeRenderTarget(ID3D11DeviceContext* d3dDeviceContext, ID3D11Rende
 void Game::Update()
 {
 	//レベルの描画
-	level.Draw();
+	if (bikemaster->GetbikesetFlag() == true)
+	{
+		level.Draw();
+	}
+	
 	//プレイヤーの描画。
 	//player->Update();
 	//敵の描画
@@ -159,12 +163,12 @@ void Game::Update()
 	//betabike->Update();
 	//gammabike->Update();
 	//deltabike->Update();
-	epsilonbike->Update();
+	//epsilonbike->Update();
 
 	//bikeselect->Update();
 	//カメラ
-	gamecamera->Update();
-	//bikemaster->Update();
+	//gamecamera->Update();
+	bikemaster->Update();
     //ステージの描画
 	//stagedemo->Update();
 	

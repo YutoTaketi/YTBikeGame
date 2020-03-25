@@ -16,9 +16,8 @@ void BikeSelect::Update()
 {
 	if (GetAsyncKeyState('0'))
 	{
-		
-		m_select = true;
-
+		m_bikemaster->SetSentakuNo(0); 
+			m_select = true;
 	}
 	else if (GetAsyncKeyState('1'))
 	{

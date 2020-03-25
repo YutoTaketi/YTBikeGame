@@ -36,6 +36,10 @@ private:
 	void Render();
 	void Draw();
 	GameCamera* gamecamera = nullptr;
+	AlphaBike* alphabike = nullptr;
+	BetaBike* betabike = nullptr;
+	GammaBike* gammabike = nullptr;
+	DeltaBike* deltabike = nullptr;
 	EpsilonBike* epsilonbike = nullptr;
 
 	//バイクの選択番号

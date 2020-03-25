@@ -16,6 +16,12 @@ public:
 	/// </summary>
 	void Update();
 	
+	CVector3 GetPosition() const
+	{
+		return m_position;
+	}
+
+
 	/// <summary>
 	/// Gameクラスで作ったパスの情報を取得する。
 	/// </summary>

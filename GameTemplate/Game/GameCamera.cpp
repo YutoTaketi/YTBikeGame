@@ -3,6 +3,10 @@
 #include "Player.h"
 #include "BikeMove_Player.h"
 #include "EpsilonBike.h"
+#include "AlphaBike.h"
+#include "BetaBike.h"
+#include "DeltaBike.h"
+#include "GammaBike.h"
 #include "BikeMaster.h"
 GameCamera::GameCamera()
 {
@@ -31,9 +35,24 @@ void GameCamera::Update()
 		//’Ž‹“_ŒvŽZ
 	if (m_bikemaster->GetBikeNo() == 0)
 	{
+		m_target = m_alphabike->GetPosition();
+	}
+	else if (m_bikemaster->GetBikeNo() == 1)
+	{
+		m_target = m_betabike->GetPosition();
+	}
+	else if (m_bikemaster->GetBikeNo() == 2)
+	{
+		m_target = m_gammabike->GetPosition();
+	}
+	else if (m_bikemaster->GetBikeNo() == 3)
+	{
+		m_target = m_deltabike->GetPosition();
+	}
+	else if (m_bikemaster->GetBikeNo() == 4)
+	{
 		m_target = m_epsilonbike->GetPosition();
 	}
-		
 		m_target.y += 100.0f;
 
 		

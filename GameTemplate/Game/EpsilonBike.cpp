@@ -10,7 +10,7 @@ EpsilonBike::EpsilonBike()
 {
 	m_model = new  SkinModel();
 	//cmoファイルの読み込み。
-	m_model->Init(L"Assets/modelData/PlayerBike.cmo");
+	m_model->Init(L"Assets/modelData/Bike5.cmo");
 	//バイクの移動処理を初期化
 	if (m_playerBikeFlag == false)
 	{

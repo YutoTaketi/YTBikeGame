@@ -3,19 +3,19 @@
 #include "Game.h"
 #include "BikeMove.h"
 #include "BikeMove_Enemy.h"
-
+#include "BikeMove_Player.h"
 
 BetaBike::BetaBike()
 {
 	m_model = new  SkinModel();
 	//cmoファイルの読み込み。
-	m_model->Init(L"Assets/modelData/Bike3.cmo");
+	m_model->Init(L"Assets/modelData/Bike2.cmo");
 	//バイクの移動処理を初期化
-	if (m_playerBikeFlag == false)
+	/*if (m_playerBikeFlag == false)
 	{
 		m_bikeMove = new BikeMove_Enemy();
-	}
-	
+	}*/
+	m_bikeMove = new BikeMove_Player();
 }
 
 
@@ -30,7 +30,7 @@ void BetaBike::Update()
 {
 	
 	//バイクの移動処理を実行する。
-	//m_bikeMove->Execute(m_position, m_rotation, m_moveSpeed, m_accel, m_accelNum, m_friction);
+	m_bikeMove->Execute(m_position, m_rotation, m_moveSpeed, m_accel, m_accelNum, m_friction);
 	m_model->UpdateWorldMatrix(m_position, m_rotation, CVector3::One());
 	m_model->Draw(
 		g_camera3D.GetViewMatrix(),

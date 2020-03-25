@@ -21,18 +21,22 @@ void BikeSelect::Update()
 	}
 	else if (GetAsyncKeyState('1'))
 	{
+		m_bikemaster->SetSentakuNo(1);
 		m_select = true;
 	}
 	else if (GetAsyncKeyState('2'))
 	{
+		m_bikemaster->SetSentakuNo(2);
 		m_select = true;
 	}
 	else if (GetAsyncKeyState('3'))
 	{
+		m_bikemaster->SetSentakuNo(3);
 		m_select = true;
 	}
 	else if (GetAsyncKeyState('4'))
 	{
+		m_bikemaster->SetSentakuNo(4);
 		m_select = true;
 	}
 	if ( m_select == true)

@@ -33,12 +33,19 @@ void BikeMaster::Update()
 	//バイクの選択番号が0の時
 	if (m_bikesentakuNo == 0 && m_bikeSetFlag == false)
 	{
+		//プレイヤーバイク
 		alphabike = g_goMgr.NewGO<AlphaBike>();
 		alphabike->SetGame(m_game);
+		//カメラ
 		gamecamera = g_goMgr.NewGO<GameCamera>();
 		gamecamera->SetBike(alphabike);
 		gamecamera->SetGame(m_game);
 		gamecamera->SetBikeMaster(this);
+		//COMバイクの生成
+		betabike = g_goMgr.NewGO<BetaBike>();
+		betabike->SetGame(m_game);
+		betabike->ChangePlayerBikeFlag();
+		betabike->GetPassObject(m_pointList);
 		m_bikeSetFlag = true;
 	}
 	//バイクの選択番号が1の時
@@ -90,10 +97,10 @@ void BikeMaster::Update()
 	//バイクとカメラの更新
 	if (m_bikeSetFlag == true) {
 		
-		//alphabike->Update();
-		//betabike->Update();
+		alphabike->Update();
+		betabike->Update();
 		//gammabike->Update();
-		deltabike->Update();
+		//deltabike->Update();
 		//epsilonbike->Update();
 
 		gamecamera->Update();

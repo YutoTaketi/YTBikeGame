@@ -40,6 +40,10 @@ public:
 		m_bikeMove->SetGame(game);
 	}
 
+	void ChangePlayerBikeFlag()
+	{
+		m_playerBikeFlag = true;
+	}
 private:
 	void Render();
 	void Draw();

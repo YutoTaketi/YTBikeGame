@@ -48,6 +48,7 @@ Game::Game()
 	//gamecamera = g_goMgr.NewGO<GameCamera>();
 	bikemaster = g_goMgr.NewGO<BikeMaster>();
 	bikemaster->SetGame(this);
+	bikemaster->GetPassObject(m_pointList);
 	//bikemove_enemy = new BikeMove_Enemy();
 	
 	//gamecamera->SetBike(epsilonbike);

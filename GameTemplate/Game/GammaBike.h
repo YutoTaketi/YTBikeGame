@@ -43,6 +43,11 @@ public:
 		//m_bikeMove->SetGame(game);
 	}
 
+	//プレイヤーなら切り替える。
+	void ChangePlayerBikeFlag()
+	{
+		m_playerBikeFlag = true;
+	}
 private:
 	void Render();
 	void Draw();

@@ -95,35 +95,92 @@ void BikeMaster::Update()
 	//バイクの選択番号が2の時
 	if (m_bikesentakuNo == 2 && m_bikeSetFlag == false)
 	{
+		//プレイヤーバイク
 		gammabike = g_goMgr.NewGO<GammaBike>();
 		gammabike->SetGame(m_game);
+		gammabike->ChangePlayerBikeFlag();
+		//カメラ
 		gamecamera = g_goMgr.NewGO<GameCamera>();
 		gamecamera->SetBike(gammabike);
 		gamecamera->SetGame(m_game);
 		gamecamera->SetBikeMaster(this);
+		//COMバイクの生成
+		alphabike = g_goMgr.NewGO<AlphaBike>();  //AlphaBike
+		alphabike->SetGame(m_game);
+		alphabike->GetPassObject(m_pointList);
+
+		betabike = g_goMgr.NewGO<BetaBike>(); //BetaBike
+		betabike->SetGame(m_game);
+		betabike->GetPassObject(m_pointList);
+
+		deltabike = g_goMgr.NewGO<DeltaBike>();  //DeltaBike
+		deltabike->SetGame(m_game);
+		deltabike->GetPassObject(m_pointList);
+
+		epsilonbike = g_goMgr.NewGO<EpsilonBike>(); //EpsilonBike
+		epsilonbike->SetGame(m_game);
+		epsilonbike->GetPassObject(m_pointList);
 		m_bikeSetFlag = true;
 
 	}
 	//バイクの選択番号が3の時
 	if (m_bikesentakuNo == 3 && m_bikeSetFlag == false)
 	{
+		//プレイヤーバイク
 		deltabike = g_goMgr.NewGO<DeltaBike>();
 		deltabike->SetGame(m_game);
+		deltabike->ChangePlayerBikeFlag();
+		//カメラ
 		gamecamera = g_goMgr.NewGO<GameCamera>();
 		gamecamera->SetBike(deltabike);
 		gamecamera->SetGame(m_game);
 		gamecamera->SetBikeMaster(this);
+		//COMバイクの生成
+		alphabike = g_goMgr.NewGO<AlphaBike>();  //AlphaBike
+		alphabike->SetGame(m_game);
+		alphabike->GetPassObject(m_pointList);
+
+		betabike = g_goMgr.NewGO<BetaBike>(); //BetaBike
+		betabike->SetGame(m_game);
+		betabike->GetPassObject(m_pointList);
+
+		gammabike = g_goMgr.NewGO<GammaBike>();  //GammaBike
+		gammabike->SetGame(m_game);
+		gammabike->GetPassObject(m_pointList);
+
+		epsilonbike = g_goMgr.NewGO<EpsilonBike>(); //EpsilonBike
+		epsilonbike->SetGame(m_game);
+		epsilonbike->GetPassObject(m_pointList);
 		m_bikeSetFlag = true;
 	}
 	//バイクの選択番号が4の時
 	if (m_bikesentakuNo == 4 && m_bikeSetFlag == false)
 	{
+		//プレイヤーバイク
 		epsilonbike = g_goMgr.NewGO<EpsilonBike>();
 		epsilonbike->SetGame(m_game);
+		epsilonbike->ChangePlayerBikeFlag();
+		//カメラ
 		gamecamera = g_goMgr.NewGO<GameCamera>();
 		gamecamera->SetBike(epsilonbike);
 		gamecamera->SetGame(m_game);
 		gamecamera->SetBikeMaster(this);
+		//COMバイクの生成
+		alphabike = g_goMgr.NewGO<AlphaBike>();  //AlphaBike
+		alphabike->SetGame(m_game);
+		alphabike->GetPassObject(m_pointList);
+
+		betabike = g_goMgr.NewGO<BetaBike>(); //BetaBike
+		betabike->SetGame(m_game);
+		betabike->GetPassObject(m_pointList);
+
+		gammabike = g_goMgr.NewGO<GammaBike>();  //GammaBike
+		gammabike->SetGame(m_game);
+		gammabike->GetPassObject(m_pointList);
+
+		deltabike = g_goMgr.NewGO<DeltaBike>();  //DeltaBike
+		deltabike->SetGame(m_game);
+		deltabike->GetPassObject(m_pointList);
 		m_bikeSetFlag = true;
 	}
 

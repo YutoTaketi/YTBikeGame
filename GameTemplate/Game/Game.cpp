@@ -38,40 +38,16 @@ Game::Game()
     });
 	
 	
-
-	//player = g_goMgr.NewGO<Player>();
-	//alphabike = g_goMgr.NewGO<AlphaBike>();
-	//betabike = g_goMgr.NewGO<BetaBike>();
-	//gammabike = g_goMgr.NewGO<GammaBike>();
-	//deltabike = g_goMgr.NewGO<DeltaBike>();
-	//epsilonbike = g_goMgr.NewGO<EpsilonBike>();
-	//gamecamera = g_goMgr.NewGO<GameCamera>();
 	bikemaster = g_goMgr.NewGO<BikeMaster>();
 	bikemaster->SetGame(this);
 	bikemaster->GetPassObject(m_pointList);
-	//bikemove_enemy = new BikeMove_Enemy();
 	
-	//gamecamera->SetBike(epsilonbike);
-	//gamecamera->SetGame(this);
+	
 	//goal = g_goMgr.NewGO<Goal>();
 	//goal->SetGame(this);
 	//goal->SetBike(epsilonbike);
-	/*m_bikemove_enemy.GetPassObject(m_pointList);
-	m_bikemove_enemy.SetGame(this);*/
 	
 	
-	
-	//alphabike->SetGame(this);
-	//alphabike->GetPassObject(m_pointList);
-	//betabike->SetGame(this);
-	//betabike->GetPassObject(m_pointList);
-	//gammabike->SetGame(this);
-	//gammabike->GetPassObject(m_pointList);
-	//deltabike->SetGame(this);
-	//deltabike->GetPassObject(m_pointList);
-
-	//epsilonbike->SetGame(this);
-	//epsilonbike->GetPassObject(m_pointList);
 	
 	//itemwaku = g_goMgr.NewGO<ItemWaku>();
 	//バイクの選択画面
@@ -110,13 +86,9 @@ Game::~Game()
 		m_frameBufferDepthStencilView->Release();
 	}
 
-	g_goMgr.DeleteGameObject(alphabike);
-	g_goMgr.DeleteGameObject(betabike);
-	g_goMgr.DeleteGameObject(gammabike);
-	g_goMgr.DeleteGameObject(deltabike);
-	g_goMgr.DeleteGameObject(epsilonbike);
+	
 	//g_goMgr.DeleteGameObject(itemwaku);
-	g_goMgr.DeleteGameObject(gamecamera);
+	
 	g_goMgr.DeleteGameObject(goal);
 	g_goMgr.DeleteGameObject(bikeselect);
 	g_goMgr.DeleteGameObject(bikemaster);
@@ -152,23 +124,14 @@ void Game::Update()
 		level.Draw();
 	}
 	
-	//プレイヤーの描画。
-	//player->Update();
-	//敵の描画
-	//enemybike->Update();
-	
 	//アイテム枠の描画
 	//itemwaku->Update();
 	//bikeselect->Update();
-	//alphabike->Update();
-	//betabike->Update();
-	//gammabike->Update();
-	//deltabike->Update();
-	//epsilonbike->Update();
+	
 
 	//bikeselect->Update();
 	//カメラ
-	//gamecamera->Update();
+	
 	bikemaster->Update();
     //ステージの描画
 	//stagedemo->Update();

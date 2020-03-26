@@ -46,7 +46,6 @@ public:
 	void SetGame(Game* game)
 	{
 		m_game = game;
-		//m_bikeMove->SetGame(game);
 	}
 
 	void ChangePlayerBikeFlag()

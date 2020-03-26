@@ -28,12 +28,14 @@ public:
 
 
 	/// <summary>
-	/// Gameクラスで作ったパスの情報を取得する。
+	/// パス移動に関する関数と配列
 	/// </summary>
-	/// <param name="List"></param>
-	void GetPassObject(const std::map<int, Point*>& List)
+	const std::map<int, Point*>& GetPassObject(const std::map<int, Point*>& List)
 	{
-		m_bikeMove->GetPassObject(List);
+
+		m_pointList = List;
+		m_point = m_pointList[1];
+		return m_pointList;
 	}
 
 	/// <summary>
@@ -43,9 +45,12 @@ public:
 	void SetGame(Game* game)
 	{
 		m_game = game;
-		m_bikeMove->SetGame(game);
 	}
-
+	//プレイヤーなら切り替える。
+	void ChangePlayerBikeFlag()
+	{
+		m_playerBikeFlag = true;
+	}
 	/*CharacterController GetCharaCon()
 	{
 		return m_charaCon;
@@ -81,5 +86,6 @@ private:
 	CVector3 m_goalpos = { 0.0f, 0.0f, 1150.0f };
 	PhysicsGhostObject m_ghostObject;     //ゴーストオブジェクト
 	bool m_playerBikeFlag = false;    //プレイヤーバイクかどうかのフラグ
+	bool m_bikeMoveDecision = false;   //バイクを動かす処理が決定したかのフラグ。
 };
 

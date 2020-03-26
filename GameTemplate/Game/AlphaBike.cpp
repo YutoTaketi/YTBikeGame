@@ -10,13 +10,7 @@ AlphaBike::AlphaBike()
 	m_model = new  SkinModel();
 	//cmoファイルの読み込み。
 	m_model->Init(L"Assets/modelData/PlayerBike1.cmo");
-	//バイクの移動処理を初期化
-	/*if (m_playerBikeFlag == false)
-	{
-		m_bikeMove = new BikeMove_Enemy();
-	}*/
 	
-	m_bikeMove = new BikeMove_Player();
 }
 
 AlphaBike::~AlphaBike()
@@ -28,6 +22,22 @@ AlphaBike::~AlphaBike()
 
 void AlphaBike::Update()
 {
+	//バイクの移動処理を初期化
+	if (m_playerBikeFlag == false && m_bikeMoveDecision == false)
+	{
+		m_bikeMove = new BikeMove_Enemy();
+		m_bikeMove->SetGame(m_game);
+		m_bikeMove->GetPassObject(m_pointList);
+		m_bikeMoveDecision = true;
+	}
+	//プレイヤーバイクの時
+	if (m_playerBikeFlag == true && m_bikeMoveDecision == false)
+	{
+		m_bikeMove = new BikeMove_Player();
+		m_bikeMoveDecision = true;
+	}
+
+	//ゴールの判定
 	if (m_game->GetFinishFlag() == false) {
 		m_point = m_game->GetGorlPoint();
 		CVector3 m_gorlpos = m_point->s_position;

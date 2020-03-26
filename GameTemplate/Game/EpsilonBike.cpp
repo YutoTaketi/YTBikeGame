@@ -12,13 +12,9 @@ EpsilonBike::EpsilonBike()
 	//cmoファイルの読み込み。
 	m_model->Init(L"Assets/modelData/Bike5.cmo");
 	//バイクの移動処理を初期化
-	if (m_playerBikeFlag == false)
-	{
+	
 
-	}
-	m_bikeMove = new BikeMove_Player();
-	//m_charaCon.Init(30.0f, 100.0f, m_position);
-	//m_ghostObject.CreateBox(m_goalpos, CQuaternion::Identity(), { 100.0f, 0.0f, 200.0f });
+	
 }
 
 
@@ -30,7 +26,24 @@ EpsilonBike::~EpsilonBike()
 
 void EpsilonBike::Update()
 {
-	
+
+
+	//バイクの移動処理を初期化
+	//COMバイクの時
+	if (m_playerBikeFlag == false && m_bikeMoveDecision == false)
+	{
+		m_bikeMove = new BikeMove_Enemy();
+		m_bikeMove->SetGame(m_game);
+		m_bikeMove->GetPassObject(m_pointList);
+		m_bikeMoveDecision = true;
+	}
+	//プレイヤーバイクの時
+	if (m_playerBikeFlag == true && m_bikeMoveDecision == false)
+	{
+		m_bikeMove = new BikeMove_Player();
+		m_bikeMoveDecision = true;
+	}
+
 	if ( m_game->GetFinishFlag() == false) {
 		m_point = m_game->GetGorlPoint();
 		CVector3 m_gorlpos = m_point->s_position;

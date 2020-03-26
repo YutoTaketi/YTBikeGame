@@ -36,6 +36,7 @@ void BikeMaster::Update()
 		//プレイヤーバイク
 		alphabike = g_goMgr.NewGO<AlphaBike>();
 		alphabike->SetGame(m_game);
+		alphabike->ChangePlayerBikeFlag();
 		//カメラ
 		gamecamera = g_goMgr.NewGO<GameCamera>();
 		gamecamera->SetBike(alphabike);
@@ -44,20 +45,35 @@ void BikeMaster::Update()
 		//COMバイクの生成
 		betabike = g_goMgr.NewGO<BetaBike>(); //BetaBike
 		betabike->SetGame(m_game);
-		//betabike->ChangePlayerBikeFlag();
 		betabike->GetPassObject(m_pointList);
-		//gammabike;  //GammaBike
+
+		gammabike = g_goMgr.NewGO<GammaBike>();  //GammaBike
+		gammabike->SetGame(m_game);
+		gammabike->GetPassObject(m_pointList);
+
+		deltabike = g_goMgr.NewGO<DeltaBike>();  //DeltaBike
+		deltabike->SetGame(m_game);
+		deltabike->GetPassObject(m_pointList);
+
+		epsilonbike = g_goMgr.NewGO<EpsilonBike>(); //EpsilonBike
+		epsilonbike->SetGame(m_game);
+		epsilonbike->GetPassObject(m_pointList);
+
 		m_bikeSetFlag = true;
 	}
 	//バイクの選択番号が1の時
 	if (m_bikesentakuNo == 1 && m_bikeSetFlag == false)
 	{
+		//プレイヤーバイク
 		betabike = g_goMgr.NewGO<BetaBike>();
 		betabike->SetGame(m_game);
+		//カメラ
 		gamecamera = g_goMgr.NewGO<GameCamera>();
 		gamecamera->SetBike(betabike);
 		gamecamera->SetGame(m_game);
 		gamecamera->SetBikeMaster(this);
+
+
 		m_bikeSetFlag = true;
 	}
 	//バイクの選択番号が2の時

@@ -152,17 +152,11 @@ private:
 
 	//オブジェクトのポインタ
 	Level level;	//レベル
-	Player* player = nullptr;	//プレイヤー
-	GameCamera* gamecamera = nullptr;
-	AlphaBike* alphabike = nullptr;  //バイク１
-	BetaBike*  betabike = nullptr;   //バイク2
-	GammaBike* gammabike = nullptr;  //バイク3
-	DeltaBike* deltabike = nullptr;  //バイク4
-	EpsilonBike* epsilonbike = nullptr;
+	
 	ItemWaku* itemwaku = nullptr;  //アイテム表示の枠
 	Goal* goal = nullptr;
 	BikeSelect* bikeselect = nullptr;   //バイクの選択画面
-	BikeMaster* bikemaster = nullptr;
+	BikeMaster* bikemaster = nullptr;   //バイクの生成を担当
 	//BikeMove_Enemy m_bikemove_enemy;
 	
 	

@@ -67,13 +67,29 @@ void BikeMaster::Update()
 		//プレイヤーバイク
 		betabike = g_goMgr.NewGO<BetaBike>();
 		betabike->SetGame(m_game);
+		betabike->ChangePlayerBikeFlag();
 		//カメラ
 		gamecamera = g_goMgr.NewGO<GameCamera>();
 		gamecamera->SetBike(betabike);
 		gamecamera->SetGame(m_game);
 		gamecamera->SetBikeMaster(this);
 
+		//COMバイクの生成
+		alphabike = g_goMgr.NewGO<AlphaBike>();  //AlphaBike
+		alphabike->SetGame(m_game);
+		alphabike->GetPassObject(m_pointList);
 
+		gammabike = g_goMgr.NewGO<GammaBike>();  //GammaBike
+		gammabike->SetGame(m_game);
+		gammabike->GetPassObject(m_pointList);
+
+		deltabike = g_goMgr.NewGO<DeltaBike>();  //DeltaBike
+		deltabike->SetGame(m_game);
+		deltabike->GetPassObject(m_pointList);
+
+		epsilonbike = g_goMgr.NewGO<EpsilonBike>(); //EpsilonBike
+		epsilonbike->SetGame(m_game);
+		epsilonbike->GetPassObject(m_pointList);
 		m_bikeSetFlag = true;
 	}
 	//バイクの選択番号が2の時

@@ -42,10 +42,11 @@ void BikeMaster::Update()
 		gamecamera->SetGame(m_game);
 		gamecamera->SetBikeMaster(this);
 		//COMバイクの生成
-		betabike = g_goMgr.NewGO<BetaBike>();
+		betabike = g_goMgr.NewGO<BetaBike>(); //BetaBike
 		betabike->SetGame(m_game);
-		betabike->ChangePlayerBikeFlag();
+		//betabike->ChangePlayerBikeFlag();
 		betabike->GetPassObject(m_pointList);
+		//gammabike;  //GammaBike
 		m_bikeSetFlag = true;
 	}
 	//バイクの選択番号が1の時

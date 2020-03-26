@@ -25,11 +25,20 @@ public:
 	/// Gameクラスで作ったパスの情報を取得する。
 	/// </summary>
 	/// <param name="List"></param>
-	void GetPassObject(const std::map<int, Point*>& List)
+	/*void GetPassObject(const std::map<int, Point*>& List)
 	{
 		m_bikeMove->GetPassObject(List);
-	}
+	}*/
+	/// <summary>
+	/// パス移動に関する関数と配列
+	/// </summary>
+	const std::map<int, Point*>& GetPassObject(const std::map<int, Point*>& List)
+	{
 
+		m_pointList = List;
+		m_point = m_pointList[1];
+		return m_pointList;
+	}
 	/// <summary>
 	/// Gameのポインタを渡す。
 	/// </summary>
@@ -37,7 +46,7 @@ public:
 	void SetGame(Game* game)
 	{
 		m_game = game;
-		m_bikeMove->SetGame(game);
+		//m_bikeMove->SetGame(game);
 	}
 
 	void ChangePlayerBikeFlag()
@@ -65,6 +74,7 @@ private:
 	std::map<int, Point*> m_pointList;  //ポイント構造体の配列
 	Point* m_point;                  //ポイントの構造体のポインタ、現在の目的地
 	BikeMove* m_bikeMove = nullptr;
-	bool m_playerBikeFlag = false;     //プレイヤーバイクかどうかのフラグ
+	bool m_playerBikeFlag = false;     //プレイヤーバイクかどうかのフラグ。
+	bool m_bikeMoveDecision = false;   //バイクを動かす処理が決定したかのフラグ。
 };
 

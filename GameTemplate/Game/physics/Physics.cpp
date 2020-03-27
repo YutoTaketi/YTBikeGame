@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "physics/Physics.h"
 #include "Physics/RigidBody.h"
-
+#include "character/CharacterController.h"
 
 using namespace std;
 PhysicsWorld g_physics;

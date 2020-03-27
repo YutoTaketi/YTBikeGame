@@ -1,18 +1,11 @@
 #include "stdafx.h"
 #include "Game.h"
 #include "level/Level.h"
-#include "Player.h"
 #include "Goal.h"
 #include "ItemWaku.h"
-#include "AlphaBike.h"
-#include "BetaBike.h"
-#include "GammaBike.h"
-#include "DeltaBike.h"
-#include "EpsilonBike.h"
-#include "EpsilonBike.h"
 #include "BikeSelect.h"
 #include "BikeMaster.h"
-//#include "StageDemo.h"
+
 
 
 
@@ -133,8 +126,7 @@ void Game::Update()
 	//カメラ
 	
 	bikemaster->Update();
-    //ステージの描画
-	//stagedemo->Update();
+   
 	
 	//シャドウキャスターを登録
 	//m_shadowMap.RegistShadowCaster(&m_playerModelDraw);

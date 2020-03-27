@@ -1,26 +1,20 @@
 #pragma once
 #include "RenderTarget.h"
 #include "level/Level.h"
-#include "Player.h"
 #include "GameObjectManager.h"
 #include "GameCamera.h"
 #include "ItemWaku.h"
 #include "BikeMove_Enemy.h"
 #include "Goal.h"
 #include "Result.h"
-//バイク
-#include "AlphaBike.h"
-#include "BetaBike.h"
-#include "GammaBike.h"
-#include "DeltaBike.h"
-#include "EpsilonBike.h"
+
 //ポストエフェクト関連
 #include "RenderTarget.h"
 #include "ShadowMap.h"
 #include "graphics/Sprite.h"
 #include "graphics/SkinModel.h"
 #include "BikeMove_Enemy.h"
-class Player;
+
 class ItemWaku;
 class CoursePath;
 class BikeMove_Enemy;
@@ -28,8 +22,7 @@ class BetaBike;
 class Goal;
 class BikeSelect;
 class BikeMaster;
-//class StageDemo;
-//class AlphaBike;
+
 /// <summary>
 
 /// ゲームクラス
@@ -157,7 +150,7 @@ private:
 	Goal* goal = nullptr;
 	BikeSelect* bikeselect = nullptr;   //バイクの選択画面
 	BikeMaster* bikemaster = nullptr;   //バイクの生成を担当
-	//BikeMove_Enemy m_bikemove_enemy;
+	
 	
 	
 	int finishhantei = 0;

@@ -4,7 +4,7 @@
 #include "physics/Physics.h"
 class Game;
 class EpsilonBike;
-class CharacterController;
+
 class Goal : public IGameObject
 {
 public:
@@ -56,7 +56,7 @@ private:
 	CVector3 m_scale = CVector3::One();      //スケール
 	CQuaternion m_rotation = CQuaternion::Identity();  //回転
 	PhysicsGhostObject m_ghostObject;     //ゴーストオブジェクト
-	//CharacterController m_charaCon;
+	
 	Game* m_game;
 	EpsilonBike* m_epsilonbike;
 };

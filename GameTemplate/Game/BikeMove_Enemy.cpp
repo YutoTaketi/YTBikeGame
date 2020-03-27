@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "BikeMove_Enemy.h"
 #include "Game.h"
+#include "character/CharacterController.h"
 
 BikeMove_Enemy::BikeMove_Enemy()
 {

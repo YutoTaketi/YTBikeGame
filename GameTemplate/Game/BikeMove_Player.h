@@ -3,10 +3,12 @@
 #include "BikeMove.h"
 #include "BikeController.h"
 #include "Game.h"
+
 /// <summary>
 /// プレイヤーのバイクを動かす。
 /// </summary>
 class Game;
+class CharacterController;
 class BikeMove_Player : public BikeMove
 {
 public:
@@ -30,6 +32,8 @@ public:
 	BikeController* m_bikecontroller;                 //バイクの内積外積計算をする。
 	CVector3 m_finishspeed = CVector3::Zero();
 	Game* m_game;
-	
+	CharacterController m_charaCon;
+
+	bool m_CharaConInitFlag = false;
 };
 

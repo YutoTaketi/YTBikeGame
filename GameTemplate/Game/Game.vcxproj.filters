@@ -58,9 +58,6 @@
     <Filter Include="Assets\modelData\PlayerBike">
       <UniqueIdentifier>{a5c66bf7-81b0-46e1-ac86-e952149eca4e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="gametimer">
-      <UniqueIdentifier>{586fef07-061f-40c5-92a9-6f4f6749406a}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="math\Vector.cpp">
@@ -184,12 +181,6 @@
     <ClCompile Include="BikeSelect.cpp" />
     <ClCompile Include="BikeMaster.cpp" />
     <ClCompile Include="Course.cpp" />
-    <ClCompile Include="StopWatch.cpp">
-      <Filter>timer</Filter>
-    </ClCompile>
-    <ClCompile Include="GameTime.cpp">
-      <Filter>timer</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\Vector.h">
@@ -321,12 +312,6 @@
     <ClInclude Include="BikeSelect.h" />
     <ClInclude Include="BikeMaster.h" />
     <ClInclude Include="Course.h" />
-    <ClInclude Include="StopWatch.h">
-      <Filter>timer</Filter>
-    </ClInclude>
-    <ClInclude Include="GameTime.h">
-      <Filter>timer</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">

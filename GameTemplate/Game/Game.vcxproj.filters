@@ -135,7 +135,6 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="StageDemo.cpp" />
     <ClCompile Include="IGameObject.cpp" />
     <ClCompile Include="GameObjectManager.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -182,6 +181,7 @@
     <ClCompile Include="GameTime.cpp" />
     <ClCompile Include="BikeSelect.cpp" />
     <ClCompile Include="BikeMaster.cpp" />
+    <ClCompile Include="Course.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\Vector.h">
@@ -267,7 +267,6 @@
     </ClInclude>
     <ClInclude Include="Player.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="StageDemo.h" />
     <ClInclude Include="IGameObject.h" />
     <ClInclude Include="GameObjectManager.h" />
     <ClInclude Include="Game.h" />
@@ -314,6 +313,7 @@
     <ClInclude Include="GameTime.h" />
     <ClInclude Include="BikeSelect.h" />
     <ClInclude Include="BikeMaster.h" />
+    <ClInclude Include="Course.h" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">

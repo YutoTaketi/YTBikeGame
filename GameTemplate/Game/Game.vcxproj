@@ -109,6 +109,7 @@
     <ClCompile Include="BikeSelect.cpp" />
     <ClCompile Include="BoxCollider.cpp" />
     <ClCompile Include="character\CharacterController.cpp" />
+    <ClCompile Include="Course.cpp" />
     <ClCompile Include="DeltaBike.cpp" />
     <ClCompile Include="EpsilonBike.cpp" />
     <ClCompile Include="Font.cpp" />
@@ -156,7 +157,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="SpriteRender.cpp" />
-    <ClCompile Include="StageDemo.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
@@ -182,6 +182,7 @@
     <ClInclude Include="BikeSelect.h" />
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="character\CharacterController.h" />
+    <ClInclude Include="Course.h" />
     <ClInclude Include="DeltaBike.h" />
     <ClInclude Include="EpsilonBike.h" />
     <ClInclude Include="Font.h" />
@@ -231,7 +232,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="SpriteRender.h" />
-    <ClInclude Include="StageDemo.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="system\system.h" />
     <ClInclude Include="Timer.h" />

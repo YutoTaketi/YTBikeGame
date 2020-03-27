@@ -5,7 +5,7 @@
 
 class Game;
 class BikeMove;
-class GameTime;
+
 class PhysicsWorld;
 class CharacterController;
 class Goal;

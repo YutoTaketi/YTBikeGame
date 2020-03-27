@@ -4,7 +4,7 @@
 #include "BikeMove.h"
 #include "BikeMove_Enemy.h"
 #include "BikeMove_Player.h"
-#include "GameTime.h"
+
 
 EpsilonBike::EpsilonBike()
 {

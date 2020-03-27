@@ -116,6 +116,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameCamera.cpp" />
     <ClCompile Include="GameObjectManager.cpp" />
+    <ClCompile Include="GameTime.cpp" />
     <ClCompile Include="GammaBike.cpp" />
     <ClCompile Include="Goal.cpp" />
     <ClCompile Include="graphics\animation\Animation.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameCamera.h" />
     <ClInclude Include="GameObjectManager.h" />
+    <ClInclude Include="GameTime.h" />
     <ClInclude Include="GammaBike.h" />
     <ClInclude Include="Goal.h" />
     <ClInclude Include="graphics\animation\Animation.h" />

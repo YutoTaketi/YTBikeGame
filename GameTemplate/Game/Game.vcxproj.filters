@@ -181,6 +181,9 @@
     <ClCompile Include="BikeSelect.cpp" />
     <ClCompile Include="BikeMaster.cpp" />
     <ClCompile Include="Course.cpp" />
+    <ClCompile Include="GameTime.cpp">
+      <Filter>timer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\Vector.h">
@@ -312,6 +315,9 @@
     <ClInclude Include="BikeSelect.h" />
     <ClInclude Include="BikeMaster.h" />
     <ClInclude Include="Course.h" />
+    <ClInclude Include="GameTime.h">
+      <Filter>timer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">

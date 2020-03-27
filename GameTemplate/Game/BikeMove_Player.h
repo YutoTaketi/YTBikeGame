@@ -32,7 +32,7 @@ public:
 	BikeController* m_bikecontroller;                 //バイクの内積外積計算をする。
 	CVector3 m_finishspeed = CVector3::Zero();
 	Game* m_game;
-	CharacterController m_charaCon;
+	//CharacterController m_charaCon;
 
 	bool m_CharaConInitFlag = false;
 };

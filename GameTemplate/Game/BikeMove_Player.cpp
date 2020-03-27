@@ -16,6 +16,7 @@ BikeMove_Player::~BikeMove_Player()
 
 void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector3& movespeed, CVector3& accel, float& accelnum, float& friction)
 {
+	/*
 	if (m_CharaConInitFlag == false)
 	{
 		//キャラクターコントローラーの初期化
@@ -26,7 +27,7 @@ void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector
 		);
 		m_CharaConInitFlag = true;
 	}
-	
+	*/
 	   
 		//カメラの前方方向を取得
 		CVector3 cameraForward = g_camera3D.GetForward();

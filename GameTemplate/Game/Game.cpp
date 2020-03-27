@@ -5,7 +5,7 @@
 #include "ItemWaku.h"
 #include "BikeSelect.h"
 #include "BikeMaster.h"
-
+#include "Course.h"
 
 
 
@@ -24,7 +24,13 @@ Game::Game()
 			return true;
 		}
 		
-		
+		if (wcsncmp(L"Course01", objData.name, 8) == 0)
+		{
+			course = g_goMgr.NewGO<Course>();
+			course->SetPosition(objData.position);
+			course->SetRotation(objData.rotation);
+			return true;
+		}
 		
 		
 		return false;

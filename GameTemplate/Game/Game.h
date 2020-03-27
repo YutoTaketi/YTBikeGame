@@ -22,7 +22,7 @@ class BetaBike;
 class Goal;
 class BikeSelect;
 class BikeMaster;
-
+class Course;
 /// <summary>
 
 /// ゲームクラス
@@ -150,7 +150,7 @@ private:
 	Goal* goal = nullptr;
 	BikeSelect* bikeselect = nullptr;   //バイクの選択画面
 	BikeMaster* bikemaster = nullptr;   //バイクの生成を担当
-	
+	Course* course = nullptr;           //コース
 	
 	
 	int finishhantei = 0;

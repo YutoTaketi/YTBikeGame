@@ -2,6 +2,7 @@
 #include "BikeMove_Enemy.h"
 #include "Game.h"
 #include "character/CharacterController.h"
+#include "GameTime.h"
 
 BikeMove_Enemy::BikeMove_Enemy()
 {
@@ -17,6 +18,17 @@ BikeMove_Enemy::~BikeMove_Enemy()
 void BikeMove_Enemy::Execute(CVector3& position, CQuaternion& rotation, CVector3& movespeed, CVector3& accel, float& accelnum, float& friction)
 {
 	
+	if (m_CharaConInitFlag == false)
+	{
+		//キャラクターコントローラーの初期化
+		m_charaCon.Init(
+			20.0f,           //半径
+			100.0f,
+			position
+		);
+		m_CharaConInitFlag = true;
+	}
+
 	//移動ポイントの番号を取得
 	CVector3 diff = m_point->s_position - position;
 	//if (m_game->GetFinishFlag() == false) 
@@ -80,4 +92,13 @@ void BikeMove_Enemy::Execute(CVector3& position, CQuaternion& rotation, CVector3
 		}
 	}
 	rotation.Multiply(qRot, rotation);
+
+	//キャラクターコントローラーの更新
+	if (m_CharaConInitFlag == true)
+	{
+		m_charaCon.Execute(movespeed,
+			//1.0f / 60.0f 
+			GameTimeIns().GetFrameDeltaTime()
+		);
+	}
 }

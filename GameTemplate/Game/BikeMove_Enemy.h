@@ -1,13 +1,13 @@
 #pragma once
 #include "BikeMove.h"
 #include "BikeController.h"
-
+#include "character/CharacterController.h"
 /// <summary>
 /// 敵のバイクを動かす。
 /// </summary>
 
 class Game;
-
+class CharacterController;
 class BikeMove_Enemy : public BikeMove
 {
 public:
@@ -25,6 +25,7 @@ public:
 	void Execute(CVector3& position, CQuaternion& rotation, CVector3& movespeed, CVector3& accel, float& accelnum, float& friction);
 	CVector3 m_moveDirectionF = CVector3::Zero();
 	BikeController* m_bikecontroller;
-	
-};
+	CharacterController m_charaCon;
+	bool m_CharaConInitFlag = false;     //キャラクターコントローラーが初期化されているかのフラグ
 
+};

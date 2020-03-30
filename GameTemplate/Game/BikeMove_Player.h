@@ -36,6 +36,6 @@ public:
 	Game* m_game;
 	CharacterController m_charaCon;
 	GameTime gametime;
-	bool m_CharaConInitFlag = false;
+	bool m_CharaConInitFlag = false;     //キャラクターコントローラーが初期化されているかのフラグ
 };
 

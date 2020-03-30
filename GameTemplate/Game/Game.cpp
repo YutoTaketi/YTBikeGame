@@ -91,6 +91,7 @@ Game::~Game()
 	g_goMgr.DeleteGameObject(goal);
 	g_goMgr.DeleteGameObject(bikeselect);
 	g_goMgr.DeleteGameObject(bikemaster);
+	g_goMgr.DeleteGameObject(course);
 }
 
 void Game::ChangeRenderTarget(ID3D11DeviceContext* d3dDeviceContext, RenderTarget* renderTarget, D3D11_VIEWPORT* viewport)

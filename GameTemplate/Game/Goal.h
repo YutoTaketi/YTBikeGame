@@ -59,5 +59,6 @@ private:
 	
 	Game* m_game;
 	EpsilonBike* m_epsilonbike;
+	bool MakeGoalFlag = false;
 };
 

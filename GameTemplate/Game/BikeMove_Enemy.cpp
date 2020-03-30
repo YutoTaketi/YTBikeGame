@@ -22,8 +22,8 @@ void BikeMove_Enemy::Execute(CVector3& position, CQuaternion& rotation, CVector3
 	{
 		//キャラクターコントローラーの初期化
 		m_charaCon.Init(
-			20.0f,           //半径
-			100.0f,
+			100.0f,           //半径
+			100.0f,          //高さ
 			position
 		);
 		m_CharaConInitFlag = true;
@@ -96,7 +96,7 @@ void BikeMove_Enemy::Execute(CVector3& position, CQuaternion& rotation, CVector3
 	//キャラクターコントローラーの更新
 	if (m_CharaConInitFlag == true)
 	{
-		m_charaCon.Execute(movespeed,
+		 position = m_charaCon.Execute(movespeed,
 			//1.0f / 60.0f 
 			GameTimeIns().GetFrameDeltaTime()
 		);

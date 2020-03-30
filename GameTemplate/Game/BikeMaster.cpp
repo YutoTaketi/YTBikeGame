@@ -14,7 +14,7 @@ using namespace std;
 
 BikeMaster::BikeMaster()
 {
-	
+	m_bikeSetFlag = false;
 }
 
 

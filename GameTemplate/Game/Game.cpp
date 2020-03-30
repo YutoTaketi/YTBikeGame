@@ -14,7 +14,7 @@ Game::Game()
 	//レベルの初期化
 	//coursepath = new CoursePath();
 	level.Init(L"Assets/level/CourseLevelDemo2.tkl", [&]( const LevelObjectData objData) {
-		
+		//パス移動用のポイントリストを作成
 		if (wcsncmp(L"point", objData.name, 5) == 0) {
 			int number = _wtoi(&objData.name[5]);
 			Point* point = new Point();
@@ -23,7 +23,7 @@ Game::Game()
 			m_pointList[number] = point;
 			return true;
 		}
-		
+		//コースを作成
 		if (wcsncmp(L"Course01", objData.name, 8) == 0)
 		{
 			course = g_goMgr.NewGO<Course>();
@@ -32,7 +32,15 @@ Game::Game()
 			return true;
 		}
 		
-		
+		//ゴール判定用のゴーストオブジェクトを作成
+		if (wcsncmp(L"GoalPoint", objData.name, 9) == 0)
+		{
+			goal = g_goMgr.NewGO<Goal>();
+			goal->SetPosition(objData.position);
+			goal->SetRotation(objData.rotation);
+			goal->SetScale(objData.scale);
+			return true;
+		}
 		return false;
     });
 	
@@ -42,9 +50,7 @@ Game::Game()
 	bikemaster->GetPassObject(m_pointList);
 	
 	
-	//goal = g_goMgr.NewGO<Goal>();
-	//goal->SetGame(this);
-	//goal->SetBike(epsilonbike);
+	
 	
 	
 	

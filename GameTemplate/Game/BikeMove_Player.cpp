@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "BikeMove_Player.h"
 #include "character/CharacterController.h"
-
+#include "GameTime.h"
 BikeMove_Player::BikeMove_Player()
 {
 	m_bikecontroller = new BikeController();
@@ -16,7 +16,7 @@ BikeMove_Player::~BikeMove_Player()
 
 void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector3& movespeed, CVector3& accel, float& accelnum, float& friction)
 {
-	/*
+
 	if (m_CharaConInitFlag == false)
 	{
 		//キャラクターコントローラーの初期化
@@ -27,7 +27,7 @@ void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector
 		);
 		m_CharaConInitFlag = true;
 	}
-	*/
+	
 	   
 		//カメラの前方方向を取得
 		CVector3 cameraForward = g_camera3D.GetForward();
@@ -92,7 +92,14 @@ void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector
 		rotation.Multiply(qRot, rotation);
 
 	
-
+		//キャラクターコントローラーの更新
+		if (m_CharaConInitFlag == true)
+		{
+			m_charaCon.Execute( movespeed, 
+				//1.0f / 60.0f 
+				GameTimeIns().GetFrameDeltaTime()
+				);
+		}
 	
 	
 }

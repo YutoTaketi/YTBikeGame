@@ -6,7 +6,7 @@
 
 Title::Title()
 {
-	m_sprite.Init(L"Assets/sprite/Tyaika.dds", 1000.0f, 800.0f);
+	m_sprite.Init(L"Assets/sprite/Rider_Title.dds", 1290.0f, 800.0f);
 	//m_model.Init(L"Assets/modelData/PlayerBike.cmo");
 }
 
@@ -18,7 +18,8 @@ Title::~Title()
 
 void Title::Update()
 {
-	m_sprite.UpdateWorldMatrix(m_position, CQuaternion::Identity(), m_scale);
+	m_rotation.SetRotationDeg(CVector3::AxisY(), 180.0f);
+	m_sprite.UpdateWorldMatrix(m_position, m_rotation, m_scale);
 	Draw();
 	/*
 	m_model.UpdateWorldMatrix(m_bikepos, m_bikerot, m_bikescale);

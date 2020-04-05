@@ -2,6 +2,7 @@
 #include "GameObjectManager.h"
 
 class Game;
+class Goal;
 class BikeMaster : public IGameObject
 {
 public:
@@ -40,6 +41,14 @@ public:
 		return m_bikeSetFlag;
 	}
 	/// <summary>
+	/// 選択されたバイクの番号に変える。
+	/// </summary>
+	/// <param name="No"></param>
+	void SetSentakuNo(int No)
+	{
+		m_bikesentakuNo = No;
+	}
+	/// <summary>
 	/// Gameのポインタを渡す。
 	/// </summary>
 	/// <param name="game"></param>
@@ -48,14 +57,12 @@ public:
 		m_game = game;
 		
 	}
-	/// <summary>
-	/// 選択されたバイクの番号に変える。
-	/// </summary>
-	/// <param name="No"></param>
-	void SetSentakuNo(int No)
+	
+	void SetGoal(Goal* goal)
 	{
-		m_bikesentakuNo = No;
+		m_goal = goal;
 	}
+	
 private:
 	void Render();
 	void Draw();
@@ -65,7 +72,7 @@ private:
 	GammaBike* gammabike = nullptr;
 	DeltaBike* deltabike = nullptr;
 	EpsilonBike* epsilonbike = nullptr;
-
+	Goal* m_goal = nullptr;
 	
 	int m_bikesentakuNo;          //バイクの選択番号
 	bool m_bikeSetFlag = false;   //必要なバイクが生成されたかのフラグ

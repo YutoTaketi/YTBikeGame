@@ -2,9 +2,11 @@
 #include "GameObjectManager.h"
 #include "PhysicsGhostObject.h"
 #include "physics/Physics.h"
+#include "graphics/SkinModel.h"
 class Game;
 class EpsilonBike;
-
+class BikeMaster;
+class SkinModel;
 class Goal : public IGameObject
 {
 public:
@@ -42,9 +44,9 @@ public:
 	{
 		m_rotation = rot;
 	}
-	PhysicsGhostObject* GetGoalPoint()
+	PhysicsGhostObject& GetGoalPoint()
 	{
-		return &m_ghostObject;
+		return m_ghostObject;
 	}
 
 	
@@ -56,9 +58,9 @@ private:
 	CVector3 m_scale = CVector3::One();      //スケール
 	CQuaternion m_rotation = CQuaternion::Identity();  //回転
 	PhysicsGhostObject m_ghostObject;     //ゴーストオブジェクト
-	
+	SkinModel* m_model;
 	Game* m_game;
 	EpsilonBike* m_epsilonbike;
+	BikeMaster* m_bikemaster;
 	bool MakeGoalFlag = false;
 };
-

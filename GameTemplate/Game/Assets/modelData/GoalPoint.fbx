@@ -8,11 +8,11 @@ FBXHeaderExtension:  {
 		Version: 1000
 		Year: 2020
 		Month: 3
-		Day: 13
-		Hour: 16
-		Minute: 2
-		Second: 1
-		Millisecond: 735
+		Day: 31
+		Hour: 14
+		Minute: 25
+		Second: 23
+		Millisecond: 574
 	}
 	Creator: "FBX SDK/FBX Plugins version 2018.1"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -34,13 +34,13 @@ FBXHeaderExtension:  {
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "3ds Max"
 			P: "Original|ApplicationVersion", "KString", "", "", "2018"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "13/03/2020 07:02:01.733"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "31/03/2020 05:25:23.548"
 			P: "Original|FileName", "KString", "", "", "C:\Users\GC1815\Desktop\YTBikeGame\YTBikeGame\GameTemplate\Game\Assets\modelData\GoalPoint.fbx"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "3ds Max"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2018"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "13/03/2020 07:02:01.733"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "31/03/2020 05:25:23.548"
 			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\GC1815\Documents\3dsMax"
 			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\GC1815\Documents\3dsMax\scenes\GoalPoint.max"
 		}
@@ -77,7 +77,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 2529034349184, "", "Scene" {
+	Document: 1838187645952, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -305,18 +305,18 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	Geometry: 2528399703456, "Geometry::", "Mesh" {
+	Geometry: 1838084893536, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.898039215686275,0.603921568627451,0.843137254901961
 		}
 		Vertices: *24 {
-			a: -56.8920593261719,-17.4360504150391,0,56.8920593261719,-17.4360504150391,0,-56.8920593261719,17.4360504150391,0,56.8920593261719,17.4360504150391,0,-56.8920593261719,-17.4360504150391,43.5776481628418,56.8920593261719,-17.4360504150391,43.5776481628418,-56.8920593261719,17.4360504150391,43.5776481628418,56.8920593261719,17.4360504150391,43.5776481628418
+			a: -129.934860229492,-21.6855659484863,0,129.934860229492,-21.6855659484863,0,-129.934860229492,21.6855659484863,0,129.934860229492,21.6855659484863,0,-129.934860229492,-21.6855659484863,168.643920898438,129.934860229492,-21.6855659484863,168.643920898438,-129.934860229492,21.6855659484863,168.643920898438,129.934860229492,21.6855659484863,168.643920898438
 		} 
 		PolygonVertexIndex: *36 {
-			a: 2,3,-1,1,0,-4,7,6,-5,7,4,-6,5,4,-1,5,0,-2,7,5,-2,7,1,-4,6,7,-4,6,3,-3,4,6,-3,4,2,-1
+			a: 2,3,-1,1,0,-4,7,6,-5,7,4,-6,5,4,-1,5,0,-2,5,1,-8,7,1,-4,6,7,-4,6,3,-3,6,2,-5,4,2,-1
 		} 
 		Edges: *18 {
-			a: 0,1,2,3,5,6,7,8,10,11,13,14,17,20,23,26,29,32
+			a: 0,1,2,3,5,6,7,8,10,11,13,14,17,19,23,26,29,31
 		} 
 		GeometryVersion: 124
 		LayerElementNormal: 0 {
@@ -362,10 +362,10 @@ Objects:  {
 			MappingInformationType: "ByPolygonVertex"
 			ReferenceInformationType: "IndexToDirect"
 			UV: *48 {
-				a: 1,0,-112.784118652344,0,1,34.8721008300781,-112.784118652344,34.8721008300781,0,0,113.784118652344,0,0,34.8721008300781,113.784118652344,34.8721008300781,0,0,113.784118652344,0,0,43.5776481628418,113.784118652344,43.5776481628418,0,0,34.8721008300781,0,0,43.5776481628418,34.8721008300781,43.5776481628418,0,0,113.784118652344,0,0,43.5776481628418,113.784118652344,43.5776481628418,0,0,34.8721008300781,0,0,43.5776481628418,34.8721008300781,43.5776481628418
+				a: 1,0,-258.869720458984,0,1,43.3711318969727,-258.869720458984,43.3711318969727,0,0,259.869720458984,0,0,43.3711318969727,259.869720458984,43.3711318969727,0,0,259.869720458984,0,0,168.643920898438,259.869720458984,168.643920898438,0,0,43.3711318969727,0,0,168.643920898438,43.3711318969727,168.643920898438,0,0,259.869720458984,0,0,168.643920898438,259.869720458984,168.643920898438,0,0,43.3711318969727,0,0,168.643920898438,43.3711318969727,168.643920898438
 			} 
 			UVIndex: *36 {
-				a: 2,3,0,1,0,3,7,6,4,7,4,5,11,10,8,11,8,9,15,14,12,15,12,13,19,18,16,19,16,17,23,22,20,23,20,21
+				a: 2,3,0,1,0,3,7,6,4,7,4,5,11,10,8,11,8,9,14,12,15,15,12,13,19,18,16,19,16,17,22,20,23,23,20,21
 			} 
 		}
 		LayerElementMaterial: 0 {
@@ -401,7 +401,7 @@ Objects:  {
 			}
 		}
 	}
-	Model: 2529036446784, "Model::Box001", "Mesh" {
+	Model: 1837758656224, "Model::Box001", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -413,7 +413,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Material: 2528984275280, "Material::01 - Default", "" {
+	Material: 1836111379376, "Material::01 - Default", "" {
 		Version: 102
 		ShadingModel: "phong"
 		MultiLayer: 0
@@ -436,17 +436,17 @@ Objects:  {
 			P: "Reflectivity", "double", "Number", "",0
 		}
 	}
-	Video: 2528984292560, "Video::マップ #0", "Clip" {
+	Video: 1836111368816, "Video::マップ #0", "Clip" {
 		Type: "Clip"
 		Properties70:  {
-			P: "Path", "KString", "XRefUrl", "", "C:\Users\GC1815\Desktop\YTBikeGame\YTBikeGame\GameTemplate\Game\Assets\sprite\green.png"
-			P: "RelPath", "KString", "XRefUrl", "", "..\sprite\green.png"
+			P: "Path", "KString", "XRefUrl", "", "C:\Users\GC1815\Desktop\YTBikeGame\YTBikeGame\GameTemplate\Game\Assets\modelData\green.png"
+			P: "RelPath", "KString", "XRefUrl", "", "green.png"
 		}
 		UseMipMap: 0
-		Filename: "C:\Users\GC1815\Desktop\YTBikeGame\YTBikeGame\GameTemplate\Game\Assets\sprite\green.png"
-		RelativeFilename: "..\sprite\green.png"
+		Filename: "C:\Users\GC1815\Desktop\YTBikeGame\YTBikeGame\GameTemplate\Game\Assets\modelData\green.png"
+		RelativeFilename: "green.png"
 	}
-	Texture: 2528984269520, "Texture::マップ #0", "" {
+	Texture: 1836111388016, "Texture::マップ #0", "" {
 		Type: "TextureVideoClip"
 		Version: 202
 		TextureName: "Texture::マップ #0"
@@ -456,20 +456,20 @@ Objects:  {
 			P: "UseMaterial", "bool", "", "",1
 		}
 		Media: "Video::マップ #0"
-		FileName: "C:\Users\GC1815\Desktop\YTBikeGame\YTBikeGame\GameTemplate\Game\Assets\sprite\green.png"
-		RelativeFilename: "..\sprite\green.png"
+		FileName: "C:\Users\GC1815\Desktop\YTBikeGame\YTBikeGame\GameTemplate\Game\Assets\modelData\green.png"
+		RelativeFilename: "green.png"
 		ModelUVTranslation: 0,0
 		ModelUVScaling: 1,1
 		Texture_Alpha_Source: "None"
 		Cropping: 0,0,0,0
 	}
-	AnimationStack: 2529034243600, "AnimStack::Take 001", "" {
+	AnimationStack: 1838187723136, "AnimStack::Take 001", "" {
 		Properties70:  {
 			P: "LocalStop", "KTime", "Time", "",153953860000
 			P: "ReferenceStop", "KTime", "Time", "",153953860000
 		}
 	}
-	AnimationLayer: 2528791204752, "AnimLayer::BaseLayer", "" {
+	AnimationLayer: 1838187617312, "AnimLayer::BaseLayer", "" {
 	}
 }
 
@@ -479,22 +479,22 @@ Objects:  {
 Connections:  {
 	
 	;Model::Box001, Model::RootNode
-	C: "OO",2529036446784,0
+	C: "OO",1837758656224,0
 	
 	;AnimLayer::BaseLayer, AnimStack::Take 001
-	C: "OO",2528791204752,2529034243600
+	C: "OO",1838187617312,1838187723136
 	
 	;Material::01 - Default, Model::Box001
-	C: "OO",2528984275280,2529036446784
+	C: "OO",1836111379376,1837758656224
 	
 	;Geometry::, Model::Box001
-	C: "OO",2528399703456,2529036446784
+	C: "OO",1838084893536,1837758656224
 	
 	;Texture::マップ #0, Material::01 - Default
-	C: "OP",2528984269520,2528984275280, "DiffuseColor"
+	C: "OP",1836111388016,1836111379376, "DiffuseColor"
 	
 	;Video::マップ #0, Texture::マップ #0
-	C: "OO",2528984292560,2528984269520
+	C: "OO",1836111368816,1836111388016
 }
 ;Takes section
 ;----------------------------------------------------

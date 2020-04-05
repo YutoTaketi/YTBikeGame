@@ -13,7 +13,7 @@ Game::Game()
 {
 	//レベルの初期化
 	//coursepath = new CoursePath();
-	level.Init(L"Assets/level/CourseLevelDemo2.tkl", [&]( const LevelObjectData objData) {
+	level.Init(L"Assets/level/CourseLevelDemo2.tkl", [&]( LevelObjectData objData) {
 		//パス移動用のポイントリストを作成
 		if (wcsncmp(L"point", objData.name, 5) == 0) {
 			int number = _wtoi(&objData.name[5]);
@@ -33,14 +33,20 @@ Game::Game()
 		}
 		
 		//ゴール判定用のゴーストオブジェクトを作成
-		if (wcsncmp(L"GoalPoint", objData.name, 9) == 0)
+		/*if (wcsncmp(L"GoalPoint", objData.name, 9) == 0)
 		{
 			goal = g_goMgr.NewGO<Goal>();
-			goal->SetPosition(objData.position);
+		    goal->SetPosition(objData.position);
 			goal->SetRotation(objData.rotation);
 			goal->SetScale(objData.scale);
 			return true;
+		}*/
+
+		if (objData.EqualObjectName(L"Course01") == true)
+		{
+
 		}
+	
 		return false;
     });
 	
@@ -48,7 +54,7 @@ Game::Game()
 	bikemaster = g_goMgr.NewGO<BikeMaster>();
 	bikemaster->SetGame(this);
 	bikemaster->GetPassObject(m_pointList);
-	
+	//bikemaster->SetGoal(goal);
 	
 	
 	
@@ -128,6 +134,7 @@ void Game::Update()
 	if (bikemaster->GetbikesetFlag() == true)
 	{
 		level.Draw();
+		//goal->Update();
 	}
 	
 	//アイテム枠の描画

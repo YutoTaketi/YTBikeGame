@@ -44,7 +44,7 @@ void EpsilonBike::Update()
 		m_bikeMoveDecision = true;
 	}
 
-	if ( m_game->GetFinishFlag() == false) {
+	/*if ( m_game->GetFinishFlag() == false) {
 		m_point = m_game->GetGorlPoint();
 		CVector3 m_gorlpos = m_point->s_position;
 		CVector3 m_gorltoPlayer = m_gorlpos - m_position;
@@ -60,7 +60,7 @@ void EpsilonBike::Update()
 		{
 			m_game->ChangeFinishFlag();
 		}
-	}
+	}*/
 	/*
 	g_physics.ContactTest(m_charaCon, [&](const btCollisionObject& contactObject) {
 		if (m_ghostObject.IsSelf(contactObject) == true) {

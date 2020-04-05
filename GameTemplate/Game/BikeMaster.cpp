@@ -8,13 +8,14 @@
 #include "GammaBike.h"
 #include "DeltaBike.h"
 #include "EpsilonBike.h"
-
+#include "Goal.h"
 using namespace std;
 
 
 BikeMaster::BikeMaster()
 {
 	m_bikeSetFlag = false;
+	m_bikesentakuNo;
 }
 
 
@@ -26,6 +27,7 @@ BikeMaster::~BikeMaster()
 	g_goMgr.DeleteGameObject(deltabike);
 	g_goMgr.DeleteGameObject(epsilonbike);
 	g_goMgr.DeleteGameObject(gamecamera);
+	
 }
 
 void BikeMaster::Update()

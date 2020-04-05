@@ -2,6 +2,9 @@
 #include "BikeMove_Player.h"
 #include "character/CharacterController.h"
 #include "GameTime.h"
+#include "Goal.h"
+#include "PhysicsGhostObject.h"
+
 BikeMove_Player::BikeMove_Player()
 {
 	m_bikecontroller = new BikeController();
@@ -21,7 +24,7 @@ void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector
 	{
 		//キャラクターコントローラーの初期化
 		m_charaCon.Init(
-		   100.0f,           //半径
+		   50.0f,           //半径
 		   100.0f,          //高さ
 		   position
 		);
@@ -101,5 +104,20 @@ void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector
 				);
 		}
 	
-	
+	//ゴーストオブジェクトとの当たり判定
+		/*g_physics.ContactTest(m_charaCon, [&](const btCollisionObject& contactObject)
+			{
+			
+				if (goal.GetGoalPoint().IsSelf(contactObject) == true) {
+					Syukaihantei = true;
+					if (Syukaihantei == true )
+					{
+						m_game->SyuukaiCount();
+					}
+					if (m_game->GetFinishHantei() == 4)
+					{
+						m_game->ChangeFinishFlag();
+					}
+				}
+			});*/
 }

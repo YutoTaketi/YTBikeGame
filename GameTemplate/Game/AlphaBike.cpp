@@ -38,7 +38,7 @@ void AlphaBike::Update()
 	}
 
 	//ゴールの判定
-	if (m_game->GetFinishFlag() == false) {
+	/*if (m_game->GetFinishFlag() == false) {
 		m_point = m_game->GetGorlPoint();
 		CVector3 m_gorlpos = m_point->s_position;
 		CVector3 m_gorltoPlayer = m_gorlpos - m_position;
@@ -54,7 +54,12 @@ void AlphaBike::Update()
 		{
 			m_game->ChangeFinishFlag();
 		}
-	}
+	}*/
+
+	
+	
+
+
 
 	//バイクの移動処理を実行する。
   m_bikeMove->Execute(m_position, m_rotation, m_moveSpeed, m_accel, m_accelNum, m_friction);

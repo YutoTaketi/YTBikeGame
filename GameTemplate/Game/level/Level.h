@@ -72,11 +72,14 @@ public :
 	*									フックしないならnullptrを指定すればよい、
 	*									詳細はHookWhenBuildObjectFuncのコメントを参照。
 	*/
-	void Init(const wchar_t* levelDataFilePath, HookWhenBuildObjectFunc hookFunc);
+	//void Init(const wchar_t* levelDataFilePath, HookWhenBuildObjectFunc hookFunc);
+
+	void Init(const wchar_t* levelDataFilePath, std::function<bool(LevelObjectData& objData)> hookFunc);
 	/*!
 	* @brief	レベルを描画。
 	*/
 	void Draw();
 private:
+	using MapChipPtr = std::unique_ptr<MapChip>;
 	std::vector<MapChipPtr> m_mapChipArray;		//!<マップチップの可変長配列。
 };

@@ -11,11 +11,19 @@
 class Game;
 class CharacterController;
 class GameTime;
+class Goal;
 class BikeMove_Player : public BikeMove
 {
 public:
 	BikeMove_Player();
 	~BikeMove_Player();
+
+
+	CharacterController& GetCharaCon()
+	{
+		return m_charaCon;
+	}
+
 
 	/// <summary>
 	/// プレイヤーが使用するバイクの更新関数
@@ -35,7 +43,9 @@ public:
 	CVector3 m_finishspeed = CVector3::Zero();
 	Game* m_game;
 	CharacterController m_charaCon;
+	PhysicsGhostObject m_ghostObject;     //ゴーストオブジェクト
 	GameTime gametime;
+	Goal goal;
 	bool m_CharaConInitFlag = false;     //キャラクターコントローラーが初期化されているかのフラグ
 };
 

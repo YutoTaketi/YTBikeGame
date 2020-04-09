@@ -13,7 +13,7 @@ Game::Game()
 {
 	//レベルの初期化
 	//coursepath = new CoursePath();
-	level.Init(L"Assets/level/CourseLevelDemo2.tkl", [&]( LevelObjectData objData) {
+	level.Init(L"Assets/level/CourseLevelDemo2.tkl", [&]( LevelObjectData& objData) {
 		//パス移動用のポイントリストを作成
 		if (wcsncmp(L"point", objData.name, 5) == 0) {
 			int number = _wtoi(&objData.name[5]);
@@ -24,29 +24,31 @@ Game::Game()
 			return true;
 		}
 		//コースを作成
-		if (wcsncmp(L"Course01", objData.name, 8) == 0)
+		/*if (wcsncmp(L"Course01", objData.name, 8) == 0)
 		{
 			course = g_goMgr.NewGO<Course>();
 			course->SetPosition(objData.position);
 			course->SetRotation(objData.rotation);
 			return true;
-		}
-		
-		//ゴール判定用のゴーストオブジェクトを作成
-		/*if (wcsncmp(L"GoalPoint", objData.name, 9) == 0)
-		{
-			goal = g_goMgr.NewGO<Goal>();
-		    goal->SetPosition(objData.position);
-			goal->SetRotation(objData.rotation);
-			goal->SetScale(objData.scale);
+		}*/
+		/*
+		if (objData.EqualObjectName(L"Course01") == true) {
+			course = g_goMgr.NewGO<Course>();
+			course->m_position = objData.position;
+			course->m_rotation = objData.rotation;
+			course->m_scale = objData.scale;
 			return true;
 		}*/
-
-		if (objData.EqualObjectName(L"Course01") == true)
-		{
-
+		
+		if (objData.EqualObjectName(L"GoalPoint") == true) {
+			Goal* goal = g_goMgr.NewGO<Goal>();
+			goal->m_position = objData.position;
+			goal->m_rotation = objData.rotation;
+			goal->m_scale = objData.scale;
+			return true;
 		}
-	
+
+		
 		return false;
     });
 	
@@ -100,7 +102,7 @@ Game::~Game()
 	
 	//g_goMgr.DeleteGameObject(itemwaku);
 	
-	g_goMgr.DeleteGameObject(goal);
+	//g_goMgr.DeleteGameObject(goal);
 	g_goMgr.DeleteGameObject(bikeselect);
 	g_goMgr.DeleteGameObject(bikemaster);
 	g_goMgr.DeleteGameObject(course);
@@ -135,6 +137,10 @@ void Game::Update()
 	{
 		level.Draw();
 		//goal->Update();
+		if (course != nullptr)
+		{
+			course->Update();
+		}
 	}
 	
 	//アイテム枠の描画

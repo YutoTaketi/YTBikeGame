@@ -21,13 +21,15 @@ public:
 	{
 		m_rotation = rot;
 	}
+	CVector3 m_position = CVector3::Zero();
+	CQuaternion m_rotation = CQuaternion::Identity();
+	CVector3 m_scale = CVector3::One();
 private:
 	void Render();
 	void Draw();
 
 	SkinModel m_model;
 	PhysicsStaticObject m_phyStaticObject;
-	CVector3 m_position = CVector3::Zero();
-	CQuaternion m_rotation = CQuaternion::Identity();
+	
 };
 

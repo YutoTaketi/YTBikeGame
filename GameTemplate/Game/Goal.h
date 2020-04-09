@@ -49,14 +49,14 @@ public:
 		return m_ghostObject;
 	}
 
-	
+	CVector3 m_position = CVector3::Zero();  //座標
+	CVector3 m_scale = CVector3::One();      //スケール
+	CQuaternion m_rotation = CQuaternion::Identity();  //回転
 private:
 	void Render();
 	void Draw();
 	
-	CVector3 m_position = CVector3::Zero();  //座標
-	CVector3 m_scale = CVector3::One();      //スケール
-	CQuaternion m_rotation = CQuaternion::Identity();  //回転
+	
 	PhysicsGhostObject m_ghostObject;     //ゴーストオブジェクト
 	SkinModel* m_model;
 	Game* m_game;

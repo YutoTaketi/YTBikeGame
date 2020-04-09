@@ -40,7 +40,7 @@ Game::Game()
 			return true;
 		}*/
 		
-		if (objData.EqualObjectName(L"GoalPoint") == true) {
+		if (objData.EqualObjectName(L"TestGoal") == true) {
 			Goal* goal = g_goMgr.NewGO<Goal>();
 			goal->m_position = objData.position;
 			goal->m_rotation = objData.rotation;

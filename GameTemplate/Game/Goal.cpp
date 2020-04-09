@@ -8,7 +8,7 @@ Goal::Goal()
 {
 	m_model = new SkinModel();
 	MakeGoalFlag = false;
-	m_model->Init(L"Assets/modelData/GoalPoint.cmo");
+	m_model->Init(L"Assets/modelData/TestGoal.cmo");
 }
 
 

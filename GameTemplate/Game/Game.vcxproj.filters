@@ -371,6 +371,9 @@
     <MeshContentTask Include="Assets\modelData\PlayerBike\PlayerBike.FBX">
       <Filter>Assets\modelData\PlayerBike</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\TestGoal.FBX">
+      <Filter>Assets\modelData</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Assets\level\stage_00.tkl" />

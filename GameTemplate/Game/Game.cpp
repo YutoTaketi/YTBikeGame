@@ -133,15 +133,15 @@ void Game::ChangeRenderTarget(ID3D11DeviceContext* d3dDeviceContext, ID3D11Rende
 void Game::Update()
 {
 	//ƒŒƒxƒ‹‚Ì•`‰æ
-	if (bikemaster->GetbikesetFlag() == true)
-	{
+	//if (bikemaster->GetbikesetFlag() == true)
+	//{
 		level.Draw();
 		//goal->Update();
-		if (course != nullptr)
+		/*if (course != nullptr)
 		{
 			course->Update();
-		}
-	}
+		}*/
+	//}
 	
 	//ƒAƒCƒeƒ€˜g‚Ì•`‰æ
 	//itemwaku->Update();

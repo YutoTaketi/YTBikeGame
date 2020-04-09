@@ -260,6 +260,7 @@
     <MeshContentTask Include="Assets\modelData\PlayerBike\PlayerBike1.FBX" />
     <MeshContentTask Include="Assets\modelData\point.FBX" />
     <MeshContentTask Include="Assets\modelData\RaceCourse.FBX" />
+    <MeshContentTask Include="Assets\modelData\TestGoal.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">
       <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\Assets\modelData\%(Filename).cmo</ContentOutput>
       <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)\Assets\modelData\%(Filename).cmo</ContentOutput>

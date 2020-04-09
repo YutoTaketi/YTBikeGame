@@ -61,7 +61,7 @@ void Level::Init(const wchar_t* levelDataFilePath, std::function<bool(LevelObjec
 		if (bone->GetParentId() == 0) {	//親がルートの場合だけマップチップを生成する。
 			LevelObjectData objData;
 			CVector3 scale;
-			bone->CalcWorldTRS(objData.position, objData.rotation, scale);
+			bone->CalcWorldTRS(objData.position, objData.rotation, objData.scale);
 			//3dsMaxとは軸が違うので、補正を入れる。
 			auto t = objData.position.y;
 			objData.position.y = objData.position.z;
@@ -71,6 +71,9 @@ void Level::Init(const wchar_t* levelDataFilePath, std::function<bool(LevelObjec
 			objData.rotation.y = objData.rotation.z;
 			objData.rotation.z = -t;
 			objData.name = bone->GetName();
+
+			std::swap(objData.scale.y, objData.scale.z);
+
 			bool isHook = false;
 			if (hookFunc != nullptr) {
 				//hook関数が指定されているのでhook関数を呼び出す。

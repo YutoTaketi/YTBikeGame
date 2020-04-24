@@ -6,9 +6,9 @@
 #include "graphics/SkinModel.h"
 Goal::Goal()
 {
-	m_model = new SkinModel();
+	//m_model = new SkinModel();
 	MakeGoalFlag = false;
-	m_model->Init(L"Assets/modelData/TestGoal.cmo");
+	//m_model->Init(L"Assets/modelData/TestGoal.cmo");
 }
 
 
@@ -21,14 +21,14 @@ void Goal::Update()
 {
 	if (MakeGoalFlag == false)
 	{
-		m_ghostObject.CreateBox(m_position, m_rotation, m_scale);
+		m_ghostObject.CreateBox(m_position, m_rotation, {100.0f, 100.0f, 100.0f});
 		MakeGoalFlag = true;
 	}
-	m_model->UpdateWorldMatrix(m_position, m_rotation, m_scale);
-	m_model->Draw(
+	//m_model->UpdateWorldMatrix(m_position, m_rotation, m_scale);
+	/*m_model->Draw(
 		g_camera3D.GetViewMatrix(),
 		g_camera3D.GetProjectionMatrix()
-	);
+	);*/
 	
 }
 void Goal::Render()

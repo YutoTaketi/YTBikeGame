@@ -41,7 +41,7 @@ Game::Game()
 		}*/
 		
 		if (objData.EqualObjectName(L"TestGoal") == true) {
-			Goal* goal = g_goMgr.NewGO<Goal>();
+			goal = g_goMgr.NewGO<Goal>();
 			goal->m_position = objData.position;
 			goal->m_rotation = objData.rotation;
 			goal->m_scale = objData.scale;
@@ -56,7 +56,7 @@ Game::Game()
 	bikemaster = g_goMgr.NewGO<BikeMaster>();
 	bikemaster->SetGame(this);
 	bikemaster->GetPassObject(m_pointList);
-	//bikemaster->SetGoal(goal);
+	bikemaster->SetGoal(goal);
 	
 	
 	
@@ -165,7 +165,7 @@ void Game::Update()
 
 	);*/
 
-	if (finishhantei >= 4 )
+	if (finishFlag == true)
 	{
 		
 		g_goMgr.NewGO<Result>();

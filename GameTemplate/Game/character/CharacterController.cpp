@@ -24,6 +24,7 @@ namespace {
 		{
 			if (convexResult.m_hitCollisionObject == me
 				|| convexResult.m_hitCollisionObject->getUserIndex() == enCollisionAttr_Character
+				|| convexResult.m_hitCollisionObject->getInternalType() == btCollisionObject::CO_GHOST_OBJECT
 				) {
 				//自分に衝突した。or キャラクタ属性のコリジョンと衝突した。
 				return 0.0f;
@@ -65,7 +66,9 @@ namespace {
 												//衝突したときに呼ばれるコールバック関数。
 		virtual	btScalar	addSingleResult(btCollisionWorld::LocalConvexResult& convexResult, bool normalInWorldSpace)
 		{
-			if (convexResult.m_hitCollisionObject == me) {
+			if (convexResult.m_hitCollisionObject == me
+				|| convexResult.m_hitCollisionObject->getInternalType() == btCollisionObject::CO_GHOST_OBJECT
+				) {
 				//自分に衝突した。or 地面に衝突した。
 				return 0.0f;
 			}
@@ -118,10 +121,11 @@ void CharacterController::Init(float radius, float height, const CVector3& posit
 	m_rigidBody.GetBody()->setUserIndex(enCollisionAttr_Character);
 	m_rigidBody.GetBody()->setCollisionFlags(btCollisionObject::CF_CHARACTER_OBJECT);
 	g_physics.AddRigidBody(m_rigidBody);
-
+	
 }
 const CVector3& CharacterController::Execute( CVector3& moveSpeed, float deltaTime )
 {
+	
 	if (moveSpeed.y > 0.0f) {
 		//吹っ飛び中にする。
 		m_isJump = true;

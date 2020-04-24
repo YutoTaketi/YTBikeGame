@@ -20,10 +20,7 @@ public:
 		m_game = game;
 		//m_bikeMove->SetGame(game);
 	}
-	void SetBike(EpsilonBike* epsilonbike)
-	{
-		m_epsilonbike = epsilonbike;
-	}
+	
 	/// <summary>
 	/// 配置したゴールポイントの座標を取得
 	/// </summary>
@@ -60,7 +57,7 @@ private:
 	PhysicsGhostObject m_ghostObject;     //ゴーストオブジェクト
 	SkinModel* m_model;
 	Game* m_game;
-	EpsilonBike* m_epsilonbike;
+	
 	BikeMaster* m_bikemaster;
 	bool MakeGoalFlag = false;
 };

@@ -3,11 +3,13 @@
 #include "Game.h"
 #include "BikeSelect.h"
 #include "graphics/SkinModel.h"
-
+#include "Font.h"
+#include "graphics/GraphicsEngine.h"
 Title::Title()
 {
 	m_sprite.Init(L"Assets/sprite/Rider_Title.dds", 1290.0f, 800.0f);
 	//m_model.Init(L"Assets/modelData/PlayerBike.cmo");
+	//m_font = new Font();
 }
 
 
@@ -26,6 +28,15 @@ void Title::Update()
 	m_model.Draw(
 		g_camera3D.GetViewMatrix(),
 		g_camera3D.GetProjectionMatrix()
+	);*/
+	/*m_font->DrawScreenPos(
+	   L"Bike Operation",
+	   m_Fontpos,
+	   m_color,
+	   m_Fontscale,
+	   pivot,
+	   rot,
+	   DirectX::SpriteEffects_None
 	);*/
 	if (g_pad[0].IsTrigger(enButtonA)) {
 		g_goMgr.DeleteGameObject(this);

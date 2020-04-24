@@ -147,7 +147,7 @@ private:
 	Level level;	//レベル
 	
 	ItemWaku* itemwaku = nullptr;  //アイテム表示の枠
-	//Goal* goal = nullptr;
+	Goal* goal = nullptr;
 	BikeSelect* bikeselect = nullptr;   //バイクの選択画面
 	BikeMaster* bikemaster = nullptr;   //バイクの生成を担当
 	Course* course = nullptr;           //コース

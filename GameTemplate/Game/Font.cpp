@@ -4,6 +4,7 @@
 
 Font::Font()
 {
+	
 	m_spriteBatch = g_graphicsEngine->GetSpriteBatch();
 	m_spriteFont = g_graphicsEngine->GetSpriteFont();
 
@@ -27,6 +28,7 @@ void Font::DrawScreenPos(
 	float rotation,
 	DirectX::SpriteEffects effects)
 {
+	
 	//BeginŠÖ”‚ðƒhƒ[‚Ì‘O‚ÅŒÄ‚Ô‚±‚Æ
 	m_spriteBatch->Begin();
 	m_spriteFont->DrawString(

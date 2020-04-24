@@ -1,6 +1,8 @@
 #pragma once
 
 class Game;
+class Goal;
+class CharacterController;
 struct Point {
 	CVector3 s_position;
 	int s_number;
@@ -22,6 +24,8 @@ public:
 	virtual void Execute(CVector3& position, CQuaternion& rotation, CVector3& movespeed, CVector3& accel, float& accelnum, float& friction) = 0;
 
 	Game* m_game;
+	Goal* m_goal;
+
 	//CoursePath* m_coursepath;
 	/// <summary>
 	/// ƒpƒXˆÚ“®‚ÉŠÖ‚·‚éŠÖ”‚Æ”z—ñ
@@ -39,7 +43,10 @@ public:
 	{
 		m_game = game;
 	}
-
+	void SetGoal(Goal* goal)
+	{
+		m_goal = goal;
+	}
 	int GetsyukaiCount()
 	{
 		return syukaicount;

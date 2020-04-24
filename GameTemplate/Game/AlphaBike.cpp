@@ -34,10 +34,12 @@ void AlphaBike::Update()
 	if (m_playerBikeFlag == true && m_bikeMoveDecision == false)
 	{
 		m_bikeMove = new BikeMove_Player();
+		
 		m_bikeMoveDecision = true;
 	}
 
 	//ƒS[ƒ‹‚Ì”»’è
+
 	/*if (m_game->GetFinishFlag() == false) {
 		m_point = m_game->GetGorlPoint();
 		CVector3 m_gorlpos = m_point->s_position;

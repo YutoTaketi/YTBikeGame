@@ -22,7 +22,7 @@ void BikeMove_Enemy::Execute(CVector3& position, CQuaternion& rotation, CVector3
 	{
 		//キャラクターコントローラーの初期化
 		m_charaCon.Init(
-			50.0f,           //半径
+			45.0f,           //半径
 			100.0f,          //高さ
 			position
 		);

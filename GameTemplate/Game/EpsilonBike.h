@@ -59,7 +59,7 @@ private:
 	void Render();
 	void Draw();
 
-	CVector3 m_position = { 0.0f, 0.0f, 0.0f };      //À•W
+	CVector3 m_position = { 200.0f, 0.0f, 0.0f };      //À•W
 	CVector3 m_moveSpeed = CVector3::Zero();          //ˆÚ“®‘¬“x
 	CQuaternion m_rotation = CQuaternion::Identity(); //‰ñ“]
 	CVector3 m_pointOnePos = CVector3::Zero();

@@ -24,7 +24,7 @@ void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector
 	{
 		//キャラクターコントローラーの初期化
 		m_charaCon.Init(
-		   50.0f,           //半径
+		   45.0f,           //半径
 		   100.0f,          //高さ
 		   position
 		);
@@ -105,7 +105,7 @@ void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector
 		}
 	
 	//ゴーストオブジェクトとの当たり判定
-		/*g_physics.ContactTest(m_charaCon, [&](const btCollisionObject& contactObject)
+		g_physics.ContactTest(m_charaCon, [&](const btCollisionObject& contactObject)
 			{
 			
 				if (goal.GetGoalPoint().IsSelf(contactObject) == true) {
@@ -119,5 +119,5 @@ void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector
 						m_game->ChangeFinishFlag();
 					}
 				}
-			});*/
+			});
 }

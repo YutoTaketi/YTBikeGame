@@ -24,7 +24,7 @@ public:
 	virtual void Execute(CVector3& position, CQuaternion& rotation, CVector3& movespeed, CVector3& accel, float& accelnum, float& friction) = 0;
 
 	Game* m_game;
-	Goal* m_goal;
+	Goal* m_goal = nullptr;
 
 	//CoursePath* m_coursepath;
 	/// <summary>

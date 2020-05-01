@@ -41,11 +41,11 @@ public:
 	CVector3 sinkouhoukou = g_camera3D.GetForward();  //進行方向
 	BikeController* m_bikecontroller;                 //バイクの内積外積計算をする。
 	CVector3 m_finishspeed = CVector3::Zero();
-	Game* m_game;
+	
 	CharacterController m_charaCon;
 	PhysicsGhostObject m_ghostObject;     //ゴーストオブジェクト
 	GameTime gametime;
-	Goal goal;
+	
 	bool m_CharaConInitFlag = false;     //キャラクターコントローラーが初期化されているかのフラグ
 };
 

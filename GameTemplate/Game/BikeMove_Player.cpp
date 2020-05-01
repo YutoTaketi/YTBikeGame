@@ -105,19 +105,22 @@ void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector
 		}
 	
 	//ゴーストオブジェクトとの当たり判定
-		g_physics.ContactTest(m_charaCon, [&](const btCollisionObject& contactObject)
-			{
-			
-				if (goal.GetGoalPoint().IsSelf(contactObject) == true) {
-					Syukaihantei = true;
-					if (Syukaihantei == true )
-					{
-						m_game->SyuukaiCount();
+		if ( m_goal != nullptr) {
+
+			g_physics.ContactTest(m_charaCon, [&](const btCollisionObject& contactObject)
+				{
+
+					if (m_goal->GetGoalPoint().IsSelf(contactObject) == true) {
+						Syukaihantei = true;
+						if (Syukaihantei == true)
+						{
+							m_game->SyuukaiCount();
+						}
+						if (m_game->GetFinishHantei() == 4)
+						{
+							m_game->ChangeFinishFlag();
+						}
 					}
-					if (m_game->GetFinishHantei() == 4)
-					{
-						m_game->ChangeFinishFlag();
-					}
-				}
-			});
+				});
+		}
 }

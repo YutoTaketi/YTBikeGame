@@ -39,6 +39,7 @@ void BikeMaster::Update()
 		alphabike = g_goMgr.NewGO<AlphaBike>();
 		alphabike->SetGame(m_game);
 		alphabike->ChangePlayerBikeFlag();
+		alphabike->SetGoal(m_goal);
 		//ƒJƒƒ‰
 		gamecamera = g_goMgr.NewGO<GameCamera>();
 		gamecamera->SetBike(alphabike);

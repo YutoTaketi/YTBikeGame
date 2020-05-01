@@ -169,7 +169,7 @@ void Game::Update()
 	{
 		
 		g_goMgr.NewGO<Result>();
-		g_goMgr.DeleteGameObject(this);
+		//g_goMgr.DeleteGameObject(this);
 		
 	}
 }

@@ -4,7 +4,7 @@
 #include "BikeMove.h"
 #include "BikeMove_Enemy.h"
 #include "BikeMove_Player.h"
-
+#include "Goal.h"
 AlphaBike::AlphaBike()
 {
 	m_model = new  SkinModel();
@@ -34,7 +34,7 @@ void AlphaBike::Update()
 	if (m_playerBikeFlag == true && m_bikeMoveDecision == false)
 	{
 		m_bikeMove = new BikeMove_Player();
-		
+		m_bikeMove->SetGoal(m_goal);
 		m_bikeMoveDecision = true;
 	}
 

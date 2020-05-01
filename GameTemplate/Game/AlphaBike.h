@@ -5,7 +5,7 @@
 
 class Game;
 class BikeMove;
-
+class Goal;
 class AlphaBike : public IGameObject
 {
 public:
@@ -40,7 +40,14 @@ public:
 	{
 		m_game = game;
 	}
-
+	/// <summary>
+	/// Goalのポインタを渡す
+	/// </summary>
+	/// <param name="goal"></param>
+	void SetGoal(Goal* goal)
+	{
+		m_goal = goal;
+	}
 	//プレイヤーなら切り替える。
 	void ChangePlayerBikeFlag()
 	{
@@ -57,7 +64,7 @@ private:
 	CQuaternion m_rotation = CQuaternion::Identity(); //回転
 	SkinModel* m_model;                               //スキンモデル。
 	Game* m_game;
-
+	Goal* m_goal;
 	CVector3 m_accel = CVector3::Zero();    //加速度
 	CVector3 m_forward = CVector3::AxisZ();   //エネミーの前方方向
 

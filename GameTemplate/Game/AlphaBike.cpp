@@ -34,34 +34,10 @@ void AlphaBike::Update()
 	if (m_playerBikeFlag == true && m_bikeMoveDecision == false)
 	{
 		m_bikeMove = new BikeMove_Player();
+		m_bikeMove->SetGame(m_game);
 		m_bikeMove->SetGoal(m_goal);
 		m_bikeMoveDecision = true;
 	}
-
-	//ゴールの判定
-
-	/*if (m_game->GetFinishFlag() == false) {
-		m_point = m_game->GetGorlPoint();
-		CVector3 m_gorlpos = m_point->s_position;
-		CVector3 m_gorltoPlayer = m_gorlpos - m_position;
-		if (m_gorltoPlayer.Length() < 100.0)
-		{
-			m_bikeMove->Syukaihantei = true;
-		}
-		if (m_bikeMove->Syukaihantei == true && m_gorltoPlayer.Length() < 50.0)
-		{
-			m_game->SyuukaiCount();
-		}
-		if (m_game->GetFinishHantei() == 4)
-		{
-			m_game->ChangeFinishFlag();
-		}
-	}*/
-
-	
-	
-
-
 
 	//バイクの移動処理を実行する。
   m_bikeMove->Execute(m_position, m_rotation, m_moveSpeed, m_accel, m_accelNum, m_friction);

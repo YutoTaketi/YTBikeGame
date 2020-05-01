@@ -70,6 +70,7 @@ void BikeMaster::Update()
 		//プレイヤーバイク
 		betabike = g_goMgr.NewGO<BetaBike>();
 		betabike->SetGame(m_game);
+		betabike->SetGoal(m_goal);
 		betabike->ChangePlayerBikeFlag();
 		//カメラ
 		gamecamera = g_goMgr.NewGO<GameCamera>();
@@ -101,6 +102,7 @@ void BikeMaster::Update()
 		//プレイヤーバイク
 		gammabike = g_goMgr.NewGO<GammaBike>();
 		gammabike->SetGame(m_game);
+		gammabike->SetGoal(m_goal);
 		gammabike->ChangePlayerBikeFlag();
 		//カメラ
 		gamecamera = g_goMgr.NewGO<GameCamera>();

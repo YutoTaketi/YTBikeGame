@@ -10,17 +10,8 @@ BetaBike::BetaBike()
 	m_model = new  SkinModel();
 	//cmoファイルの読み込み。
 	m_model->Init(L"Assets/modelData/Bike2.cmo");
-	//バイクの移動処理を初期化
-	//COMバイクの時
-	/*if (m_playerBikeFlag == false)
-	{
-		m_bikeMove = new BikeMove_Enemy();
-	}*/
-	//プレイヤーバイクの時
-	/*if (m_playerBikeFlag == true)
-	{
-		m_bikeMove = new BikeMove_Player();
-	}*/
+	
+	
 	
 }
 
@@ -47,6 +38,8 @@ void BetaBike::Update()
 	if (m_playerBikeFlag == true && m_bikeMoveDecision == false)
 	{
 		m_bikeMove = new BikeMove_Player();
+		m_bikeMove->SetGame(m_game);
+		m_bikeMove->SetGoal(m_goal);
 		m_bikeMoveDecision = true;
 	}
 

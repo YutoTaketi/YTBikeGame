@@ -46,6 +46,14 @@ public:
 	{
 		m_game = game;
 	}
+	/// <summary>
+	/// Goalのポインタを渡す
+	/// </summary>
+	/// <param name="goal"></param>
+	void SetGoal(Goal* goal)
+	{
+		m_goal = goal;
+	}
 	//プレイヤーなら切り替える。
 	void ChangePlayerBikeFlag()
 	{
@@ -66,7 +74,7 @@ private:
 	SkinModel* m_model;                               //スキンモデル。
 	//CharacterController m_charaCon;
 	PhysicsWorld m_physics;
-	Goal goal;
+	Goal* m_goal;
 	//GameTime m_gameTime;
 	Game* m_game = nullptr;
 

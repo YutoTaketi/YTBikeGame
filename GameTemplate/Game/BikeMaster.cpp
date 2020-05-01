@@ -134,6 +134,7 @@ void BikeMaster::Update()
 		//プレイヤーバイク
 		deltabike = g_goMgr.NewGO<DeltaBike>();
 		deltabike->SetGame(m_game);
+		deltabike->SetGoal(m_goal);
 		deltabike->ChangePlayerBikeFlag();
 		//カメラ
 		gamecamera = g_goMgr.NewGO<GameCamera>();
@@ -164,6 +165,7 @@ void BikeMaster::Update()
 		//プレイヤーバイク
 		epsilonbike = g_goMgr.NewGO<EpsilonBike>();
 		epsilonbike->SetGame(m_game);
+		epsilonbike->SetGoal(m_goal);
 		epsilonbike->ChangePlayerBikeFlag();
 		//カメラ
 		gamecamera = g_goMgr.NewGO<GameCamera>();

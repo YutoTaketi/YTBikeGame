@@ -37,6 +37,8 @@ void DeltaBike::Update()
 	if (m_playerBikeFlag == true && m_bikeMoveDecision == false)
 	{
 		m_bikeMove = new BikeMove_Player();
+		m_bikeMove->SetGame(m_game);
+		m_bikeMove->SetGoal(m_goal);
 		m_bikeMoveDecision = true;
 	}
 

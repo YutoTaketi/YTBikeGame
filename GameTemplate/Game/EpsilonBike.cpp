@@ -13,8 +13,6 @@ EpsilonBike::EpsilonBike()
 	m_model->Init(L"Assets/modelData/Bike5.cmo");
 	//ƒoƒCƒN‚ÌˆÚ“®ˆ—‚ð‰Šú‰»
 	
-
-	
 }
 
 
@@ -41,6 +39,8 @@ void EpsilonBike::Update()
 	if (m_playerBikeFlag == true && m_bikeMoveDecision == false)
 	{
 		m_bikeMove = new BikeMove_Player();
+		m_bikeMove->SetGame(m_game);
+		m_bikeMove->SetGoal(m_goal);
 		m_bikeMoveDecision = true;
 	}
 

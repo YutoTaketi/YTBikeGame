@@ -187,6 +187,7 @@
     <ClCompile Include="StopWatch.cpp">
       <Filter>timer</Filter>
     </ClCompile>
+    <ClCompile Include="RaceTimer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\Vector.h">
@@ -324,6 +325,7 @@
     <ClInclude Include="StopWatch.h">
       <Filter>timer</Filter>
     </ClInclude>
+    <ClInclude Include="RaceTimer.h" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">

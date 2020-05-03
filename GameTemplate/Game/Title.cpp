@@ -9,7 +9,7 @@ Title::Title()
 {
 	m_sprite.Init(L"Assets/sprite/Rider_Title.dds", 1290.0f, 800.0f);
 	//m_model.Init(L"Assets/modelData/PlayerBike.cmo");
-	//m_font = new Font();
+	m_font = new Font();
 }
 
 
@@ -29,7 +29,7 @@ void Title::Update()
 		g_camera3D.GetViewMatrix(),
 		g_camera3D.GetProjectionMatrix()
 	);*/
-	/*m_font->DrawScreenPos(
+	m_font->DrawScreenPos(
 	   L"Bike Operation",
 	   m_Fontpos,
 	   m_color,
@@ -37,7 +37,7 @@ void Title::Update()
 	   pivot,
 	   rot,
 	   DirectX::SpriteEffects_None
-	);*/
+	);
 	if (g_pad[0].IsTrigger(enButtonA)) {
 		g_goMgr.DeleteGameObject(this);
 		g_goMgr.NewGO<Game>();

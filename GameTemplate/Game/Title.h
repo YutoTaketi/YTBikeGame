@@ -29,6 +29,6 @@ private:
 	//CQuaternion m_rotation = CQuaternion::Identity();
 	Sprite m_sprite;
 	SkinModel m_model;
-	//Font* m_font;
+	Font* m_font;
 };
 

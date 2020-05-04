@@ -134,6 +134,7 @@
     <ClCompile Include="HID\Pad.cpp" />
     <ClCompile Include="IGameObject.cpp" />
     <ClCompile Include="ItemWaku.cpp" />
+    <ClCompile Include="LapCount.cpp" />
     <ClCompile Include="level\Level.cpp" />
     <ClCompile Include="level\MapChip.cpp" />
     <ClCompile Include="main.cpp" />
@@ -210,6 +211,7 @@
     <ClInclude Include="HID\Pad.h" />
     <ClInclude Include="IGameObject.h" />
     <ClInclude Include="ItemWaku.h" />
+    <ClInclude Include="LapCount.h" />
     <ClInclude Include="level\Level.h" />
     <ClInclude Include="level\MapChip.h" />
     <ClInclude Include="math\kMath.h" />

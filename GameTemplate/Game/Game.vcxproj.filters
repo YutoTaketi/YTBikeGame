@@ -188,6 +188,7 @@
       <Filter>timer</Filter>
     </ClCompile>
     <ClCompile Include="RaceTimer.cpp" />
+    <ClCompile Include="LapCount.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\Vector.h">
@@ -326,6 +327,7 @@
       <Filter>timer</Filter>
     </ClInclude>
     <ClInclude Include="RaceTimer.h" />
+    <ClInclude Include="LapCount.h" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">

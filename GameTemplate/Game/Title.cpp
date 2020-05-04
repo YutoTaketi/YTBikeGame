@@ -15,7 +15,7 @@ Title::Title()
 
 Title::~Title()
 {
-	
+	delete m_font;
 }
 
 void Title::Update()

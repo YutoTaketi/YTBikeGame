@@ -6,7 +6,7 @@
 #include "BikeSelect.h"
 #include "BikeMaster.h"
 #include "Course.h"
-
+#include "LapCount.h"
 
 
 Game::Game()
@@ -58,6 +58,7 @@ Game::Game()
 	bikemaster->GetPassObject(m_pointList);
 	bikemaster->SetGoal(goal);
 	
+	lapcount = g_goMgr.NewGO<LapCount>();
 	
 	
 	

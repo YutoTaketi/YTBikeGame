@@ -1,6 +1,6 @@
 #pragma once
 #include "GameObjectManager.h"
-
+class Font;
 class RaceTimer : public IGameObject
 {
 public:

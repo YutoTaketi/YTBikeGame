@@ -1,9 +1,12 @@
 #include "stdafx.h"
 #include "LapCount.h"
 #include "Font.h"
+#include "graphics/GraphicsEngine.h"
 
 LapCount::LapCount()
 {
+	m_font = new Font();
+	m_Fontpos = { 1.0f, 0.0f };
 }
 
 
@@ -22,6 +25,7 @@ void LapCount::Update()
 		rot,
 		DirectX::SpriteEffects_None
 	);
+	
 }
 
 void LapCount::Render()

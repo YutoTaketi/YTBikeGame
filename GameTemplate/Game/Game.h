@@ -23,6 +23,7 @@ class Goal;
 class BikeSelect;
 class BikeMaster;
 class Course;
+class LapCount;
 /// <summary>
 
 /// ゲームクラス
@@ -151,7 +152,7 @@ private:
 	BikeSelect* bikeselect = nullptr;   //バイクの選択画面
 	BikeMaster* bikemaster = nullptr;   //バイクの生成を担当
 	Course* course = nullptr;           //コース
-	
+	LapCount* lapcount = nullptr;       //周回カウント
 	
 	int finishhantei = 0;
 	bool finishFlag = false;

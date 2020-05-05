@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObjectManager.h"
-
+#include "Font.h"
+//class Font;
 class LapCount : public IGameObject
 {
 public:

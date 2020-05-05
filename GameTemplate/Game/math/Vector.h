@@ -27,6 +27,15 @@ public:
 		struct { float x, y; };
 		float v[2];
 	};
+	//operator D3DXVECTOR3(void) { return s_cast<D3DXVECTOR3>(*this); }
+	/*!
+	*@brief	代入演算子。
+	*/
+	CVector2& operator=(const CVector2& _v)
+	{
+		vec = _v.vec;
+		return *this;
+	}
 	/*!
 	* @brief	線形補間。
 	*@details

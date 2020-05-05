@@ -5,6 +5,7 @@
 Result::Result()
 {
 	m_sprite.Init(L"Assets/sprite/Result.dds", 1000.0f, 800.0f);
+
 }
 
 
@@ -14,7 +15,8 @@ Result::~Result()
 
 void Result::Update()
 {
-	m_sprite.UpdateWorldMatrix(m_position, CQuaternion::Identity(), m_scale);
+	m_rotation.SetRotationDeg(CVector3::AxisY(), 180.0f);
+	m_sprite.UpdateWorldMatrix(m_position, m_rotation, m_scale);
 	Draw();
 	if (g_pad[0].IsTrigger(enButtonB)) {
 		g_goMgr.DeleteGameObject(this);

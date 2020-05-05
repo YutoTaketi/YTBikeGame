@@ -58,15 +58,13 @@ Game::Game()
 	bikemaster->GetPassObject(m_pointList);
 	bikemaster->SetGoal(goal);
 	
-	lapcount = g_goMgr.NewGO<LapCount>();
-	
-	
-	
-	
 	//itemwaku = g_goMgr.NewGO<ItemWaku>();
 	//バイクの選択画面
 	bikeselect = g_goMgr.NewGO<BikeSelect>();
 	bikeselect->SetBikeMaster(bikemaster);
+
+	lapcount = g_goMgr.NewGO<LapCount>();
+	lapcount->SetBikeSelect(bikeselect);
 	//地面をシャドウレシーバーにする。
 	//m_stageModelDraw.SetShadowReciever(true);
 
@@ -153,7 +151,7 @@ void Game::Update()
 	//カメラ
 	
 	bikemaster->Update();
-   
+	lapcount->Update();
 	
 	//シャドウキャスターを登録
 	//m_shadowMap.RegistShadowCaster(&m_playerModelDraw);

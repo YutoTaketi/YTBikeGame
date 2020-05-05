@@ -18,6 +18,14 @@ public:
 		
 	}
 	/// <summary>
+	/// バイクが選択されたかの判定を返す。
+	/// </summary>
+	/// <returns></returns>
+	bool GetSelectFlag()
+	{
+		return m_select;
+	}
+	/// <summary>
 	/// 更新関数
 	/// </summary>
 	void Update();

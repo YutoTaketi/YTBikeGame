@@ -68,7 +68,7 @@ private:
 	CVector3 m_accel = CVector3::Zero();    //加速度
 	CVector3 m_forward = CVector3::AxisZ();   //エネミーの前方方向
 
-	float m_accelNum = 100.0f;        //加速数値
+	float m_accelNum = 130.0f;        //加速数値
 	float m_friction = 0.98f;        //摩擦係数
 
 	BikeController* m_bikecontroller;

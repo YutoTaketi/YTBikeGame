@@ -84,16 +84,17 @@ public:
 		return m_pointList[1];
 	}
 	
-
-	void SyuukaiCount()
+	bool LapCountUp()
 	{
-		finishhantei += 1;
+		lapcheck += 1;
+		return true;
 	}
 	
-	int GetFinishHantei()
+	bool GetLapCheck()
 	{
-		return finishhantei;
+		return lapcheck;
 	}
+	
 
 	void ChangeFinishFlag()
 	{
@@ -154,9 +155,11 @@ private:
 	Course* course = nullptr;           //コース
 	LapCount* lapcount = nullptr;       //周回カウント
 	
-	int finishhantei = 0;
+	int lapcheck = 0;
+	
 	bool finishFlag = false;
 	bool bikesentakuFlag = false;
+
 	std::map<int , Point*> m_pointList;
 	
 };

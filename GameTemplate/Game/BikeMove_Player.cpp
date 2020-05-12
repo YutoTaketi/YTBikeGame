@@ -61,10 +61,10 @@ void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector
 		
 			position += movespeed;
 	
-		if (movespeed.LengthSq() >= 300.0f * 300.0f) {
+		/*if (movespeed.LengthSq() >= 300.0f * 300.0f) {
 			movespeed.Normalize();
 			movespeed *= 300.0f;
-		}
+		}*/
 
 		//回転処理
 		//左スティックでプレイヤーを回転
@@ -103,24 +103,33 @@ void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector
 				GameTimeIns().GetFrameDeltaTime()
 				);
 		}
-	
-	//ゴーストオブジェクトとの当たり判定
-		if ( m_goal != nullptr) {
+		timer++;
+		if (timer >= 300) {
 
-			g_physics.ContactTest(m_charaCon, [&](const btCollisionObject& contactObject)
-				{
 
-					if (m_goal->GetGoalPoint().IsSelf(contactObject) == true) {
-						Syukaihantei = true;
-						if (Syukaihantei == true)
-						{
-							m_game->SyuukaiCount();
+			//ゴーストオブジェクトとの当たり判定
+			if (m_goal != nullptr) {
+
+				g_physics.ContactTest(m_charaCon, [&](const btCollisionObject& contactObject)
+					{
+
+						if (m_goal->GetGoalPoint().IsSelf(contactObject) == true) {
+							Syukaihantei = true;
+							/*if (Syukaihantei == true)
+							{
+								m_game->LapCountUp();
+							}
+							if (m_game->GetLapCheck() == 2)
+							{
+								m_game->ChangeFinishFlag();
+							}*/
+							if (Syukaihantei == true)
+							{
+								m_game->ChangeFinishFlag();
+							}
 						}
-						if (m_game->GetFinishHantei() == 4)
-						{
-							m_game->ChangeFinishFlag();
-						}
-					}
-				});
+
+					});
+			}
 		}
 }

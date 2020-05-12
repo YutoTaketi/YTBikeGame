@@ -45,7 +45,7 @@ public:
 	CharacterController m_charaCon;
 	PhysicsGhostObject m_ghostObject;     //ゴーストオブジェクト
 	GameTime gametime;
-	
+	int timer = 0;
 	bool m_CharaConInitFlag = false;     //キャラクターコントローラーが初期化されているかのフラグ
 };
 

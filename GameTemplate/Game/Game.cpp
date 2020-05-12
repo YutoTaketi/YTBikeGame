@@ -65,6 +65,7 @@ Game::Game()
 
 	lapcount = g_goMgr.NewGO<LapCount>();
 	lapcount->SetBikeSelect(bikeselect);
+	lapcount->SetGame(this);
 	//地面をシャドウレシーバーにする。
 	//m_stageModelDraw.SetShadowReciever(true);
 
@@ -105,6 +106,7 @@ Game::~Game()
 	g_goMgr.DeleteGameObject(bikeselect);
 	g_goMgr.DeleteGameObject(bikemaster);
 	g_goMgr.DeleteGameObject(course);
+	g_goMgr.DeleteGameObject(lapcount);
 }
 
 void Game::ChangeRenderTarget(ID3D11DeviceContext* d3dDeviceContext, RenderTarget* renderTarget, D3D11_VIEWPORT* viewport)

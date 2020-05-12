@@ -3,6 +3,8 @@
 #include "Font.h"
 //class Font;
 class BikeSelect;
+class Game;
+
 class LapCount : public IGameObject
 {
 public:
@@ -18,6 +20,14 @@ public:
 	{
 		m_bikeselect = bikeselect;
 
+	}
+	/// <summary>
+	/// Gameのポインタを渡す。
+	/// </summary>
+	/// <param name="game"></param>
+	void SetGame(Game* game)
+	{
+		m_game = game;
 	}
 private:
 	void Render();
@@ -36,9 +46,10 @@ private:
 	CVector2 pivot2 = CVector2::Zero();
 	float rot2 = 0.0f;
 
-	
+	int lapcounter = 1;
 	Font* m_font;
 	Font* m_font2;
 	BikeSelect* m_bikeselect;
+	Game* m_game;
 };
 

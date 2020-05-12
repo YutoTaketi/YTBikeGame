@@ -3,6 +3,7 @@
 #include "Font.h"
 #include "graphics/GraphicsEngine.h"
 #include "BikeSelect.h"
+#include "Game.h"
 
 LapCount::LapCount()
 {
@@ -19,36 +20,43 @@ LapCount::~LapCount()
 
 void LapCount::Update()
 {
-	m_font2->DrawScreenPos(
-		L"1",
-		m_Fontpos2,
-		m_color2,
-		m_Fontscale2,
-		pivot2,
-		rot2,
-		DirectX::SpriteEffects_None
-	);
+	if (m_game->GetLapCheck() == 0 || m_game->GetLapCheck() == 1)
+	{
+		m_font2->DrawScreenPos(
+			L"1",
+			m_Fontpos2,
+			m_color2,
+			m_Fontscale2,
+			pivot2,
+			rot2,
+			DirectX::SpriteEffects_None
+		);
+	}
 	
-	/*m_font2->DrawScreenPos(
-		L"2",
-		m_Fontpos2,
-		m_color2,
-		m_Fontscale2,
-		pivot2,
-		rot2,
-		DirectX::SpriteEffects_None
-	);*/
-
-	/*
-	m_font2->DrawScreenPos(
-		L"3",
-		m_Fontpos2,
-		m_color2,
-		m_Fontscale2,
-		pivot2,
-		rot2,
-		DirectX::SpriteEffects_None
-	);*/
+	if (m_game->GetLapCheck() == 2)
+	{
+		m_font2->DrawScreenPos(
+			L"2",
+			m_Fontpos2,
+			m_color2,
+			m_Fontscale2,
+			pivot2,
+			rot2,
+			DirectX::SpriteEffects_None
+		);
+	}
+	if (m_game->GetLapCheck() == 3)
+	{
+		m_font2->DrawScreenPos(
+			L"3",
+			m_Fontpos2,
+			m_color2,
+			m_Fontscale2,
+			pivot2,
+			rot2,
+			DirectX::SpriteEffects_None
+		);
+	}
 	m_font->DrawScreenPos(
 			L"/3",
 			m_Fontpos,

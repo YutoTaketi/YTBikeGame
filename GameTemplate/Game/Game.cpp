@@ -23,6 +23,7 @@ Game::Game()
 			m_pointList[number] = point;
 			return true;
 		}
+		
 		//ƒR[ƒX‚ğì¬
 		/*if (wcsncmp(L"Course01", objData.name, 8) == 0)
 		{

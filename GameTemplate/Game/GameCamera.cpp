@@ -14,7 +14,7 @@ GameCamera::GameCamera()
 	g_camera3D.SetTarget({ 0.0f, 100.0f, 0.0f });
 	m_toCameraPos.Set(0.0f, 50.0f, -150.0f);
 	//g_camera3D.SetNear(1.0f);
-	g_camera3D.SetFar(10000.0f);
+	g_camera3D.SetFar(1000000.0f);
 }
 
 

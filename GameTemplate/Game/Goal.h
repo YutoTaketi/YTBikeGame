@@ -12,13 +12,18 @@ class Goal : public IGameObject
 public:
 	Goal();
 	~Goal();
-
+	/// <summary>
+	/// 更新関数
+	/// </summary>
 	void Update();
-
+	/// <summary>
+	/// Gameのポインタをセットする
+	/// </summary>
+	/// <param name="game"></param>
 	void SetGame(Game* game)
 	{
 		m_game = game;
-		//m_bikeMove->SetGame(game);
+		
 	}
 	
 	/// <summary>
@@ -37,10 +42,18 @@ public:
 	{
 		m_scale = sale;
 	}
+	/// <summary>
+	/// 回転を返す
+	/// </summary>
+	/// <param name="rot"></param>
 	void SetRotation(CQuaternion rot)
 	{
 		m_rotation = rot;
 	}
+	/// <summary>
+	/// ゴーストオブジェクトを返す
+	/// </summary>
+	/// <returns></returns>
 	PhysicsGhostObject& GetGoalPoint()
 	{
 		return m_ghostObject;
@@ -55,9 +68,9 @@ private:
 	
 	
 	PhysicsGhostObject m_ghostObject;     //ゴーストオブジェクト
-	SkinModel* m_model;
-	Game* m_game;
+	SkinModel* m_model;                   //座標
+	Game* m_game;                         //Gameポインタ
 	
-	BikeMaster* m_bikemaster;
-	bool MakeGoalFlag = false;
+	BikeMaster* m_bikemaster;             //バイクマスターのポインタ
+	bool MakeGoalFlag = false;            //ゴール作成フラグ
 };

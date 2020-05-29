@@ -20,7 +20,10 @@ public:
 	/// </summary>
 	void Update();
 
-
+	/// <summary>
+	/// 座標を返す
+	/// </summary>
+	/// <returns></returns>
 	CVector3 GetPosition() const
 	{
 		return m_position;
@@ -73,25 +76,23 @@ private:
 	CVector3 m_pointOnePos = CVector3::Zero();
 	SkinModel* m_model;                               //スキンモデル。
 	//CharacterController m_charaCon;
-	PhysicsWorld m_physics;
-	Goal* m_goal;
-	//GameTime m_gameTime;
-	Game* m_game = nullptr;
+	PhysicsWorld m_physics;                           //フィシックス
+	Goal* m_goal;                                     //ゴールのポインタ
+	
+	Game* m_game = nullptr;                             //Gameのポインタ
 
 	CVector3 m_accel = CVector3::Zero();    //加速度
 	CVector3 m_forward = CVector3::AxisZ();   //エネミーの前方方向
 
-	float m_accelNum = 140.8f;        //加速数値
+	float m_accelNum = 300.8f;        //加速数値
 	float m_friction = 0.98f;        //摩擦係数
 
-	BikeController* m_bikecontroller;
 	
 	std::map<int, Point*> m_pointList;  //ポイント構造体の配列
 	Point* m_point;                  //ポイントの構造体のポインタ、現在の目的地
 	
-	BikeMove* m_bikeMove = nullptr;
+	BikeMove* m_bikeMove = nullptr;  //バイクムーブのポインタ
 
-	CVector3 m_goalpos = { 0.0f, 0.0f, 1150.0f };
 	PhysicsGhostObject m_ghostObject;     //ゴーストオブジェクト
 	bool m_playerBikeFlag = false;    //プレイヤーバイクかどうかのフラグ
 	bool m_bikeMoveDecision = false;   //バイクを動かす処理が決定したかのフラグ。

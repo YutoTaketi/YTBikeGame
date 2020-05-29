@@ -1,11 +1,14 @@
 #include "stdafx.h"
 #include "Result.h"
 #include "Title.h"
+#include "Font.h"
+#include "graphics/GraphicsEngine.h"
 
 Result::Result()
 {
 	m_sprite.Init(L"Assets/sprite/Result.dds", 1000.0f, 800.0f);
-
+	m_firstplace = new Font();
+	m_Firstplacepos = { 350.0f, 150.0f };
 }
 
 
@@ -18,7 +21,16 @@ void Result::Update()
 	m_rotation.SetRotationDeg(CVector3::AxisY(), 180.0f);
 	m_sprite.UpdateWorldMatrix(m_position, m_rotation, m_scale);
 	Draw();
-
+	//1ˆÊ‚Ì•\Ž¦
+	m_firstplace->DrawScreenPos(
+		L"Player",
+		m_Firstplacepos,
+		m_color,
+		m_Fontscale,
+		pivot,
+		rot,
+		DirectX::SpriteEffects_None
+	);
 	if (g_pad[0].IsTrigger(enButtonB)) {
 		g_goMgr.DeleteGameObject(this);
 		g_goMgr.NewGO<Title>();

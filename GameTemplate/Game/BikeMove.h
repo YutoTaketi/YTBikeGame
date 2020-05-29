@@ -43,16 +43,24 @@ public:
 	{
 		m_game = game;
 	}
+	/// <summary>
+	/// Goalのポインタをセットする
+	/// </summary>
+	/// <param name="goal"></param>
 	void SetGoal(Goal* goal)
 	{
 		m_goal = goal;
 	}
+	/// <summary>
+	/// 周回カウントを返す
+	/// </summary>
+	/// <returns></returns>
 	int GetsyukaiCount()
 	{
 		return syukaicount;
 	}
-	double Syukaihantei = false;
-	int syukaicount = 0;
+	double Syukaihantei = false;          //周回判定
+	int syukaicount = 0;                 //周回カウント
 	std::map<int, Point*> m_pointList;  //ポイント構造体の配列
 	Point* m_point;                  //ポイントの構造体のポインタ、現在の目的地
 };

@@ -14,6 +14,7 @@ BikeSelect::~BikeSelect()
 
 void BikeSelect::Update()
 {
+	//選択された番号をセット
 	if (GetAsyncKeyState('0'))
 	{
 		m_bikemaster->SetSentakuNo(0); 

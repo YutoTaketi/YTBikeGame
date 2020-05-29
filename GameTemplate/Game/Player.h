@@ -17,6 +17,10 @@ public:
 	/// 更新関数
 	/// </summary>
 	void Update();
+	/// <summary>
+	/// 座標を返す
+	/// </summary>
+	/// <returns></returns>
     CVector3 GetPosition() const
 	{
 		return m_position;
@@ -34,17 +38,17 @@ private:
 	CVector3 m_accel = CVector3::Zero();               //加速度
 	SkinModel* m_model;								   //スキンモデル。
 	CVector3 m_playermae = CVector3::Zero();           //プレイヤーの前ベクトル
-	CVector3 m_sinkouhouku = CVector3::Zero();
+	CVector3 m_sinkouhouku = CVector3::Zero();         //進行方向
 	CVector3 m_moveDirectionF = CVector3::Zero();      //カメラの前方向
 
 	float m_accelNum = 1.8f;     //加速数値
 	float m_friction = 0.97f;    //摩擦係数
-	double SyukaihanteiOn = false;
-	int syukaicount = 0;
+	double SyukaihanteiOn = false; //周回判定
+	int syukaicount = 0;          //周回カウント
 
-	BikeController* m_bikecontroller = nullptr;
-	BikeMove* m_bikeMove = nullptr;
-	Game* m_game = nullptr;
+	BikeController* m_bikecontroller = nullptr;       //バイクコントローラーのポインタ
+	BikeMove* m_bikeMove = nullptr;                   //バイクムーブのポインタ
+	Game* m_game = nullptr;                           //Gameのポインタ
 
 	
 };

@@ -7,8 +7,9 @@
 #include "graphics/GraphicsEngine.h"
 Title::Title()
 {
+
 	m_sprite.Init(L"Assets/sprite/Rider_Title.dds", 1290.0f, 800.0f);
-	//m_model.Init(L"Assets/modelData/PlayerBike.cmo");
+	
 	m_font = new Font();
 }
 
@@ -23,12 +24,7 @@ void Title::Update()
 	m_rotation.SetRotationDeg(CVector3::AxisY(), 180.0f);
 	m_sprite.UpdateWorldMatrix(m_position, m_rotation, m_scale);
 	Draw();
-	/*
-	m_model.UpdateWorldMatrix(m_bikepos, m_bikerot, m_bikescale);
-	m_model.Draw(
-		g_camera3D.GetViewMatrix(),
-		g_camera3D.GetProjectionMatrix()
-	);*/
+	
 	m_font->DrawScreenPos(
 	   L"Bike Operation",
 	   m_Fontpos,
@@ -41,7 +37,7 @@ void Title::Update()
 	if (g_pad[0].IsTrigger(enButtonA)) {
 		g_goMgr.DeleteGameObject(this);
 		g_goMgr.NewGO<Game>();
-		//g_goMgr.NewGO<BikeSelect>();
+		
 	}
 	
 

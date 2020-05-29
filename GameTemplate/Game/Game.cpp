@@ -24,22 +24,6 @@ Game::Game()
 			return true;
 		}
 		
-		//コースを作成
-		/*if (wcsncmp(L"Course01", objData.name, 8) == 0)
-		{
-			course = g_goMgr.NewGO<Course>();
-			course->SetPosition(objData.position);
-			course->SetRotation(objData.rotation);
-			return true;
-		}*/
-		/*
-		if (objData.EqualObjectName(L"Course01") == true) {
-			course = g_goMgr.NewGO<Course>();
-			course->m_position = objData.position;
-			course->m_rotation = objData.rotation;
-			course->m_scale = objData.scale;
-			return true;
-		}*/
 		
 		if (objData.EqualObjectName(L"TestGoal") == true) {
 			goal = g_goMgr.NewGO<Goal>();
@@ -59,7 +43,7 @@ Game::Game()
 	bikemaster->GetPassObject(m_pointList);
 	bikemaster->SetGoal(goal);
 	
-	//itemwaku = g_goMgr.NewGO<ItemWaku>();
+	
 	//バイクの選択画面
 	bikeselect = g_goMgr.NewGO<BikeSelect>();
 	bikeselect->SetBikeMaster(bikemaster);
@@ -99,9 +83,6 @@ Game::~Game()
 	if (m_frameBufferDepthStencilView != nullptr) {
 		m_frameBufferDepthStencilView->Release();
 	}
-
-	
-	//g_goMgr.DeleteGameObject(itemwaku);
 	
 	//g_goMgr.DeleteGameObject(goal);
 	g_goMgr.DeleteGameObject(bikeselect);
@@ -134,38 +115,13 @@ void Game::ChangeRenderTarget(ID3D11DeviceContext* d3dDeviceContext, ID3D11Rende
 
 void Game::Update()
 {
-	//レベルの描画
-	//if (bikemaster->GetbikesetFlag() == true)
-	//{
+	
 		level.Draw();
-		//goal->Update();
-		/*if (course != nullptr)
-		{
-			course->Update();
-		}*/
-	//}
 	
-	//アイテム枠の描画
-	//itemwaku->Update();
-	//bikeselect->Update();
-	
-
-	//bikeselect->Update();
-	//カメラ
 	
 	bikemaster->Update();
 	lapcount->Update();
 	
-	//シャドウキャスターを登録
-	//m_shadowMap.RegistShadowCaster(&m_playerModelDraw);
-	//m_shadowMap.RegistShadowCaster(&m_enemyModelDraw);
-	//m_shadowMap.RegistShadowCaster(&m_stageModelDraw);
-	///シャドウマップを更新
-	/**m_shadowMap.UpdateFromLightTarget(
-		{ 1000.0f, 1000.0f, 1000.0f },
-		{ 0.0f, 0.0f, 0.0f }
-
-	);*/
 
 	if (finishFlag == true)
 	{
@@ -178,20 +134,12 @@ void Game::Update()
 
 void Game::PreRender()
 {
-	//シャドウマップにレンダリング
-	//m_shadowMap.RenderToShadowMap();
+	
 }
 
 void Game::ForwordRender()
 {
-	/*
-	//レンダリングターゲットをメインに変更する。
-	auto d3dDeviceContext = g_graphicsEngine->GetD3DDeviceContext();
-	ChangeRenderTarget(d3dDeviceContext, &m_mainRenderTarget, &m_frameBufferViewports);
-	//メインレンダリングターゲットをクリアする。
-	float clearColor[] = { 0.0f, 0.0f, 0.0f, 1.0f };
-	m_mainRenderTarget.ClearRenderTarget(clearColor);
-	*/
+	
 	
 	g_goMgr.Draw();
 }
@@ -206,8 +154,8 @@ void Game::PostRender()
 		m_frameBufferDepthStencilView,
 		&m_frameBufferViewports
 	);
-	//ドロドロ
-	//m_copyMainRtToFrameBufferSprite.Draw();
+	
+	
 
 	m_frameBufferRenderTargetView->Release();
 	m_frameBufferDepthStencilView->Release();
@@ -215,35 +163,5 @@ void Game::PostRender()
 
 void Game::Render()
 {
-	//描画開始。
-	//g_graphicsEngine->BegineRender();
-
-
-	/*
-	//描画開始。
-	g_graphicsEngine->BegineRender();
-	//フレームバァファのレンダリングターゲットを
-	//バックアップしておく。
-	auto d3dDeviceContext = g_graphicsEngine->GetD3DDeviceContext();
-	d3dDeviceContext->OMGetRenderTargets(
-		1,
-		&m_frameBufferRenderTargetView,
-		&m_frameBufferDepthStencilView
-	);
-	//ビューポートもバックアップを取っておく。
-	unsigned int numViewport = 1;
-	d3dDeviceContext->RSGetViewports(&numViewport, &m_frameBufferViewports);
-
-	//プリレンダリング
-	PreRender();
-
-	//フォワードレンダリング
-	ForwordRender();
-
-	//ポストレンダリング
-	PostRender();
 	
-	//描画終了
-	g_graphicsEngine->EndRender();
-	*/
 }

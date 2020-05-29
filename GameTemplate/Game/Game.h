@@ -78,29 +78,43 @@ public:
 			return m_pointList[number + 1];
 		}
 	}
-
+	/// <summary>
+	/// パス移動のポイントを返す
+	/// </summary>
+	/// <returns></returns>
 	Point* GetGorlPoint()
 	{
 		return m_pointList[1];
 	}
-	
+	/// <summary>
+	/// ラップカウント
+	/// </summary>
+	/// <returns></returns>
 	bool LapCountUp()
 	{
 		lapcheck += 1;
 		return true;
 	}
-	
+	/// <summary>
+	/// ラップチェック
+	/// </summary>
+	/// <returns></returns>
 	bool GetLapCheck()
 	{
 		return lapcheck;
 	}
 	
-
+	/// <summary>
+	/// フィニッシュフラグの更新
+	/// </summary>
 	void ChangeFinishFlag()
 	{
 		finishFlag = true;
 	}
-
+	/// <summary>
+	/// フィニッシュフラグを返す
+	/// </summary>
+	/// <returns></returns>
 	bool GetFinishFlag()
 	{
 		return finishFlag;
@@ -155,12 +169,12 @@ private:
 	Course* course = nullptr;           //コース
 	LapCount* lapcount = nullptr;       //周回カウント
 	
-	int lapcheck = 0;
+	int lapcheck = 0;  //ラップチェック
 	
-	bool finishFlag = false;
-	bool bikesentakuFlag = false;
+	bool finishFlag = false;       //フィニッシュフラグ
+	bool bikesentakuFlag = false;  //バイク選択フラグ
 
-	std::map<int , Point*> m_pointList;
+	std::map<int , Point*> m_pointList;  //パスのリスト
 	
 };
 

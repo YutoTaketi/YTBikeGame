@@ -31,7 +31,7 @@ public:
 	}
 	virtual void Draw(){}
 private:
-	bool isReqDelete = false;
+	bool isReqDelete = false;   //デリートリクエストの判定
 	//IGameObject();
 	//~IGameObject();
 };

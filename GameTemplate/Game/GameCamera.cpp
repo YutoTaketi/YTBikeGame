@@ -73,7 +73,7 @@ void GameCamera::Update()
 	g_camera3D.SetTarget(m_target);
 	g_camera3D.SetPosition(m_position);
 
-	
+	//ƒJƒƒ‰‚ÌXV
 	
 	g_camera3D.Update();
 }

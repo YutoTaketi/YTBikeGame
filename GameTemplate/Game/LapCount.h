@@ -10,7 +10,9 @@ class LapCount : public IGameObject
 public:
 	LapCount();
 	~LapCount();
-
+	/// <summary>
+	/// 更新関数
+	/// </summary>
 	void Update();
 	/// <summary>
 	/// BikeMasterのポインタを渡す。
@@ -33,23 +35,23 @@ private:
 	void Render();
 	void Draw();
 
-	CVector2 m_Fontpos = CVector2::Zero();
-	CVector4 m_color = CVector4::White();
-	CVector2 m_Fontscale = CVector2::One();
-	CVector2 pivot = CVector2::Zero();
-	float rot = 0.0f;
+	CVector2 m_Fontpos = CVector2::Zero();   //フォント座標
+	CVector4 m_color = CVector4::White();    //カラー
+	CVector2 m_Fontscale = CVector2::One();  //拡大率
+	CVector2 pivot = CVector2::Zero();       //ピボット
+	float rot = 0.0f;                        //回転
 
 	//ラップ数で変わる
-	CVector2 m_Fontpos2 = CVector2::Zero();
-	CVector4 m_color2 = CVector4::White();
-	CVector2 m_Fontscale2 = CVector2::One();
-	CVector2 pivot2 = CVector2::Zero();
-	float rot2 = 0.0f;
+	CVector2 m_Fontpos2 = CVector2::Zero(); //フォント座標
+	CVector4 m_color2 = CVector4::White();   //カラー
+	CVector2 m_Fontscale2 = CVector2::One(); //拡大率
+	CVector2 pivot2 = CVector2::Zero();      //ピボット
+	float rot2 = 0.0f;                       //回転
 
-	int lapcounter = 1;
-	Font* m_font;
-	Font* m_font2;
-	BikeSelect* m_bikeselect;
-	Game* m_game;
+	int lapcounter = 1;         //ラップカウント
+	Font* m_font;               //フォント
+	Font* m_font2;              //フォント
+	BikeSelect* m_bikeselect;   //バイクセレクトのポインタ
+	Game* m_game;               //Gameのポインタ
 };
 

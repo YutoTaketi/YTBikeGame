@@ -46,9 +46,5 @@ void Player::Render()
 }
 void Player::Draw()
 {
-	/*m_model->PostEffectDraw(
-		enRenderMode_Normal,
-		g_camera3D.GetViewMatrix(),
-		g_camera3D.GetProjectionMatrix()
-	);*/
+	
 }

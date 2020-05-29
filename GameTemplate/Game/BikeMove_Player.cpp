@@ -61,10 +61,10 @@ void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector
 		
 			position += movespeed;
 	
-		/*if (movespeed.LengthSq() >= 300.0f * 300.0f) {
+		if (movespeed.LengthSq() >= 300.0f * 300.0f) {
 			movespeed.Normalize();
 			movespeed *= 300.0f;
-		}*/
+		}
 
 		//回転処理
 		//左スティックでプレイヤーを回転

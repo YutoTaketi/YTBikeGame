@@ -18,7 +18,10 @@ public:
 	BikeMove_Player();
 	~BikeMove_Player();
 
-
+	/// <summary>
+	/// キャラコンを返す
+	/// </summary>
+	/// <returns></returns>
 	CharacterController& GetCharaCon()
 	{
 		return m_charaCon;
@@ -40,12 +43,12 @@ public:
 	CVector3 playermae = { 0, 0, 1 };                 //バイクの前方向
 	CVector3 sinkouhoukou = g_camera3D.GetForward();  //進行方向
 	BikeController* m_bikecontroller;                 //バイクの内積外積計算をする。
-	CVector3 m_finishspeed = CVector3::Zero();
 	
-	CharacterController m_charaCon;
+	
+	CharacterController m_charaCon;       //キャラクターコントローラー
 	PhysicsGhostObject m_ghostObject;     //ゴーストオブジェクト
-	GameTime gametime;
-	int timer = 0;
+
+	int timer = 0;                        //ゴーストオブジェクトとの当たり判定用タイマー
 	bool m_CharaConInitFlag = false;     //キャラクターコントローラーが初期化されているかのフラグ
 };
 

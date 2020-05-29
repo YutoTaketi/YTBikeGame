@@ -57,7 +57,10 @@ public:
 		m_game = game;
 		
 	}
-	
+	/// <summary>
+	/// Goalのポインタを渡す。
+	/// </summary>
+	/// <param name="goal"></param>
 	void SetGoal(Goal* goal)
 	{
 		m_goal = goal;
@@ -66,17 +69,17 @@ public:
 private:
 	void Render();
 	void Draw();
-	GameCamera* gamecamera = nullptr;
-	AlphaBike* alphabike = nullptr;
-	BetaBike* betabike = nullptr;
-	GammaBike* gammabike = nullptr;
-	DeltaBike* deltabike = nullptr;
-	EpsilonBike* epsilonbike = nullptr;
-	Goal* m_goal = nullptr;
+	GameCamera* gamecamera = nullptr;   //ゲームカメラのポインタ
+	AlphaBike* alphabike = nullptr;     //アルファバイクのポインタ
+	BetaBike* betabike = nullptr;       //ベータバイクのポインタ
+	GammaBike* gammabike = nullptr;     //ガンマバイクのポインタ
+	DeltaBike* deltabike = nullptr;     //デルタバイクのポインタ
+	EpsilonBike* epsilonbike = nullptr;//イプシロンバイクのポインタ
+	Goal* m_goal = nullptr;             //Goalのポインタ
 	
 	int m_bikesentakuNo;          //バイクの選択番号
 	bool m_bikeSetFlag = false;   //必要なバイクが生成されたかのフラグ
-	Game* m_game;
+	Game* m_game;                 //Gameのポインタ
 
 	std::map<int, Point*> m_pointList;  //ポイント構造体の配列
 	Point* m_point;                  //ポイントの構造体のポインタ、現在の目的地

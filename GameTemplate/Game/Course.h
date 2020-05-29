@@ -12,24 +12,31 @@ public:
 	/// 更新関数
 	/// </summary>
 	void Update();
-
+	/// <summary>
+	/// 座標を返す
+	/// </summary>
+	/// <param name="pos"></param>
 	void SetPosition(CVector3 pos)
 	{
 		m_position = pos;
 	}
+	/// <summary>
+	/// 回転を返す
+	/// </summary>
+	/// <param name="rot"></param>
 	void SetRotation(CQuaternion rot)
 	{
 		m_rotation = rot;
 	}
-	CVector3 m_position = CVector3::Zero();
-	CQuaternion m_rotation = CQuaternion::Identity();
-	CVector3 m_scale = CVector3::One();
+	CVector3 m_position = CVector3::Zero();               //座標
+	CQuaternion m_rotation = CQuaternion::Identity();     //回転
+	CVector3 m_scale = CVector3::One();                    //拡大率
 private:
 	void Render();
 	void Draw();
 
-	SkinModel m_model;
-	PhysicsStaticObject m_phyStaticObject;
+	SkinModel m_model;                       //スキンモデル
+	PhysicsStaticObject m_phyStaticObject;   //静的物理オブジェクト
 	
 };
 

@@ -23,9 +23,9 @@ public:
 	/// <param name="accelnum"></param>
 	/// <param name="friction"></param>
 	void Execute(CVector3& position, CQuaternion& rotation, CVector3& movespeed, CVector3& accel, float& accelnum, float& friction);
-	CVector3 m_moveDirectionF = CVector3::Zero();
-	BikeController* m_bikecontroller;
-	CharacterController m_charaCon;
+	CVector3 m_moveDirectionF = CVector3::Zero();  //前方向
+	BikeController* m_bikecontroller;   //バイクコントローラーのポインタ
+	CharacterController m_charaCon;     //キャラクターコントローラー
 	bool m_CharaConInitFlag = false;     //キャラクターコントローラーが初期化されているかのフラグ
 
 };

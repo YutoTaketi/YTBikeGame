@@ -189,6 +189,7 @@
     </ClCompile>
     <ClCompile Include="RaceTimer.cpp" />
     <ClCompile Include="LapCount.cpp" />
+    <ClCompile Include="AiRotPath.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\Vector.h">
@@ -328,6 +329,7 @@
     </ClInclude>
     <ClInclude Include="RaceTimer.h" />
     <ClInclude Include="LapCount.h" />
+    <ClInclude Include="AiRotPath.h" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">

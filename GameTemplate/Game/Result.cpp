@@ -8,7 +8,9 @@ Result::Result()
 {
 	m_sprite.Init(L"Assets/sprite/Result.dds", 1000.0f, 800.0f);
 	m_firstplace = new Font();
-	m_Firstplacepos = { 350.0f, 150.0f };
+	m_secondplace = new Font();
+	m_Firstplacepos = { 350.0f, 155.0f };
+	m_Secondplacepos = { 350.0f, 260.0f };
 }
 
 
@@ -31,6 +33,22 @@ void Result::Update()
 		rot,
 		DirectX::SpriteEffects_None
 	);
+
+	//2ˆÊ‚Ì•\Ž¦
+	m_secondplace->DrawScreenPos(
+	    L"COM",
+		m_Secondplacepos,
+		m_color2,
+		m_Fontscale2,
+		pivot2,
+		rot2,
+		DirectX::SpriteEffects_None
+	);
+
+
+
+
+
 	if (g_pad[0].IsTrigger(enButtonB)) {
 		g_goMgr.DeleteGameObject(this);
 		g_goMgr.NewGO<Title>();

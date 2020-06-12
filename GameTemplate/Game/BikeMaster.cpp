@@ -49,7 +49,7 @@ void BikeMaster::Update()
 		betabike = g_goMgr.NewGO<BetaBike>(); //BetaBike
 		betabike->SetGame(m_game);
 		betabike->GetPassObject(m_pointList);
-
+		
 		gammabike = g_goMgr.NewGO<GammaBike>();  //GammaBike
 		gammabike->SetGame(m_game);
 		gammabike->GetPassObject(m_pointList);
@@ -61,7 +61,7 @@ void BikeMaster::Update()
 		epsilonbike = g_goMgr.NewGO<EpsilonBike>(); //EpsilonBike
 		epsilonbike->SetGame(m_game);
 		epsilonbike->GetPassObject(m_pointList);
-
+		
 		m_bikeSetFlag = true;
 	}
 	//バイクの選択番号が1の時
@@ -194,8 +194,8 @@ void BikeMaster::Update()
 	//バイクとカメラの更新
 	if (m_bikeSetFlag == true) {
 		
-		alphabike->Update();
-		betabike->Update();
+		//alphabike->Update();
+		//betabike->Update();
 		//gammabike->Update();
 		//deltabike->Update();
 		//epsilonbike->Update();

@@ -61,9 +61,9 @@ void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector
 		
 			position += movespeed;
 	
-		if (movespeed.LengthSq() >= 300.0f * 300.0f) {
+		if (movespeed.LengthSq() >= 500.0f * 500.0f) {
 			movespeed.Normalize();
-			movespeed *= 300.0f;
+			movespeed *= 900.0f;
 		}
 
 		//âÒì]èàóù
@@ -99,7 +99,7 @@ void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector
 		if (m_CharaConInitFlag == true)
 		{
 			position =  m_charaCon.Execute( movespeed, 
-				//1.0f / 60.0f 
+				
 				GameTimeIns().GetFrameDeltaTime()
 				);
 		}

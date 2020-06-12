@@ -63,7 +63,7 @@ private:
 	void Render();
 	void Draw();
 
-	CVector3 m_position = { -110.0f, 0.0f, 0.0f };      //座標
+	CVector3 m_position = { -120.0f, 0.0f, 0.0f };      //座標
 	CVector3 m_moveSpeed = CVector3::Zero();           //移動速度
 	CQuaternion m_rotation = CQuaternion::Identity();  //回転
 	SkinModel* m_model;                                //スキンモデル。

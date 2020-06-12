@@ -25,8 +25,16 @@ private:
 	CVector2 pivot = CVector2::Zero();            //ピボット
 	float rot = 0.0f;                             //回転
 
+	//2位表示用のメンバ変数
+	CVector2 m_Secondplacepos = CVector2::Zero();  //座標
+	CVector4 m_color2 = CVector4::White();         //カラー
+	CVector2 m_Fontscale2 = CVector2::One();       //フォント拡大率
+	CVector2 pivot2 = CVector2::Zero();            //ピボット
+	float rot2 = 0.0f;                             //回転
+
+
 	Sprite m_sprite;  //リザルトスプライト
 	Font* m_firstplace;  //一位
-
+	Font* m_secondplace; //二位
 };
 

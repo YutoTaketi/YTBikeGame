@@ -99,6 +99,7 @@
     </MeshContentTask>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AiRotPath.cpp" />
     <ClCompile Include="AlphaBike.cpp" />
     <ClCompile Include="BetaBike.cpp" />
     <ClCompile Include="BikeController.cpp" />
@@ -175,6 +176,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AiRotPath.h" />
     <ClInclude Include="AlphaBike.h" />
     <ClInclude Include="BetaBike.h" />
     <ClInclude Include="BikeController.h" />

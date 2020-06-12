@@ -119,7 +119,7 @@ void Game::Update()
 		level.Draw();
 	
 	
-	bikemaster->Update();
+	//bikemaster->Update();
 	lapcount->Update();
 	
 

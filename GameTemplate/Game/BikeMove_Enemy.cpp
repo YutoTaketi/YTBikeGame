@@ -33,7 +33,7 @@ void BikeMove_Enemy::Execute(CVector3& position, CQuaternion& rotation, CVector3
 	CVector3 diff = m_point->s_position - position;
 	//if (m_game->GetFinishFlag() == false) 
 	//{
-		if (diff.LengthSq() <= 1000.0f) {
+		if (diff.Length() <= 1000.0f) {
 			m_point = m_game->GetNextNumber(m_point->s_number);
 		}
 	//}

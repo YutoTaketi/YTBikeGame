@@ -11,7 +11,11 @@ public:
 	/// </summary>
 	const CVector3 BikeAccel(CVector3 movespeed, float accelnum)const
 	{
-		CVector3 v = movespeed * accelnum;
+		CVector3 v;
+		if (movespeed.LengthSq() < 500.0f) {
+			v = movespeed * accelnum;
+		}
+		
 		return v;
 	}
 	//ƒoƒCƒN‚Ì‰ñ“]ˆ—

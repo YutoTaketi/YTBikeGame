@@ -23,7 +23,10 @@ public:
 	{
 		return m_position;
 	}
-
+	CVector3 GetMoveSpeed() const
+	{
+		return m_moveSpeed;
+	}
 	/// <summary>
 	/// パス移動に関する関数と配列
 	/// </summary>
@@ -70,6 +73,8 @@ private:
 	Goal* m_goal;                                     //Goalのポインタ
 	CVector3 m_accel = CVector3::Zero();    //加速度
 	CVector3 m_forward = CVector3::AxisZ();   //エネミーの前方方向
+
+	CVector3 m_bikemoveSpeed = CVector3::Zero();
 
 	float m_accelNum = 400.0f;        //加速数値
 	float m_friction = 0.98f;        //摩擦係数

@@ -36,6 +36,7 @@ void GameCamera::Update()
 	if (m_bikemaster->GetBikeNo() == 0)
 	{
 		m_target = m_alphabike->GetPosition();
+		m_bikespeed = m_alphabike->GetMoveSpeed();
 	}
 	else if (m_bikemaster->GetBikeNo() == 1)
 	{
@@ -58,10 +59,23 @@ void GameCamera::Update()
 		
 		CVector3 stick;
 		CQuaternion qRot = CQuaternion::Identity();
+		m_bikespeed = m_alphabike->GetMoveSpeed();
+		m_bikecamLen =  m_bikespeed / 50;
+		m_bikecamLen.y = 0.0f;
+		m_bikecamLen.LengthSq();
 		stick.x = g_pad[0].GetLStickXF();
 		qRot.SetRotationDeg(CVector3::AxisY(), stick.x * 1.2f);
 		qRot.Multiply(m_toCameraPos);
-		m_position = m_target + m_toCameraPos;
+		///if (m_bikespeed.LengthSq() >= 500.0f) {
+			m_position = m_target + m_toCameraPos - m_bikecamLen;
+		//}
+		//else
+		//{
+		//	m_position = m_target + m_toCameraPos;
+		//}
+		//m_position = m_target + m_toCameraPos;
+		
+
 		m_finishposition = m_position;
 
 	//}

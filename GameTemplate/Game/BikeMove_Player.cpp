@@ -54,16 +54,20 @@ void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector
 		
 		
 		movespeed += accel;
+		if (!g_pad[0].IsPressAnyKey()) {
+			movespeed *= 1.0f;
+		}
 		//–€CŒW”‚ğæZ
 		movespeed *= friction;
 		//m_finishspeed = movespeed;
 		//ˆÚ“®‘¬“x‚ğŒvZ
 		
 			position += movespeed;
+			
 	
-		if (movespeed.LengthSq() >= 500.0f * 500.0f) {
+		if (movespeed.Length() >= 6000.0f) {
 			movespeed.Normalize();
-			movespeed *= 900.0f;
+			movespeed *= 6000.0f;
 		}
 
 		//‰ñ“]ˆ—

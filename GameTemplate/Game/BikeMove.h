@@ -59,6 +59,8 @@ public:
 	{
 		return syukaicount;
 	}
+
+	
 	double Syukaihantei = false;          //周回判定
 	int syukaicount = 0;                 //周回カウント
 	std::map<int, Point*> m_pointList;  //ポイント構造体の配列

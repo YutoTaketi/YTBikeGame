@@ -120,7 +120,7 @@ void Game::Update()
 	
 	
 	//bikemaster->Update();
-	lapcount->Update();
+	//lapcount->Update();
 	
 
 	if (finishFlag == true)

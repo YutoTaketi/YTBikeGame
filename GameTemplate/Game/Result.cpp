@@ -9,8 +9,14 @@ Result::Result()
 	m_sprite.Init(L"Assets/sprite/Result.dds", 1000.0f, 800.0f);
 	m_firstplace = new Font();
 	m_secondplace = new Font();
-	m_Firstplacepos = { 350.0f, 155.0f };
-	m_Secondplacepos = { 350.0f, 260.0f };
+	m_thirdplace = new Font();
+	m_fourthplace = new Font();
+	m_fifthplace = new Font();
+	m_Firstplacepos = { 350.0f, 159.0f };
+	m_Secondplacepos = { 350.0f, 263.0f };
+	m_Thirdplacepos = { 350.0f, 382.0f };
+	m_Fourthplacepos = { 350.0f, 510.0f };
+	m_Fifthplacepos = { 350.0f, 630.0f };
 }
 
 
@@ -45,9 +51,38 @@ void Result::Update()
 		DirectX::SpriteEffects_None
 	);
 
+	//3ˆÊ‚Ì•\Ž¦
+	m_thirdplace->DrawScreenPos(
+		L"COM",
+		m_Thirdplacepos,
+		m_color3,
+		m_Fontscale3,
+		pivot3,
+		rot3,
+		DirectX::SpriteEffects_None
+	);
 
+	//4ˆÊ‚Ì•\Ž¦
+	m_fourthplace->DrawScreenPos(
+		L"COM",
+		m_Fourthplacepos,
+		m_color4,
+		m_Fontscale4,
+		pivot4,
+		rot4,
+		DirectX::SpriteEffects_None
+	);
 
-
+	//5ˆÊ‚Ì•\Ž¦
+	m_fifthplace->DrawScreenPos(
+		L"COM",
+		m_Fifthplacepos,
+		m_color5,
+		m_Fontscale5,
+		pivot5,
+		rot5,
+		DirectX::SpriteEffects_None
+	);
 
 	if (g_pad[0].IsTrigger(enButtonB)) {
 		g_goMgr.DeleteGameObject(this);

@@ -177,14 +177,14 @@ const CVector3& CharacterController::Execute( CVector3& moveSpeed, float deltaTi
 			if (callback.isHit) {
 				//当たった。
 				//壁。
-#if 1
+//#if 1
 				//こちらを有効にすると衝突解決が衝突点に戻すになる。
 				nextPosition.x = callback.hitPos.x;
 				nextPosition.z = callback.hitPos.z;
 				//法線の方向に半径分押し戻す。
 				nextPosition.x += callback.hitNormal.x * m_radius;
 				nextPosition.z += callback.hitNormal.z * m_radius;
-#else
+//#else
 				CVector3 vT0, vT1;
 				//XZ平面上での移動後の座標をvT0に、交点の座標をvT1に設定する。
 				vT0.Set(nextPosition.x, 0.0f, nextPosition.z);
@@ -215,7 +215,7 @@ const CVector3& CharacterController::Execute( CVector3& moveSpeed, float deltaTi
 					nextPosition.z = m_position.z;
 					break;
 				}
-#endif
+//#endif
 			}
 			else {
 				//どことも当たらないので終わり。

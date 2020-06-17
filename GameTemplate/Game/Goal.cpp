@@ -21,7 +21,7 @@ void Goal::Update()
 {
 	if (MakeGoalFlag == false)
 	{
-		m_ghostObject.CreateBox(m_position, m_rotation, {100.0f, 100.0f, 100.0f});
+		m_ghostObject.CreateBox(m_position, m_rotation, m_scale );
 		MakeGoalFlag = true;
 	}
 	//m_model->UpdateWorldMatrix(m_position, m_rotation, m_scale);

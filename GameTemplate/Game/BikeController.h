@@ -12,6 +12,9 @@ public:
 	const CVector3 BikeAccel(CVector3 movespeed, float accelnum)const
 	{
 		CVector3 v;
+		if (movespeed.LengthSq() > 500.0f) {
+			v = movespeed * accelnum * 0.8f;
+		}
 		if (movespeed.LengthSq() < 500.0f) {
 			v = movespeed * accelnum;
 		}

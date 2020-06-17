@@ -26,6 +26,15 @@ Result::~Result()
 
 void Result::Update()
 {
+	
+	if (g_pad[0].IsTrigger(enButtonB)) {
+		g_goMgr.DeleteGameObject(this);
+		g_goMgr.NewGO<Title>();
+	}
+}
+
+void Result::Render()
+{
 	m_rotation.SetRotationDeg(CVector3::AxisY(), 180.0f);
 	m_sprite.UpdateWorldMatrix(m_position, m_rotation, m_scale);
 	Draw();
@@ -42,7 +51,7 @@ void Result::Update()
 
 	//2ˆÊ‚Ì•\Ž¦
 	m_secondplace->DrawScreenPos(
-	    L"COM",
+		L"COM",
 		m_Secondplacepos,
 		m_color2,
 		m_Fontscale2,
@@ -83,16 +92,6 @@ void Result::Update()
 		rot5,
 		DirectX::SpriteEffects_None
 	);
-
-	if (g_pad[0].IsTrigger(enButtonB)) {
-		g_goMgr.DeleteGameObject(this);
-		g_goMgr.NewGO<Title>();
-	}
-}
-
-void Result::Render()
-{
-	
 }
 
 void Result::Draw()

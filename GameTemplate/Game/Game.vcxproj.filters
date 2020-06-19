@@ -190,6 +190,7 @@
     <ClCompile Include="RaceTimer.cpp" />
     <ClCompile Include="LapCount.cpp" />
     <ClCompile Include="AiRotPath.cpp" />
+    <ClCompile Include="ResultMaster.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\Vector.h">
@@ -330,6 +331,7 @@
     <ClInclude Include="RaceTimer.h" />
     <ClInclude Include="LapCount.h" />
     <ClInclude Include="AiRotPath.h" />
+    <ClInclude Include="ResultMaster.h" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">
@@ -417,5 +419,10 @@
     <ImageContentTask Include="Assets\sprite\Result.png">
       <Filter>Assets\sprite</Filter>
     </ImageContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\sprite\BikeSentakuWaku.png">
+      <Filter>Assets\sprite</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -152,6 +152,7 @@
     <ClCompile Include="RaceTimer.cpp" />
     <ClCompile Include="RenderTarget.cpp" />
     <ClCompile Include="Result.cpp" />
+    <ClCompile Include="ResultMaster.cpp" />
     <ClCompile Include="ShadowMap.cpp" />
     <ClCompile Include="SoundEngine.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
@@ -231,6 +232,7 @@
     <ClInclude Include="RaceTimer.h" />
     <ClInclude Include="RenderTarget.h" />
     <ClInclude Include="Result.h" />
+    <ClInclude Include="ResultMaster.h" />
     <ClInclude Include="ShadowMap.h" />
     <ClInclude Include="SoundEngine.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
@@ -319,6 +321,12 @@
     <ImageContentTask Include="Assets\sprite\Result.png">
       <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\Assets\sprite\%(Filename).dds</ContentOutput>
       <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)\Assets\sprite\%(Filename).dds</ContentOutput>
+    </ImageContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\BikeSentakuWaku.png">
+      <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)\Assets\sprite\%(Filename).dds</ContentOutput>
+      <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\Assets\sprite\%(Filename).dds</ContentOutput>
     </ImageContentTask>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

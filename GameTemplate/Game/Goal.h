@@ -38,9 +38,9 @@ public:
 	/// 配置したゴールポイントのスケールを取得
 	/// </summary>
 	/// <param name="sale"></param>
-	void SetScale(CVector3 sale)
+	void SetScale(CVector3 scale)
 	{
-		m_scale = sale;
+		m_scale = scale;
 	}
 	/// <summary>
 	/// 回転を返す

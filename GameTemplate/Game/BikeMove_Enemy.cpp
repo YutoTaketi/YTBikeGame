@@ -39,7 +39,7 @@ void BikeMove_Enemy::Execute(CVector3& position, CQuaternion& rotation, CVector3
 	//}
 	movespeed = m_point->s_position - position;
 	movespeed.Normalize();
-	accel = movespeed * accelnum * 2.5f;
+	accel = movespeed * accelnum * 4.0f;
 	movespeed += accel;
 	//–€CŒW”‚ğæZ
 	movespeed *= friction;

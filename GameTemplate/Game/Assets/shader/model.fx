@@ -79,7 +79,7 @@ struct PSInput{
 	float3 Normal		: NORMAL;
 	float3 Tangent		: TANGENT;
 	float2 TexCoord 	: TEXCOORD0;
-	float3 worldPos		: TEXCOORD1;	//ワールド座標。
+	float3 WorldPos		: TEXCOORD1;	//ワールド座標。
 };
 /*!
  *@brief	スキン行列を計算。
@@ -105,12 +105,16 @@ PSInput VSMain( VSInputNmTxVcTangent In )
 {
 	PSInput psInput = (PSInput)0;
 	float4 pos = mul(mWorld, In.Position);
+	psInput.WorldPos = pos;
+
 	pos = mul(mView, pos);
 	pos = mul(mProj, pos);
 	psInput.Position = pos;
 	psInput.TexCoord = In.TexCoord;
+
 	psInput.Normal = normalize(mul(mWorld, In.Normal));
 	psInput.Tangent = normalize(mul(mWorld, In.Tangent));
+	
 	return psInput;
 }
 
@@ -145,12 +149,16 @@ PSInput VSMainSkin( VSInputNmTxWeights In )
 		//mulは乗算命令。
 	    pos = mul(skinning, In.Position);
 	}
-	psInput.Normal = normalize( mul(skinning, In.Normal) );
-	psInput.Tangent = normalize( mul(skinning, In.Tangent) );
-	
+	//psInput.Normal = normalize( mul(skinning, In.Normal) );
+	//psInput.Tangent = normalize( mul(skinning, In.Tangent) );
+	psInput.Normal = In.Normal;
+	psInput.Tangent = In.Tangent;
+
+
 	pos = mul(mView, pos);
 	pos = mul(mProj, pos);
 	psInput.Position = pos;
+	psInput.WorldPos = pos;
 	psInput.TexCoord = In.TexCoord;
     return psInput;
 }
@@ -167,23 +175,23 @@ float4 PSMain( PSInput In ) : SV_Target0
 		lig += max(0.0f, dot(In.Normal * -1.0f, dligDirection[i])) * dligColor[i];
 	}
 	{
-		/*for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 4; i++) {
 			//鏡面反射の計算
 			float3 R = dligDirection[i]
 				+ 2 * dot(In.Normal, -dligDirection[i])
 				* In.Normal;
 			//②視点からライトを当てる物体に伸びるベクトルEを求める。
-			float3 E = normalize(In.worldPos - eyePos);
+			float3 E = normalize(In.WorldPos - eyePos);
 
 			//①と②で求まったベクトルの内積を計算する。
 			//スペキュラ反射の強さを求める。
 			float specPower = max(0, dot(R, -E));
 
-			//③　スペキュラ反射をライトに加算する。
-			lig += dligColor[i].xyz * pow(specPower, specPow); //specPower;
+
+			lig += pow(specPower, specPow); //specPower;
 			//lig += dligColor[i].xyz;
 			//lig += 0.0f;
-		}*/
+		}
 	}
 	
 	//ライトの光とアルベドカラーを乗算して、

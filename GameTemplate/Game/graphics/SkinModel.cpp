@@ -51,18 +51,22 @@ void SkinModel::Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis)
 //ディレクションライトの初期化
 void SkinModel::InitDirectionLight()
 {
-	m_light.directionLight.direction[0] = { 1.0f, 0.0f,0.0f, 0.0f };
-	m_light.directionLight.color[0] = { 1.0f, 1.0f, 1.0f, 1.0f };
+	m_light.directionLight.direction[0] = { 1.0f, -1.0f,0.0f, 0.0f };
+	m_light.directionLight.direction[0].Normalize();
+	m_light.directionLight.color[0] = { 0.5f, 0.5f, 0.5f, 1.0f };
 
-	m_light.directionLight.direction[1] = { -1.0f, 0.0f,0.0f, 0.0f };
-	m_light.directionLight.color[1] = { 1.0f, 1.0f, 1.0f, 1.0f };
+	m_light.directionLight.direction[1] = { -1.0f, -1.0f,0.0f, 0.0f };
+	m_light.directionLight.direction[1].Normalize();
+	m_light.directionLight.color[1] = { 0.2f, 0.2f, 0.2f, 1.0f };
 
-	m_light.directionLight.direction[2] = { 0.0f, 0.0f, 1.0f, 0.0f };
-	m_light.directionLight.color[2] = { 1.0f, 1.0f, 1.0f, 1.0f };
+	m_light.directionLight.direction[2] = { 0.0f, -1.0f, 1.0f, 0.0f };
+	m_light.directionLight.direction[2].Normalize();
+	m_light.directionLight.color[2] = { 0.2f, 0.2f, 0.2f, 1.0f };
 
-	m_light.directionLight.direction[3] = { 1.0f, 0.0f, -1.0f, 0.0f };
-	m_light.directionLight.color[3] = { 1.0f, 1.0f, 1.0f, 1.0f };
-	m_light.specPow = 1.0f;
+	m_light.directionLight.direction[3] = { 1.0f, -1.0f, -1.0f, 0.0f };
+	m_light.directionLight.direction[3].Normalize();
+	m_light.directionLight.color[3] = { 0.2f, 0.2f, 0.2f, 1.0f };
+	m_light.specPow = 5.0f;
 }
 /*void SkinModel::InitAlbedoTexture()
 {
@@ -115,7 +119,7 @@ void SkinModel::InitConstantBuffer()
 
 	//続いて、ライト用の定数バッファを作成。
 	//作成するバッファのサイズを変更するだけ。
-	bufferDesc.ByteWidth = sizeof(SDirectionLight);				//SDirectionLightは16byteの倍数になっているので、切り上げはやらない。
+	bufferDesc.ByteWidth = sizeof(SLight);				//SDirectionLightは16byteの倍数になっているので、切り上げはやらない。
 	g_graphicsEngine->GetD3DDevice()->CreateBuffer(&bufferDesc, NULL, &m_lightCb);
 }
 

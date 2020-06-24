@@ -135,6 +135,7 @@
     <ClCompile Include="HID\Pad.cpp" />
     <ClCompile Include="IGameObject.cpp" />
     <ClCompile Include="ItemWaku.cpp" />
+    <ClCompile Include="Kyakuseki.cpp" />
     <ClCompile Include="LapCount.cpp" />
     <ClCompile Include="level\Level.cpp" />
     <ClCompile Include="level\MapChip.cpp" />
@@ -214,6 +215,7 @@
     <ClInclude Include="HID\Pad.h" />
     <ClInclude Include="IGameObject.h" />
     <ClInclude Include="ItemWaku.h" />
+    <ClInclude Include="Kyakuseki.h" />
     <ClInclude Include="LapCount.h" />
     <ClInclude Include="level\Level.h" />
     <ClInclude Include="level\MapChip.h" />
@@ -258,6 +260,9 @@
     <MeshContentTask Include="Assets\modelData\bike3\Bike3.fbx" />
     <MeshContentTask Include="Assets\modelData\Bike4.fbx" />
     <MeshContentTask Include="Assets\modelData\Bike5.fbx" />
+    <MeshContentTask Include="Assets\modelData\BillBoard.fbx">
+      <FileType>Document</FileType>
+    </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\Course.fbx" />
     <MeshContentTask Include="Assets\modelData\Course01.fbx" />
     <MeshContentTask Include="Assets\modelData\CourseDemo.FBX" />
@@ -265,6 +270,7 @@
     <MeshContentTask Include="Assets\modelData\cpt00.fbx" />
     <MeshContentTask Include="Assets\modelData\GhostPoint.fbx" />
     <MeshContentTask Include="Assets\modelData\GoalPoint.fbx" />
+    <MeshContentTask Include="Assets\modelData\Kyakuseki.fbx" />
     <MeshContentTask Include="Assets\modelData\PlayerBike\PlayerBike.FBX" />
     <MeshContentTask Include="Assets\modelData\PlayerBike\PlayerBike1.FBX" />
     <MeshContentTask Include="Assets\modelData\point.FBX" />

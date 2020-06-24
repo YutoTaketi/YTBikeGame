@@ -1,17 +1,19 @@
 #pragma once
 #include "GameObjectManager.h"
-//#include "graphics/SkinModel.h"
 #include "physics/PhysicsStaticObject.h"
+
 class SkinModel;
-class Course : public IGameObject
+class Kyakuseki : public IGameObject
 {
 public:
-	Course();
-	~Course();
+	Kyakuseki();
+	~Kyakuseki();
+
 	/// <summary>
 	/// 更新関数
 	/// </summary>
 	void Update();
+
 	/// <summary>
 	/// 座標を返す
 	/// </summary>
@@ -29,22 +31,23 @@ public:
 		m_rotation = rot;
 	}
 	/// <summary>
-	/// 拡大率
+	/// 拡大率を返す
 	/// </summary>
-	/// <param name="scale"></param>
-	void SetScale(CVector3 scale)
+	/// <param name="sclae"></param>
+	void SetSclae(CVector3 sclae)
 	{
-		m_scale = scale;
+		m_scale = sclae;
 	}
+	
+private:
 	CVector3 m_position = CVector3::Zero();               //座標
 	CQuaternion m_rotation = CQuaternion::Identity();     //回転
 	CVector3 m_scale = CVector3::One();                    //拡大率
-private:
+
 	void Render();
 	void Draw();
-
 	SkinModel m_model;                       //スキンモデル
 	PhysicsStaticObject m_phyStaticObject;   //静的物理オブジェクト
-
+	ID3D11ShaderResourceView* m_normalMapSRV = nullptr;
 };
 

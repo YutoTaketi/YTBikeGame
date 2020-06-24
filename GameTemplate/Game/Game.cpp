@@ -7,13 +7,14 @@
 #include "BikeMaster.h"
 #include "Course.h"
 #include "LapCount.h"
+#include "Kyakuseki.h"
 
 
 Game::Game()
 {
 	//レベルの初期化
 	//coursepath = new CoursePath();
-	level.Init(L"Assets/level/CourseLevelDemo2.tkl", [&]( LevelObjectData& objData) {
+	level.Init(L"Assets/level/CourseLevelDemo.tkl", [&]( LevelObjectData& objData) {
 		//パス移動用のポイントリストを作成
 		if (wcsncmp(L"point", objData.name, 5) == 0) {
 			int number = _wtoi(&objData.name[5]);
@@ -23,7 +24,21 @@ Game::Game()
 			m_pointList[number] = point;
 			return true;
 		}
-		
+		if (objData.EqualObjectName(L"Course01") == true) {
+			course = g_goMgr.NewGO<Course>();
+			course->SetPosition(objData.position);
+			course->SetRotation(objData.rotation);
+			course->SetScale(objData.scale);
+			return true;
+
+		}
+		if (objData.EqualObjectName(L"Kyakuseki") == true) {
+			kyakuseki = g_goMgr.NewGO<Kyakuseki>();
+			kyakuseki->SetPosition(objData.position);
+			kyakuseki->SetRotation(objData.rotation);
+			kyakuseki->SetSclae(objData.scale);
+			return true;
+		}
 		
 		if (objData.EqualObjectName(L"TestGoal") == true) {
 			goal = g_goMgr.NewGO<Goal>();
@@ -116,7 +131,6 @@ void Game::ChangeRenderTarget(ID3D11DeviceContext* d3dDeviceContext, ID3D11Rende
 void Game::Update()
 {
 	
-		level.Draw();
 	
 	
 	//bikemaster->Update();
@@ -139,8 +153,6 @@ void Game::PreRender()
 
 void Game::ForwordRender()
 {
-	
-	
 	g_goMgr.Draw();
 }
 
@@ -163,5 +175,5 @@ void Game::PostRender()
 
 void Game::Render()
 {
-	
+	level.Draw();
 }

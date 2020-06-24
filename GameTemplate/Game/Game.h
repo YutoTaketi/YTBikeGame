@@ -24,6 +24,7 @@ class BikeSelect;
 class BikeMaster;
 class Course;
 class LapCount;
+class Kyakuseki;
 /// <summary>
 
 /// ゲームクラス
@@ -167,6 +168,7 @@ private:
 	BikeSelect* bikeselect = nullptr;   //バイクの選択画面
 	BikeMaster* bikemaster = nullptr;   //バイクの生成を担当
 	Course* course = nullptr;           //コース
+	Kyakuseki* kyakuseki = nullptr;     //客席
 	LapCount* lapcount = nullptr;       //周回カウント
 	
 	int lapcheck = 0;  //ラップチェック

@@ -191,7 +191,13 @@ public:
 			}
 		}
 	}
-
+	/// <summary>
+	/// 法線マップの設定
+	/// </summary>
+	void SetNormalMap(ID3D11ShaderResourceView* srv)
+	{
+		m_normalMapSRV = srv;
+	}
 	
 	/*!
 	*@brief	SRVのレジスタ番号。
@@ -222,6 +228,8 @@ private:
 	*@brif アルベドテクスチャの初期化
 	*/
 	//void InitAlbedoTexture();
+	
+	
 
 private:
 	//定数バッファ。
@@ -229,6 +237,7 @@ private:
 		CMatrix mWorld;
 		CMatrix mView;
 		CMatrix mProj;
+		int isHasNormalMap;  //法線マップを保持している？
 	};
 	
 
@@ -257,6 +266,7 @@ private:
 	CMatrix				m_worldMatrix;					//!<ワールド行列。
 	DirectX::Model*		m_modelDx;						//!<DirectXTKが提供するモデルクラス。
 	ID3D11SamplerState* m_samplerState = nullptr;		//!<サンプラステート。
+	ID3D11ShaderResourceView* m_normalMapSRV = nullptr; //!<法線マップ
 	//ID3D11ShaderResourceView*m_albedoTextureSRV=nullptr;//!<アルベドテクスチャのSRV
 
 

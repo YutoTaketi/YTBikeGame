@@ -85,4 +85,7 @@ private:
 	BikeMove* m_bikeMove = nullptr;
 	bool m_playerBikeFlag = false;    //プレイヤーバイクかどうかのフラグ
 	bool m_bikeMoveDecision = false;   //バイクを動かす処理が決定したかのフラグ。
+
+	
+
 };

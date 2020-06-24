@@ -17,6 +17,10 @@ SkinModel::~SkinModel()
 		//サンプラステートを解放。
 		m_samplerState->Release();
 	}
+
+	if (m_normalMapSRV != nullptr) {
+		m_normalMapSRV->Release();
+	}
 	
 }
 
@@ -76,6 +80,9 @@ void SkinModel::InitDirectionLight()
 		D3D11_USAGE_DEFAULT, D3D11_BIND_SHADER_RESOURCE, 0, 0,
 		false, nullptr, &m_albedoTextureSRV);
 }*/
+
+
+
 void SkinModel::InitSkeleton(const wchar_t* filePath)
 {
 	//スケルトンのデータを読み込む。
@@ -176,6 +183,15 @@ void SkinModel::Draw(CMatrix viewMatrix, CMatrix projMatrix)
 	vsCb.mWorld = m_worldMatrix;
 	vsCb.mProj = projMatrix;
 	vsCb.mView = viewMatrix;
+
+	//法線マップを使用するかどうかのフラグを送る。
+	if (m_normalMapSRV != nullptr) {
+		vsCb.isHasNormalMap = true;
+	}
+	else {
+		vsCb.isHasNormalMap = false;
+	}
+
 	d3dDeviceContext->UpdateSubresource(m_cb, 0, nullptr, &vsCb, 0, 0);
 	//ライト用の定数バァファを更新.
      d3dDeviceContext->UpdateSubresource(m_lightCb, 0, nullptr, &m_light, 0, 0);
@@ -183,6 +199,7 @@ void SkinModel::Draw(CMatrix viewMatrix, CMatrix projMatrix)
 	//定数バッファをGPUに転送。
 	d3dDeviceContext->VSSetConstantBuffers(0, 1, &m_cb);
 	d3dDeviceContext->PSSetConstantBuffers(1, 1, &m_lightCb);
+	d3dDeviceContext->PSSetConstantBuffers(0, 1, &m_cb);
 
 	//サンプラステートを設定。
 	d3dDeviceContext->PSSetSamplers(0, 1, &m_samplerState);
@@ -190,6 +207,11 @@ void SkinModel::Draw(CMatrix viewMatrix, CMatrix projMatrix)
 	m_skeleton.SendBoneMatrixArrayToGPU();
 	//アルベドテクスチャを設定する。
 	//d3dDeviceContext->PSSetShaderResources(0, 1, &m_albedoTextureSRV);
+
+	if (m_normalMapSRV != nullptr) {
+		//法線マップが設定されていたらレジスタt2に設定する。
+		d3dDeviceContext->PSSetShaderResources(2, 1, &m_normalMapSRV);
+	}
 
 	//描画。
 	m_modelDx->Draw(

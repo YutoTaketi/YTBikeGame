@@ -8,8 +8,12 @@
 /////////////////////////////////////////////////////////////
 //アルベドテクスチャ。
 Texture2D<float4> albedoTexture : register(t0);	
+//法線
+Texture2D<float4> g_normalMap : register(t2);		
+
 //ボーン行列
 StructuredBuffer<float4x4> boneMatrix : register(t1);
+
 
 /////////////////////////////////////////////////////////////
 // SamplerState
@@ -26,6 +30,7 @@ cbuffer VSPSCb : register(b0){
 	float4x4 mWorld;
 	float4x4 mView;
 	float4x4 mProj;
+	int isHasNormalMap;	//法線マップある？
 };
 /*struct SDirectionLight {
 	float3 dligDirection[4];
@@ -149,10 +154,10 @@ PSInput VSMainSkin( VSInputNmTxWeights In )
 		//mulは乗算命令。
 	    pos = mul(skinning, In.Position);
 	}
-	//psInput.Normal = normalize( mul(skinning, In.Normal) );
-	//psInput.Tangent = normalize( mul(skinning, In.Tangent) );
-	psInput.Normal = In.Normal;
-	psInput.Tangent = In.Tangent;
+	psInput.Normal = normalize( mul(skinning, In.Normal) );
+	psInput.Tangent = normalize( mul(skinning, In.Tangent) );
+	//psInput.Normal = In.Normal;
+	//psInput.Tangent = In.Tangent;
 
 
 	pos = mul(mView, pos);
@@ -169,17 +174,36 @@ float4 PSMain( PSInput In ) : SV_Target0
 {
 	//albedoテクスチャからカラーをフェッチする。
 	float4 albedoColor = albedoTexture.Sample(Sampler, In.TexCoord);
+
+	//法線
+	float3 normal = 0;
+	if (isHasNormalMap == 1) //1なら設定されている。
+	{
+		float3 biNormal = cross(In.Normal, In.Tangent);
+		biNormal = normalize(biNormal);
+		//ローカル法線をもってくる
+		normal = g_normalMap.Sample(Sampler, In.TexCoord);   //法線　-1～0～1が0～0.5～1で記録されてる。
+		normal = (normal * 2.0f) - 1.0f;                       //-1～0～1の状態にする。
+		//ワールド法線に変換
+		normal = In.Tangent * normal.x + biNormal * normal.y + In.Normal * normal.z;
+	}
+	else {
+		//ない
+		normal = In.Normal;
+	}
+
+
 	//ディレクションライトの拡散反射光を計算する。
 	float3 lig = 0.0f;
 	for (int i = 0; i < 4; i++) {
-		lig += max(0.0f, dot(In.Normal * -1.0f, dligDirection[i])) * dligColor[i];
+		lig += max(0.0f, dot(normal * -1.0f, dligDirection[i])) * dligColor[i];
 	}
 	{
 		for (int i = 0; i < 4; i++) {
 			//鏡面反射の計算
 			float3 R = dligDirection[i]
-				+ 2 * dot(In.Normal, -dligDirection[i])
-				* In.Normal;
+				+ 2 * dot(normal, -dligDirection[i])
+				* normal;
 			//②視点からライトを当てる物体に伸びるベクトルEを求める。
 			float3 E = normalize(In.WorldPos - eyePos);
 

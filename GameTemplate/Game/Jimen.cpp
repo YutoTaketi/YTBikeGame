@@ -9,6 +9,11 @@ Jimen::Jimen()
 
 	//静的物理オブジェクトを作成
 	m_phyStaticObject.CreateMeshObject(m_model, m_position, m_rotation);
+	//ライトのカラーを変更
+	m_model.SetLightColor(0, { 0.5f, 0.5f, 0.5f, 1.0f });
+	m_model.SetLightColor(1, { 0.5f, 0.5f, 0.5f, 1.0f });
+	m_model.SetLightColor(2, { 0.5f, 0.5f, 0.5f, 1.0f });
+	m_model.SetLightColor(3, { 0.5f, 0.5f, 0.5f, 1.0f });
 	//法線マップをロード
 	DirectX::CreateDDSTextureFromFileEx(
 		g_graphicsEngine->GetD3DDevice(),
@@ -34,6 +39,7 @@ Jimen::~Jimen()
 
 void Jimen::Update()
 {
+	
 	m_model.UpdateWorldMatrix(m_position, m_rotation, m_scale);
 }
 

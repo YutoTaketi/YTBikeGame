@@ -196,7 +196,7 @@ float4 PSMain( PSInput In ) : SV_Target0
 	//ディレクションライトの拡散反射光を計算する。
 	float3 lig = 0.0f;
 	for (int i = 0; i < 4; i++) {
-		lig += max(0.0f, dot(normal * -1.0f, dligDirection[i])) * dligColor[i];
+		lig += max(0.0f, dot(normal * -1.0f, dligDirection[i])) * dligColor[i].xyz;
 	}
 	{
 		for (int i = 0; i < 4; i++) {
@@ -211,7 +211,7 @@ float4 PSMain( PSInput In ) : SV_Target0
 			float specPower = max(0, dot(R, -E));
 
 
-			lig += dligColor[i] * pow(specPower, specPow) * 3.0f; //specPower;
+			lig += dligColor[i].xyz * pow(specPower, specPow) * dligColor[i].w;
 			//lig += dligColor[i].xyz;
 			//lig += 0.0f;
 		}

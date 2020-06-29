@@ -112,6 +112,14 @@ public:
 	}
 
 	/// <summary>
+	/// ライトのカラーを設定
+	/// </summary>
+	void SetLightColor(int lightNo, CVector4 color)
+	{
+		m_light.directionLight.color[lightNo] = color;
+	}
+
+	/// <summary>
 	/// 更新。
 	/// </summary>
 	/// <param name="trans">平行移動</param>
@@ -261,6 +269,7 @@ private:
 	ID3D11Buffer*		m_cb = nullptr;					//!<定数バッファ。
 	ID3D11Buffer*       m_lightCb = nullptr;            //!<ライト用の定数バッファ
 	SLight              m_light;                        //ライト用の構造体
+
 	//SDirectionLight     m_directionLight;
 	Skeleton			m_skeleton;						//!<スケルトン。
 	CMatrix				m_worldMatrix;					//!<ワールド行列。

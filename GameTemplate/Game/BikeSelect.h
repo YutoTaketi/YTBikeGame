@@ -2,6 +2,7 @@
 #include "GameObjectManager.h"
 #include "graphics/Sprite.h"
 class BikeMaster;
+class Signal;
 class BikeSelect : public  IGameObject
 {
 public:
@@ -17,6 +18,11 @@ public:
 		m_bikemaster = bikemaster;
 		
 	}
+	void SetSignal(Signal* signal)
+	{
+		m_signal = signal;
+	}
+
 	/// <summary>
 	/// バイクが選択されたかの判定を返す。
 	/// </summary>
@@ -55,7 +61,7 @@ private:
 	Sprite m_sprite;                             //選択画面スプライト
 	Sprite m_sentakuwaku;                        //選択枠のスプライト
 	BikeMaster* m_bikemaster = nullptr;          //バイクマスターのポインタ
-
+	Signal* m_signal = nullptr;
 	bool m_select = false;                    //セレクトされたかのフラグ
 };
 

@@ -183,9 +183,9 @@ float4 PSMain( PSInput In ) : SV_Target0
 		biNormal = normalize(biNormal);
 		//ローカル法線をもってくる
 		normal = g_normalMap.Sample(Sampler, In.TexCoord);   //法線　-1～0～1が0～0.5～1で記録されてる。
-		normal = (normal * 2.0f) - 1.0f;                       //-1～0～1の状態にする。
+		normal = normalize((normal * 2.0f) - 1.0f);                       //-1～0～1の状態にする。
 		//ワールド法線に変換
-		normal = In.Tangent * normal.x + biNormal * normal.y + In.Normal * normal.z;
+		normal = In.Tangent * normal.x + biNormal * normal.y + In.Normal* normal.z;
 	}
 	else {
 		//ない
@@ -201,9 +201,8 @@ float4 PSMain( PSInput In ) : SV_Target0
 	{
 		for (int i = 0; i < 4; i++) {
 			//鏡面反射の計算
-			float3 R = dligDirection[i]
-				+ 2 * dot(normal, -dligDirection[i])
-				* normal;
+			float3 R = reflect(dligDirection[i], normal);
+		
 			//②視点からライトを当てる物体に伸びるベクトルEを求める。
 			float3 E = normalize(In.WorldPos - eyePos);
 
@@ -212,7 +211,7 @@ float4 PSMain( PSInput In ) : SV_Target0
 			float specPower = max(0, dot(R, -E));
 
 
-			lig += pow(specPower, specPow); //specPower;
+			lig += dligColor[i] * pow(specPower, specPow) * 3.0f; //specPower;
 			//lig += dligColor[i].xyz;
 			//lig += 0.0f;
 		}

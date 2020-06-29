@@ -135,6 +135,7 @@
     <ClCompile Include="HID\Pad.cpp" />
     <ClCompile Include="IGameObject.cpp" />
     <ClCompile Include="ItemWaku.cpp" />
+    <ClCompile Include="Jimen.cpp" />
     <ClCompile Include="Kyakuseki.cpp" />
     <ClCompile Include="LapCount.cpp" />
     <ClCompile Include="level\Level.cpp" />
@@ -154,7 +155,9 @@
     <ClCompile Include="RenderTarget.cpp" />
     <ClCompile Include="Result.cpp" />
     <ClCompile Include="ResultMaster.cpp" />
+    <ClCompile Include="Road.cpp" />
     <ClCompile Include="ShadowMap.cpp" />
+    <ClCompile Include="Signal.cpp" />
     <ClCompile Include="SoundEngine.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClCompile>
@@ -215,6 +218,7 @@
     <ClInclude Include="HID\Pad.h" />
     <ClInclude Include="IGameObject.h" />
     <ClInclude Include="ItemWaku.h" />
+    <ClInclude Include="Jimen.h" />
     <ClInclude Include="Kyakuseki.h" />
     <ClInclude Include="LapCount.h" />
     <ClInclude Include="level\Level.h" />
@@ -235,7 +239,9 @@
     <ClInclude Include="RenderTarget.h" />
     <ClInclude Include="Result.h" />
     <ClInclude Include="ResultMaster.h" />
+    <ClInclude Include="Road.h" />
     <ClInclude Include="ShadowMap.h" />
+    <ClInclude Include="Signal.h" />
     <ClInclude Include="SoundEngine.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClInclude>
@@ -265,7 +271,9 @@
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\Course.fbx" />
     <MeshContentTask Include="Assets\modelData\Course01.fbx" />
+    <MeshContentTask Include="Assets\modelData\Course01_Road.fbx" />
     <MeshContentTask Include="Assets\modelData\CourseDemo.FBX" />
+    <MeshContentTask Include="Assets\modelData\CourseJimen.fbx" />
     <MeshContentTask Include="Assets\modelData\CourseSky.fbx" />
     <MeshContentTask Include="Assets\modelData\cpt00.fbx" />
     <MeshContentTask Include="Assets\modelData\GhostPoint.fbx" />
@@ -275,6 +283,8 @@
     <MeshContentTask Include="Assets\modelData\PlayerBike\PlayerBike1.FBX" />
     <MeshContentTask Include="Assets\modelData\point.FBX" />
     <MeshContentTask Include="Assets\modelData\RaceCourse.FBX" />
+    <MeshContentTask Include="Assets\modelData\Signal.fbx" />
+    <MeshContentTask Include="Assets\modelData\SignalHontai.fbx" />
     <MeshContentTask Include="Assets\modelData\TestGoal.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">
       <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\Assets\modelData\%(Filename).cmo</ContentOutput>
@@ -334,6 +344,9 @@
       <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)\Assets\sprite\%(Filename).dds</ContentOutput>
       <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\Assets\sprite\%(Filename).dds</ContentOutput>
     </ImageContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\modelData\ground_road02.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

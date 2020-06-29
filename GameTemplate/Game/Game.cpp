@@ -8,13 +8,15 @@
 #include "Course.h"
 #include "LapCount.h"
 #include "Kyakuseki.h"
-
+#include "Road.h"
+#include "Jimen.h"
+#include "Signal.h"
 
 Game::Game()
 {
 	//レベルの初期化
 	//coursepath = new CoursePath();
-	level.Init(L"Assets/level/CourseLevelDemo.tkl", [&]( LevelObjectData& objData) {
+	level.Init(L"Assets/level/CourseLevelDemo2.tkl", [&]( LevelObjectData& objData) {
 		//パス移動用のポイントリストを作成
 		if (wcsncmp(L"point", objData.name, 5) == 0) {
 			int number = _wtoi(&objData.name[5]);
@@ -24,15 +26,17 @@ Game::Game()
 			m_pointList[number] = point;
 			return true;
 		}
-		if (objData.EqualObjectName(L"Course01") == true) {
+		/*if (objData.EqualObjectName(L"Course01") == true) {
 			course = g_goMgr.NewGO<Course>();
 			course->SetPosition(objData.position);
 			course->SetRotation(objData.rotation);
 			course->SetScale(objData.scale);
 			return true;
 
-		}
+		}*/
+		//客席
 		if (objData.EqualObjectName(L"Kyakuseki") == true) {
+			
 			kyakuseki = g_goMgr.NewGO<Kyakuseki>();
 			kyakuseki->SetPosition(objData.position);
 			kyakuseki->SetRotation(objData.rotation);
@@ -40,6 +44,23 @@ Game::Game()
 			return true;
 		}
 		
+		if (objData.EqualObjectName(L"Course01_Road") == true) {
+			road = g_goMgr.NewGO<Road>();
+			road->SetPosition(objData.position);
+			road->SetRotation(objData.rotation);
+			road->SetSclae(objData.scale);
+			return true;
+		}
+
+		if (objData.EqualObjectName(L"CourseJimen") == true) {
+			jimen = g_goMgr.NewGO<Jimen>();
+			jimen->SetPosition(objData.position);
+			jimen->SetRotation(objData.rotation);
+			jimen->SetSclae(objData.scale);
+			return true;
+		}
+
+
 		if (objData.EqualObjectName(L"TestGoal") == true) {
 			goal = g_goMgr.NewGO<Goal>();
 			goal->m_position = objData.position;
@@ -52,16 +73,21 @@ Game::Game()
 		return false;
     });
 	
-	
+	//バイクマスター
 	bikemaster = g_goMgr.NewGO<BikeMaster>();
 	bikemaster->SetGame(this);
 	bikemaster->GetPassObject(m_pointList);
 	bikemaster->SetGoal(goal);
 	
-	
+	//シグナルの
+	signal = g_goMgr.NewGO<Signal>();
+
+
 	//バイクの選択画面
 	bikeselect = g_goMgr.NewGO<BikeSelect>();
 	bikeselect->SetBikeMaster(bikemaster);
+	bikeselect->SetSignal(signal);
+
 
 	lapcount = g_goMgr.NewGO<LapCount>();
 	lapcount->SetBikeSelect(bikeselect);

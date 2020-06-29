@@ -25,6 +25,9 @@ class BikeMaster;
 class Course;
 class LapCount;
 class Kyakuseki;
+class Road;
+class Jimen;
+class Signal;
 /// <summary>
 
 /// ゲームクラス
@@ -169,6 +172,10 @@ private:
 	BikeMaster* bikemaster = nullptr;   //バイクの生成を担当
 	Course* course = nullptr;           //コース
 	Kyakuseki* kyakuseki = nullptr;     //客席
+	Road* road = nullptr;               //コース
+	Jimen* jimen = nullptr;             //地面
+	Signal* signal = nullptr;           //シグナル
+
 	LapCount* lapcount = nullptr;       //周回カウント
 	
 	int lapcheck = 0;  //ラップチェック

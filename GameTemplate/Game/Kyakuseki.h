@@ -44,6 +44,8 @@ private:
 	CQuaternion m_rotation = CQuaternion::Identity();     //‰ñ“]
 	CVector3 m_scale = CVector3::One();                    //Šg‘å—¦
 
+	
+
 	void Render();
 	void Draw();
 	SkinModel m_model;                       //ƒXƒLƒ“ƒ‚ƒfƒ‹

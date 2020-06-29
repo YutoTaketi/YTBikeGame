@@ -192,6 +192,9 @@
     <ClCompile Include="AiRotPath.cpp" />
     <ClCompile Include="ResultMaster.cpp" />
     <ClCompile Include="Kyakuseki.cpp" />
+    <ClCompile Include="Signal.cpp" />
+    <ClCompile Include="Road.cpp" />
+    <ClCompile Include="Jimen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\Vector.h">
@@ -334,6 +337,9 @@
     <ClInclude Include="AiRotPath.h" />
     <ClInclude Include="ResultMaster.h" />
     <ClInclude Include="Kyakuseki.h" />
+    <ClInclude Include="Signal.h" />
+    <ClInclude Include="Road.h" />
+    <ClInclude Include="Jimen.h" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">
@@ -393,6 +399,14 @@
     <MeshContentTask Include="Assets\modelData\BillBoard.fbx">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Course01_Road.fbx" />
+    <MeshContentTask Include="Assets\modelData\CourseJimen.fbx" />
+    <MeshContentTask Include="Assets\modelData\Signal.fbx">
+      <Filter>Assets\modelData</Filter>
+    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\SignalHontai.fbx">
+      <Filter>Assets\modelData</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Assets\level\stage_00.tkl" />
@@ -428,5 +442,6 @@
       <Filter>Assets\sprite</Filter>
     </ImageContentTask>
     <ImageContentTask Include="Assets\sprite\BikeSentakuWaku.png" />
+    <ImageContentTask Include="Assets\modelData\ground_road02.jpg" />
   </ItemGroup>
 </Project>

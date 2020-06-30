@@ -285,6 +285,9 @@
     <MeshContentTask Include="Assets\modelData\RaceCourse.FBX" />
     <MeshContentTask Include="Assets\modelData\Signal.fbx" />
     <MeshContentTask Include="Assets\modelData\SignalHontai.fbx" />
+    <MeshContentTask Include="Assets\modelData\SignalLeft.fbx" />
+    <MeshContentTask Include="Assets\modelData\SignalMiddle.fbx" />
+    <MeshContentTask Include="Assets\modelData\SignalRight.fbx" />
     <MeshContentTask Include="Assets\modelData\TestGoal.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">
       <ContentOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\Assets\modelData\%(Filename).cmo</ContentOutput>

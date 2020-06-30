@@ -67,6 +67,9 @@ private:
 	//CVector3 m_position = { 50.0f, 0.0f, 0.0f };      //座標
 	CVector3 m_position = CVector3::Zero();
 	CVector3 m_moveSpeed = CVector3::Zero();          //移動速度
+	CVector3 m_scale = CVector3::One();               //拡大率
+	CVector3 m_gamescale = { 1.2f, 1.2f, 1.2f };      //ゲームで実際に使う拡大率
+
 	CQuaternion m_rotation = CQuaternion::Identity(); //回転
 	SkinModel* m_model;                               //スキンモデル。
 	Game* m_game;                                     //Gameのポインタ

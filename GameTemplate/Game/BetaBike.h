@@ -23,7 +23,14 @@ public:
 	{
 		return m_position;
 	}
-
+	/// <summary>
+	/// 速度を返す
+	/// </summary>
+	/// <returns></returns>
+	CVector3 GetMoveSpeed() const
+	{
+		return m_moveSpeed;
+	}
 	/// <summary>
 	/// Gameクラスで作ったパスの情報を取得する。
 	/// </summary>

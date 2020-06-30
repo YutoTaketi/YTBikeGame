@@ -23,6 +23,10 @@ public:
 	{
 		return m_position;
 	}
+	/// <summary>
+	/// ‘¬“x‚ð•Ô‚·
+	/// </summary>
+	/// <returns></returns>
 	CVector3 GetMoveSpeed() const
 	{
 		return m_moveSpeed;

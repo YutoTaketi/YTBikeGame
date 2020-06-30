@@ -24,7 +24,14 @@ public:
 		return m_position;
 	}
 
-
+	/// <summary>
+	/// 速度を返す
+	/// </summary>
+	/// <returns></returns>
+	CVector3 GetMoveSpeed() const
+	{
+		return m_moveSpeed;
+	}
 	/// <summary>
 	/// パス移動に関する関数と配列
 	/// </summary>

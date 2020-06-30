@@ -41,25 +41,29 @@ void GameCamera::Update()
 	else if (m_bikemaster->GetBikeNo() == 1)
 	{
 		m_target = m_betabike->GetPosition();
+		m_bikespeed = m_betabike->GetMoveSpeed();
 	}
 	else if (m_bikemaster->GetBikeNo() == 2)
 	{
 		m_target = m_gammabike->GetPosition();
+		m_bikespeed = m_gammabike->GetMoveSpeed();
 	}
 	else if (m_bikemaster->GetBikeNo() == 3)
 	{
 		m_target = m_deltabike->GetPosition();
+		m_bikespeed = m_deltabike->GetMoveSpeed();
 	}
 	else if (m_bikemaster->GetBikeNo() == 4)
 	{
 		m_target = m_epsilonbike->GetPosition();
+		m_bikespeed = m_epsilonbike->GetMoveSpeed();
 	}
 		m_target.y += 100.0f;
 
 		
 		CVector3 stick;
 		CQuaternion qRot = CQuaternion::Identity();
-		m_bikespeed = m_alphabike->GetMoveSpeed();
+	
 		m_bikecamLen =  m_bikespeed / 50;
 		m_bikecamLen.y = 0.0f;
 		m_bikecamLen.LengthSq();

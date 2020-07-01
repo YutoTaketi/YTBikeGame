@@ -18,7 +18,10 @@ class C3DModelEffect : public DirectX::IEffect {
 private:
 	Shader m_vsShader;
 	Shader m_psShader;
+	ID3D11ShaderResourceView* m_albedoTextureSRV = nullptr;
 	bool m_renderMode = 0;
+
+
 public:
 	//コンストラクタ。
 	C3DModelEffect()
@@ -43,24 +46,18 @@ public:
 		*pByteCodeLength = m_vsShader.GetByteCodeSize();
 	}
 
+	void SetAlbedoTexture(ID3D11ShaderResourceView* texSRV)
+	{
+		m_albedoTextureSRV = texSRV;
+	}
+
 	void SetRenderMode(int renderMode)
 	{
 		m_renderMode = renderMode;
 	}
 };
 
-/*class C3DModelEffectFactory : public DirectX::EffectFactory {
-public:
-	C3DModelEffectFactory(ID3D11Device* device) :
-		EffectFactory(device) {}
-	//エフェクトを作成。
-	std::shared_ptr<DirectX::IEffect> __cdecl CreateEffect(const EffectInfo& info, ID3D11DeviceContext* deviceContext)override
-	{
-		shared_ptr<C3DModelEffect> effect = make_shared< C3DModelEffect>();
 
-		return effect;
-	}
-};*/
 
 /*!
 *@brief	スキンモデルクラス。
@@ -276,8 +273,7 @@ private:
 	DirectX::Model*		m_modelDx;						//!<DirectXTKが提供するモデルクラス。
 	ID3D11SamplerState* m_samplerState = nullptr;		//!<サンプラステート。
 	ID3D11ShaderResourceView* m_normalMapSRV = nullptr; //!<法線マップ
-	//ID3D11ShaderResourceView*m_albedoTextureSRV=nullptr;//!<アルベドテクスチャのSRV
-
+	
 
 	
 	/// <summary>

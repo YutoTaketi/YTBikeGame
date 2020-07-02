@@ -470,5 +470,8 @@
     </ImageContentTask>
     <ImageContentTask Include="Assets\sprite\BikeSentakuWaku.png" />
     <ImageContentTask Include="Assets\modelData\ground_road02.jpg" />
+    <ImageContentTask Include="Assets\sprite\Go.png">
+      <Filter>Assets\sprite</Filter>
+    </ImageContentTask>
   </ItemGroup>
 </Project>

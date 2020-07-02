@@ -2,7 +2,7 @@
 /// <summary>
 /// ƒQ[ƒ€ŠÔƒNƒ‰ƒX
 /// </summary>
-
+#include "StopWatch.h"
 #include <queue>
 class GameTime
 {

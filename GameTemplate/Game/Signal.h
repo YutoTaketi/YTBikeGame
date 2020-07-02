@@ -4,6 +4,7 @@
 
 class SkinModel;
 class BikeMaster;
+class GameTime;
 class Signal : public IGameObject
 {
 public:
@@ -49,8 +50,8 @@ private:
 	SkinModel m_modelLeftSig;                      //シグナル左ライト
 	SkinModel m_modelMiddleSig;                    //シグナル中心ライト
 	SkinModel m_modelRightSig;                     //シグナル右ライト
-	//PhysicsStaticObject m_phyStaticObject;   //静的物理オブジェクト
-	//ID3D11ShaderResourceView* m_normalMapSRV = nullptr;
+	
+	float m_changetimer = 0.0f;                    //信号モデル変更用タイマー
 
 };
 

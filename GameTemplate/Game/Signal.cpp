@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Signal.h"
+#include "GameTime.h"
 
 Signal::Signal()
 {
@@ -13,6 +14,7 @@ Signal::~Signal()
 
 void Signal::Update()
 {
+	//ライト部分が縞模様の信号機を出す
 	if (SelectFlag == true && SignalGenerate == false)
 	{
 		//本体
@@ -35,6 +37,51 @@ void Signal::Update()
 		SignalGenerate = true;
 	}
 	
+	//信号が出たらカウント開始
+	if (SignalGenerate == true)
+	{
+		m_changetimer++;
+	}
+
+	if (SignalGenerate == true && m_changetimer == 15.0f)
+	{
+		m_modelLeftSig.Init(L"Assets/modelData/SignalLeft_Red.cmo");
+		m_leftpos = { 1.5f, 150.0f, -20.0f };
+	}
+
+	if (SignalGenerate == true && m_changetimer == 35.0f)
+	{
+		m_modelLeftSig.Init(L"Assets/modelData/SignalLeft.cmo");
+		m_leftpos = { 1.5f, 150.0f, -20.0f };
+
+		m_modelMiddleSig.Init(L"Assets/modelData/SignalMiddle_Red.cmo");
+		m_middlepos = { 1.5f, 150.0f, -20.0f };
+	}
+
+	if (SignalGenerate == true && m_changetimer == 55.0f)
+	{
+		m_modelLeftSig.Init(L"Assets/modelData/SignalLeft.cmo");
+		m_leftpos = { 1.5f, 150.0f, -20.0f };
+
+		m_modelMiddleSig.Init(L"Assets/modelData/SignalMiddle.cmo");
+		m_leftpos = { 1.5f, 150.0f, -20.0f };
+
+		m_modelRightSig.Init(L"Assets/modelData/SignalRight_Red.cmo");
+		m_middlepos = { 1.5f, 150.0f, -20.0f };
+	}
+
+	if (SignalGenerate == true && m_changetimer == 75.0f)
+	{
+		m_modelLeftSig.Init(L"Assets/modelData/SignalLeft_Green.cmo");
+		m_leftpos = { 1.5f, 150.0f, -20.0f };
+
+		m_modelMiddleSig.Init(L"Assets/modelData/SignalMiddle_Green.cmo");
+		m_leftpos = { 1.5f, 150.0f, -20.0f };
+
+		m_modelRightSig.Init(L"Assets/modelData/SignalRight_Green.cmo");
+		m_middlepos = { 1.5f, 150.0f, -20.0f };
+	}
+
 	m_modelHontai.UpdateWorldMatrix(m_position, m_rotation, m_scale);
 	m_modelLeftSig.UpdateWorldMatrix(m_leftpos, m_leftrot, m_leftscale);
 	m_modelMiddleSig.UpdateWorldMatrix(m_middlepos, m_middlerot, m_middlescale);

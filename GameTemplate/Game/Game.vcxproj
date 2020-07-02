@@ -287,9 +287,12 @@
     <MeshContentTask Include="Assets\modelData\SignalHontai.fbx" />
     <MeshContentTask Include="Assets\modelData\SignalLeft.fbx" />
     <MeshContentTask Include="Assets\modelData\SignalLeft_Green.fbx" />
+    <MeshContentTask Include="Assets\modelData\SignalLeft_Red.fbx" />
     <MeshContentTask Include="Assets\modelData\SignalMiddle.fbx" />
+    <MeshContentTask Include="Assets\modelData\SignalMiddle_Green.fbx" />
     <MeshContentTask Include="Assets\modelData\SignalMiddle_Red.fbx" />
     <MeshContentTask Include="Assets\modelData\SignalRight.fbx" />
+    <MeshContentTask Include="Assets\modelData\SignalRight_Green.fbx" />
     <MeshContentTask Include="Assets\modelData\SignalRight_Red.fbx" />
     <MeshContentTask Include="Assets\modelData\TestGoal.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">

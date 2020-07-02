@@ -11,7 +11,7 @@ public:
 	/// </summary>
 	virtual void Update() = 0;
 	virtual void Render() = 0;
-
+	virtual void Render2D(){}
 	/// <summary>
 	/// 削除リクエストを行う
 	/// </summary>

@@ -81,11 +81,20 @@ void Signal::Update()
 		m_modelRightSig.Init(L"Assets/modelData/SignalRight_Green.cmo");
 		m_middlepos = { 1.5f, 150.0f, -20.0f };
 	}
+	
+	if (SignalGenerate == true && m_changetimer == 80.0f)
+	{
+		m_spriteGo.Init(L"Assets/sprite/Go.dds", 1290.0f, 800.0f);
+		
+	}
 
 	m_modelHontai.UpdateWorldMatrix(m_position, m_rotation, m_scale);
 	m_modelLeftSig.UpdateWorldMatrix(m_leftpos, m_leftrot, m_leftscale);
 	m_modelMiddleSig.UpdateWorldMatrix(m_middlepos, m_middlerot, m_middlescale);
 	m_modelRightSig.UpdateWorldMatrix(m_rightpos, m_rightrot, m_rightscale);
+
+	m_spriteGo.UpdateWorldMatrix(m_gopos, m_gorot, m_goscale);
+	
 }
 
 void Signal::Render()
@@ -112,7 +121,26 @@ void Signal::Render()
 	
 }
 
+
+void Signal::Render2D()
+{
+	Draw();
+}
+
 void Signal::Draw()
 {
-
+	if (SignalGenerate == true)
+	{
+		CMatrix mView;
+		CMatrix mProj;
+		mView.MakeLookAt(
+			{ 0, 0, 1 },
+			{ 0, 0, 0 },
+			{ 0, 1, 0 }
+		);
+		mProj.MakeOrthoProjectionMatrix(
+			FRAME_BUFFER_W, FRAME_BUFFER_H, 0.1, 100);
+		m_spriteGo.Draw(mView, mProj);
+	}
+	
 }

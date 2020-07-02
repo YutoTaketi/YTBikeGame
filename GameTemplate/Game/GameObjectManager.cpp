@@ -50,6 +50,10 @@ void GameObjectManager::Update()
 		for (auto go : m_goList) {
 			go->Render();
 		}
+
+		for (auto go : m_goList) {
+			go->Render2D();
+		}
 	}
 
 	for (auto it = m_goList.begin(); it != m_goList.end();

@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObjectManager.h"
 #include "physics/PhysicsStaticObject.h"
+#include "graphics/Sprite.h"
 
 class SkinModel;
 class BikeMaster;
@@ -41,16 +42,21 @@ private:
 	CQuaternion m_rightrot = CQuaternion::Identity();     //回転
 	CVector3 m_rightscale = CVector3::One();              //拡大率
 
+	//Goスプライト用
+	CVector3 m_gopos = CVector3::Zero();               //座標
+	CQuaternion m_gorot = CQuaternion::Identity();     //回転
+	CVector3 m_goscale = CVector3::One();              //拡大率
 
 	bool SelectFlag = false;
 	bool SignalGenerate = false;
 	void Render();
+	void Render2D();
 	void Draw();
 	SkinModel m_modelHontai;                       //シグナル本体
 	SkinModel m_modelLeftSig;                      //シグナル左ライト
 	SkinModel m_modelMiddleSig;                    //シグナル中心ライト
 	SkinModel m_modelRightSig;                     //シグナル右ライト
-	
+	Sprite    m_spriteGo;                               //スプライト
 	float m_changetimer = 0.0f;                    //信号モデル変更用タイマー
 
 };

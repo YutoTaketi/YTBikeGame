@@ -82,18 +82,52 @@ void Signal::Update()
 		m_middlepos = { 1.5f, 150.0f, -20.0f };
 	}
 	
-	if (SignalGenerate == true && m_changetimer == 80.0f)
+	if (SignalGenerate == true && m_changetimer == 75.0f && GoSpriteInitFlag == false)
 	{
 		m_spriteGo.Init(L"Assets/sprite/Go.dds", 1290.0f, 800.0f);
-		
+		m_gorot.SetRotationDeg(CVector3::AxisY(), 180.0f);
+		m_goscale = { 0.0f, 0.0f, 0.0f };
+		m_gopos = { 0.0f, 150.0f, 0.0f };
+		GoSpriteInitFlag = true;
 	}
+
+	//Go!‚ÌŠg‘å
+	if (GoSpriteInitFlag == true)
+	{
+		if (m_goscale.x < 0.5f, m_goscale.y < 0.5f, m_goscale.z < 0.5f)
+		{
+			m_goscale.x = m_goscale.x + 0.1f;
+			m_goscale.y = m_goscale.y + 0.1f;
+			m_goscale.z = m_goscale.z + 0.1f;
+			GoSpriteExpFlag = true;
+		}
+	}
+
+	if (GoSpriteExpFlag == true)
+	{
+		CQuaternion addRot;
+		addRot.SetRotationDeg(CVector3::AxisZ(), 25.0f);
+		m_gorot *= addRot;
+		/*float m_timer = 0;
+		m_timer++;
+		if (m_timer >= 60.0f, m_goscale.x > 0.0f, m_goscale.y > 0.0f, m_goscale.z > 0.0f)
+		{
+			m_goscale.x = m_goscale.x - 0.1f;
+			m_goscale.y = m_goscale.y - 0.1f;
+			m_goscale.z = m_goscale.z - 0.1f;
+		}*/
+	}
+
 
 	m_modelHontai.UpdateWorldMatrix(m_position, m_rotation, m_scale);
 	m_modelLeftSig.UpdateWorldMatrix(m_leftpos, m_leftrot, m_leftscale);
 	m_modelMiddleSig.UpdateWorldMatrix(m_middlepos, m_middlerot, m_middlescale);
 	m_modelRightSig.UpdateWorldMatrix(m_rightpos, m_rightrot, m_rightscale);
-
-	m_spriteGo.UpdateWorldMatrix(m_gopos, m_gorot, m_goscale);
+	if (GoSpriteInitFlag == true)
+	{
+		m_spriteGo.UpdateWorldMatrix(m_gopos, m_gorot, m_goscale);
+	}
+	
 	
 }
 
@@ -124,7 +158,11 @@ void Signal::Render()
 
 void Signal::Render2D()
 {
-	Draw();
+	if (GoSpriteInitFlag == true)
+	{
+		Draw();
+	}
+	
 }
 
 void Signal::Draw()

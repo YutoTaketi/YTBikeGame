@@ -29,6 +29,35 @@ void BikeMove_Enemy::Execute(CVector3& position, CQuaternion& rotation, CVector3
 		m_CharaConInitFlag = true;
 	}
 
+	if (m_StartTimer != 85.0f)
+	{
+		m_StartTimer++;
+	}
+	if (m_StartTimer == 85.0f)
+	{
+		m_AIStartFlag = true;
+	}
+
+	if (m_AIStartFlag == true)
+	{
+		//移動ポイントの番号を取得
+		CVector3 diff = m_point->s_position - position;
+		//if (m_game->GetFinishFlag() == false) 
+		//{
+		if (diff.Length() <= 1000.0f) {
+			m_point = m_game->GetNextNumber(m_point->s_number);
+		}
+		//}
+		movespeed = m_point->s_position - position;
+		movespeed.Normalize();
+		accel = movespeed * accelnum * 20.0f;
+		movespeed += accel;
+		//摩擦係数を乗算
+		movespeed *= friction;
+		//移動速度を計算
+		position += movespeed;
+	}
+	/*
 	//移動ポイントの番号を取得
 	CVector3 diff = m_point->s_position - position;
 	//if (m_game->GetFinishFlag() == false) 
@@ -45,7 +74,7 @@ void BikeMove_Enemy::Execute(CVector3& position, CQuaternion& rotation, CVector3
 	movespeed *= friction;
 	//移動速度を計算
 	position += movespeed;
-	
+	*/
 
 	//回転処理
 	//ポイントとの距離

@@ -37,20 +37,23 @@ void GameObjectManager::ChangeRenderTarget(ID3D11DeviceContext* d3dDeviceContext
 void GameObjectManager::Update()
 {
 	
-	
-	
-	
 
 	{
+		//“o˜^‚³‚ê‚Ä‚¢‚éƒQ[ƒ€ƒIƒuƒWƒFƒNƒg‚Ì
+		//XVŠÖ”‚ğŒÄ‚Ño‚·
 		for (auto go : m_goList) {
 			go->Update();
 		}
 		//“o˜^‚³‚ê‚Ä‚¢‚éƒQ[ƒ€ƒIƒuƒWƒFƒNƒg‚Ì
-		//•`‰æŠÖ”‚ğŒÄ‚Ño‚·
-		for (auto go : m_goList) {
-			go->Render();
+		//3D•`‰æŠÖ”‚ğŒÄ‚Ño‚·
+		static bool isDraw3D = true;
+		if (isDraw3D) {
+			for (auto go : m_goList) {
+				go->Render();
+			}
 		}
-
+		//“o˜^‚³‚ê‚Ä‚¢‚éƒQ[ƒ€ƒIƒuƒWƒFƒNƒg
+		//2D•`‰æŠÖ”‚ğŒÄ‚Ño‚·
 		for (auto go : m_goList) {
 			go->Render2D();
 		}

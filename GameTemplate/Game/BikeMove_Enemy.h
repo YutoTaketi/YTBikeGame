@@ -26,6 +26,8 @@ public:
 	CVector3 m_moveDirectionF = CVector3::Zero();  //前方向
 	BikeController* m_bikecontroller;   //バイクコントローラーのポインタ
 	CharacterController m_charaCon;     //キャラクターコントローラー
-	bool m_CharaConInitFlag = false;     //キャラクターコントローラーが初期化されているかのフラグ
+	bool m_CharaConInitFlag = false;    //キャラクターコントローラーが初期化されているかのフラグ
+	bool m_AIStartFlag = false;         //AIが走り出すためのフラグ
+	float m_StartTimer = 0.0f;          //AIが走り出すまでのタイマー
 
 };

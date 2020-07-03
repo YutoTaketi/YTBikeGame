@@ -602,7 +602,19 @@ public:
 		y = pw * qy - px * qz + py * qw + pz * qx;
 		z = pw * qz + px * qy - py * qx + pz * qw;
 	}
-	/*!
+	/*
+	*@brief クォータニオン代入演算子
+	* こちらの乗算順番は行列と同じになる。
+	* @details
+	* this = rot0 * rot1;
+	*/
+	const CQuaternion& operator*=(const CQuaternion& rot0)
+	{
+		Multiply(rot0, *this);
+		return *this;
+	}
+
+	/*
 	*@brief	ベクトルにクォータニオンを適用する。
 	*@param[in,out] v	ベクトル。
 	*/

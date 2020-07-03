@@ -47,10 +47,13 @@ private:
 	CQuaternion m_gorot = CQuaternion::Identity();     //回転
 	CVector3 m_goscale = CVector3::One();              //拡大率
 
-	bool SelectFlag = false;
-	bool SignalGenerate = false;
-	void Render();
-	void Render2D();
+	bool SelectFlag = false;                           //バイクがセレクトされているかの判定
+	bool SignalGenerate = false;                       //信号機が作られたかの判定
+	bool GoSpriteInitFlag = false;                     //Go!スプライトが初期化されたかのフラグ
+	bool GoSpriteExpFlag = false;                      //Go!スプライトが拡大されたかのフラグ
+
+	void Render();                                     //3D用
+	void Render2D();                                   //2D用
 	void Draw();
 	SkinModel m_modelHontai;                       //シグナル本体
 	SkinModel m_modelLeftSig;                      //シグナル左ライト
@@ -58,6 +61,7 @@ private:
 	SkinModel m_modelRightSig;                     //シグナル右ライト
 	Sprite    m_spriteGo;                               //スプライト
 	float m_changetimer = 0.0f;                    //信号モデル変更用タイマー
+	
 
 };
 

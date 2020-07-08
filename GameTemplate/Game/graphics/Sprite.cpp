@@ -361,7 +361,7 @@ void Sprite::Draw(CMatrix mView, CMatrix mProj)
 	//ワールド×ビュー×プロジェクション行列を計算。
 	cb.WVP.Mul(m_world, mView);
 	cb.WVP.Mul(cb.WVP, mProj);
-	cb.alpha = 1.0f;
+	cb.alpha = m_alpha;
 	//定数バッファの内容をメインメモリからVRAMにコピー。
 	deviceContext->UpdateSubresource(m_cbGPU, 0, nullptr, &cb, 0, 0);
 	//定数バッファをレジスタb0にバインドする。

@@ -42,6 +42,15 @@ public:
 	/// •`‰æ
 	/// </summary>
 	void Draw();
+
+	/// <summary>
+	/// /ƒ¿’l‚ğæ“¾
+	/// </summary>
+	/// <returns></returns>
+	float GetAlpha()
+	{
+		return m_alpha;
+	}
 	/// <summary>
 	/// ƒ¿‚ğ•ÏˆÊ‚³‚¹‚é
 	/// </summary>
@@ -57,6 +66,8 @@ public:
 			m_alpha = 0.0f;
 		}
 	}
+
+	
 private:
 	/// <summary>
 	/// ‰Šú‰»‚Ì‹¤’Êˆ—

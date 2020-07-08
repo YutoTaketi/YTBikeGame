@@ -51,6 +51,7 @@ private:
 	bool SignalGenerate = false;                       //信号機が作られたかの判定
 	bool GoSpriteInitFlag = false;                     //Go!スプライトが初期化されたかのフラグ
 	bool GoSpriteExpFlag = false;                      //Go!スプライトが拡大されたかのフラグ
+	bool GoSpriteReduFlag = false;                     //Go!スプライトの縮小のフラグ
 
 	void Render();                                     //3D用
 	void Render2D();                                   //2D用
@@ -61,6 +62,7 @@ private:
 	SkinModel m_modelRightSig;                     //シグナル右ライト
 	Sprite    m_spriteGo;                               //スプライト
 	float m_changetimer = 0.0f;                    //信号モデル変更用タイマー
+	float m_Gorottimer = 0.0f;                     //Go!スプライトの回転用タイマー
 	
 
 };

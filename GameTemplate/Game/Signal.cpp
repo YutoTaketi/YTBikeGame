@@ -43,12 +43,13 @@ void Signal::Update()
 		m_changetimer++;
 	}
 
+	//左シグナルが赤
 	if (SignalGenerate == true && m_changetimer == 15.0f)
 	{
 		m_modelLeftSig.Init(L"Assets/modelData/SignalLeft_Red.cmo");
 		m_leftpos = { 1.5f, 150.0f, -20.0f };
 	}
-
+	//中央シグナルが赤
 	if (SignalGenerate == true && m_changetimer == 35.0f)
 	{
 		m_modelLeftSig.Init(L"Assets/modelData/SignalLeft.cmo");
@@ -57,7 +58,7 @@ void Signal::Update()
 		m_modelMiddleSig.Init(L"Assets/modelData/SignalMiddle_Red.cmo");
 		m_middlepos = { 1.5f, 150.0f, -20.0f };
 	}
-
+	//右シグナルが赤
 	if (SignalGenerate == true && m_changetimer == 55.0f)
 	{
 		m_modelLeftSig.Init(L"Assets/modelData/SignalLeft.cmo");
@@ -69,7 +70,7 @@ void Signal::Update()
 		m_modelRightSig.Init(L"Assets/modelData/SignalRight_Red.cmo");
 		m_middlepos = { 1.5f, 150.0f, -20.0f };
 	}
-
+	//全てのシグナルが青
 	if (SignalGenerate == true && m_changetimer == 75.0f)
 	{
 		m_modelLeftSig.Init(L"Assets/modelData/SignalLeft_Green.cmo");
@@ -82,6 +83,7 @@ void Signal::Update()
 		m_middlepos = { 1.5f, 150.0f, -20.0f };
 	}
 	
+	//信号が青の時、Go!スプライトを出す。
 	if (SignalGenerate == true && m_changetimer == 75.0f && GoSpriteInitFlag == false)
 	{
 		m_spriteGo.Init(L"Assets/sprite/Go.dds", 1290.0f, 800.0f);
@@ -92,30 +94,57 @@ void Signal::Update()
 	}
 
 	//Go!の拡大
-	if (GoSpriteInitFlag == true)
+	if (GoSpriteInitFlag == true && GoSpriteExpFlag == false)
 	{
 		if (m_goscale.x < 0.5f, m_goscale.y < 0.5f, m_goscale.z < 0.5f)
 		{
 			m_goscale.x = m_goscale.x + 0.1f;
 			m_goscale.y = m_goscale.y + 0.1f;
 			m_goscale.z = m_goscale.z + 0.1f;
+		}
+		else {
+			//拡大された
 			GoSpriteExpFlag = true;
 		}
 	}
 
 	if (GoSpriteExpFlag == true)
 	{
-		CQuaternion addRot;
-		addRot.SetRotationDeg(CVector3::AxisZ(), 25.0f);
-		m_gorot *= addRot;
-		/*float m_timer = 0;
-		m_timer++;
-		if (m_timer >= 60.0f, m_goscale.x > 0.0f, m_goscale.y > 0.0f, m_goscale.z > 0.0f)
+		if (m_Gorottimer != 10.0f)
 		{
-			m_goscale.x = m_goscale.x - 0.1f;
-			m_goscale.y = m_goscale.y - 0.1f;
-			m_goscale.z = m_goscale.z - 0.1f;
-		}*/
+			m_Gorottimer++;
+		}
+		
+		if (m_Gorottimer == 10.0f)
+		{
+			//回転させる
+			CQuaternion addRot;
+			addRot.SetRotationDeg(CVector3::AxisZ(), 45.0f);
+			m_gorot *= addRot;
+			//縮小させる
+			if (GoSpriteReduFlag == false)
+			{
+				if (m_goscale.x > 0.1f, m_goscale.y > 0.1f)
+				{
+					m_goscale.x = m_goscale.x - 0.1f;
+					m_goscale.y = m_goscale.y - 0.1f;
+				}
+				else
+				{
+					GoSpriteReduFlag = true;
+				}
+			}
+			
+		}
+		//透明にする
+		if (GoSpriteReduFlag == true && m_goscale.x == 0.1f, m_goscale.y == 0.1f)
+		{
+			if (m_spriteGo.GetAlpha() != 0.0f)
+			{
+				m_spriteGo.DeltaAlpha(-0.2f);
+			}
+		}
+			
 	}
 
 

@@ -264,12 +264,12 @@ void SkinModel::Draw(int renderMode)
 }
 
 //ポストエフェクト用描画関数
-void SkinModel::PostEffectDraw(EnRenderMode renderMode, CMatrix viewMatrix, CMatrix projMatrix)
+void SkinModel::Draw(EnRenderMode renderMode, CMatrix viewMatrix, CMatrix projMatrix)
 {
-	/*auto deviceContext = g_graphicsEngine->GetD3DDeviceContext();
+	auto deviceContext = g_graphicsEngine->GetD3DDeviceContext();
 	DirectX::CommonStates state(g_graphicsEngine->GetD3DDevice());
 
-	
+	//auto shadowMap = 
 	//auto shadowMap = 
 	//定数バァファを更新
 	SModelFxConstantBuffer modelFxCb;
@@ -309,5 +309,5 @@ void SkinModel::PostEffectDraw(EnRenderMode renderMode, CMatrix viewMatrix, CMat
 		m_worldMatrix,
 		g_camera3D.GetViewMatrix(),
 		g_camera3D.GetProjectionMatrix()
-	);*/
+	);
 }

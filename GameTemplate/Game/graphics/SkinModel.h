@@ -4,8 +4,9 @@
 #include "graphics/Shader.h"
 #include "graphics/Camera.h"
 #include "Game.h"
-class Game;
 
+class Game;
+class ShadowMap;
 /*!
 *@brief	FBXの上方向。
 */
@@ -132,7 +133,7 @@ public:
 	/// </param>
 	/// <param name="viewMatrix">ビュー行列</param>
 	/// <param name="projMatrix">プロジェクション行列行列</param>
-	void PostEffectDraw(EnRenderMode renderMode, CMatrix viewMatrix, CMatrix projMatrix);
+	void Draw(EnRenderMode renderMode, CMatrix viewMatrix, CMatrix projMatrix);
 
 	/// <summary>
 	/// マテリアルに対してクエリを行う。

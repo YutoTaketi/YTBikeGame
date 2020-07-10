@@ -2,6 +2,7 @@
 #include "IGameObject.h"
 #include <vector>
 
+
 //ポストエフェクト関連
 #include "RenderTarget.h"
 #include "ShadowMap.h"
@@ -50,11 +51,28 @@ public:
 	
 
 	void Draw();
+	void Render();
 
 private:
 	std::list<IGameObject*> m_goList;
 	//GameObjectManager();
 	//~GameObjectManager();
+
+	/// <summary>
+	/// プリレンダリング
+	/// </summary>
+	void PreRender();
+
+	/// <summary>
+	/// フォワードレンダリング
+	/// </summary>
+	void ForwordRender();
+
+	/// <summary>
+	/// ポストレンダリング
+	/// </summary>
+	void PostRender();
+
 	/// <summary>
 	/// レンダリングターゲットの切り替え
 	/// </summary>
@@ -64,8 +82,9 @@ private:
 	void ChangeRenderTarget(ID3D11DeviceContext* d3dDeviceContext, RenderTarget* renderTarget, D3D11_VIEWPORT* viewport);
 	void ChangeRenderTarget(ID3D11DeviceContext* d3dDeviceContext, ID3D11RenderTargetView* renderTarget, ID3D11DepthStencilView* depthStensil, D3D11_VIEWPORT* viewport);
 	
-	
-	D3D11_VIEWPORT m_frameBufferViewports;          //フレームバッファのビューポート。
+	RenderTarget m_mainRenderTarget;                                   //メインレンダリングターゲット。
+	D3D11_VIEWPORT m_frameBufferViewports;                             //フレームバッファのビューポート。
+	Sprite m_copyMainRtToFrameBufferSprite;                            //メインレンダリングターゲットに描かれた絵をフレームバッファにコピーするためのスプライト
 	ID3D11RenderTargetView* m_frameBufferRenderTargetView = nullptr;   //フレームバァファのレンダリングターゲットビュー。
 	ID3D11DepthStencilView* m_frameBufferDepthStencilView = nullptr;   //フレームバァファのデプスステンシルビュー。
 	

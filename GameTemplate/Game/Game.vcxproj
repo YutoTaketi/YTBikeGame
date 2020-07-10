@@ -156,7 +156,7 @@
     <ClCompile Include="Result.cpp" />
     <ClCompile Include="ResultMaster.cpp" />
     <ClCompile Include="Road.cpp" />
-    <ClCompile Include="ShadowMap.cpp" />
+    <ClCompile Include="graphics\ShadowMap.cpp" />
     <ClCompile Include="Signal.cpp" />
     <ClCompile Include="SoundEngine.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
@@ -240,7 +240,7 @@
     <ClInclude Include="Result.h" />
     <ClInclude Include="ResultMaster.h" />
     <ClInclude Include="Road.h" />
-    <ClInclude Include="ShadowMap.h" />
+    <ClInclude Include="graphics\ShadowMap.h" />
     <ClInclude Include="Signal.h" />
     <ClInclude Include="SoundEngine.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>

@@ -70,6 +70,66 @@ void GameObjectManager::Update()
 		}
 	}
 }
+
+void GameObjectManager::PreRender()
+{
+	//シャドウマップにレンダリング
+}
+
+void GameObjectManager::ForwordRender()
+{
+	//レンダリングターゲットをメインに変更する。
+	auto d3dDeviceContext = g_graphicsEngine->GetD3DDeviceContext();
+	ChangeRenderTarget(d3dDeviceContext, &m_mainRenderTarget, &m_frameBufferViewports);
+	//メインレンダリングターゲットをクリアする。
+	float clearColor[] = { 0.0f, 0.0f, 0.0f, 0.0f };
+	m_mainRenderTarget.ClearRenderTarget(clearColor);
+
+	
+}
+
+void GameObjectManager::PostRender()
+{
+	//レンダリングターゲットをフレームバッファに戻す。
+	auto d3dDeviceContext = g_graphicsEngine->GetD3DDeviceContext();
+	ChangeRenderTarget(
+		d3dDeviceContext,
+		m_frameBufferRenderTargetView,
+		m_frameBufferDepthStencilView,
+		&m_frameBufferViewports
+	);
+
+	m_copyMainRtToFrameBufferSprite.Draw();
+
+	m_frameBufferRenderTargetView->Release();
+	m_frameBufferDepthStencilView->Release();
+}
+
+void GameObjectManager::Render()
+{
+	g_graphicsEngine->BegineRender();
+	//フレームバァファのレンダリングターゲットをバックアップしておく
+	auto d3dDeviceContext = g_graphicsEngine->GetD3DDeviceContext();
+	d3dDeviceContext->OMGetRenderTargets(
+	    1,
+	    &m_frameBufferRenderTargetView,
+		&m_frameBufferDepthStencilView
+	);
+	//ビューポートもバックアップを取っておく
+	unsigned int numViewport = 1;
+	d3dDeviceContext->RSGetViewports(&numViewport, &m_frameBufferViewports);
+
+	//プリレンダリング
+	PreRender();
+
+	//フォワードレンダリング
+
+	//ポストレンダリング
+	PostRender();
+
+	//描画終了
+	g_graphicsEngine->EndRender();
+}
 /*GameObjectManager::GameObjectManager()
 {
 }

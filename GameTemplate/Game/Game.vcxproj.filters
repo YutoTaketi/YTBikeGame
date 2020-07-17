@@ -143,7 +143,6 @@
     <ClCompile Include="graphics\Sprite.cpp">
       <Filter>graphics</Filter>
     </ClCompile>
-    <ClCompile Include="RenderTarget.cpp" />
     <ClCompile Include="SoundEngine.cpp">
       <Filter>sound</Filter>
     </ClCompile>
@@ -195,6 +194,8 @@
     <ClCompile Include="Road.cpp" />
     <ClCompile Include="Jimen.cpp" />
     <ClCompile Include="graphics\ShadowMap.cpp" />
+    <ClCompile Include="graphics\RenderTarget.cpp" />
+    <ClCompile Include="Sky.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\Vector.h">
@@ -288,7 +289,6 @@
     <ClInclude Include="graphics\Sprite.h">
       <Filter>graphics</Filter>
     </ClInclude>
-    <ClInclude Include="RenderTarget.h" />
     <ClInclude Include="SoundEngine.h">
       <Filter>sound</Filter>
     </ClInclude>
@@ -340,6 +340,8 @@
     <ClInclude Include="Road.h" />
     <ClInclude Include="Jimen.h" />
     <ClInclude Include="graphics\ShadowMap.h" />
+    <ClInclude Include="graphics\RenderTarget.h" />
+    <ClInclude Include="Sky.h" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">

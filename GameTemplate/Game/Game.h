@@ -1,5 +1,5 @@
 #pragma once
-#include "RenderTarget.h"
+#include "graphics/RenderTarget.h"
 #include "level/Level.h"
 #include "GameObjectManager.h"
 #include "GameCamera.h"
@@ -7,10 +7,11 @@
 #include "BikeMove_Enemy.h"
 #include "Goal.h"
 #include "Result.h"
+#include "graphics/ShadowMap.h"
 
 //ポストエフェクト関連
-#include "RenderTarget.h"
-#include "ShadowMap.h"
+#include "graphics/RenderTarget.h"
+#include "graphics/ShadowMap.h"
 #include "graphics/Sprite.h"
 #include "graphics/SkinModel.h"
 #include "BikeMove_Enemy.h"
@@ -28,6 +29,7 @@ class Kyakuseki;
 class Road;
 class Jimen;
 class Signal;
+//class Sky;
 /// <summary>
 
 /// ゲームクラス
@@ -148,8 +150,14 @@ private:
 	void ChangeRenderTarget(ID3D11DeviceContext* d3dDeviceContext, RenderTarget* renderTarget, D3D11_VIEWPORT* viewport);
 	void ChangeRenderTarget(ID3D11DeviceContext* d3dDeviceContext, ID3D11RenderTargetView* renderTarget, ID3D11DepthStencilView* depthStensil, D3D11_VIEWPORT* viewport);
 
-
 	/// <summary>
+	/// シャドウマップを取得。
+	/// </summary>
+	/// <returns></returns>
+	/*ShadowMap* GetShadowMap()
+	{
+		return &m_shadowMap;
+	}*/
 private:
 	//オフスクリーンレンダリング
 	//SkinModel m_playerModelDraw;       //プレイヤーの描画処理
@@ -175,9 +183,10 @@ private:
 	Road* road = nullptr;               //コース
 	Jimen* jimen = nullptr;             //地面
 	Signal* signal = nullptr;           //シグナル
+	//Sky* sky = nullptr;
 
 	LapCount* lapcount = nullptr;       //周回カウント
-	
+	ShadowMap m_shadowMap;              //シャドウマップ
 	int lapcheck = 0;  //ラップチェック
 	
 	bool finishFlag = false;       //フィニッシュフラグ

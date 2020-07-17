@@ -27,6 +27,7 @@ Jimen::Jimen()
 		&m_normalMapSRV
 	);
 	m_model.SetNormalMap(m_normalMapSRV);
+	m_model.SetShadowReciever(true);
 }
 
 Jimen::~Jimen()
@@ -39,13 +40,17 @@ Jimen::~Jimen()
 
 void Jimen::Update()
 {
-	
 	m_model.UpdateWorldMatrix(m_position, m_rotation, m_scale);
+	
+	//シャドウキャスターを登録
+
+	//シャドウマップを更新
 }
 
 void Jimen::Render()
 {
 	m_model.Draw(
+		enRenderMode_Normal,
 		g_camera3D.GetViewMatrix(),
 		g_camera3D.GetProjectionMatrix()
 	);

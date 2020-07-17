@@ -35,6 +35,7 @@ void Goal::Render()
 {
 	m_model->UpdateWorldMatrix(m_position, m_rotation, m_scale);
 	m_model->Draw(
+		enRenderMode_Normal,
 		g_camera3D.GetViewMatrix(),
 		g_camera3D.GetProjectionMatrix()
 	);

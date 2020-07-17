@@ -147,11 +147,14 @@ void Signal::Update()
 			
 	}
 
-
-	m_modelHontai.UpdateWorldMatrix(m_position, m_rotation, m_scale);
-	m_modelLeftSig.UpdateWorldMatrix(m_leftpos, m_leftrot, m_leftscale);
-	m_modelMiddleSig.UpdateWorldMatrix(m_middlepos, m_middlerot, m_middlescale);
-	m_modelRightSig.UpdateWorldMatrix(m_rightpos, m_rightrot, m_rightscale);
+	if (SignalGenerate == true)
+	{
+		m_modelHontai.UpdateWorldMatrix(m_position, m_rotation, m_scale);
+		m_modelLeftSig.UpdateWorldMatrix(m_leftpos, m_leftrot, m_leftscale);
+		m_modelMiddleSig.UpdateWorldMatrix(m_middlepos, m_middlerot, m_middlescale);
+		m_modelRightSig.UpdateWorldMatrix(m_rightpos, m_rightrot, m_rightscale);
+	}
+	
 	if (GoSpriteInitFlag == true)
 	{
 		m_spriteGo.UpdateWorldMatrix(m_gopos, m_gorot, m_goscale);
@@ -165,18 +168,22 @@ void Signal::Render()
 	if (SignalGenerate == true) 
 	{
 		m_modelHontai.Draw(
+			enRenderMode_Normal,
 			g_camera3D.GetViewMatrix(),
 			g_camera3D.GetProjectionMatrix()
 		);
 		m_modelLeftSig.Draw(
+			enRenderMode_Normal,
 			g_camera3D.GetViewMatrix(),
 			g_camera3D.GetProjectionMatrix()
 		);
 		m_modelMiddleSig.Draw(
+			enRenderMode_Normal,
 			g_camera3D.GetViewMatrix(),
 			g_camera3D.GetProjectionMatrix()
 		);
 		m_modelRightSig.Draw(
+			enRenderMode_Normal,
 			g_camera3D.GetViewMatrix(),
 			g_camera3D.GetProjectionMatrix()
 		);

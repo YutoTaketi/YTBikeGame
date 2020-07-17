@@ -34,10 +34,10 @@ void Player::Update()
 	
 	//ワールド行列の更新。
 	m_model->UpdateWorldMatrix(m_position, m_rotation, CVector3{1.0f,1.0f, 1.0f});
-	m_model->Draw(
+	/*m_model->Draw(
 		g_camera3D.GetViewMatrix(),
 		g_camera3D.GetProjectionMatrix()
-	);
+	);*/
 }
 
 void Player::Render()

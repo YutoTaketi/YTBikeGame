@@ -13,7 +13,8 @@ Texture2D<float4> g_normalMap : register(t2);
 
 //ボーン行列
 StructuredBuffer<float4x4> boneMatrix : register(t1);
-
+//シャドウマップ
+Texture2D<float4> g_shadowMap : register(t3);		
 
 /////////////////////////////////////////////////////////////
 // SamplerState
@@ -30,6 +31,7 @@ cbuffer VSPSCb : register(b0){
 	float4x4 mWorld;
 	float4x4 mView;
 	float4x4 mProj;
+	int isShadowReciever;
 	int isHasNormalMap;	//法線マップある？
 };
 /*struct SDirectionLight {
@@ -48,7 +50,12 @@ cbuffer LightCb : register(b1) {
 	float  specPow;
 };
 
-
+/*!
+ * @brief	シャドウマップ用の定数バァファ。
+ */
+cbuffer ShadowMapCb : register(b2) {
+	float4x4 lightViewProjMatrix;  //ライトビュー
+}
 
 /////////////////////////////////////////////////////////////
 //各種構造体
@@ -86,6 +93,14 @@ struct PSInput{
 	float2 TexCoord 	: TEXCOORD0;
 	float3 WorldPos		: TEXCOORD1;	//ワールド座標。
 };
+
+/// <summary>
+/// シャドウマップ用のピクセルシェーダへの入力構造体
+/// </summary>
+struct PSInput_ShadowMap {
+	float4 Position      : SV_POSITION; //座標
+};
+
 /*!
  *@brief	スキン行列を計算。
  */
@@ -226,11 +241,31 @@ float4 PSMain( PSInput In ) : SV_Target0
 	finalColor.xyz = albedoColor.xyz * lig;
 	return finalColor;
 }
-
+/// <summary>
+/// シャドウマップ生成用の頂点シェーダー
+/// </summary>
+PSInput_ShadowMap VSMain_ShadowMap(VSInputNmTxVcTangent In)
+{
+	PSInput_ShadowMap psInput = (PSInput_ShadowMap)0;
+	float pos = mul(mWorld, In.Position);
+	pos = mul(mView, pos);
+	pos = mul(mProj, pos);
+	psInput.Position = pos;
+	return psInput;
+}
 //--------------------------------------------------------------------------------------
 // シルエット描画用のピクセルシェーダーのエントリ関数。
 //--------------------------------------------------------------------------------------
 float4 PSMain_Silhouette(PSInput In) : SV_Target0
 {
 	return float4(0.5f, 0.5f, 0.5f, 1.0f);
+}
+
+//--------------------------------------------------------------------------------------
+// シャドウマップ用のピクセルシェーダーのエントリ関数。
+//--------------------------------------------------------------------------------------
+float4 PSMain_ShadowMap(PSInput_ShadowMap In) : SV_Target0
+{
+	//射影空間でのZ値を返す。+
+	return In.Position.z / In.Position.w;
 }

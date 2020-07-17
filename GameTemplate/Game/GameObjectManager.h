@@ -4,10 +4,12 @@
 
 
 //ポストエフェクト関連
-#include "RenderTarget.h"
-#include "ShadowMap.h"
+#include "graphics/RenderTarget.h"
+#include "graphics/ShadowMap.h"
 #include "graphics/Sprite.h"
 #include "graphics/SkinModel.h"
+//#include "graphics/ShadowMap.h"
+
 class GameObjectManager
 {
 public:
@@ -87,7 +89,7 @@ private:
 	Sprite m_copyMainRtToFrameBufferSprite;                            //メインレンダリングターゲットに描かれた絵をフレームバッファにコピーするためのスプライト
 	ID3D11RenderTargetView* m_frameBufferRenderTargetView = nullptr;   //フレームバァファのレンダリングターゲットビュー。
 	ID3D11DepthStencilView* m_frameBufferDepthStencilView = nullptr;   //フレームバァファのデプスステンシルビュー。
-	
+	//ShadowMap m_shadowMap;                                             //シャドウマップ
 };
 
 extern GameObjectManager g_goMgr;

@@ -12,20 +12,21 @@ protected:
 	Shader* m_pPSShader = nullptr;
 	Shader m_vsShader;
 	Shader m_psShader;
+	Shader m_vsShadowMap;   //シャドウマップ生成用の頂点シェーダー
+	Shader m_psShadowMap;   //シャドウマップ生成用のピクセルシェーダー
 	bool isSkining;
 	ID3D11ShaderResourceView* m_albedoTex = nullptr;
-	bool m_renderMode = 0;
-
+	EnRenderMode m_renderMode = enRenderMode_Invalid;
 public:
 	ModelEffect()
 	{
 		m_psShader.Load("Assets/shader/model.fx", "PSMain", Shader::EnType::PS);
-		
+		m_psShadowMap.Load("Assets/shader/model.fx", "PSMain_ShadowMap", Shader::EnType::PS);
 		m_pPSShader = &m_psShader;
 	}
 	virtual ~ModelEffect()
 	{
-		if (m_albedoTex) {
+		if (m_albedoTex != nullptr) {
 			m_albedoTex->Release();
 		}
 	}
@@ -50,7 +51,7 @@ public:
 		return wcscmp(name, m_materialName.c_str()) == 0;
 	}
 
-	void SetRenderMode(int renderMode)
+	void SetRenderMode(EnRenderMode renderMode)
 	{
 		m_renderMode = renderMode;
 	}
@@ -80,7 +81,7 @@ public:
 		wchar_t hoge[256];
 		GetCurrentDirectoryW(256, hoge);
 		m_vsShader.Load("Assets/shader/model.fx", "VSMainSkin", Shader::EnType::VS);
-		
+		m_vsShadowMap.Load("Assets/shader/model.fx", "VSMain_ShadowMap", Shader::EnType::VS);
 		m_pVSShader = &m_vsShader;
 		isSkining = true;
 	}

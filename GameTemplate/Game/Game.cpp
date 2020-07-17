@@ -11,6 +11,7 @@
 #include "Road.h"
 #include "Jimen.h"
 #include "Signal.h"
+#include "Sky.h"
 
 Game::Game()
 {
@@ -69,7 +70,10 @@ Game::Game()
 			return true;
 		}
 
-		
+		if (objData.EqualObjectName(L"CourseSky") == true) {
+			
+			return false;
+		}
 		return false;
     });
 	
@@ -92,25 +96,7 @@ Game::Game()
 	lapcount = g_goMgr.NewGO<LapCount>();
 	lapcount->SetBikeSelect(bikeselect);
 	lapcount->SetGame(this);
-	//地面をシャドウレシーバーにする。
-	//m_stageModelDraw.SetShadowReciever(true);
-
-	//レンダリングターゲットの作成
-	//m_renderTarget.Create(FRAME_BUFFER_W, FRAME_BUFFER_H, DXGI_FORMAT_R8G8B8A8_UNORM);
-	//メインとなるレンダーターゲットを作成。
-	/*m_mainRenderTarget.Create(
-	    FRAME_BUFFER_W,
-		FRAME_BUFFER_H,
-		DXGI_FORMAT_R8G8B8A8_UNORM
-	);
-
-	//メインレンダリングターゲットに描かれた絵を
-	//フレームバッファにコピーするためのスプライトを初期化する。
-	m_copyMainRtToFrameBufferSprite.Init(
-	     m_mainRenderTarget.GetRenderTargetSRV(),
-		FRAME_BUFFER_W,
-		FRAME_BUFFER_H
-	);*/
+	
 	
 
 }
@@ -156,19 +142,17 @@ void Game::ChangeRenderTarget(ID3D11DeviceContext* d3dDeviceContext, ID3D11Rende
 
 void Game::Update()
 {
+	//シャドウキャスターを登録
+	//シャドウマップを更新
 	
 	
 	
-	//bikemaster->Update();
-	//lapcount->Update();
 	
 
 	if (finishFlag == true)
 	{
-		
+		//リザルトへ
 		g_goMgr.NewGO<Result>();
-		//g_goMgr.DeleteGameObject(this);
-		
 	}
 }
 

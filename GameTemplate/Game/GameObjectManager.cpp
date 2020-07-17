@@ -44,6 +44,14 @@ void GameObjectManager::Update()
 		for (auto go : m_goList) {
 			go->Update();
 		}
+
+		//シャドウマップの作成
+	/*	ShadowMap::GetInstance().Update({ 0.0f, 1000.0f, 0.0f },
+			{ 0.0f, 0.0f, 0.0f });*/
+	//	ShadowMap::GetInstance().Draw();
+		
+		
+	
 		//登録されているゲームオブジェクトの
 		//3D描画関数を呼び出す
 		static bool isDraw3D = true;
@@ -69,6 +77,10 @@ void GameObjectManager::Update()
 			it++;
 		}
 	}
+
+	
+
+	
 }
 
 void GameObjectManager::PreRender()
@@ -108,24 +120,14 @@ void GameObjectManager::PostRender()
 void GameObjectManager::Render()
 {
 	g_graphicsEngine->BegineRender();
-	//フレームバァファのレンダリングターゲットをバックアップしておく
-	auto d3dDeviceContext = g_graphicsEngine->GetD3DDeviceContext();
-	d3dDeviceContext->OMGetRenderTargets(
-	    1,
-	    &m_frameBufferRenderTargetView,
-		&m_frameBufferDepthStencilView
-	);
-	//ビューポートもバックアップを取っておく
-	unsigned int numViewport = 1;
-	d3dDeviceContext->RSGetViewports(&numViewport, &m_frameBufferViewports);
-
+	
 	//プリレンダリング
-	PreRender();
+	//PreRender();
 
 	//フォワードレンダリング
 
 	//ポストレンダリング
-	PostRender();
+	//PostRender();
 
 	//描画終了
 	g_graphicsEngine->EndRender();

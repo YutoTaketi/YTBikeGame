@@ -5,6 +5,8 @@
 #include "BikeMove_Enemy.h"
 #include "BikeMove_Player.h"
 #include "Goal.h"
+
+
 AlphaBike::AlphaBike()
 {
 	m_model = new  SkinModel();
@@ -50,6 +52,7 @@ void AlphaBike::Update()
 void AlphaBike::Render()
 {
 	m_model->Draw(
+		enRenderMode_Normal,
 		g_camera3D.GetViewMatrix(),
 		g_camera3D.GetProjectionMatrix()
 	);

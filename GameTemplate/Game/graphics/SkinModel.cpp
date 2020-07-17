@@ -2,6 +2,7 @@
 #include "SkinModel.h"
 #include "SkinModelDataManager.h"
 #include "Game.h"
+#include "SkinModelEffect.h"
 
 SkinModel::~SkinModel()
 {
@@ -30,6 +31,7 @@ void SkinModel::Update(CVector3 trans)
 }
 void SkinModel::Init(const wchar_t* filePath, EnFbxUpAxis enFbxUpAxis)
 {
+	m_filePath = filePath;
 	//スケルトンのデータを読み込む。
 	InitSkeleton(filePath);
 
@@ -168,68 +170,17 @@ void SkinModel::UpdateWorldMatrix(CVector3 position, CQuaternion rotation, CVect
 	
 	//スケルトンの更新。
 	m_skeleton.Update(m_worldMatrix);
-}
 
-
-void SkinModel::Draw(CMatrix viewMatrix, CMatrix projMatrix)
-{
-	DirectX::CommonStates state(g_graphicsEngine->GetD3DDevice());
-
-	ID3D11DeviceContext* d3dDeviceContext = g_graphicsEngine->GetD3DDeviceContext();
-
-
-	//定数バッファの内容を更新。
-	SVSConstantBuffer vsCb;
-	vsCb.mWorld = m_worldMatrix;
-	vsCb.mProj = projMatrix;
-	vsCb.mView = viewMatrix;
-
-	//法線マップを使用するかどうかのフラグを送る。
-	if (m_normalMapSRV != nullptr) {
-		vsCb.isHasNormalMap = true;
-	}
-	else {
-		vsCb.isHasNormalMap = false;
-	}
-	static float specPow = 5.0f;
-	m_light.specPow = specPow;
-	d3dDeviceContext->UpdateSubresource(m_cb, 0, nullptr, &vsCb, 0, 0);
-
-	//視点を設定
-	m_light.eyePos = g_camera3D.GetPosition();
-	//ライト用の定数バァファを更新.
-     d3dDeviceContext->UpdateSubresource(m_lightCb, 0, nullptr, &m_light, 0, 0);
-
-	//定数バッファをGPUに転送。
-	d3dDeviceContext->VSSetConstantBuffers(0, 1, &m_cb);
-	d3dDeviceContext->PSSetConstantBuffers(1, 1, &m_lightCb);
-	d3dDeviceContext->PSSetConstantBuffers(0, 1, &m_cb);
-
-	//サンプラステートを設定。
-	d3dDeviceContext->PSSetSamplers(0, 1, &m_samplerState);
-	//ボーン行列をGPUに転送。
-	m_skeleton.SendBoneMatrixArrayToGPU();
-	//アルベドテクスチャを設定する。
-	//d3dDeviceContext->PSSetShaderResources(0, 1, &m_albedoTextureSRV);
-
-	if (m_normalMapSRV != nullptr) {
-		//法線マップが設定されていたらレジスタt2に設定する。
-		d3dDeviceContext->PSSetShaderResources(2, 1, &m_normalMapSRV);
-	}
-
-	//描画。
-	m_modelDx->Draw(
-		d3dDeviceContext,
-		state,
-		m_worldMatrix,
-		viewMatrix,
-		projMatrix
-	);
+	//シャドウキャスターを登録
+	ShadowMap::GetInstance().RegistShadowCaster(this);
 	
 }
 
+
+
+
 //オフスクリーン用描画
-void SkinModel::Draw(int renderMode)
+void SkinModel::Draw(EnRenderMode renderMode)
 {
 	auto deviceContext = g_graphicsEngine->GetD3DDeviceContext();
 	DirectX::CommonStates state(g_graphicsEngine->GetD3DDevice());
@@ -240,6 +191,18 @@ void SkinModel::Draw(int renderMode)
 	vsCb.mProj = g_camera3D.GetProjectionMatrix();
 	vsCb.mView = g_camera3D.GetViewMatrix();
 	deviceContext->UpdateSubresource(m_cb, 0, nullptr, &vsCb, 0, 0);
+	//法線マップを使用するかどうかのフラグを送る。
+	if (m_normalMapSRV != nullptr) {
+		vsCb.isHasNormalMap = true;
+	}
+	else {
+		vsCb.isHasNormalMap = false;
+	}
+	static float specPow = 5.0f;
+	m_light.specPow = specPow;
+	deviceContext->UpdateSubresource(m_cb, 0, nullptr, &vsCb, 0, 0);
+
+
 	//ライト用の定数バァファを更新。
 	deviceContext->UpdateSubresource(m_lightCb, 0, nullptr, &m_light, 0, 0);
 
@@ -250,10 +213,10 @@ void SkinModel::Draw(int renderMode)
 	deviceContext->PSSetSamplers(0, 1, &m_samplerState);
 
 	//エフェクトにクエリを行う。
-	m_modelDx->UpdateEffects([&](DirectX::IEffect* material) {
-		auto modelMaterial = reinterpret_cast<C3DModelEffect*>(material);
+/*	m_modelDx->UpdateEffects([&](DirectX::IEffect* material) {
+		auto modelMaterial = reinterpret_cast<ModelEffect*>(material);
 		modelMaterial->SetRenderMode(renderMode);
-	});
+	});*/
 	m_modelDx->Draw(
 		deviceContext,
 		state,
@@ -272,21 +235,30 @@ void SkinModel::Draw(EnRenderMode renderMode, CMatrix viewMatrix, CMatrix projMa
 	//auto shadowMap = 
 	//auto shadowMap = 
 	//定数バァファを更新
-	SModelFxConstantBuffer modelFxCb;
-	modelFxCb.mWorld = m_worldMatrix;
-	modelFxCb.mProj = projMatrix;
-	modelFxCb.mView = viewMatrix;
+	SVSConstantBuffer vsCb;
+	vsCb.mWorld = m_worldMatrix;
+	vsCb.mProj = projMatrix;
+	vsCb.mView = viewMatrix;
+	
 	//todo ライトカメラのビュー、プロジェクション行列を送る。
-	modelFxCb.mLightProj = shadowMap->GetLightProjMatrix();
-	modelFxCb.mLightView = shadowMap->GetLighViewMatrix();
+	//modelFxCb.mLightProj = shadowMap->GetLightProjMatrix();
+	//modelFxCb.mLightView = shadowMap->GetLighViewMatrix();
 	if (m_isShadowReciever == true) {
-		modelFxCb.isShadowReciever = 1;
+		vsCb.isShadowReciever = 1;
 	}
 	else {
-		modelFxCb.isShadowReciever = 0;
+		vsCb.isShadowReciever = 0;
 	}
-
-	deviceContext->UpdateSubresource(m_cb, 0, nullptr, &modelFxCb, 0, 0);
+	//法線マップを使用するかどうかのフラグを送る。
+	if (m_normalMapSRV != nullptr) {
+		vsCb.isHasNormalMap = true;
+	}
+	else {
+		vsCb.isHasNormalMap = false;
+	}
+	deviceContext->UpdateSubresource(m_cb, 0, nullptr, &vsCb, 0, 0);
+	//視点を設定
+	m_light.eyePos = g_camera3D.GetPosition();
 	//ライト用の定数バァファを更新
 	deviceContext->UpdateSubresource(m_lightCb, 0, nullptr, &m_light, 0, 0);
 
@@ -298,11 +270,17 @@ void SkinModel::Draw(EnRenderMode renderMode, CMatrix viewMatrix, CMatrix projMa
 	//サンプラーステートを設定する。
 	deviceContext->PSSetSamplers(0, 1, &m_samplerState);
 
+	if (m_normalMapSRV != nullptr) {
+		//法線マップが設定されていたらレジスタt2に設定する。
+		deviceContext->PSSetShaderResources(2, 1, &m_normalMapSRV);
+	}
+
 	//エフェクトにクエリを行う。
 	m_modelDx->UpdateEffects([&](DirectX::IEffect* material) {
-		auto modelMaterial = reinterpret_cast<C3DModelEffect*>(material);
+		auto modelMaterial = reinterpret_cast<ModelEffect*>(material);
 		modelMaterial->SetRenderMode(renderMode);
-		});
+	});
+	
 	m_modelDx->Draw(
 		deviceContext,
 		state,

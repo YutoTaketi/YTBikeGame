@@ -5,8 +5,10 @@
 #include "graphics/Camera.h"
 #include "Game.h"
 
+
 class Game;
 class ShadowMap;
+class ModelEffect;
 /*!
 *@brief	FBXの上方向。
 */
@@ -15,48 +17,6 @@ enum EnFbxUpAxis {
 	enFbxUpAxisZ,		//Z-up
 };
 
-class C3DModelEffect : public DirectX::IEffect {
-private:
-	Shader m_vsShader;
-	Shader m_psShader;
-	ID3D11ShaderResourceView* m_albedoTextureSRV = nullptr;
-	bool m_renderMode = 0;
-
-
-public:
-	//コンストラクタ。
-	C3DModelEffect()
-	{
-		//頂点シェーダーをロード。
-		m_vsShader.Load("Assets/shader/model.fx", "VSMain", Shader::EnType::VS);
-		m_psShader.Load("Assets/shader/model.fx", "PSMain", Shader::EnType::PS);
-	}
-	//この関数はDirectX::Model::Draw内部のドローコールの直前に呼ばれる。
-	//なので、この関数のなかで、シェーダーの設定や、テクスチャの設定などを行うとよい。
-	void __cdecl Apply(ID3D11DeviceContext* deviceContext) override
-	{
-		//シェーダーを適用する。
-		deviceContext->VSSetShader((ID3D11VertexShader*)m_vsShader.GetBody(), NULL, 0);
-		deviceContext->PSSetShader((ID3D11PixelShader*)m_psShader.GetBody(), NULL, 0);
-	}
-	//この関数はDirectX::Modelの初期化処理から呼ばれる。
-	//頂点シェーダーのバイトコードとコードの長さを設定する必要がある。
-	void __cdecl GetVertexShaderBytecode(void const** pShaderByteCode, size_t* pByteCodeLength) override
-	{
-		*pShaderByteCode = m_vsShader.GetByteCode();
-		*pByteCodeLength = m_vsShader.GetByteCodeSize();
-	}
-
-	void SetAlbedoTexture(ID3D11ShaderResourceView* texSRV)
-	{
-		m_albedoTextureSRV = texSRV;
-	}
-
-	void SetRenderMode(int renderMode)
-	{
-		m_renderMode = renderMode;
-	}
-};
 
 
 
@@ -139,10 +99,10 @@ public:
 	/// マテリアルに対してクエリを行う。
 	/// </summary>
 	/// <param name="func">問い合わせ関数</param>
-	void QueryMaterials(std::function<void(C3DModelEffect*)> func)
+	void QueryMaterials(std::function<void(ModelEffect*)> func)
 	{
 		m_modelDx->UpdateEffects([&](DirectX::IEffect* material) {
-			func(reinterpret_cast<C3DModelEffect*>(material));
+			func(reinterpret_cast<ModelEffect*>(material));
 			});
 	}
 
@@ -162,22 +122,14 @@ public:
 		m_isShadowReciever = flag;
 	}
 
-	/*!
-	*@brief	モデルを描画。
-	*@param[in]	viewMatrix		カメラ行列。
-	*  ワールド座標系の3Dモデルをカメラ座標系に変換する行列です。
-	*@param[in]	projMatrix		プロジェクション行列。
-	*  カメラ座標系の3Dモデルをスクリーン座標系に変換する行列です。
-	*/
-	void Draw( CMatrix viewMatrix, CMatrix projMatrix );
-
+	
 	/// <summary>
 	/// 描画
 	/// </summary>
 	/// <param name="renderStep">
 	/// 描画ステップ。0なら通常描画、1ならシルエット描画。
 	/// </param>
-	void Draw(int renderStep);
+	void Draw(EnRenderMode renderMode);
 	/*!
 	*@brief	スケルトンの取得。
 	*/
@@ -243,6 +195,7 @@ private:
 		CMatrix mWorld;
 		CMatrix mView;
 		CMatrix mProj;
+		int isShadowReciever;	//todo シャドウレシーバーのフラグ。
 		int isHasNormalMap;  //法線マップを保持している？
 	};
 	
@@ -274,7 +227,8 @@ private:
 	DirectX::Model*		m_modelDx;						//!<DirectXTKが提供するモデルクラス。
 	ID3D11SamplerState* m_samplerState = nullptr;		//!<サンプラステート。
 	ID3D11ShaderResourceView* m_normalMapSRV = nullptr; //!<法線マップ
-	
+	const wchar_t* m_filePath = nullptr;
+
 
 	
 	/// <summary>

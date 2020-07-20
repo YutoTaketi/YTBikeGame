@@ -45,10 +45,8 @@ void GameObjectManager::Update()
 			go->Update();
 		}
 
-		//シャドウマップの作成
-	/*	ShadowMap::GetInstance().Update({ 0.0f, 1000.0f, 0.0f },
-			{ 0.0f, 0.0f, 0.0f });*/
-	//	ShadowMap::GetInstance().Draw();
+		
+		ShadowMap::GetInstance().Draw();
 		
 		
 	

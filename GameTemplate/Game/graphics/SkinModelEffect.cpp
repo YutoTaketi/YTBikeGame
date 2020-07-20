@@ -21,8 +21,9 @@ void __cdecl ModelEffect::Apply(ID3D11DeviceContext* deviceContext)
 		};*/
 		//deviceContext->PSSetShaderResources(0, 1, srvArray);
 		deviceContext->PSSetShaderResources(enSkinModelSRVReg_AlbedoTexture, 1, &m_albedoTex);
-		//auto shadowMapSRV = ShadowMap::GetInstance().GetShadowMapSRV();
-		//deviceContext->PSSetShaderResources(3, 1, &shadowMapSRV);
+		auto shadowMapSRV = ShadowMap::GetInstance().GetShadowMapSRV();
+		deviceContext->PSSetShaderResources(3, 1, &shadowMapSRV);
+
 	}break;
 	case enRenderMode_CreateShadowMap:
 		//シャドウマップ生成

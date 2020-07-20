@@ -38,6 +38,7 @@ void Player::Update()
 		g_camera3D.GetViewMatrix(),
 		g_camera3D.GetProjectionMatrix()
 	);*/
+	
 }
 
 void Player::Render()

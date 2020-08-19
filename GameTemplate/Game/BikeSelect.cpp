@@ -58,6 +58,7 @@ void BikeSelect::Update()
 	if (sentakuNo == 0)
 	{
 		m_bikemaster->SetSentakuNo(0);
+		m_signal->SetSentaku();
 		m_select = true;
 	}
 

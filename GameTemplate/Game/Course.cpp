@@ -9,7 +9,7 @@ Course::Course()
 
 	//静的物理オブジェクトを作成。
 	m_phyStaticObject.CreateMeshObject(m_model, m_position, m_rotation);
-	
+	m_model.SetShadowReciever(true);
 }
 
 

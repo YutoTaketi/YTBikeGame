@@ -59,7 +59,7 @@ void SkinModel::InitDirectionLight()
 {
 	m_light.directionLight.direction[0] = { 1.0f, -1.0f,0.0f, 0.0f };
 	m_light.directionLight.direction[0].Normalize();
-	m_light.directionLight.color[0] = { 0.5f, 0.5f, 0.5f, 3.0f };
+	m_light.directionLight.color[0] = { 0.7f, 0.7f, 0.7f, 3.0f };
 
 	m_light.directionLight.direction[1] = { -1.0f, -0.1f,0.0f, 0.0f };
 	m_light.directionLight.direction[1].Normalize();
@@ -232,17 +232,16 @@ void SkinModel::Draw(EnRenderMode renderMode, CMatrix viewMatrix, CMatrix projMa
 	auto deviceContext = g_graphicsEngine->GetD3DDeviceContext();
 	DirectX::CommonStates state(g_graphicsEngine->GetD3DDevice());
 
-	//auto shadowMap = 
-	//auto shadowMap = 
+	 
 	//定数バァファを更新
 	SVSConstantBuffer vsCb;
 	vsCb.mWorld = m_worldMatrix;
 	vsCb.mProj = projMatrix;
 	vsCb.mView = viewMatrix;
 	
-	//todo ライトカメラのビュー、プロジェクション行列を送る。
-	//modelFxCb.mLightProj = shadowMap->GetLightProjMatrix();
-	//modelFxCb.mLightView = shadowMap->GetLighViewMatrix();
+	// ライトカメラのビュー、プロジェクション行列を送る。
+	vsCb.mLightProj = ShadowMap::GetInstance().GetLightProjMatrix();
+	vsCb.mLightView = ShadowMap::GetInstance().GetLightViewMatrix();
 	if (m_isShadowReciever == true) {
 		vsCb.isShadowReciever = 1;
 	}

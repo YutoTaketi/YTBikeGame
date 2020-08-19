@@ -195,7 +195,9 @@ private:
 		CMatrix mWorld;
 		CMatrix mView;
 		CMatrix mProj;
-		int isShadowReciever;	//todo シャドウレシーバーのフラグ。
+		CMatrix mLightView;   //ライトビュー行列
+		CMatrix mLightProj;   //ライトプロジェクション行列
+		int isShadowReciever; //シャドウレシーバーのフラグ。
 		int isHasNormalMap;  //法線マップを保持している？
 	};
 	
@@ -239,14 +241,14 @@ private:
 	/// VSCbも変更する必要があります。
 	/// この構造体は16byteアライメントになっている必要があります。
 	/// </remarks>
-	struct SModelFxConstantBuffer {
+	/*struct SModelFxConstantBuffer {
 		CMatrix mWorld;			//ワールド行列。
 		CMatrix mView;			//ビュー行列。
 		CMatrix mProj;			//プロジェクション行列。
 		CMatrix mLightView;		//todo ライトビュー行列。
 		CMatrix mLightProj;		//todo ライトプロジェクション行列。
 		int isShadowReciever;	//todo シャドウレシーバーのフラグ。
-	};
+	};*/
 	/*
 	std::unique_ptr<DirectX::Model>		m_modelDx;				//DirectXTKが提供するモデル。
 	

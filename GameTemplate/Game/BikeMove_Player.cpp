@@ -52,7 +52,6 @@ void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector
 				accel = CVector3::Zero();
 			}
 		
-		
 		movespeed += accel;
 		if (!g_pad[0].IsPressAnyKey()) {
 			movespeed *= 1.0f;
@@ -64,11 +63,22 @@ void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector
 		
 			position += movespeed;
 			
+			//ブレーキ
+			if (g_pad[0].IsPress(enButtonB))
+			{
+				accel *= 0.8f;
+			}
+		
 	
 		if (movespeed.Length() >= 6000.0f) {
 			movespeed.Normalize();
 			movespeed *= 6000.0f;
 		}
+
+
+
+
+
 
 		//回転処理
 		//左スティックでプレイヤーを回転

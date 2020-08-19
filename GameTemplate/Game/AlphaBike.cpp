@@ -46,9 +46,10 @@ void AlphaBike::Update()
   m_bikeMove->Execute(m_position, m_rotation, m_moveSpeed, m_accel, m_accelNum, m_friction);
   m_model->UpdateWorldMatrix(m_position, m_rotation, m_scale);
   //シャドウマップの作成
-  ShadowMap::GetInstance().Update(m_position + CVector3::AxisY() * 300.0f,
+  ShadowMap::GetInstance().Update(
+	  m_position + CVector3::AxisY() * 300.0f + CVector3::AxisX() * -300.0f,
 	  m_position );
- 
+  m_model->SetShadowReciever(true);
 }
 
 void AlphaBike::Render()

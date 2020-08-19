@@ -21,6 +21,7 @@ Kyakuseki::Kyakuseki()
 		&m_normalMapSRV
 	);
 	m_model.SetNormalMap(m_normalMapSRV);
+	//m_model.SetShadowReciever(true);
 }
 
 Kyakuseki::~Kyakuseki()

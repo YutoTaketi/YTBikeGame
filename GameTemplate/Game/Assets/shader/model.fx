@@ -31,7 +31,10 @@ cbuffer VSPSCb : register(b0){
 	float4x4 mWorld;
 	float4x4 mView;
 	float4x4 mProj;
-	int isShadowReciever;
+	//ライトビュー行列を追加
+	float4x4 mLightView;  //ライトビュー行列
+	float4x4 mLightProj;  //ライトプロジェクション行列
+	int isShadowReciever; //シャドーレシーバーフラグ
 	int isHasNormalMap;	//法線マップある？
 };
 /*struct SDirectionLight {
@@ -92,6 +95,7 @@ struct PSInput{
 	float3 Tangent		: TANGENT;
 	float2 TexCoord 	: TEXCOORD0;
 	float3 WorldPos		: TEXCOORD1;	//ワールド座標。
+	float4 posInLVP     : TEXCOORD2;    //ライトビュープロジェクション空間での座標
 };
 
 /// <summary>
@@ -128,9 +132,16 @@ float4x4 CalcSkinMatrix(VSInputNmTxWeights In)
 PSInput VSMain( VSInputNmTxVcTangent In ) 
 {
 	PSInput psInput = (PSInput)0;
+	//ローカル座標系からワールド座標系に変換する。
 	float4 pos = mul(mWorld, In.Position);
 	psInput.WorldPos = pos;
 
+	if (isShadowReciever == 1)
+	{
+		//ライトビュープロジェクション空間に変換。
+		psInput.posInLVP = mul( mLightView, float4(psInput.WorldPos, 1.0f) );
+		psInput.posInLVP = mul( mLightProj, psInput.posInLVP);
+	}
 	pos = mul(mView, pos);
 	pos = mul(mProj, pos);
 	psInput.Position = pos;
@@ -172,6 +183,13 @@ PSInput VSMainSkin( VSInputNmTxWeights In )
 	  	//頂点座標にスキン行列を乗算して、頂点をワールド空間に変換。
 		//mulは乗算命令。
 	    pos = mul(skinning, In.Position);
+	}
+	psInput.WorldPos = pos.xyz;
+	if (isShadowReciever == 1)
+	{
+		//ライトビュープロジェクション空間に変換
+		psInput.posInLVP = mul(mLightView, float4(psInput.WorldPos, 1.0f));
+		psInput.posInLVP = mul(mLightProj, psInput.posInLVP);
 	}
 	psInput.Normal = normalize( mul(skinning, In.Normal) );
 	psInput.Tangent = normalize( mul(skinning, In.Tangent) );
@@ -236,6 +254,30 @@ float4 PSMain( PSInput In ) : SV_Target0
 		}
 	}
 	
+	//シャドウレシーバー
+	if (isShadowReciever == 1)
+	{
+		/*
+		//LVP空間から見た時の最も手前の深度値をシャドウマップから取得する。
+		float2 shadowMapUV = In.posInLVP.xy / In.posInLVP.w;
+		shadowMapUV *= float2(0.5f, -0.5f);
+		shadowMapUV += 0.5f;
+
+		//シャドウマップの範囲内かどうかを判定する。
+		if (shadowMapUV.x < 1.0f && shadowMapUV.x > 0.0f && shadowMapUV.y < 1.0f && shadowMapUV.y > 0.0f)
+		{
+			///LVP空間での深度値を計算。
+			float zInLVP = In.posInLVP.z / In.posInLVP.w;
+			//シャドウマップに書き込まれている深度値を取得。
+			float zInShadowMap = g_shadowMap.Sample(Sampler, shadowMapUV);
+			if (zInLVP > zInShadowMap + 0.001f) {
+			    //影を落ちているので、光を弱くする
+				lig *= 0.2f;
+			}
+		}
+		*/
+	}
+
 	//ライトの光とアルベドカラーを乗算して、
 	//最終カラーとする
 	

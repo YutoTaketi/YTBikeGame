@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Signal.h"
 #include "GameTime.h"
+//#include "SoundSource.h"
 
 Signal::Signal()
 {
@@ -41,6 +42,8 @@ void Signal::Update()
 	if (SignalGenerate == true)
 	{
 		m_changetimer++;
+		//g_soundEngine->Init(L"Assets/sound/CountDown.wav");
+		//SoundSource::GetInstance().Init(L"Assets/sound/CountDown.wav");
 	}
 
 	//¶ƒVƒOƒiƒ‹‚ªÔ

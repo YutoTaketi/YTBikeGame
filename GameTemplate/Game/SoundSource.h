@@ -32,6 +32,14 @@ public:
 	/// デストラクタ。
 	/// </summary>
 	~SoundSource();
+
+	static SoundSource& GetInstance()
+	{
+		static SoundSource t;
+		return t;
+
+	}
+
 	/// <summary>
 	/// 初期化(オンメモリ再生)
 	/// </summary>

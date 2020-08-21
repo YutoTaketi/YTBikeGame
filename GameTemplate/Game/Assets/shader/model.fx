@@ -257,7 +257,7 @@ float4 PSMain( PSInput In ) : SV_Target0
 	//シャドウレシーバー
 	if (isShadowReciever == 1)
 	{
-		/*
+		
 		//LVP空間から見た時の最も手前の深度値をシャドウマップから取得する。
 		float2 shadowMapUV = In.posInLVP.xy / In.posInLVP.w;
 		shadowMapUV *= float2(0.5f, -0.5f);
@@ -275,7 +275,7 @@ float4 PSMain( PSInput In ) : SV_Target0
 				lig *= 0.2f;
 			}
 		}
-		*/
+		
 	}
 
 	//ライトの光とアルベドカラーを乗算して、

@@ -132,6 +132,7 @@
     <ClCompile Include="graphics\SkinModelDataManager.cpp" />
     <ClCompile Include="graphics\SkinModelEffect.cpp" />
     <ClCompile Include="graphics\Sprite.cpp" />
+    <ClCompile Include="Guest.cpp" />
     <ClCompile Include="HID\Pad.cpp" />
     <ClCompile Include="IGameObject.cpp" />
     <ClCompile Include="ItemWaku.cpp" />
@@ -216,6 +217,7 @@
     <ClInclude Include="graphics\SkinModelEffect.h" />
     <ClInclude Include="graphics\SkinModelShaderConst.h" />
     <ClInclude Include="graphics\Sprite.h" />
+    <ClInclude Include="Guest.h" />
     <ClInclude Include="HID\Pad.h" />
     <ClInclude Include="IGameObject.h" />
     <ClInclude Include="ItemWaku.h" />
@@ -280,6 +282,7 @@
     <MeshContentTask Include="Assets\modelData\cpt00.fbx" />
     <MeshContentTask Include="Assets\modelData\GhostPoint.fbx" />
     <MeshContentTask Include="Assets\modelData\GoalPoint.fbx" />
+    <MeshContentTask Include="Assets\modelData\Guest.fbx" />
     <MeshContentTask Include="Assets\modelData\Kyakuseki.fbx" />
     <MeshContentTask Include="Assets\modelData\PlayerBike\PlayerBike.FBX" />
     <MeshContentTask Include="Assets\modelData\PlayerBike\PlayerBike1.FBX" />
@@ -311,6 +314,9 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <CustomBuild Include="Assets\animData\Guest_Idle.tka">
+      <FileType>Document</FileType>
+    </CustomBuild>
     <None Include="Assets\level\CourseLevelDemo.tkl" />
     <None Include="Assets\level\CourseLevelDemo2.tkl" />
   </ItemGroup>

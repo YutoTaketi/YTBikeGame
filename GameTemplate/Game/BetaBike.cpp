@@ -46,7 +46,7 @@ void BetaBike::Update()
 	//バイクの移動処理を実行する。
 	m_bikeMove->Execute(m_position, m_rotation, m_moveSpeed, m_accel, m_accelNum, m_friction);
 	m_model->UpdateWorldMatrix(m_position, m_rotation, CVector3::One());
-	
+	m_model->SetShadowReciever(true);
 }
 
 void BetaBike::Render()

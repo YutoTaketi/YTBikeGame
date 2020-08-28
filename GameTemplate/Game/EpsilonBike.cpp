@@ -52,7 +52,7 @@ void EpsilonBike::Update()
 	//m_charaCon.Execute(m_moveSpeed, SetGameTime().GetFrameDeltaTime());
 	m_model->UpdateWorldMatrix(m_position, m_rotation, CVector3::One());
 	
-
+	m_model->SetShadowReciever(true);
 	
 }
 

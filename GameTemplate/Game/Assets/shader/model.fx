@@ -182,7 +182,7 @@ PSInput VSMainSkin( VSInputNmTxWeights In )
 	    skinning += boneMatrix[In.Indices[3]] * (1.0f - w);
 	  	//頂点座標にスキン行列を乗算して、頂点をワールド空間に変換。
 		//mulは乗算命令。
-	    pos = mul(skinning, In.Position);
+		pos = mul(skinning, In.Position);
 	}
 	psInput.WorldPos = pos.xyz;
 	if (isShadowReciever == 1)
@@ -329,8 +329,6 @@ PSInput_ShadowMap VSMain_SkinShadowMap(VSInputNmTxWeights In)
 	psInput.Normal = normalize(mul(skinning, In.Normal));
 	psInput.Tangent = normalize(mul(skinning, In.Tangent));
 
-	
-	 pos = mul(mWorld, In.Position);
 	pos = mul(mView, pos);
 	pos = mul(mProj, pos);
 	psInput.Position = pos;

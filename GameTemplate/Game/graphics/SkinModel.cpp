@@ -279,7 +279,9 @@ void SkinModel::Draw(EnRenderMode renderMode, CMatrix viewMatrix, CMatrix projMa
 		auto modelMaterial = reinterpret_cast<ModelEffect*>(material);
 		modelMaterial->SetRenderMode(renderMode);
 	});
-	
+	//ボーン行列をGPUに転送。
+	m_skeleton.SendBoneMatrixArrayToGPU();
+
 	m_modelDx->Draw(
 		deviceContext,
 		state,

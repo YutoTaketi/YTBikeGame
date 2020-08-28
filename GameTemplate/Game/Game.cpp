@@ -12,6 +12,7 @@
 #include "Jimen.h"
 #include "Signal.h"
 #include "Sky.h"
+#include "Guest.h"
 
 Game::Game()
 {
@@ -69,22 +70,31 @@ Game::Game()
 			goal->m_scale = objData.scale;
 			return true;
 		}
-
+		if (objData.EqualObjectName(L"Guest") == true) {
+			guest = g_goMgr.NewGO<Guest>();
+			guest->SetPosition(objData.position);
+			guest->SetRotation(objData.rotation);
+			guest->SetSclae(objData.scale);
+			return true;
+		}
 		if (objData.EqualObjectName(L"CourseSky") == true) {
 			
 			return false;
 		}
+		
 		return false;
     });
 	
+	//シグナルの
+	signal = g_goMgr.NewGO<Signal>();
+
 	//バイクマスター
 	bikemaster = g_goMgr.NewGO<BikeMaster>();
 	bikemaster->SetGame(this);
 	bikemaster->GetPassObject(m_pointList);
 	bikemaster->SetGoal(goal);
 	
-	//シグナルの
-	signal = g_goMgr.NewGO<Signal>();
+	
 
 
 	//バイクの選択画面

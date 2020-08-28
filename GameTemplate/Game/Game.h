@@ -29,6 +29,7 @@ class Kyakuseki;
 class Road;
 class Jimen;
 class Signal;
+class Guest;
 //class Sky;
 /// <summary>
 
@@ -183,6 +184,7 @@ private:
 	Road* road = nullptr;               //コース
 	Jimen* jimen = nullptr;             //地面
 	Signal* signal = nullptr;           //シグナル
+	Guest* guest = nullptr;
 	//Sky* sky = nullptr;
 
 	LapCount* lapcount = nullptr;       //周回カウント

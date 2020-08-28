@@ -199,6 +199,7 @@
     <ClCompile Include="graphics\ShadowMap.cpp" />
     <ClCompile Include="graphics\RenderTarget.cpp" />
     <ClCompile Include="Sky.cpp" />
+    <ClCompile Include="Guest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\Vector.h">
@@ -345,6 +346,7 @@
     <ClInclude Include="graphics\ShadowMap.h" />
     <ClInclude Include="graphics\RenderTarget.h" />
     <ClInclude Include="Sky.h" />
+    <ClInclude Include="Guest.h" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">
@@ -439,12 +441,17 @@
     <MeshContentTask Include="Assets\modelData\SignalRight_Green.fbx">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Guest.fbx">
+      <Filter>Assets\modelData</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Assets\level\stage_00.tkl" />
     <CustomBuild Include="Assets\level\CourseDemo.tkl">
       <Filter>Assets\level</Filter>
     </CustomBuild>
+    <CustomBuild Include="Assets\sound\CountDown.wav" />
+    <CustomBuild Include="Assets\animData\Guest_Idle.tka" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\level\CourseLevelDemo.tkl">
@@ -478,10 +485,5 @@
     <ImageContentTask Include="Assets\sprite\Go.png">
       <Filter>Assets\sprite</Filter>
     </ImageContentTask>
-  </ItemGroup>
-  <ItemGroup>
-    <Media Include="Assets\sound\CountDown.wav">
-      <Filter>Assets\sound</Filter>
-    </Media>
   </ItemGroup>
 </Project>

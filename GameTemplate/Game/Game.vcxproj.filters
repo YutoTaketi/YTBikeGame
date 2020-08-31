@@ -452,6 +452,7 @@
     </CustomBuild>
     <CustomBuild Include="Assets\sound\CountDown.wav" />
     <CustomBuild Include="Assets\animData\Guest_Idle.tka" />
+    <CustomBuild Include="Assets\animData\Guest_Kobusi.tka" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\level\CourseLevelDemo.tkl">

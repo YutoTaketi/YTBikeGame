@@ -317,6 +317,9 @@
     <CustomBuild Include="Assets\animData\Guest_Idle.tka">
       <FileType>Document</FileType>
     </CustomBuild>
+    <CustomBuild Include="Assets\animData\Guest_Kobusi.tka">
+      <FileType>Document</FileType>
+    </CustomBuild>
     <None Include="Assets\level\CourseLevelDemo.tkl" />
     <None Include="Assets\level\CourseLevelDemo2.tkl" />
   </ItemGroup>

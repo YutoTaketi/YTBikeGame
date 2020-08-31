@@ -43,6 +43,7 @@ private:
 	//客のアニメーション
 	enum EnAnimationClip {
 		enAnimationClip_Guest_Idle,
+		enAnimationClip_Guest_Kobusi,
 		enAnimationClip_num
 	};
 

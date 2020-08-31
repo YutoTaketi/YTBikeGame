@@ -10,6 +10,11 @@ Guest::Guest()
 
 	//アニメーションクリップのロード
 	m_animationClip[enAnimationClip_Guest_Idle].Load(L"Assets/animData/Guest_Idle.tka");
+	//ループフラグの設定
+	m_animationClip[enAnimationClip_Guest_Idle].SetLoopFlag(true);
+	m_animation.Init(m_model, m_animationClip, enAnimationClip_num);
+	//m_animation.Play(enAnimationClip_Guest_Idle, 0.2f);
+
 	m_model.SetShadowReciever(true);
 }
 Guest::~Guest()
@@ -19,6 +24,8 @@ Guest::~Guest()
 
 void Guest::Update()
 {
+	m_animation.Play(enAnimationClip_Guest_Idle, 0.0f);
+	m_animation.Update(1.0f / 30.0f);
 	m_model.UpdateWorldMatrix(m_position, m_rotation, m_scale);
 }
 

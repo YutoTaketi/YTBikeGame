@@ -18,6 +18,7 @@ Game::Game()
 {
 	//レベルの初期化
 	//coursepath = new CoursePath();
+	m_soundEngine.Init();
 	level.Init(L"Assets/level/CourseLevelDemo2.tkl", [&]( LevelObjectData& objData) {
 		//パス移動用のポイントリストを作成
 		if (wcsncmp(L"point", objData.name, 5) == 0) {
@@ -156,7 +157,7 @@ void Game::Update()
 	//シャドウマップを更新
 	
 	
-	
+	m_soundEngine.Update();
 	
 
 	if (finishFlag == true)

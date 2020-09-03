@@ -1,11 +1,11 @@
 #include "stdafx.h"
 #include "Signal.h"
 #include "GameTime.h"
-//#include "SoundSource.h"
+#include "SoundSource.h"
 
 Signal::Signal()
 {
-	
+	m_se.Init(L"Assets/sound/CountDown.wav");
 }
 
 Signal::~Signal()
@@ -42,49 +42,57 @@ void Signal::Update()
 	if (SignalGenerate == true)
 	{
 		m_changetimer++;
-		//g_soundEngine->Init(L"Assets/sound/CountDown.wav");
-		//SoundSource::GetInstance().Init(L"Assets/sound/CountDown.wav");
+		
 	}
 
-	//左シグナルが赤
-	if (SignalGenerate == true && m_changetimer == 15.0f)
-	{
-		m_modelLeftSig.Init(L"Assets/modelData/SignalLeft_Red.cmo");
-		m_leftpos = { 1.5f, 150.0f, -20.0f };
+	if (SignalSE == false && SignalGenerate == true && m_changetimer > 15.0f) {
+
+		m_se.Play(false);
+		SignalSE = true;
 	}
-	//中央シグナルが赤
-	if (SignalGenerate == true && m_changetimer == 35.0f)
-	{
-		m_modelLeftSig.Init(L"Assets/modelData/SignalLeft.cmo");
-		m_leftpos = { 1.5f, 150.0f, -20.0f };
 
-		m_modelMiddleSig.Init(L"Assets/modelData/SignalMiddle_Red.cmo");
-		m_middlepos = { 1.5f, 150.0f, -20.0f };
-	}
-	//右シグナルが赤
-	if (SignalGenerate == true && m_changetimer == 55.0f)
-	{
-		m_modelLeftSig.Init(L"Assets/modelData/SignalLeft.cmo");
-		m_leftpos = { 1.5f, 150.0f, -20.0f };
+		//左シグナルが赤
+		if (SignalGenerate == true && m_changetimer == 15.0f)
+		{
+			m_modelLeftSig.Init(L"Assets/modelData/SignalLeft_Red.cmo");
+			m_leftpos = { 1.5f, 150.0f, -20.0f };
+		}
+		//中央シグナルが赤
+		if (SignalGenerate == true && m_changetimer == 35.0f)
+		{
+			m_modelLeftSig.Init(L"Assets/modelData/SignalLeft.cmo");
+			m_leftpos = { 1.5f, 150.0f, -20.0f };
 
-		m_modelMiddleSig.Init(L"Assets/modelData/SignalMiddle.cmo");
-		m_leftpos = { 1.5f, 150.0f, -20.0f };
+			m_modelMiddleSig.Init(L"Assets/modelData/SignalMiddle_Red.cmo");
+			m_middlepos = { 1.5f, 150.0f, -20.0f };
+		}
+		//右シグナルが赤
+		if (SignalGenerate == true && m_changetimer == 55.0f)
+		{
+			m_modelLeftSig.Init(L"Assets/modelData/SignalLeft.cmo");
+			m_leftpos = { 1.5f, 150.0f, -20.0f };
 
-		m_modelRightSig.Init(L"Assets/modelData/SignalRight_Red.cmo");
-		m_middlepos = { 1.5f, 150.0f, -20.0f };
-	}
-	//全てのシグナルが青
-	if (SignalGenerate == true && m_changetimer == 75.0f)
-	{
-		m_modelLeftSig.Init(L"Assets/modelData/SignalLeft_Green.cmo");
-		m_leftpos = { 1.5f, 150.0f, -20.0f };
+			m_modelMiddleSig.Init(L"Assets/modelData/SignalMiddle.cmo");
+			m_leftpos = { 1.5f, 150.0f, -20.0f };
 
-		m_modelMiddleSig.Init(L"Assets/modelData/SignalMiddle_Green.cmo");
-		m_leftpos = { 1.5f, 150.0f, -20.0f };
+			m_modelRightSig.Init(L"Assets/modelData/SignalRight_Red.cmo");
+			m_middlepos = { 1.5f, 150.0f, -20.0f };
+		}
+		//全てのシグナルが青
+		if (SignalGenerate == true && m_changetimer == 75.0f)
+		{
+			m_modelLeftSig.Init(L"Assets/modelData/SignalLeft_Green.cmo");
+			m_leftpos = { 1.5f, 150.0f, -20.0f };
 
-		m_modelRightSig.Init(L"Assets/modelData/SignalRight_Green.cmo");
-		m_middlepos = { 1.5f, 150.0f, -20.0f };
-	}
+			m_modelMiddleSig.Init(L"Assets/modelData/SignalMiddle_Green.cmo");
+			m_leftpos = { 1.5f, 150.0f, -20.0f };
+
+			m_modelRightSig.Init(L"Assets/modelData/SignalRight_Green.cmo");
+			m_middlepos = { 1.5f, 150.0f, -20.0f };
+		}
+		
+		//SignalSE = true;
+	
 	
 	//信号が青の時、Go!スプライトを出す。
 	if (SignalGenerate == true && m_changetimer == 75.0f && GoSpriteInitFlag == false)

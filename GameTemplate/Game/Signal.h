@@ -2,10 +2,12 @@
 #include "GameObjectManager.h"
 #include "physics/PhysicsStaticObject.h"
 #include "graphics/Sprite.h"
+#include "SoundSource.h"
 
 class SkinModel;
 class BikeMaster;
 class GameTime;
+class SoundSource;
 class Signal : public IGameObject
 {
 public:
@@ -52,6 +54,7 @@ private:
 	bool GoSpriteInitFlag = false;                     //Go!スプライトが初期化されたかのフラグ
 	bool GoSpriteExpFlag = false;                      //Go!スプライトが拡大されたかのフラグ
 	bool GoSpriteReduFlag = false;                     //Go!スプライトの縮小のフラグ
+	bool SignalSE = false;                             //シグナルSEがなったかのフラグ
 
 	void Render();                                     //3D用
 	void Render2D();                                   //2D用
@@ -60,9 +63,13 @@ private:
 	SkinModel m_modelLeftSig;                      //シグナル左ライト
 	SkinModel m_modelMiddleSig;                    //シグナル中心ライト
 	SkinModel m_modelRightSig;                     //シグナル右ライト
-	Sprite    m_spriteGo;                               //スプライト
+	Sprite    m_spriteGo;                          //スプライト
+
+	SoundSource m_se;
+
 	float m_changetimer = 0.0f;                    //信号モデル変更用タイマー
 	float m_Gorottimer = 0.0f;                     //Go!スプライトの回転用タイマー
+	
 	
 
 };

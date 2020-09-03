@@ -21,6 +21,10 @@
 /// 
 /// このクラスのインスタンス化を行うと、そのインスタンスはサウンドエンジンクラスに登録されます。
 /// </remarks>
+ 
+#define INPUTCHANNELS 2  // number of source channels
+#define OUTPUTCHANNELS 8	//最大出力チャンネル数。
+
 class SoundSource
 {
 public:
@@ -33,12 +37,12 @@ public:
 	/// </summary>
 	~SoundSource();
 
-	static SoundSource& GetInstance()
+	/*static SoundSource& GetInstance()
 	{
 		static SoundSource t;
 		return t;
 
-	}
+	}*/
 
 	/// <summary>
 	/// 初期化(オンメモリ再生)

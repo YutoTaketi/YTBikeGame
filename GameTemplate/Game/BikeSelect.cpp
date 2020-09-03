@@ -21,31 +21,31 @@ void BikeSelect::Update()
 	if (GetAsyncKeyState('0'))
 	{
 		m_bikemaster->SetSentakuNo(0); 
-		m_signal->SetSentaku();
+		//m_signal->SetSentaku();
 			m_select = true;
 	}
 	else if (GetAsyncKeyState('1'))
 	{
 		m_bikemaster->SetSentakuNo(1);
-		m_signal->SetSentaku();
+		//m_signal->SetSentaku();
 		m_select = true;
 	}
 	else if (GetAsyncKeyState('2'))
 	{
 		m_bikemaster->SetSentakuNo(2);
-		m_signal->SetSentaku();
+		//m_signal->SetSentaku();
 		m_select = true;
 	}
 	else if (GetAsyncKeyState('3'))
 	{
 		m_bikemaster->SetSentakuNo(3);
-		m_signal->SetSentaku();
+		//m_signal->SetSentaku();
 		m_select = true;
 	}
 	else if (GetAsyncKeyState('4'))
 	{
 		m_bikemaster->SetSentakuNo(4);
-		m_signal->SetSentaku();
+		//m_signal->SetSentaku();
 		m_select = true;
 	}
 
@@ -58,7 +58,7 @@ void BikeSelect::Update()
 	if (sentakuNo == 0)
 	{
 		m_bikemaster->SetSentakuNo(0);
-		m_signal->SetSentaku();
+		//m_signal->SetSentaku();
 		m_select = true;
 	}
 
@@ -66,6 +66,7 @@ void BikeSelect::Update()
 	if ( m_select == true)
 	{
 		g_goMgr.DeleteGameObject(this);
+		m_signal->SetSentaku();
 	}
 	
 

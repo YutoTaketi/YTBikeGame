@@ -8,6 +8,7 @@
 #include "Goal.h"
 #include "Result.h"
 #include "graphics/ShadowMap.h"
+#include "SoundEngine.h"
 
 //ポストエフェクト関連
 #include "graphics/RenderTarget.h"
@@ -171,6 +172,8 @@ private:
 	D3D11_VIEWPORT m_frameBufferViewports;          //フレームバッファのビューポート。
 	ID3D11RenderTargetView* m_frameBufferRenderTargetView = nullptr;   //フレームバァファのレンダリングターゲットビュー。
 	ID3D11DepthStencilView* m_frameBufferDepthStencilView = nullptr;   //フレームバァファのデプスステンシルビュー。
+
+	SoundEngine m_soundEngine;    //サウンドエンジン
 
 	//オブジェクトのポインタ
 	Level level;	//レベル

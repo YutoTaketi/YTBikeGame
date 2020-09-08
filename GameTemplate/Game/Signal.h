@@ -69,7 +69,7 @@ private:
 
 	float m_changetimer = 0.0f;                    //信号モデル変更用タイマー
 	float m_Gorottimer = 0.0f;                     //Go!スプライトの回転用タイマー
-	
+	float m_Deletetimer = 0.0f;                    //モデルデリート用タイマー
 	
 
 };

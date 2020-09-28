@@ -444,6 +444,7 @@
     <MeshContentTask Include="Assets\modelData\Guest.fbx">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\Guest2.fbx" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Assets\level\stage_00.tkl" />

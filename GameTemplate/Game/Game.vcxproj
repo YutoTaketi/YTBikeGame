@@ -283,6 +283,7 @@
     <MeshContentTask Include="Assets\modelData\GhostPoint.fbx" />
     <MeshContentTask Include="Assets\modelData\GoalPoint.fbx" />
     <MeshContentTask Include="Assets\modelData\Guest.fbx" />
+    <MeshContentTask Include="Assets\modelData\Guest2.fbx" />
     <MeshContentTask Include="Assets\modelData\Kyakuseki.fbx" />
     <MeshContentTask Include="Assets\modelData\PlayerBike\PlayerBike.FBX" />
     <MeshContentTask Include="Assets\modelData\PlayerBike\PlayerBike1.FBX" />

@@ -2,7 +2,10 @@
 #include "GameObjectManager.h"
 #include "graphics/Sprite.h"
 #include "Font.h"
+#include "FontRender.h"
 //class Font;
+
+class FontRender;
 class Title : public IGameObject
 {
 public:
@@ -29,5 +32,6 @@ private:
 	Sprite m_sprite;  //スプライト
 	
 	Font* m_font;     //フォント
+	FontRender m_fontrender;
 };
 

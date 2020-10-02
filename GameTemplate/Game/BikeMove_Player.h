@@ -5,6 +5,8 @@
 #include "Game.h"
 #include "character/CharacterController.h"
 #include "GameTime.h"
+#include "SoundSource.h"
+
 /// <summary>
 /// プレイヤーのバイクを動かす。
 /// </summary>
@@ -38,6 +40,12 @@ public:
 	/// <param name="accelnum"></param>
 	/// <param name="friction"></param>
 	void Execute(CVector3& m_position, CQuaternion& rotation, CVector3& movespeed, CVector3& accel, float& accelnum,float& friction);
+private:
+	enum BikeSEState {
+		enBikeSE_Idle,
+		enBikeSE_Soukou,
+		enBikeSE_num
+	};
 	CVector3 m_position = CVector3::Zero();
 	CVector3 m_moveDirectionF = CVector3::Zero();     //移動方向
 	CVector3 playermae = { 0, 0, 1 };                 //バイクの前方向
@@ -50,5 +58,9 @@ public:
 
 	int timer = 0;                        //ゴーストオブジェクトとの当たり判定用タイマー
 	bool m_CharaConInitFlag = false;     //キャラクターコントローラーが初期化されているかのフラグ
+
+	SoundSource BikeSE_Idle;                //バイク待機SE
+	SoundSource BikeSE_Soukou;              //バイク走行時SE
+	BikeSEState m_SeState = enBikeSE_Idle;
 };
 

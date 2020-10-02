@@ -41,11 +41,11 @@ public:
 
 private:
 	//客のアニメーション
-	/*enum EnAnimationClip {
+	enum EnAnimationClip {
 		enAnimationClip_Guest_Idle,
 		enAnimationClip_Guest_Kobusi,
 		enAnimationClip_num
-	};*/
+	};
 
 	CVector3 m_position = CVector3::Zero();               //座標
 	CQuaternion m_rotation = CQuaternion::Identity();     //回転
@@ -56,8 +56,8 @@ private:
 
 	SkinModel m_model;                       //スキンモデル
 	PhysicsStaticObject m_phyStaticObject;   //静的物理オブジェクト
-	//Animation m_animation;
-	//AnimationClip m_animationClip[enAnimationClip_num];    //アニメーションクリップ
-	//EnAnimationClip m_EnAnimationClip;
+	Animation m_animation;
+	AnimationClip m_animationClip[enAnimationClip_num];    //アニメーションクリップ
+	EnAnimationClip m_EnAnimationClip;
 };
 

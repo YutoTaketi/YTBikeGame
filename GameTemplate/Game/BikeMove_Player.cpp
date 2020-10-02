@@ -8,7 +8,9 @@
 BikeMove_Player::BikeMove_Player()
 {
 	m_bikecontroller = new BikeController();
-	
+	BikeSE_Idle.Init(L"Assets/sound/BikeIdle2.wav");
+	BikeSE_Soukou.Init(L"Assets/sound/BikeSoukou.wav");
+
 }
 
 
@@ -31,7 +33,7 @@ void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector
 		m_CharaConInitFlag = true;
 	}
 	
-	   
+	
 		//ƒJƒƒ‰‚Ì‘O•û•ûŒü‚ðŽæ“¾
 		CVector3 cameraForward = g_camera3D.GetForward();
 
@@ -46,9 +48,12 @@ void BikeMove_Player::Execute(CVector3& position, CQuaternion& rotation, CVector
 				m_moveDirectionF = cameraForward;
 
 				accel = m_bikecontroller->BikeAccel(m_moveDirectionF, accelnum);
+				BikeSE_Soukou.Play(false);
 
 			}
 			else {
+				
+				BikeSE_Idle.Play(false);
 				accel = CVector3::Zero();
 			}
 		

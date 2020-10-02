@@ -4,6 +4,7 @@
 #include "BikeSelect.h"
 #include "graphics/SkinModel.h"
 #include "Font.h"
+#include "FontRender.h"
 #include "graphics/GraphicsEngine.h"
 
 Title::Title()
@@ -12,6 +13,7 @@ Title::Title()
 	m_sprite.Init(L"Assets/sprite/Rider_Title.dds", 1290.0f, 800.0f);
 	
 	m_font = new Font();
+	
 }
 
 
@@ -26,7 +28,7 @@ void Title::Update()
 	m_sprite.UpdateWorldMatrix(m_position, m_rotation, m_scale);
 	Draw();
 	
-	m_font->DrawScreenPos(
+	/*m_font->DrawScreenPos(
 	   L"Bike Operation",
 	   m_Fontpos,
 	   m_color,
@@ -34,7 +36,8 @@ void Title::Update()
 	   pivot,
 	   rot,
 	   DirectX::SpriteEffects_None
-	);
+	);*/
+	m_fontrender.SetText(L"BikeDrive ");
 	if (g_pad[0].IsTrigger(enButtonA)) {
 		g_goMgr.DeleteGameObject(this);
 		g_goMgr.NewGO<Game>();

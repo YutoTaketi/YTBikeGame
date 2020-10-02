@@ -200,6 +200,7 @@
     <ClCompile Include="graphics\RenderTarget.cpp" />
     <ClCompile Include="Sky.cpp" />
     <ClCompile Include="Guest.cpp" />
+    <ClCompile Include="FontRender.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="math\Vector.h">
@@ -347,6 +348,7 @@
     <ClInclude Include="graphics\RenderTarget.h" />
     <ClInclude Include="Sky.h" />
     <ClInclude Include="Guest.h" />
+    <ClInclude Include="FontRender.h" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">
@@ -454,6 +456,8 @@
     <CustomBuild Include="Assets\sound\CountDown.wav" />
     <CustomBuild Include="Assets\animData\Guest_Idle.tka" />
     <CustomBuild Include="Assets\animData\Guest_Kobusi.tka" />
+    <CustomBuild Include="Assets\sound\BikeIdle.wav" />
+    <CustomBuild Include="Assets\sound\BikeIdle2.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\level\CourseLevelDemo.tkl">
@@ -487,5 +491,9 @@
     <ImageContentTask Include="Assets\sprite\Go.png">
       <Filter>Assets\sprite</Filter>
     </ImageContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Assets\sound\BikeSoukou.wav" />
+    <Media Include="Assets\sound\BikeSoukou2.wav" />
   </ItemGroup>
 </Project>

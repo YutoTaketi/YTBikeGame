@@ -58,7 +58,7 @@ private:
 
 	int timer = 0;                        //ゴーストオブジェクトとの当たり判定用タイマー
 	bool m_CharaConInitFlag = false;     //キャラクターコントローラーが初期化されているかのフラグ
-
+	
 	SoundSource BikeSE_Idle;                //バイク待機SE
 	SoundSource BikeSE_Soukou;              //バイク走行時SE
 	BikeSEState m_SeState = enBikeSE_Idle;

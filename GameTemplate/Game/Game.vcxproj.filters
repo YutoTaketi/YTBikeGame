@@ -495,5 +495,6 @@
   <ItemGroup>
     <Media Include="Assets\sound\BikeSoukou.wav" />
     <Media Include="Assets\sound\BikeSoukou2.wav" />
+    <Media Include="..\..\..\..\..\Downloads\TitleBGM\Title.wav" />
   </ItemGroup>
 </Project>

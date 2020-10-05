@@ -389,6 +389,7 @@
     <CustomBuild Include="Assets\sound\BikeIdle2.wav">
       <FileType>Document</FileType>
     </CustomBuild>
+    <Media Include="..\..\..\..\..\Downloads\TitleBGM\Title.wav" />
     <Media Include="Assets\sound\BikeSoukou.wav" />
     <Media Include="Assets\sound\BikeSoukou2.wav" />
   </ItemGroup>
